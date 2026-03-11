@@ -73,7 +73,7 @@ export function Experience() {
         </div>
 
         {/* Philosophy and Tools Section */}
-        <div className="mt-24 md:mt-32 pt-16 relative w-[100vw] left-1/2 -translate-x-1/2">
+        <div className="md:mt-32 pt-16 relative w-[100vw] left-1/2 -translate-x-1/2 mt-[0px]">
           <div className="relative z-10 text-center mb-16 px-6">
             <p className="text-[1.2rem] md:text-[1.4rem] leading-[1.6] font-medium text-white/90 max-w-[800px] mx-auto tracking-wide">
               "I thrive on discovery and problem-solving, continuously exploring new ideas to create thoughtful, <span className="font-serif italic font-normal">impactful product experiences</span>"
