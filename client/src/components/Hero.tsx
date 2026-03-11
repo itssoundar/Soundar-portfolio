@@ -249,6 +249,48 @@ export function Hero() {
               </div>
             </div>
           </div>
+
+          {/* Project Card 3 */}
+          <div className="bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
+              {/* Project Image */}
+              <div className="w-full md:w-[45%] flex-shrink-0">
+                <div className="rounded-2xl overflow-hidden bg-white aspect-square md:aspect-auto md:h-[400px] shadow-lg">
+                  <img 
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
+                    alt="Conversational Interface Project" 
+                    className="w-full h-full object-cover"
+                    data-testid="img-project-conversational"
+                  />
+                </div>
+              </div>
+
+              {/* Project Content */}
+              <div className="w-full md:w-[55%] flex flex-col justify-center">
+                <h3 className="text-[1.8rem] md:text-[2rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.2] mb-4">
+                  Crafting seamless <span className="font-serif italic font-normal">conversational interfaces</span> for B2B
+                </h3>
+                
+                <ul className="space-y-3 text-[#555] text-[14px] md:text-[15px] leading-[1.6]">
+                  <li className="flex gap-3">
+                    <span className="text-[#888] flex-shrink-0">•</span>
+                    <span>Designed an intuitive chat-based interface for complex enterprise workflows.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-[#888] flex-shrink-0">•</span>
+                    <span>Improved user engagement by reducing cognitive load during task execution.</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-[#888] flex-shrink-0">•</span>
+                    <span>Integrated intelligent suggested actions based on contextual user data.</span>
+                  </li>
+                </ul>
+
+                {/* Gradient Accent */}
+                <div className="mt-8 h-12 rounded-full bg-gradient-to-r from-[#d4e5a5] via-[#e8f0b8] to-[#f0f8c8] opacity-40 blur-sm" data-testid="accent-gradient-3"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
