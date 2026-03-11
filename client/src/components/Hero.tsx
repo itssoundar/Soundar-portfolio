@@ -54,7 +54,7 @@ export function Hero() {
         className="absolute bottom-[25%] right-[5%] w-[120px] h-auto opacity-50 pointer-events-none hidden md:block"
       />
 
-      <div className="relative z-10 w-full max-w-[1000px] mx-auto flex flex-col items-center pt-[15vh] px-4 md:px-8 flex-1">
+      <div className="relative z-10 w-full max-w-[1000px] mx-auto flex flex-col items-center pt-[15vh] px-4 md:px-8">
         
         {/* Top Avatar & Greeting */}
         <div className="flex items-center gap-2 mb-10">
