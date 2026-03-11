@@ -91,7 +91,7 @@ export function Hero() {
       </div>
 
       {/* Logos Section */}
-      <div className="relative z-10 w-full max-w-[1000px] mx-auto pb-12 pt-16 px-6">
+      <div className="relative z-10 w-full max-w-[1000px] mx-auto pb-12 pt-8 px-6">
         <div className="flex flex-wrap justify-center md:justify-between items-center gap-x-12 gap-y-10 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
           
           {/* Mock Logo 1 */}
