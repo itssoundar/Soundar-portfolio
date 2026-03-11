@@ -73,17 +73,6 @@ export function Experience() {
 
         {/* Philosophy and Tools Section */}
         <div className="mt-24 md:mt-32 pt-16 relative w-[100vw] left-1/2 -translate-x-1/2">
-          <div 
-            className="absolute top-0 left-0 right-0 h-[400px] pointer-events-none opacity-90"
-            style={{
-              backgroundImage: 'url("/work_exp.png")',
-              backgroundSize: '100% auto',
-              backgroundPosition: 'top center',
-              backgroundRepeat: 'no-repeat',
-              maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
-            }}
-          />
           
           <div className="relative z-10 text-center mb-16 px-6">
             <p className="text-[1.2rem] md:text-[1.4rem] leading-[1.6] font-medium text-white/90 max-w-[800px] mx-auto tracking-wide">
