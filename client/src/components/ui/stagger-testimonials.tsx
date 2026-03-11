@@ -9,123 +9,51 @@ const SQRT_5000 = Math.sqrt(5000);
 const testimonials = [
   {
     tempId: 0,
-    testimonial: "My favorite solution in the market. We work 5x faster with COMPANY.",
-    by: "Alex, CEO at TechCorp",
-    imgSrc: "https://i.pravatar.cc/150?img=1"
-  },
-  {
-    tempId: 1,
-    testimonial: "I'm confident my data is safe with COMPANY. I can't say that about other providers.",
-    by: "Dan, CTO at SecureNet",
-    imgSrc: "https://i.pravatar.cc/150?img=2"
-  },
-  {
-    tempId: 2,
-    testimonial: "I know it's cliche, but we were lost before we found COMPANY. Can't thank you guys enough!",
-    by: "Stephanie, COO at InnovateCo",
-    imgSrc: "https://i.pravatar.cc/150?img=3"
-  },
-  {
-    tempId: 3,
-    testimonial: "COMPANY's products make planning for the future seamless. Can't recommend them enough!",
-    by: "Marie, CFO at FuturePlanning",
-    imgSrc: "https://i.pravatar.cc/150?img=4"
-  },
-  {
-    tempId: 4,
-    testimonial: "If I could give 11 stars, I'd give 12.",
-    by: "Andre, Head of Design at CreativeSolutions",
-    imgSrc: "https://i.pravatar.cc/150?img=5"
-  },
-  {
-    tempId: 5,
-    testimonial: "SO SO SO HAPPY WE FOUND YOU GUYS!!!! I'd bet you've saved me 100 hours so far.",
-    by: "Jeremy, Product Manager at TimeWise",
-    imgSrc: "https://i.pravatar.cc/150?img=6"
-  },
-  {
-    tempId: 6,
-    testimonial: "Took some convincing, but now that we're on COMPANY, we're never going back.",
-    by: "Pam, Marketing Director at BrandBuilders",
-    imgSrc: "https://i.pravatar.cc/150?img=7"
-  },
-  {
-    tempId: 7,
-    testimonial: "I would be lost without COMPANY's in-depth analytics. The ROI is EASILY 100X for us.",
-    by: "Daniel, Data Scientist at AnalyticsPro",
-    imgSrc: "https://i.pravatar.cc/150?img=8"
-  },
-  {
-    tempId: 8,
-    testimonial: "It's just the best. Period.",
-    by: "Fernando, UX Designer at UserFirst",
-    imgSrc: "https://i.pravatar.cc/150?img=9"
-  },
-  {
-    tempId: 9,
-    testimonial: "I switched 5 years ago and never looked back.",
-    by: "Andy, DevOps Engineer at CloudMasters",
-    imgSrc: "https://i.pravatar.cc/150?img=10"
-  },
-  {
-    tempId: 10,
-    testimonial: "I've been searching for a solution like COMPANY for YEARS. So glad I finally found one!",
-    by: "Pete, Sales Director at RevenueRockets",
+    testimonial: "Soundar's ability to translate complex AI workflows into intuitive interfaces is unmatched. He completely transformed our product.",
+    by: "Alex, VP of Product @Sense",
     imgSrc: "https://i.pravatar.cc/150?img=11"
   },
   {
-    tempId: 11,
-    testimonial: "It's so simple and intuitive, we got the team up to speed in 10 minutes.",
-    by: "Marina, HR Manager at TalentForge",
+    tempId: 1,
+    testimonial: "The scalable design system Soundar built accelerated our team's velocity by 3x. Highly recommend his strategic approach.",
+    by: "Dan, CTO @Glance",
     imgSrc: "https://i.pravatar.cc/150?img=12"
   },
   {
-    tempId: 12,
-    testimonial: "COMPANY's customer support is unparalleled. They're always there when we need them.",
-    by: "Olivia, Customer Success Manager at ClientCare",
-    imgSrc: "https://i.pravatar.cc/150?img=13"
+    tempId: 2,
+    testimonial: "Soundar doesn't just make things look good; he fundamentally understands user behavior and business goals.",
+    by: "Stephanie, Head of Design @Redbaton",
+    imgSrc: "https://i.pravatar.cc/150?img=5"
   },
   {
-    tempId: 13,
-    testimonial: "The efficiency gains we've seen since implementing COMPANY are off the charts!",
-    by: "Raj, Operations Manager at StreamlineSolutions",
+    tempId: 3,
+    testimonial: "Working with Soundar was a game-changer. His conversational interface designs set a new industry standard for us.",
+    by: "Marie, Founder @Metafic",
+    imgSrc: "https://i.pravatar.cc/150?img=9"
+  },
+  {
+    tempId: 4,
+    testimonial: "If I could give 11 stars for his design thinking, I'd give 12. Absolute pleasure to work with.",
+    by: "Andre, Director of UX",
     imgSrc: "https://i.pravatar.cc/150?img=14"
   },
   {
-    tempId: 14,
-    testimonial: "COMPANY has revolutionized how we handle our workflow. It's a game-changer!",
-    by: "Lila, Workflow Specialist at ProcessPro",
-    imgSrc: "https://i.pravatar.cc/150?img=15"
+    tempId: 5,
+    testimonial: "The B2B chat interface he designed reduced our users' cognitive load drastically. Brilliant work!",
+    by: "Jeremy, Lead PM",
+    imgSrc: "https://i.pravatar.cc/150?img=8"
   },
   {
-    tempId: 15,
-    testimonial: "The scalability of COMPANY's solution is impressive. It grows with our business seamlessly.",
-    by: "Trevor, Scaling Officer at GrowthGurus",
-    imgSrc: "https://i.pravatar.cc/150?img=16"
+    tempId: 6,
+    testimonial: "A rare mix of aesthetic sensibility and technical understanding. He gets how products should feel.",
+    by: "Pam, Product Director",
+    imgSrc: "https://i.pravatar.cc/150?img=1"
   },
   {
-    tempId: 16,
-    testimonial: "I appreciate how COMPANY continually innovates. They're always one step ahead.",
-    by: "Naomi, Innovation Lead at FutureTech",
-    imgSrc: "https://i.pravatar.cc/150?img=17"
-  },
-  {
-    tempId: 17,
-    testimonial: "The ROI we've seen with COMPANY is incredible. It's paid for itself many times over.",
-    by: "Victor, Finance Analyst at ProfitPeak",
-    imgSrc: "https://i.pravatar.cc/150?img=18"
-  },
-  {
-    tempId: 18,
-    testimonial: "COMPANY's platform is so robust, yet easy to use. It's the perfect balance.",
-    by: "Yuki, Tech Lead at BalancedTech",
-    imgSrc: "https://i.pravatar.cc/150?img=19"
-  },
-  {
-    tempId: 19,
-    testimonial: "We've tried many solutions, but COMPANY stands out in terms of reliability and performance.",
-    by: "Zoe, Performance Manager at ReliableSystems",
-    imgSrc: "https://i.pravatar.cc/150?img=20"
+    tempId: 7,
+    testimonial: "Soundar brought our vague concepts to life with incredible clarity. The best design partner we've had.",
+    by: "Daniel, CEO",
+    imgSrc: "https://i.pravatar.cc/150?img=33"
   }
 ];
 
@@ -148,10 +76,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <div
       onClick={() => handleMove(position)}
       className={cn(
-        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out rounded-xl",
+        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out rounded-3xl",
         isCenter 
-          ? "z-10 bg-white text-black border-white shadow-2xl" 
-          : "z-0 bg-[#181818] text-white border-white/10 hover:border-white/30"
+          ? "z-10 bg-white text-[#222] border-white shadow-xl" 
+          : "z-0 bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] text-[#555] border-transparent hover:shadow-md"
       )}
       style={{
         width: cardSize,
@@ -163,13 +91,13 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           translateY(${isCenter ? -65 : position % 2 ? 15 : -15}px)
           rotate(${isCenter ? 0 : position % 2 ? 2.5 : -2.5}deg)
         `,
-        boxShadow: isCenter ? "0px 8px 30px rgba(0,0,0,0.5)" : "none"
+        boxShadow: isCenter ? "0px 12px 40px rgba(0,0,0,0.08)" : "none"
       }}
     >
       <span
         className={cn(
           "absolute block origin-top-right rotate-45",
-          isCenter ? "bg-white" : "bg-white/10"
+          isCenter ? "bg-[#f0f4f8]" : "bg-white/50"
         )}
         style={{
           right: -2,
@@ -181,20 +109,20 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       <img
         src={testimonial.imgSrc}
         alt={`${testimonial.by.split(',')[0]}`}
-        className="mb-4 h-14 w-12 bg-muted object-cover object-top rounded"
+        className="mb-4 h-14 w-12 bg-muted object-cover object-top rounded-xl"
         style={{
-          boxShadow: isCenter ? "3px 3px 0px #000" : "3px 3px 0px #333"
+          boxShadow: isCenter ? "3px 3px 0px #eaeaea" : "3px 3px 0px #ddd"
         }}
       />
       <h3 className={cn(
-        "text-base sm:text-xl font-medium",
-        isCenter ? "text-black" : "text-white/90"
+        "text-base sm:text-[1.1rem] font-medium leading-[1.5] tracking-wide",
+        isCenter ? "text-[#222]" : "text-[#555]"
       )}>
         "{testimonial.testimonial}"
       </h3>
       <p className={cn(
-        "absolute bottom-8 left-8 right-8 mt-2 text-sm italic",
-        isCenter ? "text-black/70" : "text-white/50"
+        "absolute bottom-8 left-8 right-8 mt-2 text-[14px] font-normal tracking-wide",
+        isCenter ? "text-[#666]" : "text-[#888]"
       )}>
         - {testimonial.by}
       </p>
@@ -237,51 +165,56 @@ export const StaggerTestimonials: React.FC = () => {
 
   return (
     <div
-      className="relative w-full overflow-hidden pt-20"
-      style={{ height: 600 }}
+      className="relative w-full overflow-hidden py-32 bg-white"
+      style={{ minHeight: "800px" }}
     >
-      <div className="absolute top-0 left-0 right-0 text-center z-20">
-        <h2 className="text-[2rem] sm:text-[2.5rem] md:text-[2.8rem] font-medium text-white mb-2 tracking-tight">
-          What others <span className="font-serif italic text-white/90">say about me</span>
+      <div className="absolute top-16 left-0 right-0 text-center z-20 px-6">
+        <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.1] mb-4">
+          What others <span className="font-serif italic font-normal text-[#111]">say about me</span>
         </h2>
+        <p className="text-[#666] text-[14px] md:text-[15px] leading-[1.6] max-w-[600px] mx-auto tracking-wide">
+          Feedback from teams and leaders I've had the pleasure of working with
+        </p>
       </div>
 
-      {testimonialsList.map((testimonial, index) => {
-        const position = testimonialsList.length % 2
-          ? index - (testimonialsList.length + 1) / 2
-          : index - testimonialsList.length / 2;
-        return (
-          <TestimonialCard
-            key={testimonial.tempId}
-            testimonial={testimonial}
-            handleMove={handleMove}
-            position={position}
-            cardSize={cardSize}
-          />
-        );
-      })}
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2 z-20">
+      <div className="relative mt-24 h-[500px]">
+        {testimonialsList.map((testimonial, index) => {
+          const position = testimonialsList.length % 2
+            ? index - (testimonialsList.length + 1) / 2
+            : index - testimonialsList.length / 2;
+          return (
+            <TestimonialCard
+              key={testimonial.tempId}
+              testimonial={testimonial}
+              handleMove={handleMove}
+              position={position}
+              cardSize={cardSize}
+            />
+          );
+        })}
+      </div>
+      <div className="absolute bottom-16 left-1/2 flex -translate-x-1/2 gap-4 z-20">
         <button
           onClick={() => handleMove(-1)}
           className={cn(
-            "flex h-14 w-14 items-center justify-center text-2xl transition-colors rounded-full",
-            "bg-[#181818] border border-white/10 text-white hover:bg-white hover:text-black",
+            "flex h-14 w-14 items-center justify-center text-2xl transition-all duration-300 rounded-full",
+            "bg-white border border-[#eee] text-[#555] hover:text-[#222] hover:shadow-md hover:-translate-y-0.5 hover:border-transparent",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           )}
           aria-label="Previous testimonial"
         >
-          <ChevronLeft />
+          <ChevronLeft strokeWidth={1.5} />
         </button>
         <button
           onClick={() => handleMove(1)}
           className={cn(
-            "flex h-14 w-14 items-center justify-center text-2xl transition-colors rounded-full",
-            "bg-[#181818] border border-white/10 text-white hover:bg-white hover:text-black",
+            "flex h-14 w-14 items-center justify-center text-2xl transition-all duration-300 rounded-full",
+            "bg-white border border-[#eee] text-[#555] hover:text-[#222] hover:shadow-md hover:-translate-y-0.5 hover:border-transparent",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           )}
           aria-label="Next testimonial"
         >
-          <ChevronRight />
+          <ChevronRight strokeWidth={1.5} />
         </button>
       </div>
     </div>
