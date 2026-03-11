@@ -111,25 +111,34 @@ const TestimonialsColumn = (props: {
                     boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)",
                     transition: { type: "spring", stiffness: 400, damping: 17 }
                   }}
-                  className="p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm max-w-xs w-full bg-white transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary/30" 
+                  className="p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm max-w-xs w-full bg-white transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary/30 relative overflow-hidden" 
                 >
-                  <blockquote className="m-0 p-0 h-full flex flex-col">
-                    <p className="text-[#666] text-[14px] leading-[1.7] italic font-medium m-0 transition-colors duration-300 flex-grow">
+                  <div 
+                    className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" 
+                    style={{ 
+                      backgroundImage: "url('/testimonial_bg.png')", 
+                      backgroundSize: 'cover', 
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat'
+                    }} 
+                  />
+                  <blockquote className="m-0 p-0 h-full flex flex-col relative z-10">
+                    <p className="text-[#666] group-hover:text-[#111] text-[14px] leading-[1.7] italic font-medium m-0 transition-colors duration-300 flex-grow">
                       {text}
                     </p>
-                    <footer className="flex items-center gap-4 mt-8 pt-6 border-t border-gray-100/60">
+                    <footer className="flex items-center gap-4 mt-8 pt-6 border-t border-gray-100/60 group-hover:border-[#222]/10 transition-colors duration-300">
                       <img
                         width={48}
                         height={48}
                         src={image}
                         alt={`Avatar of ${name}`}
-                        className="h-12 w-12 rounded-2xl object-cover ring-2 ring-gray-50 transition-all duration-300 ease-in-out shadow-sm"
+                        className="h-12 w-12 rounded-2xl object-cover ring-2 ring-gray-50 group-hover:ring-white/50 transition-all duration-300 ease-in-out shadow-sm"
                       />
                       <div className="flex flex-col">
                         <cite className="font-bold text-[#222] text-[15px] not-italic tracking-tight transition-colors duration-300">
                           {name}
                         </cite>
-                        <span className="text-[#888] text-[12px] tracking-wide mt-0.5 transition-colors duration-300">
+                        <span className="text-[#888] group-hover:text-[#444] text-[12px] tracking-wide mt-0.5 transition-colors duration-300">
                           {role}
                         </span>
                       </div>
