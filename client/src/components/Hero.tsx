@@ -62,7 +62,7 @@ export function Hero() {
         {/* Top Avatar & Greeting */}
         <div className="flex items-center gap-2 mb-10">
           <div className="w-[50px] h-[50px] flex items-center justify-center">
-            <img src={avatar} alt="Soundar" className="w-[120%] h-[120%] object-cover object-top drop-shadow-sm" />
+            <img src="/hi-hand.png" alt="Hi hand wave" className="w-full h-full object-contain drop-shadow-sm" />
           </div>
           <span className="text-[#333] font-medium text-[15px] tracking-wide mt-1">
             Hey ..! I'm Soundar ,
