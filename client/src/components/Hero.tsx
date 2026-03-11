@@ -1,6 +1,18 @@
 import avatar from "../assets/avatar.png";
+import { useState, useEffect } from "react";
 
 export function Hero() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <section 
       className="relative min-h-screen w-full flex flex-col items-center justify-between overflow-hidden bg-white selection:bg-gray-200"
@@ -25,36 +37,42 @@ export function Hero() {
       <div className="absolute left-1/4 top-1/4 w-[40%] h-[40%] rounded-full bg-[#f0f4f8] blur-[100px] opacity-60 pointer-events-none" />
       <div className="absolute right-1/4 bottom-1/4 w-[30%] h-[30%] rounded-full bg-[#eef1f5] blur-[80px] opacity-60 pointer-events-none" />
 
-      {/* Scattered Cloud Images */}
+      {/* Scattered Cloud Images with Parallax */}
       <img 
         src="/cloud.avif" 
         alt="" 
-        className="absolute top-[8%] left-[5%] w-[120px] h-auto opacity-70 pointer-events-none hidden md:block"
+        className="absolute top-[8%] left-[5%] w-[120px] h-auto opacity-70 pointer-events-none hidden md:block transition-transform duration-75"
+        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       />
       <img 
         src="/cloud.avif" 
         alt="" 
-        className="absolute top-[15%] right-[8%] w-[100px] h-auto opacity-60 pointer-events-none hidden md:block"
+        className="absolute top-[15%] right-[8%] w-[100px] h-auto opacity-60 pointer-events-none hidden md:block transition-transform duration-75"
+        style={{ transform: `translateY(${scrollY * 0.25}px)` }}
       />
       <img 
         src="/cloud.avif" 
         alt="" 
-        className="absolute top-[35%] left-[10%] w-[140px] h-auto opacity-50 pointer-events-none hidden lg:block"
+        className="absolute top-[35%] left-[10%] w-[140px] h-auto opacity-50 pointer-events-none hidden lg:block transition-transform duration-75"
+        style={{ transform: `translateY(${scrollY * 0.4}px)` }}
       />
       <img 
         src="/cloud.avif" 
         alt="" 
-        className="absolute top-[40%] right-[12%] w-[110px] h-auto opacity-55 pointer-events-none hidden md:block"
+        className="absolute top-[40%] right-[12%] w-[110px] h-auto opacity-55 pointer-events-none hidden md:block transition-transform duration-75"
+        style={{ transform: `translateY(${scrollY * 0.35}px)` }}
       />
       <img 
         src="/cloud.avif" 
         alt="" 
-        className="absolute bottom-[30%] left-[8%] w-[130px] h-auto opacity-45 pointer-events-none hidden lg:block"
+        className="absolute bottom-[30%] left-[8%] w-[130px] h-auto opacity-45 pointer-events-none hidden lg:block transition-transform duration-75"
+        style={{ transform: `translateY(${scrollY * 0.5}px)` }}
       />
       <img 
         src="/cloud.avif" 
         alt="" 
-        className="absolute bottom-[25%] right-[5%] w-[120px] h-auto opacity-50 pointer-events-none hidden md:block"
+        className="absolute bottom-[25%] right-[5%] w-[120px] h-auto opacity-50 pointer-events-none hidden md:block transition-transform duration-75"
+        style={{ transform: `translateY(${scrollY * 0.45}px)` }}
       />
 
       <div className="relative z-10 w-full max-w-[1000px] mx-auto flex flex-col items-center pt-[15vh] px-4 md:px-8">
