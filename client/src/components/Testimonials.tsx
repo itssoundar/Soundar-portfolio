@@ -111,7 +111,7 @@ const TestimonialsColumn = (props: {
                     boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.12), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05)",
                     transition: { type: "spring", stiffness: 400, damping: 17 }
                   }}
-                  className="p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm max-w-xs w-full bg-white transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary/30 relative overflow-hidden" 
+                  className="p-8 md:p-10 rounded-3xl border border-gray-100 shadow-sm w-[320px] sm:w-[340px] max-w-full bg-white transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary/30 relative overflow-hidden" 
                 >
                   <div 
                     className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" 
@@ -171,23 +171,36 @@ export function Testimonials() {
         }}
         className="container px-4 z-10 mx-auto max-w-[1200px]"
       >
-        <div className="flex flex-col items-center justify-center max-w-[540px] mx-auto mb-16 md:mb-24">
-          <h2 id="testimonials-heading" className="text-[2.5rem] md:text-[3.5rem] font-medium tracking-[-0.02em] leading-[1.1] text-center text-[#222]">
-            <span className="font-serif italic font-normal text-[#111]">Words</span> from people
-          </h2>
-          <p className="text-center mt-6 text-[#666] text-[14px] md:text-[15px] leading-[1.6] max-w-sm tracking-wide">
-            No contracts, no hidden costs. Just tell us what you need and we'll deliver accordingly.
-          </p>
-        </div>
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center lg:items-start justify-between w-full">
+          {/* Left Side */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:sticky lg:top-32 max-w-xl shrink-0 lg:pt-12">
+            <div className="inline-flex items-center rounded-full bg-gray-200/80 px-4 py-1.5 text-sm font-medium text-gray-800 mb-8">
+              Testimonials
+            </div>
+            <h2 id="testimonials-heading" className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-medium tracking-[-0.02em] leading-[1.1] text-[#222]">
+              See what <span className="text-[#111]">others</span><br className="hidden lg:block" />
+              say about me
+            </h2>
+            <p className="mt-6 text-[#666] text-[15px] md:text-[17px] leading-[1.6] max-w-md tracking-wide">
+              I have helped many businesses make a killer design for their product. Wanna be the next?
+            </p>
+            <a href="#contact" className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-[#B2F042] px-8 py-4 text-[15px] font-semibold text-black transition-all hover:scale-105 hover:bg-[#a0dc3b] shadow-sm">
+              Contact
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 17l9.2-9.2M17 17V7H7"/>
+              </svg>
+            </a>
+          </div>
 
-        <div 
-          className="flex justify-center gap-6 md:gap-8 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] max-h-[680px] overflow-hidden mt-[0px]"
-          role="region"
-          aria-label="Scrolling Testimonials"
-        >
-          <TestimonialsColumn testimonials={firstColumn} duration={15} />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
-          <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
+          {/* Right Side */}
+          <div 
+            className="flex flex-col sm:flex-row gap-6 md:gap-8 w-full lg:w-auto flex-1 justify-center lg:justify-end [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)] max-h-[700px] overflow-hidden"
+            role="region"
+            aria-label="Scrolling Testimonials"
+          >
+            <TestimonialsColumn testimonials={firstColumn} duration={25} className="w-full sm:w-[320px]" />
+            <TestimonialsColumn testimonials={secondColumn} duration={30} className="hidden sm:block w-full sm:w-[320px] mt-12" />
+          </div>
         </div>
       </motion.div>
     </section>
