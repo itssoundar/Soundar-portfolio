@@ -33,18 +33,7 @@ export function Experience() {
   ];
 
   return (
-    <section className="relative w-full bg-[#111111] text-white py-24 md:py-32 px-6 overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] -mt-12 z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
-      {/* Subtle cloud background similar to the reference */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none mix-blend-overlay"
-        style={{
-          backgroundImage: 'url("/cloud.avif")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'grayscale(100%)'
-        }}
-      />
-      
+    <section className="relative w-full bg-[#111111] text-white py-24 md:py-32 px-6 overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem] -mt-12 z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.1),0_10px_40px_rgba(0,0,0,0.1)] mb-12">
       <div className="relative z-10 w-full max-w-[900px] mx-auto">
         <h2 className="text-[2rem] sm:text-[2.5rem] md:text-[2.8rem] font-medium text-center mb-16 md:mb-24 tracking-tight">
           Experiences that shaped <span className="font-serif italic text-white/90">my design lens</span>
@@ -73,18 +62,6 @@ export function Experience() {
 
         {/* Philosophy and Tools Section */}
         <div className="mt-24 md:mt-32 pt-16 relative w-[100vw] left-1/2 -translate-x-1/2">
-          <div 
-            className="absolute top-0 left-0 right-0 h-[400px] pointer-events-none opacity-90"
-            style={{
-              backgroundImage: 'url("/work_exp.png")',
-              backgroundSize: '100% auto',
-              backgroundPosition: 'top center',
-              backgroundRepeat: 'no-repeat',
-              maskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)',
-              WebkitMaskImage: 'linear-gradient(to bottom, black 60%, transparent 100%)'
-            }}
-          />
-          
           <div className="relative z-10 text-center mb-16 px-6">
             <p className="text-[1.2rem] md:text-[1.4rem] leading-[1.6] font-medium text-white/90 max-w-[800px] mx-auto tracking-wide">
               "I thrive on discovery and problem-solving, continuously exploring new ideas to create thoughtful, <span className="font-serif italic font-normal">impactful product experiences</span>"
