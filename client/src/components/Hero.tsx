@@ -9,7 +9,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-[#f8f9fa] via-white to-[#fdfdfd] pointer-events-none" />
       
       {/* Sky blue gradient overlay - top 20% */}
-      <div className="absolute top-0 left-0 right-0 h-[20vh] bg-gradient-to-b from-[#87CEEB] via-[#B0E0E6] to-transparent pointer-events-none opacity-30" />
+      <div className="absolute top-0 left-0 right-0 h-[20vh] bg-gradient-to-b from-[#87CEEB] via-[#B0E0E6] to-transparent pointer-events-none opacity-55" />
       
       {/* Forest misty bottom background */}
       <div 
