@@ -22,6 +22,38 @@ export function Hero() {
       <div className="absolute left-1/4 top-1/4 w-[40%] h-[40%] rounded-full bg-[#f0f4f8] blur-[100px] opacity-60 pointer-events-none" />
       <div className="absolute right-1/4 bottom-1/4 w-[30%] h-[30%] rounded-full bg-[#eef1f5] blur-[80px] opacity-60 pointer-events-none" />
 
+      {/* Scattered Cloud Images */}
+      <img 
+        src="/cloud.avif" 
+        alt="" 
+        className="absolute top-[8%] left-[5%] w-[120px] h-auto opacity-70 pointer-events-none hidden md:block"
+      />
+      <img 
+        src="/cloud.avif" 
+        alt="" 
+        className="absolute top-[15%] right-[8%] w-[100px] h-auto opacity-60 pointer-events-none hidden md:block"
+      />
+      <img 
+        src="/cloud.avif" 
+        alt="" 
+        className="absolute top-[35%] left-[10%] w-[140px] h-auto opacity-50 pointer-events-none hidden lg:block"
+      />
+      <img 
+        src="/cloud.avif" 
+        alt="" 
+        className="absolute top-[40%] right-[12%] w-[110px] h-auto opacity-55 pointer-events-none hidden md:block"
+      />
+      <img 
+        src="/cloud.avif" 
+        alt="" 
+        className="absolute bottom-[30%] left-[8%] w-[130px] h-auto opacity-45 pointer-events-none hidden lg:block"
+      />
+      <img 
+        src="/cloud.avif" 
+        alt="" 
+        className="absolute bottom-[25%] right-[5%] w-[120px] h-auto opacity-50 pointer-events-none hidden md:block"
+      />
+
       <div className="relative z-10 w-full max-w-[1000px] mx-auto flex flex-col items-center pt-[15vh] px-4 md:px-8 flex-1">
         
         {/* Top Avatar & Greeting */}
