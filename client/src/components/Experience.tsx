@@ -48,8 +48,8 @@ export function Experience() {
       />
       
       <div className="relative z-10 w-full max-w-[900px] mx-auto">
-        <h2 className="text-[2rem] sm:text-[2.5rem] md:text-[2.8rem] font-medium text-center mb-16 md:mb-24 tracking-tight">
-          Experiences that shaped <span className="font-serif italic text-white/90">my design lens</span>
+        <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium text-center mb-16 md:mb-24 tracking-[-0.02em] leading-[1.1]">
+          Experiences that shaped <span className="font-serif italic font-normal text-white/90">my design lens</span>
         </h2>
 
         <div className="flex flex-col">

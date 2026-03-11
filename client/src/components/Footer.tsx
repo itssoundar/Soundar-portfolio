@@ -3,7 +3,7 @@ import { Mail, Linkedin, FileText } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative w-full bg-white pt-24 pb-12 overflow-hidden flex flex-col items-center">
+    <footer className="relative w-full bg-white py-24 md:py-32 overflow-hidden flex flex-col items-center">
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-[800px] mx-auto px-6 flex flex-col items-center">
         
@@ -13,13 +13,13 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-16 md:mb-24"
         >
-          <h2 className="text-[2rem] md:text-[2.5rem] font-medium text-[#222] tracking-tight leading-tight mb-4">
+          <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.1] mb-6">
             If something here caught your eye, sparked a<br />
             thought, <span className="font-serif italic font-normal text-[#111]">lets talk!</span>
           </h2>
-          <p className="text-[#666] text-[15px] leading-relaxed max-w-[500px] mx-auto">
+          <p className="text-[#666] text-[14px] md:text-[15px] leading-[1.6] max-w-[500px] mx-auto tracking-wide">
             From concept to launch, we create seamless digital<br />
             experiences that resonate with your audience.
           </p>
@@ -31,7 +31,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="w-full max-w-[500px] flex flex-col gap-6 mb-24"
+          className="w-full max-w-[500px] flex flex-col gap-6 mb-24 md:mb-32"
         >
           {/* Email */}
           <a href="mailto:rsoundar1998@gmail.com" className="flex items-center justify-between group">

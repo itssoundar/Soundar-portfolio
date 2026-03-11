@@ -172,10 +172,10 @@ export function Testimonials() {
         className="container px-4 z-10 mx-auto max-w-[1200px]"
       >
         <div className="flex flex-col items-center justify-center max-w-[540px] mx-auto mb-16 md:mb-24">
-          <h2 id="testimonials-heading" className="text-[2.5rem] md:text-[3.5rem] font-medium tracking-[-0.02em] mt-6 text-center text-[#222]">
+          <h2 id="testimonials-heading" className="text-[2.5rem] md:text-[3.5rem] font-medium tracking-[-0.02em] leading-[1.1] text-center text-[#222]">
             <span className="font-serif italic font-normal text-[#111]">Words</span> from people
           </h2>
-          <p className="text-center mt-5 text-[#666] text-[14px] md:text-[15px] leading-[1.6] max-w-sm tracking-wide">
+          <p className="text-center mt-6 text-[#666] text-[14px] md:text-[15px] leading-[1.6] max-w-sm tracking-wide">
             No contracts, no hidden costs. Just tell us what you need and we'll deliver accordingly.
           </p>
         </div>

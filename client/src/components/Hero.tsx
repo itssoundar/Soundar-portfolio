@@ -90,15 +90,15 @@ export function Hero() {
         {/* Main Headline Section */}
         <div className="flex flex-col items-center text-center w-full">
           <h1 className="text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.5rem] text-[#222] tracking-[-0.02em] font-medium leading-[1.1]">
-            Multi- Disciplinary Designer
+            Multidisciplinary Designer
           </h1>
           
           <h2 className="text-[1.8rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.25rem] text-[#222] tracking-[-0.02em] font-medium leading-[1.2] mt-3">
-            Believe's in <span className="font-serif italic font-normal text-[#111]">Functional & Aesthetic</span>
+            Believes in <span className="font-serif italic font-normal text-[#111]">Functional & Aesthetic</span>
           </h2>
           
           <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-6 md:gap-5 mt-6 w-full">
-            <h2 className="text-[1.8rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.25rem] font-serif italic text-[#111] leading-[1.1] md:text-right pr-2">
+            <h2 className="text-[1.8rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.25rem] font-serif italic font-normal text-[#111] leading-[1.1] md:text-right pr-2">
               For Brands & Products
             </h2>
             <p className="text-[#4a4a4a] max-w-[340px] text-[13px] md:text-[14.5px] leading-[1.6] text-center md:text-left pt-1 font-normal tracking-wide">
@@ -153,7 +153,7 @@ export function Hero() {
       </div>
 
       {/* Projects Section */}
-      <div className="relative z-10 w-full max-w-[1000px] mx-auto py-20 px-6">
+      <div className="relative z-10 w-full max-w-[1000px] mx-auto py-24 md:py-32 px-6">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.1]">
