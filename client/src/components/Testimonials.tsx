@@ -149,7 +149,7 @@ export function Testimonials() {
   return (
     <section 
       aria-labelledby="testimonials-heading"
-      className="bg-[#FAFAFA] py-24 md:py-32 relative overflow-hidden"
+      className="py-24 md:py-32 relative overflow-hidden pt-[80px] pb-[80px] bg-[#ffffff]"
     >
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
