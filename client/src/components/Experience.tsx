@@ -1,3 +1,6 @@
+import React from 'react';
+import { motion } from "framer-motion";
+
 export function Experience() {
   const experiences = [
     {
@@ -33,7 +36,14 @@ export function Experience() {
   ];
 
   return (
-    <section className="relative w-full bg-[#111111] text-white py-24 md:py-32 px-6 overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem] z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.1),0_10px_40px_rgba(0,0,0,0.1)] mb-[0px] mt-[0px]">
+    <motion.section 
+      initial={{ backgroundColor: "rgba(255, 255, 255, 1)" }}
+      whileInView={{ backgroundColor: "rgba(17, 17, 17, 1)" }}
+      viewport={{ amount: 0.15, margin: "0px 0px -20% 0px" }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
+      className="relative w-full text-white py-24 md:py-32 px-6 overflow-hidden z-20"
+      id="experience-section"
+    >
       {/* Top Background Image with Fade */}
       <div 
         className="absolute top-0 left-0 right-0 h-[500px] md:h-[700px] pointer-events-none opacity-40 md:opacity-60"
