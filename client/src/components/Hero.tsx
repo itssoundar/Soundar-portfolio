@@ -196,7 +196,7 @@ export function Hero() {
 
           {/* Project Card 2 */}
           <div className="bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow duration-300">
-            <div className="flex flex-col md:flex-row-reverse gap-8 md:gap-12 items-start">
+            <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
               {/* Project Image */}
               <div className="w-full md:w-[45%] flex-shrink-0">
                 <div className="rounded-2xl overflow-hidden bg-white aspect-square md:aspect-auto md:h-[400px] shadow-lg">
