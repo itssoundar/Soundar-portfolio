@@ -151,9 +151,9 @@ export function Hero() {
         </div>
 
         {/* Project Cards */}
-        <div className="space-y-12">
+        <div className="flex flex-col gap-12 pb-24">
           {/* Project Card 1 */}
-          <div className="bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div className="sticky top-24 md:top-32 bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow duration-300 z-10 border border-white/50">
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
               {/* Project Image */}
               <div className="w-full md:w-[45%] flex-shrink-0">
@@ -195,7 +195,7 @@ export function Hero() {
           </div>
 
           {/* Project Card 2 */}
-          <div className="bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div className="sticky top-32 md:top-40 bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_-4px_25px_rgba(0,0,0,0.08)] transition-shadow duration-300 z-20 border border-white/50">
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
               {/* Project Image */}
               <div className="w-full md:w-[45%] flex-shrink-0">
@@ -237,7 +237,7 @@ export function Hero() {
           </div>
 
           {/* Project Card 3 */}
-          <div className="bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div className="sticky top-40 md:top-48 bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_-4px_25px_rgba(0,0,0,0.08)] transition-shadow duration-300 z-30 border border-white/50 mb-12">
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
               {/* Project Image */}
               <div className="w-full md:w-[45%] flex-shrink-0">
