@@ -15,7 +15,7 @@ export function Hero() {
 
   return (
     <section 
-      className="relative min-h-screen w-full flex flex-col items-center justify-between overflow-hidden bg-white selection:bg-gray-200"
+      className="relative min-h-screen w-full flex flex-col items-center justify-between bg-white selection:bg-gray-200"
     >
       {/* Soft background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#f8f9fa] via-white to-[#fdfdfd] pointer-events-none" />
@@ -139,7 +139,7 @@ export function Hero() {
       </div>
 
       {/* Projects Section */}
-      <div className="relative z-10 w-full max-w-[1000px] mx-auto py-24 md:py-32 px-6">
+      <div className="relative z-10 w-full max-w-[1000px] mx-auto py-24 md:py-32 px-6 overflow-visible">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.1]">
@@ -151,9 +151,9 @@ export function Hero() {
         </div>
 
         {/* Project Cards */}
-        <div className="flex flex-col gap-12 pb-24">
+        <div className="flex flex-col gap-12 pb-24 relative">
           {/* Project Card 1 */}
-          <div className="sticky top-24 md:top-32 bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow duration-300 z-10 border border-white/50">
+          <div className="sticky top-24 md:top-32 bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-sm hover:shadow-md transition-shadow duration-300 z-10 border border-white/50 h-auto md:h-auto overflow-hidden">
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
               {/* Project Image */}
               <div className="w-full md:w-[45%] flex-shrink-0">
@@ -195,7 +195,7 @@ export function Hero() {
           </div>
 
           {/* Project Card 2 */}
-          <div className="sticky top-32 md:top-40 bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_-4px_25px_rgba(0,0,0,0.08)] transition-shadow duration-300 z-20 border border-white/50">
+          <div className="sticky top-32 md:top-40 bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_-4px_25px_rgba(0,0,0,0.08)] transition-shadow duration-300 z-20 border border-white/50 h-auto md:h-auto overflow-hidden">
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
               {/* Project Image */}
               <div className="w-full md:w-[45%] flex-shrink-0">
@@ -237,7 +237,7 @@ export function Hero() {
           </div>
 
           {/* Project Card 3 */}
-          <div className="sticky top-40 md:top-48 bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_-4px_25px_rgba(0,0,0,0.08)] transition-shadow duration-300 z-30 border border-white/50 mb-12">
+          <div className="sticky top-40 md:top-48 bg-gradient-to-b from-[#f0f4f8] to-[#e8ecf1] rounded-3xl p-8 md:p-12 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_-4px_25px_rgba(0,0,0,0.08)] transition-shadow duration-300 z-30 border border-white/50 mb-12 h-auto md:h-auto overflow-hidden">
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
               {/* Project Image */}
               <div className="w-full md:w-[45%] flex-shrink-0">
