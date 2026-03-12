@@ -36,12 +36,8 @@ export function Experience() {
   ];
 
   return (
-    <motion.section 
-      initial={{ backgroundColor: "rgba(255, 255, 255, 1)" }}
-      whileInView={{ backgroundColor: "rgba(17, 17, 17, 1)" }}
-      viewport={{ amount: 0.15, margin: "0px 0px -20% 0px" }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="relative w-full text-white py-24 md:py-32 px-6 overflow-hidden z-20"
+    <section 
+      className="relative w-full text-white py-24 md:py-32 px-6 overflow-hidden z-20 bg-[#111111]"
       id="experience-section"
     >
       {/* Top Background Image with Fade */}
@@ -164,6 +160,6 @@ export function Experience() {
           100% { transform: translateX(-50%); }
         }
       `}} />
-    </motion.section>
+    </section>
   );
 }
