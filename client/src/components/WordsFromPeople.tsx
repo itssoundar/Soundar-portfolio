@@ -69,28 +69,6 @@ export function WordsFromPeople() {
     visibleTestimonials.push(...allTestimonials.slice(0, needed));
   }
 
-  // Mobile variants for stacked card animation
-  const mobileVariants = {
-    enter: (direction: number) => ({
-      y: direction > 0 ? 50 : -150,
-      opacity: 0,
-      scale: direction > 0 ? 0.9 : 1.1,
-      zIndex: direction > 0 ? 0 : 2,
-    }),
-    center: {
-      zIndex: 1,
-      y: 0,
-      opacity: 1,
-      scale: 1,
-    },
-    exit: (direction: number) => ({
-      zIndex: direction > 0 ? 2 : 0,
-      y: direction > 0 ? -150 : 50,
-      opacity: 0,
-      scale: direction > 0 ? 1.1 : 0.9,
-    })
-  };
-
   return (
     <section className="py-24 md:py-32 bg-white relative overflow-hidden">
       <div className="container px-4 mx-auto max-w-[1200px]">
@@ -164,56 +142,74 @@ export function WordsFromPeople() {
             </AnimatePresence>
           </div>
 
-          {/* Mobile View (Single Card with Stack Effect) */}
-          <div className="md:hidden flex justify-center items-center min-h-[420px] relative w-full perspective-1000">
-            <AnimatePresence initial={false} custom={direction} mode="popLayout">
-              <motion.div
-                key={startIndex}
-                custom={direction}
-                variants={mobileVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  y: { type: "spring", stiffness: 300, damping: 30 },
-                  opacity: { duration: 0.2 }
-                }}
-                className="absolute w-full max-w-[350px] bg-white rounded-[20px] p-8 border border-gray-200/80 shadow-md group cursor-default z-10"
-              >
-                {/* Hover Background Image */}
-                <div 
-                  className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[20px] pointer-events-none" 
-                  style={{ 
-                    backgroundImage: "url('/testimonial_bg.png')", 
-                    backgroundSize: 'cover', 
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat'
-                  }} 
-                />
-                
-                <blockquote className="m-0 p-0 h-full flex flex-col relative z-10 text-left min-h-[260px]">
-                  <div className="mb-6">
-                    <div className="inline-flex rounded-[16px] bg-[#f4f4f4] p-1.5 border border-white shadow-sm">
-                      <img
-                        src={allTestimonials[startIndex].image}
-                        alt={`Avatar of ${allTestimonials[startIndex].name}`}
-                        className="h-[48px] w-[48px] rounded-[12px] object-cover"
-                      />
+          {/* Mobile View (Stacked Cards Effect) */}
+          <div className="md:hidden flex justify-center items-start pt-8 min-h-[460px] relative w-full">
+            <AnimatePresence initial={false} custom={direction}>
+              {visibleTestimonials.map((testimonial, i) => (
+                <motion.div
+                  key={testimonial.name}
+                  layout
+                  custom={direction}
+                  initial={(d: number) => ({
+                    y: d > 0 ? 60 : -60,
+                    opacity: 0,
+                    scale: d > 0 ? 0.8 : 1.1,
+                  })}
+                  animate={{
+                    y: i * 24,
+                    scale: 1 - i * 0.06,
+                    opacity: i === 0 ? 1 : i === 1 ? 0.6 : 0.2,
+                    zIndex: 10 - i,
+                  }}
+                  exit={(d: number) => ({
+                    y: d > 0 ? -60 : 60,
+                    opacity: 0,
+                    scale: d > 0 ? 1.1 : 0.8,
+                    zIndex: d > 0 ? 10 : 0,
+                  })}
+                  transition={{
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 25
+                  }}
+                  className="absolute w-[90%] max-w-[350px] bg-white rounded-[20px] p-8 border border-gray-200/80 shadow-md group cursor-default"
+                  style={{ transformOrigin: "top center" }}
+                >
+                  {/* Hover Background Image */}
+                  <div 
+                    className="absolute inset-0 z-0 opacity-0 transition-opacity duration-300 rounded-[20px] pointer-events-none" 
+                    style={{ 
+                      backgroundImage: "url('/testimonial_bg.png')", 
+                      backgroundSize: 'cover', 
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat'
+                    }} 
+                  />
+                  
+                  <blockquote className="m-0 p-0 h-full flex flex-col relative z-10 text-left min-h-[260px]">
+                    <div className="mb-6">
+                      <div className="inline-flex rounded-[16px] bg-[#f4f4f4] p-1.5 border border-white shadow-sm">
+                        <img
+                          src={testimonial.image}
+                          alt={`Avatar of ${testimonial.name}`}
+                          className="h-[48px] w-[48px] rounded-[12px] object-cover"
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <p className="text-[#666] group-hover:text-[#222] text-[16px] leading-[1.6] m-0 transition-colors duration-300 flex-grow italic mb-8 font-medium">
-                    "{allTestimonials[startIndex].text}"
-                  </p>
-                  <footer className="flex flex-col mt-auto transition-colors duration-300">
-                    <cite className="font-semibold text-[#111] text-[16px] not-italic tracking-tight transition-colors duration-300 mb-1">
-                      {allTestimonials[startIndex].name}
-                    </cite>
-                    <span className="text-[#777] text-[14px] tracking-wide transition-colors duration-300">
-                      {allTestimonials[startIndex].role}
-                    </span>
-                  </footer>
-                </blockquote>
-              </motion.div>
+                    <p className="text-[#666] text-[16px] leading-[1.6] m-0 transition-colors duration-300 flex-grow italic mb-8 font-medium">
+                      "{testimonial.text}"
+                    </p>
+                    <footer className="flex flex-col mt-auto transition-colors duration-300">
+                      <cite className="font-semibold text-[#111] text-[16px] not-italic tracking-tight transition-colors duration-300 mb-1">
+                        {testimonial.name}
+                      </cite>
+                      <span className="text-[#777] text-[14px] tracking-wide transition-colors duration-300">
+                        {testimonial.role}
+                      </span>
+                    </footer>
+                  </blockquote>
+                </motion.div>
+              ))}
             </AnimatePresence>
           </div>
           
