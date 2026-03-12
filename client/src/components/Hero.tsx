@@ -19,10 +19,8 @@ export function Hero() {
     >
       {/* Soft background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#f8f9fa] via-white to-[#fdfdfd] pointer-events-none" />
-      
       {/* Sky blue gradient overlay - top 20% */}
       <div className="absolute top-0 left-0 right-0 h-[20vh] bg-gradient-to-b from-[#87CEEB] via-[#B0E0E6] to-transparent pointer-events-none opacity-55" />
-      
       {/* Scattered Cloud Images with Parallax */}
       <img 
         src="/cloud.avif" 
@@ -60,7 +58,6 @@ export function Hero() {
         className="absolute bottom-[25%] right-[5%] w-[120px] h-auto opacity-50 pointer-events-none hidden md:block transition-transform duration-75"
         style={{ transform: `translateY(${scrollY * 0.45}px)` }}
       />
-
       <div className="relative z-10 w-full max-w-[1000px] mx-auto flex flex-col items-center pt-[15vh] px-4 md:px-8">
         
         {/* Top Avatar & Greeting */}
@@ -96,7 +93,6 @@ export function Hero() {
         </div>
 
       </div>
-
       {/* Logos Section */}
       <div className="relative z-10 w-full max-w-[1000px] mx-auto pb-12 pt-8 px-6">
         <div className="flex flex-wrap justify-center md:justify-between items-center gap-x-12 gap-y-10 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
@@ -137,13 +133,12 @@ export function Hero() {
 
         </div>
       </div>
-
       {/* Projects Section */}
       <div className="relative z-10 w-full max-w-[1000px] mx-auto py-24 md:py-32 px-6 overflow-visible">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.1]">
-            Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
+            Selected <span className="font-serif italic font-normal text-[#111] text-[40px]">Projects</span>
           </h2>
           <p className="text-[#666] text-[14px] md:text-[15px] leading-[1.6] max-w-[600px] mt-6 tracking-wide">
             From early-stage ambiguity to scalable systems, I design solutions that translate innovation into real impact
