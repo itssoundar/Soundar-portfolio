@@ -165,9 +165,6 @@ export function Testimonials() {
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center lg:items-start justify-between w-full">
           {/* Left Side */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:sticky lg:top-32 max-w-xl shrink-0 lg:pt-12">
-            <div className="inline-flex items-center rounded-full bg-gray-200/80 px-4 py-1.5 text-sm font-medium text-gray-800 mb-8">
-              Testimonials
-            </div>
             <h2 id="testimonials-heading" className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-medium tracking-[-0.02em] leading-[1.1] text-[#222]">
               See what <span className="text-[#111]">others</span><br className="hidden lg:block" />
               say about me
