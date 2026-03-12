@@ -164,6 +164,6 @@ export function Experience() {
           100% { transform: translateX(-50%); }
         }
       `}} />
-    </section>
+    </motion.section>
   );
 }
