@@ -23,20 +23,6 @@ export function Hero() {
       {/* Sky blue gradient overlay - top 20% */}
       <div className="absolute top-0 left-0 right-0 h-[20vh] bg-gradient-to-b from-[#87CEEB] via-[#B0E0E6] to-transparent pointer-events-none opacity-55" />
       
-      {/* Forest misty bottom background */}
-      <div 
-        className="absolute inset-x-0 bottom-0 h-[70vh] pointer-events-none opacity-[0.15] mix-blend-multiply"
-        style={{
-          background: 'linear-gradient(to top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%), url("https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=2000&auto=format&fit=crop") center bottom / cover no-repeat',
-          maskImage: 'linear-gradient(to top, black 10%, transparent 80%)',
-          WebkitMaskImage: 'linear-gradient(to top, black 10%, transparent 80%)'
-        }}
-      />
-      
-      {/* Decorative radial glows for ethereal feel */}
-      <div className="absolute left-1/4 top-1/4 w-[40%] h-[40%] rounded-full bg-[#f0f4f8] blur-[100px] opacity-60 pointer-events-none" />
-      <div className="absolute right-1/4 bottom-1/4 w-[30%] h-[30%] rounded-full bg-[#eef1f5] blur-[80px] opacity-60 pointer-events-none" />
-
       {/* Scattered Cloud Images with Parallax */}
       <img 
         src="/cloud.avif" 
