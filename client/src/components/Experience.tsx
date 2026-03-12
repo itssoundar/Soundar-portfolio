@@ -83,47 +83,45 @@ export function Experience() {
 
           <div className="relative z-10 flex flex-col md:flex-row gap-6 justify-center items-center px-6 max-w-[900px] mx-auto">
             {/* Left Tool Group */}
-            <div className="bg-[#1a1a1a]/95 backdrop-blur-md border border-white/5 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-2xl flex flex-col items-center">
+            <div className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col items-center">
               <h4 className="text-[#888888] text-[14px] font-medium text-center mb-8 tracking-wide">
                 Plan, Strategy, Brainstorm and research
               </h4>
               <div className="flex justify-center items-center -space-x-3 md:-space-x-4">
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-xl transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 z-[50]">
-                  <img src="/tools/1.1.png" alt="Notion" className="w-full h-full object-cover rounded-2xl" />
-                </div>
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-xl transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 z-[40]">
-                  <img src="/tools/1.2.png" alt="ChatGPT" className="w-full h-full object-cover rounded-2xl" />
-                </div>
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-xl transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 z-[30]">
-                  <img src="/tools/1.3.jpeg" alt="Anthropic" className="w-full h-full object-cover rounded-2xl" />
-                </div>
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-xl transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 z-[20]">
-                  <img src="/tools/1.4.jpeg" alt="Tool 4" className="w-full h-full object-cover rounded-2xl" />
-                </div>
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-xl transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 z-[10]">
-                  <img src="/tools/1.5.png" alt="Miro" className="w-full h-full object-cover rounded-2xl" />
-                </div>
+                {[
+                  { src: "/tools/1.1.png", alt: "Notion", z: "z-[50]" },
+                  { src: "/tools/1.2.png", alt: "ChatGPT", z: "z-[40]" },
+                  { src: "/tools/1.3.jpeg", alt: "Anthropic", z: "z-[30]" },
+                  { src: "/tools/1.4.jpeg", alt: "Tool 4", z: "z-[20]" },
+                  { src: "/tools/1.5.png", alt: "Miro", z: "z-[10]" },
+                ].map((tool) => (
+                  <div key={tool.alt} className={`relative w-14 h-14 md:w-[72px] md:h-[72px] rounded-[18px] md:rounded-[24px] shadow-[12px_0_20px_rgba(0,0,0,0.6),0_6px_12px_rgba(0,0,0,0.4)] transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 ${tool.z} flex-shrink-0 bg-[#111]`}>
+                    <img src={tool.src} alt={tool.alt} className="w-full h-full object-cover rounded-[18px] md:rounded-[24px]" />
+                    {/* 3D Glass/Bevel Overlay */}
+                    <div className="absolute inset-0 rounded-[18px] md:rounded-[24px] shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-6px_10px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.15)] pointer-events-none" />
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Right Tool Group */}
-            <div className="bg-[#1a1a1a]/95 backdrop-blur-md border border-white/5 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-2xl flex flex-col items-center">
+            <div className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col items-center">
               <h4 className="text-[#888888] text-[14px] font-medium text-center mb-8 tracking-wide">
                 Iterate, Refine, Prototype and ship
               </h4>
               <div className="flex justify-center items-center -space-x-3 md:-space-x-4">
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-xl transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 z-[40]">
-                  <img src="/tools/2.1.png" alt="Figma" className="w-full h-full object-cover rounded-2xl" />
-                </div>
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-xl transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 z-[30]">
-                  <img src="/tools/2.2.jpeg" alt="Framer" className="w-full h-full object-cover rounded-2xl" />
-                </div>
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-xl transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 z-[20]">
-                  <img src="/tools/2.3.png" alt="Webflow" className="w-full h-full object-cover rounded-2xl" />
-                </div>
-                <div className="w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center shadow-xl transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 z-[10]">
-                  <img src="/tools/2.4.webp" alt="V0" className="w-full h-full object-cover rounded-2xl" />
-                </div>
+                {[
+                  { src: "/tools/2.1.png", alt: "Figma", z: "z-[40]" },
+                  { src: "/tools/2.2.jpeg", alt: "Framer", z: "z-[30]" },
+                  { src: "/tools/2.3.png", alt: "Webflow", z: "z-[20]" },
+                  { src: "/tools/2.4.webp", alt: "V0", z: "z-[10]" },
+                ].map((tool) => (
+                  <div key={tool.alt} className={`relative w-14 h-14 md:w-[72px] md:h-[72px] rounded-[18px] md:rounded-[24px] shadow-[12px_0_20px_rgba(0,0,0,0.6),0_6px_12px_rgba(0,0,0,0.4)] transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 ${tool.z} flex-shrink-0 bg-[#111]`}>
+                    <img src={tool.src} alt={tool.alt} className="w-full h-full object-cover rounded-[18px] md:rounded-[24px]" />
+                    {/* 3D Glass/Bevel Overlay */}
+                    <div className="absolute inset-0 rounded-[18px] md:rounded-[24px] shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-6px_10px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.15)] pointer-events-none" />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
