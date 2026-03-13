@@ -1,28 +1,29 @@
-import avatar from "../assets/avatar.png";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function Hero() {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
+    const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <section 
-      className="relative min-h-[90vh] w-full flex flex-col items-center justify-between pb-10 px-6 md:px-[86px] pt-[40px]"
-      style={{
-        backgroundImage: 'url(/hero-bg.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      className="relative min-h-[90vh] w-full flex flex-col items-center justify-between pb-10 px-6 md:px-[86px] pt-[40px] overflow-hidden"
     >
+      {/* Animated Background */}
+      <div 
+        className="absolute inset-0 z-0 animate-bg-pulse"
+        style={{
+          backgroundImage: 'url(/hero-bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+      
       <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center pt-[110px]">
         
         {/* Top Avatar & Greeting */}
