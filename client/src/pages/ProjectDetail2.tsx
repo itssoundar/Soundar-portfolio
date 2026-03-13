@@ -26,7 +26,7 @@ export default function ProjectDetail2() {
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
           <h1 className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">
-            Building scalable design systems for AI-first products
+            Building a Scalable Design System for a Growing HR Platform
           </h1>
         </div>
 
@@ -48,10 +48,12 @@ export default function ProjectDetail2() {
             {/* Project Header */}
             <div className="mb-0">
               <h2 className="text-[28px] md:text-[34px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
-                Building scalable design systems for AI-first<br className="hidden md:block" /> products
+                Building a Scalable Design System<br className="hidden md:block" /> for a Growing HR Platform
               </h2>
               <p className="text-[#444] leading-[1.8] mb-12 text-[17px] font-medium tracking-wide">
-                A comprehensive design system built from the ground up for a rapidly growing AI product ecosystem. This project involved standardizing UI components, establishing robust accessibility guidelines, and creating a scalable token architecture that allowed multiple product teams to move fast without breaking the user experience.
+                Sense is an AI-powered recruiting platform that helps staffing agencies and enterprise teams manage hiring pipelines, automation, and analytics within a unified CRM.
+                <br /><br />
+                As the platform expanded across multiple modules, inconsistencies in UI patterns and components began to emerge. This project focused on revamping the CRM using the Genesis Design System to create a scalable and consistent product foundation.
               </p>
 
               {/* Project Meta Details */}
@@ -85,25 +87,22 @@ export default function ProjectDetail2() {
         <div className="mb-16">
           <h3 className="text-xl font-bold text-gray-900 mb-6">Introduction</h3>
           <p className="text-gray-600 leading-relaxed mb-6">
-            As the HR platform rapidly expanded its feature set, the user experience became fragmented and complex. The team faced several critical challenges:
+            As the CRM evolved, feature velocity increased — but visual consistency and interaction logic began fragmenting.
           </p>
           
           <div className="bg-gray-50 border border-gray-100 rounded-xl p-6 mb-8">
+            <p className="text-gray-900 font-medium mb-4">Multiple modules had:</p>
             <ul className="list-disc pl-5 space-y-3 text-gray-700 font-medium">
-              <li>Inconsistent UI patterns across different modules</li>
-              <li>Redundant components slowing down development</li>
-              <li>Different typography choices and spacing systems</li>
-              <li>Conflicting interaction behaviors that confused users</li>
+              <li>Inconsistent UI patterns</li>
+              <li>Redundant components</li>
+              <li>Different spacing and hierarchy logic</li>
+              <li>Conflicting interaction behaviors</li>
+              <li>The system worked, but it didn't feel unified.</li>
             </ul>
-            <div className="mt-6 pt-4 border-t border-gray-200">
-              <p className="text-gray-900 font-semibold italic">
-                The product worked, but it didn't feel unified.
-              </p>
-            </div>
           </div>
           
           <p className="text-gray-600 leading-relaxed">
-            This lack of cohesion impacted user adoption and significantly increased onboarding time for new enterprise clients.
+            This project focused on revamping the CRM using the Genesis Design System — not just as a visual refresh, but as a foundational system redesign.
           </p>
         </div>
 
@@ -111,16 +110,20 @@ export default function ProjectDetail2() {
         <div className="mb-16">
           <h3 className="text-xl font-bold text-gray-900 mb-6">My Role</h3>
           <p className="text-gray-600 leading-relaxed mb-4">
-            As the lead Product Designer, I drove the design system initiative from conception to launch:
+            As a Senior Product Designer, I led the CRM modernisation initiative using Genesis.
           </p>
+          <p className="text-gray-600 leading-relaxed mb-4">I initiated with:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
-            <li>Audited existing UI patterns across all products</li>
-            <li>Defined the foundational visual language (color, typography, spacing)</li>
-            <li>Created 150+ reusable Figma components</li>
-            <li>Partnered with engineering to align on implementation structure</li>
-            <li>Authored detailed documentation guidelines</li>
-            <li>Facilitated adoption across 3 separate product teams</li>
+            <li>Audited existing UI patterns across modules</li>
+            <li>Defined component architecture and token structure</li>
+            <li>Created reusable component patterns</li>
+            <li>Partnered with engineering to align on scalable implementation</li>
+            <li>Reduced UI debt and inconsistencies</li>
+            <li>Established governance guidelines for future features</li>
           </ul>
+          <p className="text-gray-600 leading-relaxed">
+            This wasn't cosmetic work, it was system stabilization.
+          </p>
         </div>
 
         {/* Problem Statement Section */}
@@ -129,11 +132,11 @@ export default function ProjectDetail2() {
           <div className="absolute top-4 right-4 text-white/10 text-9xl font-serif leading-none font-bold select-none pointer-events-none">"</div>
           <div className="relative z-10">
             <p className="text-lg md:text-xl leading-relaxed font-medium text-white/90 mb-6">
-              The platform had grown feature by feature without a unified design strategy, resulting in inconsistent UI patterns, slower development cycles, and increased cognitive load for users.
+              The CRM had grown feature-by-feature without a unified design system, resulting in inconsistent UI patterns, slower development cycles, and increased cognitive load for users.
             </p>
             <div className="border-l-4 border-indigo-400 pl-4 py-1">
               <p className="text-indigo-200 font-medium">The product was scaling.</p>
-              <p className="text-indigo-200 font-medium">The design language was not.</p>
+              <p className="text-indigo-200 font-medium mt-2">The design language was not.</p>
             </div>
           </div>
         </div>
@@ -141,12 +144,13 @@ export default function ProjectDetail2() {
         {/* Problem 1 Section */}
         <div className="mb-16">
           <h3 className="text-xl font-bold text-gray-900 mb-6">Problem 1: Inconsistent Patterns Across Modules</h3>
-          <p className="text-gray-600 mb-6">Users found it difficult to navigate because:</p>
+          <p className="text-gray-600 mb-6">Each module evolved independently.</p>
+          <p className="text-gray-900 font-medium mb-4">Examples:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Similar actions had different button styles and locations</li>
-            <li>Data tables presented information using conflicting structures</li>
-            <li>Form inputs and error states varied wildly</li>
-            <li>Modal behaviors lacked standardization</li>
+            <li>Buttons had varying sizes and hierarchy rules</li>
+            <li>Form layouts differed between hiring and analytics modules</li>
+            <li>Table interactions were inconsistent</li>
+            <li>Modal behaviors varied across flows</li>
           </ul>
 
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
@@ -159,13 +163,13 @@ export default function ProjectDetail2() {
             </div>
           </div>
           
-          <div className="bg-red-50 text-red-800 p-4 rounded-lg border border-red-100">
-            <p className="font-semibold mb-2">Impact:</p>
-            <ul className="list-disc pl-5 space-y-1 text-sm">
-              <li>Higher onboarding time for new users</li>
-              <li>Increased support tickets</li>
-              <li>Slower feature discovery</li>
-              <li>Loss of brand trust</li>
+          <div className="mt-8">
+            <p className="font-semibold text-gray-900 mb-2">Impact:</p>
+            <ul className="list-disc pl-5 space-y-1 text-gray-600">
+              <li>Higher onboarding time for recruiters</li>
+              <li>Increased QA issues</li>
+              <li>Slower design-to-dev cycles</li>
+              <li>Lack of brand cohesion</li>
             </ul>
           </div>
         </div>
@@ -173,23 +177,17 @@ export default function ProjectDetail2() {
         {/* Problem 2 Section */}
         <div className="mb-16">
           <h3 className="text-xl font-bold text-gray-900 mb-6">Problem 2: High UI Debt & Low Reusability</h3>
-          <p className="text-gray-600 mb-6">Without a centralized component library:</p>
+          <p className="text-gray-600 mb-6">Without a structured component system:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Engineers rebuilt the same components repeatedly</li>
-            <li>Designers spent too much time on basic UI decisions</li>
-            <li>Code base became bloated and hard to maintain</li>
-            <li>Quality assurance took twice as long</li>
+            <li>Designers recreated patterns repeatedly</li>
+            <li>Engineers implemented similar components differently</li>
+            <li>Small UI changes required large refactors</li>
+            <li>Feature delivery slowed over time</li>
           </ul>
 
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
-             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Code and UI debt examples" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
-              />
-            </div>
-          </div>
+          <p className="text-gray-600 leading-relaxed">
+            The absence of a scalable foundation was increasing long-term cost.
+          </p>
         </div>
 
         {/* Goals Section */}
@@ -202,20 +200,20 @@ export default function ProjectDetail2() {
             </div>
             <div className="md:col-span-9 space-y-6">
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Improve Product Consistency Across All Modules</p>
-                <p className="text-gray-600 text-sm ml-4">Establish a cohesive brand identity and user experience across the entire platform.</p>
+                <p className="font-bold text-gray-900 mb-1">• Improve Product Consistency Across CRM Modules</p>
+                <p className="text-gray-600 text-sm ml-4">Ensure a unified design language and interaction model across all CRM surfaces.</p>
               </div>
               <div>
                 <p className="font-bold text-gray-900 mb-1">• Reduce Design-to-Development Cycle Time</p>
-                <p className="text-gray-600 text-sm ml-4">Streamline the handoff process and empower developers to build features faster.</p>
+                <p className="text-gray-600 text-sm ml-4">Streamline the handoff process and reusable components to accelerate delivery.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Improve Platform Scalability & Evolution</p>
-                <p className="text-gray-600 text-sm ml-4">Create a scalable foundation that accommodates future features without breaking existing UI.</p>
+                <p className="font-bold text-gray-900 mb-1">• Improve Platform Stickiness & Retention</p>
+                <p className="text-gray-600 text-sm ml-4">Introduce standardized components and patterns to reduce inconsistencies and cognitive load.</p>
               </div>
               <div>
                 <p className="font-bold text-gray-900 mb-1">• Enable Faster Feature Experimentation</p>
-                <p className="text-gray-600 text-sm ml-4">Provide a robust set of building blocks allowing product teams to test ideas quickly and safely.</p>
+                <p className="text-gray-600 text-sm ml-4">Create a scalable system that allows teams to test and iterate on new features quickly.</p>
               </div>
             </div>
           </div>
@@ -231,15 +229,15 @@ export default function ProjectDetail2() {
               </div>
               <div>
                 <p className="font-bold text-gray-900 mb-1">• Predictable Workflows</p>
-                <p className="text-gray-600 text-sm ml-4">Design clear user flows that clearly communicate the next steps to complete a task.</p>
+                <p className="text-gray-600 text-sm ml-4">Design structured flows that reduce friction and make task completion easier.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Reduced Cognitive Load When Context Switching</p>
-                <p className="text-gray-600 text-sm ml-4">Maintain visual harmony so moving between modules feels seamless and intuitive.</p>
+                <p className="font-bold text-gray-900 mb-1">• Reduced Cognitive Switching Across Modules</p>
+                <p className="text-gray-600 text-sm ml-4">Maintain similar layouts and behaviors across CRM areas to minimize mental load.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Faster Onboarding for New HR Admins</p>
-                <p className="text-gray-600 text-sm ml-4">Simplify the interface so new users can get up to speed without extensive training.</p>
+                <p className="font-bold text-gray-900 mb-1">• Faster Onboarding for New Recruiters</p>
+                <p className="text-gray-600 text-sm ml-4">Simplify the interface so new users can quickly learn and start using the platform.</p>
               </div>
             </div>
           </div>
@@ -267,23 +265,27 @@ export default function ProjectDetail2() {
           </div>
 
           <p className="text-gray-600 leading-relaxed mb-6">
-            We conducted a full visual audit to catalog every existing UI element. We discovered 14 button variations, 8 dropdown styles, and 5 different table designs.
+            We conducted a full UI audit across the CRM, identifying duplicated components, inconsistent patterns, and deviation from Genesis standards.
           </p>
 
-          <p className="text-gray-600 font-medium mb-4">I structured the new architecture into:</p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li><strong>Base primitives:</strong> Typography, Colors, Spacing</li>
-            <li><strong>Core components:</strong> Buttons, Inputs, Tooltips</li>
-            <li><strong>Complex patterns:</strong> Data tables, Navigation, Modals</li>
+          <p className="text-gray-600 font-medium mb-4">I redefined the component hierarchy:</p>
+          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+            <li><strong>Base components</strong> (Buttons, Inputs, Toggles)</li>
+            <li><strong>Composite components</strong> (Forms, Tables, Cards)</li>
+            <li><strong>Complex modules</strong> (Workflow builders, Analytics layouts)</li>
           </ul>
 
+          <p className="text-gray-600 leading-relaxed mb-8">
+            We aligned everything to Genesis token structure (spacing, typography, color, states).
+          </p>
+
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="font-bold text-indigo-900 mb-2">Why it works:</p>
+            <p className="font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
-              <li>Establishes a single source of truth</li>
-              <li>Reduces visual inconsistency</li>
-              <li>Creates clear rules for when to use which component</li>
-              <li>Builds trust and predictability for the user</li>
+              <li>Eliminated redundant UI patterns</li>
+              <li>Reduced visual inconsistency</li>
+              <li>Created single source of truth for components</li>
+              <li>Improved scalability for future modules</li>
             </ul>
           </div>
         </div>
@@ -310,23 +312,27 @@ export default function ProjectDetail2() {
           </div>
 
           <p className="text-gray-600 leading-relaxed mb-4">
-            Built a comprehensive Figma component library utilizing the latest features (auto-layout, variants, properties). The library included:
+            I built a centralized CRM component library aligned with Genesis, including:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Interactive states (hover, active, disabled)</li>
-            <li>Dark/Light mode support</li>
-            <li>Responsive behaviors</li>
-            <li>Accessibility compliance guidelines</li>
-            <li>Extensive usage documentation</li>
+          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+            <li>Standardized form systems</li>
+            <li>Unified table design</li>
+            <li>Status indicators</li>
+            <li>Modal and drawer patterns</li>
+            <li>Interaction states (hover, focus, error, loading)</li>
           </ul>
 
+          <p className="text-gray-600 leading-relaxed mb-8">
+            Each component included clear usage guidelines and edge cases.
+          </p>
+
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="font-bold text-indigo-900 mb-2">Why it works:</p>
+            <p className="font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
-              <li>Speeds up design workflow by 40%</li>
-              <li>Improves developer hand-off significantly</li>
-              <li>Eliminates "pixel-pushing" in day-to-day work</li>
-              <li>Ensures ADA compliance across the board</li>
+              <li>Reduced design redundancy by ~40%</li>
+              <li>Improved design-to-dev alignment</li>
+              <li>Increased implementation consistency</li>
+              <li>Accelerated feature design cycles</li>
             </ul>
           </div>
         </div>
@@ -346,23 +352,27 @@ export default function ProjectDetail2() {
           </div>
 
           <p className="text-gray-600 leading-relaxed mb-4">
-            Standardized complex layouts and interactions including:
+            Beyond visuals, I standardized:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Page structures and max widths</li>
-            <li>Global navigation patterns</li>
-            <li>Data table filtering and sorting</li>
-            <li>Form validation and error handling</li>
-            <li>Empty states and loading skeletons</li>
+          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+            <li>Grid systems</li>
+            <li>Spacing logic</li>
+            <li>Responsive behavior</li>
+            <li>Navigation patterns</li>
+            <li>AI module integration patterns</li>
           </ul>
 
+          <p className="text-gray-600 leading-relaxed mb-8">
+            We aligned complex modules (AI, Analytics, Workflows) to consistent layout logic.
+          </p>
+
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="font-bold text-indigo-900 mb-2">Why it works:</p>
+            <p className="font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
-              <li>Reduces user learning curve for new features</li>
-              <li>Provides a predictable experience across the platform</li>
-              <li>Helps users scan information faster</li>
-              <li>Minimizes destructive actions through standardized safeguards</li>
+              <li>Reduced cognitive load across modules</li>
+              <li>Improved onboarding experience for new recruiters</li>
+              <li>Reduced UI-related QA issues by ~28%</li>
+              <li>Enabled scalable integration of new AI features</li>
             </ul>
           </div>
         </div>
@@ -371,111 +381,110 @@ export default function ProjectDetail2() {
         <div className="mb-16 border-t border-gray-200 pt-16">
           <h3 className="text-2xl font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
           <p className="text-gray-600 leading-relaxed mb-8">
-            While the core system was successfully launched and adopted, a design system is never truly "done". If I had another 6 months on the project, I would have prioritized the following initiatives:
+            Although Genesis significantly improved product consistency and development efficiency, the next phase would focus on measuring adoption, strengthening governance, and expanding the system's impact across the platform.
           </p>
           
           <div className="space-y-8">
             <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">1. Implement Design System Analytics Metrics</h4>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">1. Implement Design System Adoption Metrics</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Currently, we measure success qualitatively through developer and designer feedback. I would implement telemetry analytics within our React components to track actual usage rates. Knowing which components are heavily used vs. rarely used would inform our prioritization roadmap and help deprecate unused patterns.
+                To understand how effectively Genesis is being used across teams, I would introduce adoption metrics that track usage across products and modules. These insights would help identify gaps in adoption and areas where teams might still rely on custom implementations.
               </p>
             </div>
             
             <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">2. Build Automated Design Validations</h4>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">2. Build Component Usage Analytics</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Integrate tooling directly into the CI/CD pipeline that flags UI regressions. By introducing visual regression testing (like Percy or Chromatic), we could automatically catch UI inconsistencies before they hit staging, ensuring the coded application perfectly matches the design tokens.
+                I would introduce analytics to measure how frequently design system components are used and where deviations occur. This would help ensure teams consistently use standardized components and highlight opportunities to improve the system.
               </p>
             </div>
             
             <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">3. Formalize the Component Contribution Process</h4>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">3. Formalize Governance Review Process</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Establish a clear, documented governance model for when and how product teams can propose new components or patterns back to the core system. This would transform the system from a top-down mandate to a community-driven ecosystem.
+                Establishing a governance model would ensure that new patterns and components follow consistent design principles. Regular reviews would help maintain quality and prevent fragmentation as the system scales.
               </p>
             </div>
 
             <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">4. Comprehensive Accessibility Testing</h4>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">4. Document Contribution Model</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                While color contrast and basic ARIA roles were handled, I would conduct deep accessibility audits using screen readers (VoiceOver/JAWS) and keyboard navigation across all complex components (like data tables and multi-select dropdowns) to ensure strict WCAG 2.1 AA compliance.
+                A clear contribution process for designers and engineers would enable teams to propose improvements to Genesis while maintaining system integrity. This would encourage collaboration while ensuring changes align with the design system standards.
               </p>
             </div>
             
             <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">5. Expand Theming System for White-labeling</h4>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">5. Expand Genesis Across AI-Driven Modules</h4>
               <p className="text-gray-600 text-sm leading-relaxed">
-                As the company explores enterprise white-labeling, the design tokens architecture needs to be refactored to support deep theme customization (beyond just light/dark mode) allowing enterprise clients to inject their own brand colors and typography seamlessly.
+                As the CRM evolves, integrating Genesis into AI-powered modules would ensure the same consistency and usability across emerging product capabilities, strengthening the overall platform experience.
               </p>
             </div>
           </div>
         </div>
 
         {/* Impact Summary Section */}
-        <div className="mb-16">
+        <div className="mb-16 border-t border-gray-200 pt-16">
           <h3 className="text-xl font-bold text-gray-900 mb-6">Impact Summary</h3>
           
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-3 gap-4 mb-8">
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
-              <h4 className="text-4xl font-bold mb-4">30%</h4>
-              <p className="font-semibold text-lg mb-2 leading-tight">Faster Design-to-Development Turnaround</p>
-              <p className="text-white/70 text-sm">Reduced UI bugs during QA significantly because engineers were using pre-built, tested components rather than custom building each time.</p>
+              <h4 className="text-2xl font-bold mb-2">30%</h4>
+              <p className="font-semibold text-lg mb-4 leading-tight">Faster design-to-development turnaround</p>
+              <p className="text-white/80 text-sm">Improved design system consistency helped teams ship features faster and reduced handoff friction between design and engineering.</p>
             </div>
             
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
-              <h4 className="text-4xl font-bold mb-4">25%</h4>
-              <p className="font-semibold text-lg mb-2 leading-tight">Reduction in UI Inconsistency Bugs</p>
-              <p className="text-white/70 text-sm">Streamlined QA processes with fewer visual regressions reported across different modules.</p>
+              <h4 className="text-2xl font-bold mb-2">28%</h4>
+              <p className="font-semibold text-lg mb-4 leading-tight">Reduction in UI inconsistency bugs</p>
+              <p className="text-white/80 text-sm">Standardized components and interaction patterns reduced UI-related issues across CRM modules.</p>
             </div>
             
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
-              <h4 className="text-4xl font-bold mb-4">40+</h4>
-              <p className="font-semibold text-lg mb-2 leading-tight">Reduction in Deprecated Design Assets</p>
-              <p className="text-white/70 text-sm">Cleaned up legacy files and consolidated components, creating a leaner and more performant design workspace.</p>
+              <h4 className="text-2xl font-bold mb-2">40%+</h4>
+              <p className="font-semibold text-lg mb-4 leading-tight">Reduction in duplicated design work</p>
+              <p className="text-white/80 text-sm">Shared design patterns eliminated redundant work across teams and improved design efficiency.</p>
             </div>
           </div>
           
-          <p className="text-gray-600 mt-6 italic text-center text-sm">
-            *Metrics gathered during the 6 months post-launch via engineering velocity tracking and QA ticket volume analysis.
+          <p className="text-gray-600 leading-relaxed mb-16">
+            More importantly, The CRM now feels like one cohesive product, not multiple stitched-together modules.
           </p>
-        </div>
 
-        {/* Closing Reflection */}
-        <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Closing Reflection</h3>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            This project taught me a valuable lesson building UI systems:
-          </p>
-          <p className="text-gray-800 font-medium leading-relaxed mb-6 italic pl-4 border-l-4 border-gray-300">
-            A design system is only as good as its adoption rate among engineers and PMs.
-          </p>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            The technical execution (Figma setup, React props, CSS architecture) is only half the battle. The other half is advocacy, education, support, and building trust with the people who will use it every day.
-          </p>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            The system was a success because we treated it like a product itself.
-          </p>
+          {/* Closing Reflection */}
+          <div className="border-t border-gray-200 pt-12">
+            <h3 className="text-xl font-bold text-gray-900 mb-6">Closing Reflection</h3>
+            <div className="space-y-6 text-gray-600 leading-relaxed">
+              <p>This project wasn't about adding AI to search.</p>
+              <p>It was about redesigning the interaction model of an enterprise CRM.</p>
+              <p>As a Senior Product Designer, I drove the shift from configuration-heavy workflows to intent-driven execution balancing speed, control, and trust in AI systems.</p>
+              <p>The result was not just feature improvement.</p>
+              <p>It was a mental model transformation.</p>
+            </div>
+          </div>
         </div>
         
         {/* Next Project Footer */}
         <div className="pt-12 border-t border-gray-200 flex justify-between items-center mt-20">
-          <a href="/" className="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-2 transition-colors">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            Back to Home
-          </a>
-          
-          <a href="#" className="text-gray-900 hover:text-indigo-600 font-medium flex flex-col items-end transition-colors group">
-            <span className="text-xs text-gray-500 mb-1 group-hover:text-indigo-400 transition-colors">Next Project</span>
-            <span className="flex items-center gap-2">
-              AI Chatbot Interface
+          <Link href="/">
+            <a className="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-2 transition-colors">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
               </svg>
-            </span>
-          </a>
+              Back to Home
+            </a>
+          </Link>
+          
+          <Link href="/project/3">
+            <a className="text-gray-900 hover:text-indigo-600 font-medium flex flex-col items-end transition-colors group">
+              <span className="text-xs text-gray-500 mb-1 group-hover:text-indigo-400 transition-colors">Next Project</span>
+              <span className="flex items-center gap-2">
+                Next Case Study
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+          </Link>
         </div>
       </div>
       </div>
