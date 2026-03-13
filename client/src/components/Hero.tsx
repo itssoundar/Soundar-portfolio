@@ -60,7 +60,7 @@ export function Hero() {
         className="absolute bottom-[25%] right-[5%] w-[120px] h-auto opacity-50 pointer-events-none hidden md:block transition-transform duration-75"
         style={{ transform: `translateY(${scrollY * 0.45}px)` }}
       />
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center pt-[15vh]">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center pt-[110px]">
         
         {/* Top Avatar & Greeting */}
         <div className="flex items-center gap-2 mb-10">
