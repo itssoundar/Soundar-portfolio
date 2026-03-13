@@ -48,10 +48,15 @@ export default function ProjectDetail() {
               }}
             />
           </div>
+        </div>
+      </div>
 
-          <div className="w-full pb-12">
+      {/* Project Overview Section */}
+      <div className="w-full bg-gray-50 py-16 lg:py-24 border-b border-gray-200">
+        <div className="max-w-[1000px] mx-auto px-4 md:px-8">
+          <div className="w-full">
             {/* Project Header */}
-            <div className="mb-10">
+            <div className="mb-0">
               <h2 className="text-[28px] md:text-[34px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
                 Building a Scalable Design System for a Growing HR<br className="hidden md:block" /> Platform
               </h2>
@@ -63,7 +68,7 @@ export default function ProjectDetail() {
               </p>
 
               {/* Project Meta Details */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 pb-10 border-t border-b border-gray-200 mb-16">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 pb-4 border-t border-gray-200">
                 <div>
                   <p className="text-[17px] text-[#111] font-semibold mb-1 tracking-tight">App Name / Client</p>
                   <p className="text-[16px] text-[#555]">Sense</p>
@@ -82,6 +87,13 @@ export default function ProjectDetail() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Case Study Content Section */}
+      <div className="w-full bg-white py-16 lg:py-24 relative z-10">
+        <div className="max-w-[1000px] mx-auto px-4 md:px-8">
 
         {/* Introduction Section */}
         <div className="mb-16">
