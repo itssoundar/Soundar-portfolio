@@ -43,7 +43,6 @@ export function Projects() {
   return (
     <section className="relative w-full bg-[#f8f9fa] pb-32 px-6 md:px-[86px] pt-12 -mt-16 z-20">
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-[#f8f9fa]/80 to-[#f8f9fa] pointer-events-none -translate-y-full z-10" />
-      
       <div className="relative z-20 w-full max-w-[1100px] mx-auto overflow-visible">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
@@ -72,7 +71,7 @@ export function Projects() {
                   </div>
 
                   {/* Project Content */}
-                  <div className="w-full md:w-[55%] flex flex-col justify-center py-6 pr-6 md:pr-12">
+                  <div className="w-full md:w-[55%] flex flex-col justify-center py-6 md:pr-12 pt-[0px] pb-[12px] pl-[12px] pr-[12px]">
                     <div className="mb-6">
                       <h3 className="text-[24px] md:text-[28px] font-medium text-[#111] tracking-[-0.01em] leading-[1.3]">
                         {project.title}
