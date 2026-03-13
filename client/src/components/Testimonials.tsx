@@ -160,7 +160,7 @@ export function Testimonials() {
           ease: [0.16, 1, 0.3, 1],
           opacity: { duration: 0.8 }
         }}
-        className="container px-4 z-10 mx-auto max-w-[1200px]"
+        className="container px-4 z-10 mx-auto max-w-[1200px] ml-[0px] mr-[0px]"
       >
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center lg:items-start justify-between w-full">
           {/* Left Side */}
