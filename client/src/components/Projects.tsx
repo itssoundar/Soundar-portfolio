@@ -5,10 +5,10 @@ export function Projects() {
       <div className="relative z-20 w-full max-w-[1200px] mx-auto overflow-visible">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.1]">
-            Selected <span className="font-serif italic font-normal text-[#111] text-[40px]">Projects</span>
+          <h2 className="text-[32px] font-medium text-[#222] tracking-[-0.02em] leading-[1.1]">
+            Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
           </h2>
-          <p className="text-[#666] text-[14px] md:text-[15px] leading-[1.6] max-w-[600px] mt-6 tracking-wide">
+          <p className="text-[#666] text-[18px] leading-[1.6] max-w-[600px] mt-6 tracking-wide">
             From early-stage ambiguity to scalable systems, I design solutions that translate innovation into real impact
           </p>
         </div>
@@ -32,11 +32,11 @@ export function Projects() {
 
               {/* Project Content */}
               <div className="w-full md:w-[55%] flex flex-col justify-center">
-                <h3 className="text-[1.8rem] md:text-[2rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.2] mb-4">
+                <h3 className="text-[24px] font-medium text-[#222] tracking-[-0.02em] leading-[1.2] mb-4">
                   Transforming CRM workflows with an <span className="font-serif italic font-normal">AI-Agent Builder</span>
                 </h3>
                 
-                <ul className="space-y-3 text-[#555] text-[14px] md:text-[15px] leading-[1.6]">
+                <ul className="space-y-3 text-[#555] text-[18px] leading-[1.6]">
                   <li className="flex gap-3">
                     <span className="text-[#888] flex-shrink-0">•</span>
                     <span>Generate hiring workflows instantly through natural language prompts.</span>
@@ -74,11 +74,11 @@ export function Projects() {
 
               {/* Project Content */}
               <div className="w-full md:w-[55%] flex flex-col justify-center">
-                <h3 className="text-[1.8rem] md:text-[2rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.2] mb-4">
+                <h3 className="text-[24px] font-medium text-[#222] tracking-[-0.02em] leading-[1.2] mb-4">
                   Building scalable <span className="font-serif italic font-normal">design systems</span> for AI-first products
                 </h3>
                 
-                <ul className="space-y-3 text-[#555] text-[14px] md:text-[15px] leading-[1.6]">
+                <ul className="space-y-3 text-[#555] text-[18px] leading-[1.6]">
                   <li className="flex gap-3">
                     <span className="text-[#888] flex-shrink-0">•</span>
                     <span>Comprehensive component library with accessibility standards built-in.</span>
@@ -116,11 +116,11 @@ export function Projects() {
 
               {/* Project Content */}
               <div className="w-full md:w-[55%] flex flex-col justify-center">
-                <h3 className="text-[1.8rem] md:text-[2rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.2] mb-4">
+                <h3 className="text-[24px] font-medium text-[#222] tracking-[-0.02em] leading-[1.2] mb-4">
                   Crafting seamless <span className="font-serif italic font-normal">conversational interfaces</span> for B2B
                 </h3>
                 
-                <ul className="space-y-3 text-[#555] text-[14px] md:text-[15px] leading-[1.6]">
+                <ul className="space-y-3 text-[#555] text-[18px] leading-[1.6]">
                   <li className="flex gap-3">
                     <span className="text-[#888] flex-shrink-0">•</span>
                     <span>Designed an intuitive chat-based interface for complex enterprise workflows.</span>

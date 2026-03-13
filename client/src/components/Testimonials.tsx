@@ -114,7 +114,7 @@ const TestimonialsColumn = (props: {
                   className="p-6 md:p-8 rounded-[20px] border border-gray-200/80 shadow-sm w-full bg-white transition-all duration-300 cursor-default select-none group focus:outline-none focus:ring-2 focus:ring-primary/30 relative overflow-hidden" 
                 >
                   <blockquote className="m-0 p-0 h-full flex flex-col relative z-10 gap-6 md:gap-8">
-                    <p className="text-[#555] group-hover:text-[#222] text-[15px] md:text-[17px] leading-[1.6] m-0 transition-colors duration-300">
+                    <p className="text-[#555] group-hover:text-[#222] text-[18px] leading-[1.6] m-0 transition-colors duration-300">
                       {text}
                     </p>
                     <footer className="flex items-center gap-4 transition-colors duration-300">
@@ -126,10 +126,10 @@ const TestimonialsColumn = (props: {
                         className="h-11 w-11 rounded-full object-cover transition-all duration-300 ease-in-out"
                       />
                       <div className="flex flex-col">
-                        <cite className="font-semibold text-[#111] text-[15px] not-italic tracking-tight transition-colors duration-300">
+                        <cite className="font-semibold text-[#111] text-[18px] not-italic tracking-tight transition-colors duration-300">
                           {name}
                         </cite>
-                        <span className="text-[#666] text-[13px] tracking-wide mt-0.5 transition-colors duration-300">
+                        <span className="text-[#666] text-[18px] tracking-wide mt-0.5 transition-colors duration-300">
                           {role}
                         </span>
                       </div>
@@ -165,14 +165,14 @@ export function Testimonials() {
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center lg:items-start justify-between w-full">
           {/* Left Side */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:sticky lg:top-32 max-w-xl shrink-0 lg:pt-12">
-            <h2 id="testimonials-heading" className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-medium tracking-[-0.02em] leading-[1.1] text-[#222]">
+            <h2 id="testimonials-heading" className="text-[32px] font-medium tracking-[-0.02em] leading-[1.1] text-[#222]">
               See what <span className="text-[#111]">others</span><br className="hidden lg:block" />
               say about me
             </h2>
-            <p className="mt-6 text-[#666] text-[15px] md:text-[17px] leading-[1.6] max-w-md tracking-wide">
+            <p className="mt-6 text-[#666] text-[18px] leading-[1.6] max-w-md tracking-wide">
               I have helped many businesses make a killer design for their product. Wanna be the next?
             </p>
-            <a href="#contact" className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-[#B2F042] px-8 py-4 text-[15px] font-semibold text-black transition-all hover:scale-105 hover:bg-[#a0dc3b] shadow-sm">
+            <a href="#contact" className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-[#B2F042] px-8 py-4 text-[18px] font-semibold text-black transition-all hover:scale-105 hover:bg-[#a0dc3b] shadow-sm">
               Contact
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M7 17l9.2-9.2M17 17V7H7"/>

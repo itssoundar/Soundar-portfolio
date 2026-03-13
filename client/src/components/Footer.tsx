@@ -15,11 +15,11 @@ export function Footer() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 md:mb-24"
         >
-          <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.1] mb-6">
+          <h2 className="text-[32px] font-medium text-[#222] tracking-[-0.02em] leading-[1.1] mb-6">
             If something here caught your eye, sparked a<br />
             thought, <span className="font-serif italic font-normal text-[#111]">lets talk!</span>
           </h2>
-          <p className="text-[#666] text-[14px] md:text-[15px] leading-[1.6] max-w-[500px] mx-auto tracking-wide">
+          <p className="text-[#666] text-[18px] leading-[1.6] max-w-[500px] mx-auto tracking-wide">
             From concept to launch, we create seamless digital<br />
             experiences that resonate with your audience.
           </p>
@@ -37,9 +37,9 @@ export function Footer() {
           <a href="mailto:rsoundar1998@gmail.com" className="flex items-center justify-between group">
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <Mail className="w-5 h-5" strokeWidth={1.5} />
-              <span className="text-[15px] font-medium">Email</span>
+              <span className="text-[18px] font-medium">Email</span>
             </div>
-            <span className="text-[15px] text-[#666] group-hover:text-[#222] underline underline-offset-4 decoration-[#666]/30 group-hover:decoration-[#222]/50 transition-all">
+            <span className="text-[18px] text-[#666] group-hover:text-[#222] underline underline-offset-4 decoration-[#666]/30 group-hover:decoration-[#222]/50 transition-all">
               rsoundar1998@gmail.com
             </span>
           </a>
@@ -48,9 +48,9 @@ export function Footer() {
           <a href="#" className="flex items-center justify-between group">
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <Linkedin className="w-5 h-5" strokeWidth={1.5} />
-              <span className="text-[15px] font-medium">LinkedIn</span>
+              <span className="text-[18px] font-medium">LinkedIn</span>
             </div>
-            <span className="text-[15px] text-[#666] group-hover:text-[#222] underline underline-offset-4 decoration-[#666]/30 group-hover:decoration-[#222]/50 transition-all">
+            <span className="text-[18px] text-[#666] group-hover:text-[#222] underline underline-offset-4 decoration-[#666]/30 group-hover:decoration-[#222]/50 transition-all">
               /in/soundarr/
             </span>
           </a>
@@ -59,9 +59,9 @@ export function Footer() {
           <a href="#" className="flex items-center justify-between group">
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <FileText className="w-5 h-5" strokeWidth={1.5} />
-              <span className="text-[15px] font-medium">Resume</span>
+              <span className="text-[18px] font-medium">Resume</span>
             </div>
-            <span className="text-[15px] text-[#666] group-hover:text-[#222] underline underline-offset-4 decoration-[#666]/30 group-hover:decoration-[#222]/50 transition-all">
+            <span className="text-[18px] text-[#666] group-hover:text-[#222] underline underline-offset-4 decoration-[#666]/30 group-hover:decoration-[#222]/50 transition-all">
               Download CV
             </span>
           </a>
@@ -75,7 +75,7 @@ export function Footer() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col items-center gap-3"
         >
-          <p className="text-[#444] text-[14px] flex items-center gap-2">
+          <p className="text-[#444] text-[18px] flex items-center gap-2">
             Crafting scalable design systems 
             <img 
               src="/hi-hand.png" 
@@ -84,7 +84,7 @@ export function Footer() {
             /> 
             and fueled by matcha!
           </p>
-          <p className="text-[#888] text-[13px]">
+          <p className="text-[#888] text-[18px]">
             © 2026 DznwithSoundar
           </p>
         </motion.div>

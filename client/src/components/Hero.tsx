@@ -67,7 +67,7 @@ export function Hero() {
           <div className="w-[50px] h-[50px] flex items-center justify-center">
             <img src="/Soundar.png" alt="Soundar avatar" className="w-full h-full object-cover rounded-full drop-shadow-sm" />
           </div>
-          <span className="text-[#333] font-medium text-[15px] tracking-wide mt-1">
+          <span className="text-[#333] font-medium text-[18px] tracking-wide mt-1">
             Hey ..! I'm Soundar ,
           </span>
         </div>
@@ -80,7 +80,7 @@ export function Hero() {
             to <span className="inline-flex items-center text-[#888] font-light mx-1">→</span> what <span className="font-serif italic font-normal text-[#111]">users can rely on.</span>
           </h1>
           
-          <p className="text-[#444] max-w-[700px] text-[20px] leading-[1.5] text-center mt-6 font-normal">
+          <p className="text-[#444] max-w-[700px] text-[18px] leading-[1.5] text-center mt-6 font-normal">
             Translating 0→1 chaos into usable, scalable design systems <br className="hidden md:block" />
             across B2B, SaaS, and AI-first products.
           </p>
