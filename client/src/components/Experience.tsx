@@ -4,31 +4,64 @@ export function Experience() {
       role: "Senior Product Designer",
       company: "@Sense",
       period: "May 2024 - Present",
-      description: "Over the past year, I have advanced from a product designer to a design system manager, which has allowed me to expand my understanding of the overall strategic vision."
+      description: (
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Design System (Genesis): Built 40+ components for scalability & consistency.</li>
+          <li>Chatbot Optimisation: Prevented $40k churn, enhancing ABT goals.</li>
+          <li>CRM Analytics Dashboard: Designed intuitive data visualisation for insights.</li>
+          <li>Ask AI - Dashboard Analytics: Improved AI-driven decision-making.</li>
+          <li>Messaging Translation Flows: Streamlined multi-language communication.</li>
+        </ul>
+      )
     },
     {
       role: "Product Designer",
       company: "@Glance",
       period: "Oct 2023 - May 2024",
-      description: "Over the past year, I have advanced from a product designer to a design system manager, which has allowed me to expand my understanding of the overall strategic vision."
+      description: (
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Roposo Clout Dashboard: Optimized Weight Discrepancy Flow for efficiency.</li>
+          <li>Onboarding Business Flow: Redesigned onboarding, reducing drop-offs by 15%.</li>
+          <li>Interactive Popup UI: Achieved a 12.5% CTR increase in app downloads.</li>
+          <li>Guess the Price Flow: Crafted engaging UX with micro-interactions.</li>
+          <li>Boosted overall user engagement by 20%.</li>
+        </ul>
+      )
     },
     {
       role: "Product Designer",
       company: "@Redbaton",
       period: "Jan 2023 - May 2023",
-      description: "Over the past year, I have advanced from a product designer to a design system manager, which has allowed me to expand my understanding of the overall strategic vision."
+      description: (
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Web Design: Led user-centric website projects.</li>
+          <li>Responsive UI: Crafted seamless, adaptive designs.</li>
+          <li>Micro-Interactions: Enhanced UX with engaging animations & variants.</li>
+        </ul>
+      )
     },
     {
       role: "UI UX Designer",
       company: "@Metafic",
       period: "Jun 2021 - Dec 2022",
-      description: "Over the past year, I have advanced from a product designer to a design system manager, which has allowed me to expand my understanding of the overall strategic vision."
+      description: (
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Designed intuitive interfaces & enhanced the design system.</li>
+          <li>Led cross-functional collaboration and multi-project management.</li>
+          <li>Conducted competitive research for UX optimization.</li>
+        </ul>
+      )
     },
     {
       role: "Freelancer",
       company: "",
       period: "2019 - Dec 2020",
-      description: "Over the past year, I have advanced from a product designer to a design system manager, which has allowed me to expand my understanding of the overall strategic vision."
+      description: (
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Delivered end-to-end design solutions for diverse clients.</li>
+          <li>Managed project timelines, client communication, and deliverables.</li>
+        </ul>
+      )
     }
   ];
 
@@ -65,9 +98,9 @@ export function Experience() {
                   {exp.period}
                 </span>
               </div>
-              <p className="text-[#888888] text-[18px] leading-[1.6] max-w-[600px] font-normal tracking-wide font-sans">
+              <div className="text-[#888888] text-[15px] md:text-[17px] leading-[1.6] max-w-[700px] font-normal tracking-wide font-sans">
                 {exp.description}
-              </p>
+              </div>
             </div>
           ))}
         </div>
