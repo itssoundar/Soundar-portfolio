@@ -71,25 +71,17 @@ export function Hero() {
         </div>
 
         {/* Main Headline Section */}
-        <div className="flex flex-col items-center text-center w-full">
-          <h1 className="text-[2rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.5rem] text-[#222] tracking-[-0.02em] font-medium leading-[1.1]">
-            Multidisciplinary Designer
+        <div className="flex flex-col items-center text-center w-full mt-4">
+          <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] text-[#111] tracking-[-0.04em] font-semibold leading-[1.05] max-w-[1100px]">
+            Product Designer helping teams <br className="hidden lg:block" />
+            move <img src="/hero_inline.png" alt="design" className="inline-block align-middle w-[45px] h-[45px] md:w-[85px] md:h-[85px] object-cover rounded-[8px] md:rounded-[12px] mx-1 md:mx-3 shadow-md rotate-[6deg] -translate-y-1 md:-translate-y-3 border-[3px] md:border-[4px] border-white" /> beyond <br className="hidden lg:block" />
+            what looks good to <span className="inline-flex items-center text-[#888] font-light mx-1 md:mx-2">→</span> what <br className="hidden lg:block" />
+            users can rely on.
           </h1>
           
-          <h2 className="text-[1.8rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.25rem] text-[#222] tracking-[-0.02em] font-medium leading-[1.2] mt-3">
-            Believes in <span className="font-serif italic font-normal text-[#111]">Functional & Aesthetic</span>
-          </h2>
-          
-          <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-6 md:gap-5 mt-6 w-full">
-            <h2 className="text-[1.8rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.25rem] font-serif italic font-normal text-[#111] leading-[1.1] md:text-right pr-2">
-              For Brands & Products
-            </h2>
-            <p className="text-[#4a4a4a] max-w-[340px] text-[13px] md:text-[14.5px] leading-[1.6] text-center md:text-left pt-1 font-normal tracking-wide">
-              an AI Product Designer crafting agent builders,
-              conversational interfaces, and scalable design
-              systems for AI-first products.
-            </p>
-          </div>
+          <p className="text-[#666] max-w-[650px] text-[15px] md:text-[17px] leading-[1.6] text-center mt-6 md:mt-8 font-medium tracking-wide">
+            Translating 0→1 chaos into usable, scalable design systems across B2B, SaaS, and AI-first products.
+          </p>
         </div>
 
       </div>
