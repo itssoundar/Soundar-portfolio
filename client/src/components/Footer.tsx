@@ -3,7 +3,7 @@ import { Mail, Linkedin, FileText } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative w-full bg-white py-24 md:py-32 overflow-hidden flex flex-col items-center">
+    <footer className="relative w-full bg-white py-24 md:py-32 overflow-hidden flex flex-col items-center pt-[60px] pb-[60px]">
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-[800px] mx-auto px-6 flex flex-col items-center">
         
@@ -90,7 +90,6 @@ export function Footer() {
         </motion.div>
 
       </div>
-
       {/* Background Image at Bottom */}
       <div 
         className="absolute bottom-0 left-0 w-full h-[400px] md:h-[500px] pointer-events-none z-0 mix-blend-multiply"
