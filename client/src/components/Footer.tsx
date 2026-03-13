@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="relative w-full bg-white py-24 md:py-32 overflow-hidden flex flex-col items-center pt-[60px] pb-[60px]">
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-[800px] mx-auto px-6 flex flex-col items-center">
+      <div className="relative z-10 w-full max-w-[800px] mx-auto px-6 flex flex-col items-center mr-[0px] ml-[0px] pl-[0px] pr-[0px]">
         
         {/* Heading */}
         <motion.div 
