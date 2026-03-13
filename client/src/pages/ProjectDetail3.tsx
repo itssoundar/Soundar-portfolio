@@ -300,14 +300,14 @@ export default function ProjectDetail3() {
               <img 
                 src="/c3-s1-1.png" 
                 alt="Dashboard view 1" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+                className="w-full h-auto"
               />
             </div>
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
                 src="/c3-s1-2.png" 
                 alt="Dashboard view 2" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+                className="w-full h-auto"
               />
             </div>
           </div>
