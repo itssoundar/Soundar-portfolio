@@ -14,10 +14,10 @@ export default function ProjectDetail3() {
     <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-[0px]">
       <div className="fixed top-6 left-4 md:left-8 z-50">
         <Link href="/">
-<span className="bg-white/95 backdrop-blur-md flex items-center justify-center px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-2 border-black hover:bg-black transition-all group mt-[20px] ml-[40px]">
+          <span className="bg-white/95 backdrop-blur-md flex items-center justify-center px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-2 border-black hover:bg-black transition-all group mt-[20px] ml-[40px]">
             <ArrowLeft className="w-5 h-5 text-black group-hover:text-white group-hover:-translate-x-1 transition-all" strokeWidth={2.5} />
           </span>
-</Link>
+        </Link>
       </div>
       {/* Top Banner section */}
       <div 
@@ -26,7 +26,7 @@ export default function ProjectDetail3() {
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
           <h1 className="text-[36px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">
-            Crafting seamless conversational interfaces for B2B
+            CRM Analytics
           </h1>
         </div>
 
@@ -35,7 +35,7 @@ export default function ProjectDetail3() {
           <div className="rounded-t-xl md:rounded-t-2xl overflow-hidden shadow-2xl">
             <img 
               src={Case1} 
-              alt="HR Platform Dashboard" 
+              alt="CRM Analytics Dashboard" 
               className="w-full h-auto block"
             />
           </div>
@@ -48,10 +48,11 @@ export default function ProjectDetail3() {
             {/* Project Header */}
             <div className="mb-0">
               <h2 className="text-[24px] md:text-[34px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
-                Crafting seamless conversational interfaces for<br className="hidden md:block" /> B2B
+                CRM Analytics
               </h2>
               <p className="text-[#444] leading-[1.8] mb-12 text-[14px] md:text-[17px] font-medium tracking-wide">
-                We designed a revolutionary conversational interface tailored for B2B enterprise users. By translating complex, multi-step workflows into intuitive chat-based interactions, we significantly reduced the learning curve and cognitive load, enabling power users to execute tasks faster and with greater confidence.
+                Sense is an AI-powered recruiting platform that helps staffing agencies and enterprise teams manage hiring pipelines, automation, and analytics within a unified CRM.<br/><br/>
+                As the platform expanded across multiple modules, inconsistencies in UI patterns and components began to emerge. This project focused on revamping the CRM using the Genesis Design System to create a scalable and consistent product foundation.
               </p>
 
               {/* Project Meta Details */}
@@ -85,25 +86,23 @@ export default function ProjectDetail3() {
         <div className="mb-16">
           <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Introduction</h3>
           <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
-            As the HR platform rapidly expanded its feature set, the user experience became fragmented and complex. The team faced several critical challenges:
+            When we launched the new CRM, one critical gap became obvious:<br/><br/>
+            The system could execute hiring workflows but it couldn't measure them.<br/><br/>
+            Recruitment Leaders, Data Analysts, and Hiring Managers needed answers to questions like:
           </p>
           
           <div className="bg-gray-50 border border-gray-100 rounded-xl p-6 mb-8">
             <ul className="list-disc pl-5 space-y-3 text-gray-700 font-medium">
-              <li>Inconsistent UI patterns across different modules</li>
-              <li>Redundant components slowing down development</li>
-              <li>Different typography choices and spacing systems</li>
-              <li>Conflicting interaction behaviors that confused users</li>
+              <li>Where are we losing candidates in the hiring funnel?</li>
+              <li>Which sourcing channels produce the best hires?</li>
+              <li>Why is time-to-hire increasing?</li>
+              <li>Which recruiters are overloaded?</li>
             </ul>
-            <div className="mt-6 pt-4 border-t border-gray-200">
-              <p className="text-[14px] md:text-base text-gray-900 font-semibold italic">
-                The product worked, but it didn't feel unified.
-              </p>
-            </div>
           </div>
           
           <p className="text-[14px] md:text-base text-gray-600 leading-relaxed">
-            This lack of cohesion impacted user adoption and significantly increased onboarding time for new enterprise clients.
+            Although the data existed across the system, extracting insights required manual exports and external analysis.<br/><br/>
+            To solve this, we designed <strong>CRM Analytics</strong> a centralized analytics layer that enables recruitment teams to monitor performance, identify bottlenecks, and make faster hiring decisions.
           </p>
         </div>
 
@@ -111,16 +110,23 @@ export default function ProjectDetail3() {
         <div className="mb-16">
           <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">My Role</h3>
           <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
-            As the lead Product Designer, I drove the design system initiative from conception to launch:
+            As a Senior Product Designer, I led the CRM modernisation initiative using Genesis.<br/><br/>
+            I initaited with:
           </p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
-            <li>Audited existing UI patterns across all products</li>
-            <li>Defined the foundational visual language (color, typography, spacing)</li>
-            <li>Created 150+ reusable Figma components</li>
-            <li>Partnered with engineering to align on implementation structure</li>
-            <li>Authored detailed documentation guidelines</li>
-            <li>Facilitated adoption across 3 separate product teams</li>
+            <li>Defined the analytics information architecture</li>
+            <li>Partnered with data engineering on metric logic (e.g., Time-to-Hire, Conversion Ratios)</li>
+            <li>Structuring key recruitment metrics and KPIs</li>
+            <li>Designed pre-built dashboards across personas</li>
+            <li>Built the Custom Dashboard Builder experience</li>
+            <li>Structured export & data-out flows (most critical enterprise need)</li>
+            <li>Designed alerts & predictive insight surfaces</li>
+            <li>Led usability validation and rollout</li>
           </ul>
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed">
+            This was not just visualization work — it was system-level product thinking.<br/><br/>
+            This project required aligning <strong>data architecture, user workflows, and business metrics</strong> into a unified analytics experience.
+          </p>
         </div>
 
         {/* Problem Statement Section */}
@@ -129,67 +135,93 @@ export default function ProjectDetail3() {
           <div className="absolute top-4 right-4 text-white/10 text-9xl font-serif leading-none font-bold select-none pointer-events-none">"</div>
           <div className="relative z-10">
             <p className="text-[14px] md:text-lg md:text-xl leading-relaxed font-medium text-white/90 mb-6">
-              The platform had grown feature by feature without a unified design strategy, resulting in inconsistent UI patterns, slower development cycles, and increased cognitive load for users.
+              CRM lacked a centralized analytics engine, forcing enterprise customers to rely on manual reporting, analyst dependency, and fragmented data visibility.
             </p>
             <div className="border-l-4 border-indigo-400 pl-4 py-1">
-              <p className="text-[14px] md:text-base text-indigo-200 font-medium">The product was scaling.</p>
-              <p className="text-[14px] md:text-base text-indigo-200 font-medium">The design language was not.</p>
+              <p className="text-[14px] md:text-base text-indigo-200 font-medium">Without centralized analytics:</p>
+              <ul className="list-disc pl-5 space-y-1 mt-2 text-indigo-200 text-sm">
+                <li>Recruiters struggled to monitor pipeline progress</li>
+                <li>Leadership lacked visibility into hiring efficiency</li>
+                <li>Teams depended heavily on analysts for reporting</li>
+                <li>Critical hiring insights were discovered too late</li>
+              </ul>
             </div>
           </div>
         </div>
 
         {/* Problem 1 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 1: Inconsistent Patterns Across Modules</h3>
-          <p className="text-[14px] md:text-base text-gray-600 mb-6">Users found it difficult to navigate because:</p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Similar actions had different button styles and locations</li>
-            <li>Data tables presented information using conflicting structures</li>
-            <li>Form inputs and error states varied wildly</li>
-            <li>Modal behaviors lacked standardization</li>
+          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 1: Fragmented Hiring Funnel Visibility</h3>
+          <p className="text-[14px] md:text-base text-gray-600 mb-6">Key recruitment metrics such as:</p>
+          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+            <li>Applicants</li>
+            <li>Offers Sent</li>
+            <li>Offer Acceptance</li>
+            <li>Hires</li>
+            <li>Time-to-Hire</li>
+            <li>Time spent in each stage</li>
           </ul>
+          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+            were spread across different modules of the CRM.<br/><br/>
+            Users had no clear funnel visualization to understand candidate progression or identify bottlenecks in the hiring process.<br/><br/>
+            As a result, teams struggled to pinpoint where candidates were dropping off.
+          </p>
 
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Inconsistent UI before redesign" 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                alt="Fragmented UI" 
                 className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
               />
             </div>
-          </div>
-          
-          <div className="bg-red-50 text-red-800 p-4 rounded-lg border border-red-100">
-            <p className="text-[14px] md:text-base font-semibold mb-2">Impact:</p>
-            <ul className="list-disc pl-5 space-y-1 text-sm">
-              <li>Higher onboarding time for new users</li>
-              <li>Increased support tickets</li>
-              <li>Slower feature discovery</li>
-              <li>Loss of brand trust</li>
-            </ul>
           </div>
         </div>
 
         {/* Problem 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 2: High UI Debt & Low Reusability</h3>
-          <p className="text-[14px] md:text-base text-gray-600 mb-6">Without a centralized component library:</p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Engineers rebuilt the same components repeatedly</li>
-            <li>Designers spent too much time on basic UI decisions</li>
-            <li>Code base became bloated and hard to maintain</li>
-            <li>Quality assurance took twice as long</li>
+          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 2: Limited Dashboard Customization</h3>
+          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+            Existing reports were static and difficult to customize.<br/><br/>
+            Enterprise customers required flexibility to:
+          </p>
+          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+            <li>Create role-specific dashboards</li>
+            <li>Compare hiring metrics across departments</li>
+            <li>Filter data by recruiter, job, location, or source</li>
+            <li>Export reports for leadership and external stakeholders</li>
           </ul>
+          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+            Without flexible reporting tools, most teams relied on analysts to generate dashboards.
+          </p>
 
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Code and UI debt examples" 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                alt="Dashboard Customization" 
                 className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
               />
             </div>
           </div>
+        </div>
+        
+        {/* Problem 3 Section */}
+        <div className="mb-16">
+          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 3: Lack of Proactive Insights</h3>
+          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+            Analytics primarily displayed historical data.<br/><br/>
+            However, recruitment leaders needed early signals to prevent issues such as:
+          </p>
+          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+            <li>Hiring delays</li>
+            <li>Candidate drop-offs</li>
+            <li>Low offer acceptance rates</li>
+            <li>Recruiter workload imbalance</li>
+          </ul>
+          <p className="text-[14px] md:text-base text-gray-600">
+            Without proactive alerts or predictive insights, problems were often identified too late.
+          </p>
         </div>
 
         {/* Goals Section */}
@@ -202,20 +234,20 @@ export default function ProjectDetail3() {
             </div>
             <div className="md:col-span-9 space-y-6">
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Improve Product Consistency Across All Modules</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Establish a cohesive brand identity and user experience across the entire platform.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Improve Analytics Adoption Across Recruitment Teams</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Enable hiring teams to easily access and use analytics to monitor recruitment performance and make informed decisions.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Reduce Design-to-Development Cycle Time</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Streamline the handoff process and empower developers to build features faster.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Reduce Dependency on Manual Reporting</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Provide automated insights and dashboards to minimize reliance on manual data compilation and analyst support.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Improve Platform Scalability & Evolution</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Create a scalable foundation that accommodates future features without breaking existing UI.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Strengthen Enterprise Product Value Through Insights</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Deliver measurable analytics capabilities that reinforce the CRM's value as a strategic decision-making platform.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Enable Faster Feature Experimentation</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Provide a robust set of building blocks allowing product teams to test ideas quickly and safely.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Support Data-Driven Hiring Decisions</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Equip recruitment leaders with actionable insights to optimize hiring strategies and improve overall efficiency.</p>
               </div>
             </div>
           </div>
@@ -226,20 +258,20 @@ export default function ProjectDetail3() {
             </div>
             <div className="md:col-span-9 space-y-6">
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Consistent Interaction Patterns</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Provide familiar UI behaviors so users can navigate the system with confidence.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Quickly Understand Hiring Performance</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Allow recruiters and hiring managers to easily track key metrics and evaluate recruitment progress.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Predictable Workflows</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Design clear user flows that clearly communicate the next steps to complete a task.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Identify Bottlenecks in the Recruitment Funnel</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Surface insights that highlight delays or inefficiencies in the hiring pipeline.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Reduced Cognitive Load When Context Switching</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Maintain visual harmony so moving between modules feels seamless and intuitive.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Create Customized Dashboards Based on Role</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Enable users to tailor dashboards to their responsibilities and priorities.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Faster Onboarding for New HR Admins</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Simplify the interface so new users can get up to speed without extensive training.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Receive Proactive Alerts About Hiring Risks</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Notify teams about potential issues such as pipeline drop-offs or slow hiring stages.</p>
               </div>
             </div>
           </div>
@@ -247,168 +279,132 @@ export default function ProjectDetail3() {
 
         {/* Solution 1 Section */}
         <div className="mb-16 pt-12 border-t border-gray-200">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 1: System Audit & Component Architecture</h3>
+          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 1: Pre-Built Hiring Intelligence Dashboards</h3>
           
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="System Audit Process" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
-              />
-            </div>
-             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Component Architecture" 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                alt="Dashboards" 
                 className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
               />
             </div>
           </div>
 
           <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
-            We conducted a full visual audit to catalog every existing UI element. We discovered 14 button variations, 8 dropdown styles, and 5 different table designs.
+            We designed a set of structured dashboards focused on the most critical hiring metrics.
           </p>
 
-          <p className="text-[14px] md:text-base text-gray-600 font-medium mb-4">I structured the new architecture into:</p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li><strong>Base primitives:</strong> Typography, Colors, Spacing</li>
-            <li><strong>Core components:</strong> Buttons, Inputs, Tooltips</li>
-            <li><strong>Complex patterns:</strong> Data tables, Navigation, Modals</li>
+          <p className="text-[14px] md:text-base text-gray-600 font-medium mb-4">Key dashboards included:</p>
+          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+            <li>Hiring Pipeline & Funnel Insights</li>
+            <li>Job Status and Aging</li>
+            <li>Candidate Source Performance</li>
+            <li>Offer and Hiring Conversion Insights</li>
+            <li>Recruiter Productivity Metrics</li>
+            <li>Diversity and Hiring Patterns</li>
           </ul>
 
+          <p className="text-[14px] md:text-base text-gray-600 font-medium mb-4">Each dashboard combined:</p>
+          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+            <li>KPI summary cards</li>
+            <li>Funnel visualizations</li>
+            <li>trend charts</li>
+            <li>detailed drill-down tables</li>
+          </ul>
+          
+          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+            This structure helped teams quickly identify where issues occurred in the hiring process.
+          </p>
+
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it works:</p>
+            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
-              <li>Establishes a single source of truth</li>
-              <li>Reduces visual inconsistency</li>
-              <li>Creates clear rules for when to use which component</li>
-              <li>Builds trust and predictability for the user</li>
+              <li>Provides a centralized view of recruitment performance</li>
+              <li>Makes funnel bottlenecks immediately visible</li>
+              <li>Reduces time spent compiling reports</li>
+              <li>Helps leadership monitor hiring health in real time</li>
             </ul>
           </div>
         </div>
 
         {/* Solution 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 2: Reusable CRM Component Library</h3>
+          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 2: Custom Dashboard & Report Builder</h3>
           
-          <div className="bg-[#1b1c3c] p-6 md:p-10 rounded-xl mb-8 flex flex-col gap-6">
-             <div className="rounded-lg overflow-hidden border border-gray-700 shadow-md bg-white">
+          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
+             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Component Library 1" 
-                className="w-full h-auto"
-              />
-            </div>
-             <div className="rounded-lg overflow-hidden border border-gray-700 shadow-md bg-white">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Component Library 2" 
-                className="w-full h-auto"
-              />
-            </div>
-          </div>
-
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
-            Built a comprehensive Figma component library utilizing the latest features (auto-layout, variants, properties). The library included:
-          </p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Interactive states (hover, active, disabled)</li>
-            <li>Dark/Light mode support</li>
-            <li>Responsive behaviors</li>
-            <li>Accessibility compliance guidelines</li>
-            <li>Extensive usage documentation</li>
-          </ul>
-
-          <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it works:</p>
-            <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
-              <li>Speeds up design workflow by 40%</li>
-              <li>Improves developer hand-off significantly</li>
-              <li>Eliminates "pixel-pushing" in day-to-day work</li>
-              <li>Ensures ADA compliance across the board</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Solution 3 Section */}
-        <div className="mb-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 3: Interaction & Layout Standardization</h3>
-          
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-8">
-             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Layout Standardization" 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                alt="Report Builder" 
                 className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
               />
             </div>
           </div>
 
           <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
-            Standardized complex layouts and interactions including:
+            To support enterprise teams with different reporting needs, we introduced a <strong>custom dashboard builder</strong>.<br/><br/>
+            Users could:
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Page structures and max widths</li>
-            <li>Global navigation patterns</li>
-            <li>Data table filtering and sorting</li>
-            <li>Form validation and error handling</li>
-            <li>Empty states and loading skeletons</li>
+          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+            <li>Select recruitment metrics and data fields</li>
+            <li>Apply advanced filters (department, job, location, recruiter)</li>
+            <li>Choose visualization types</li>
+            <li>Rearrange dashboard layouts</li>
+            <li>Save and reuse dashboard configurations</li>
           </ul>
+          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+            Reports could also be exported in multiple formats for external reporting.
+          </p>
 
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it works:</p>
+            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
-              <li>Reduces user learning curve for new features</li>
-              <li>Provides a predictable experience across the platform</li>
-              <li>Helps users scan information faster</li>
-              <li>Minimizes destructive actions through standardized safeguards</li>
+              <li>Enables self-serve analytics without data expertise</li>
+              <li>Allows teams to create role-specific dashboards</li>
+              <li>Reduces dependency on data analysts</li>
+              <li>Supports enterprise reporting workflows</li>
             </ul>
           </div>
         </div>
 
-        {/* What I Would Have Done Next Section */}
-        <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-8">
-            While the core system was successfully launched and adopted, a design system is never truly "done". If I had another 6 months on the project, I would have prioritized the following initiatives:
-          </p>
+        {/* Solution 3 Section */}
+        <div className="mb-16">
+          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 3: Alerts & Predictive Insights</h3>
           
-          <div className="space-y-8">
-            <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">1. Implement Design System Analytics Metrics</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
-                Currently, we measure success qualitatively through developer and designer feedback. I would implement telemetry analytics within our React components to track actual usage rates. Knowing which components are heavily used vs. rarely used would inform our prioritization roadmap and help deprecate unused patterns.
-              </p>
+          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-8">
+             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
+              <img 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                alt="Alerts" 
+                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+              />
             </div>
-            
-            <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">2. Build Automated Design Validations</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
-                Integrate tooling directly into the CI/CD pipeline that flags UI regressions. By introducing visual regression testing (like Percy or Chromatic), we could automatically catch UI inconsistencies before they hit staging, ensuring the coded application perfectly matches the design tokens.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">3. Formalize the Component Contribution Process</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
-                Establish a clear, documented governance model for when and how product teams can propose new components or patterns back to the core system. This would transform the system from a top-down mandate to a community-driven ecosystem.
-              </p>
-            </div>
+          </div>
 
-            <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">4. Comprehensive Accessibility Testing</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
-                While color contrast and basic ARIA roles were handled, I would conduct deep accessibility audits using screen readers (VoiceOver/JAWS) and keyboard navigation across all complex components (like data tables and multi-select dropdowns) to ensure strict WCAG 2.1 AA compliance.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">5. Expand Theming System for White-labeling</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
-                As the company explores enterprise white-labeling, the design tokens architecture needs to be refactored to support deep theme customization (beyond just light/dark mode) allowing enterprise clients to inject their own brand colors and typography seamlessly.
-              </p>
-            </div>
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
+            To move analytics from reactive reporting to proactive intelligence, we introduced alerts and predictive insights.<br/><br/>
+            Examples included:
+          </p>
+          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
+            <li>Notifications when time-to-hire exceeds thresholds.</li>
+            <li>Alerts when candidates remain too long in a stage.</li>
+            <li>Offer acceptance rate drops.</li>
+            <li>Recruiter workload imbalance.</li>
+          </ul>
+          
+          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+            These alerts helped teams identify problems earlier and take action before hiring performance declined.
+          </p>
+
+          <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
+            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
+            <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
+              <li>Surfaces risks before they impact hiring outcomes.</li>
+              <li>Helps recruiters prioritize actions.</li>
+              <li>Improves accountability across recruitment teams.</li>
+              <li>Makes analytics more actionable.</li>
+            </ul>
           </div>
         </div>
 
@@ -419,42 +415,78 @@ export default function ProjectDetail3() {
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
               <h4 className="text-[36px] md:text-4xl font-bold mb-4">30%</h4>
-              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Faster Design-to-Development Turnaround</p>
-              <p className="text-white/70 text-[14px] md:text-sm">Reduced UI bugs during QA significantly because engineers were using pre-built, tested components rather than custom building each time.</p>
+              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Faster design-to-development turnaround</p>
+              <p className="text-white/70 text-[14px] md:text-sm">Analytics usage increased significantly across recruiting teams</p>
             </div>
             
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
-              <h4 className="text-[36px] md:text-4xl font-bold mb-4">25%</h4>
-              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Reduction in UI Inconsistency Bugs</p>
-              <p className="text-white/70 text-[14px] md:text-sm">Streamlined QA processes with fewer visual regressions reported across different modules.</p>
+              <h4 className="text-[36px] md:text-4xl font-bold mb-4">28%</h4>
+              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Reduction in UI inconsistency bugs</p>
+              <p className="text-white/70 text-[14px] md:text-sm">Recruiters engaged more actively with hiring performance metrics</p>
             </div>
             
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
-              <h4 className="text-[36px] md:text-4xl font-bold mb-4">40+</h4>
-              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Reduction in Deprecated Design Assets</p>
-              <p className="text-white/70 text-[14px] md:text-sm">Cleaned up legacy files and consolidated components, creating a leaner and more performant design workspace.</p>
+              <h4 className="text-[36px] md:text-4xl font-bold mb-4">40%+</h4>
+              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Reduction in duplicated design work</p>
+              <p className="text-white/70 text-[14px] md:text-sm">Leadership gained faster access to recruitment insights</p>
             </div>
           </div>
           
-          <p className="text-gray-600 mt-6 italic text-center text-[14px] md:text-sm">
-            *Metrics gathered during the 6 months post-launch via engineering velocity tracking and QA ticket volume analysis.
+          <p className="text-gray-600 mt-6 text-[14px] md:text-sm text-center">
+            Reporting cycles for leadership updates were significantly reduced<br/>
+            More importantly, The CRM now feels like one cohesive product, not multiple stitched-together modules.
           </p>
+        </div>
+
+        {/* What I Would Have Done Next Section */}
+        <div className="mb-16 border-t border-gray-200 pt-16">
+          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-8">
+            Although the analytics solution helps teams better understand recruitment performance, the next phase would focus on expanding predictive insights and improving collaboration across hiring teams.
+          </p>
+          
+          <div className="space-y-8">
+            <div>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">1. Forecast Hiring Demand Trends</h4>
+              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+                Introducing forecasting capabilities would help teams anticipate future hiring needs based on historical recruitment data and pipeline trends.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">2. Benchmark Recruiter Performance</h4>
+              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+                Providing benchmarking tools would allow organizations to compare recruiter performance across teams and identify opportunities for improvement.
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">3. Add Anomaly Detection for Hiring Metrics</h4>
+              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+                Integrating anomaly detection could automatically highlight unusual changes in hiring metrics, helping teams identify risks or unexpected shifts in the recruitment pipeline.
+              </p>
+            </div>
+
+            <div>
+              <h4 className="text-lg font-bold text-gray-900 mb-2">4. Improve Collaboration with Shared Dashboards</h4>
+              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+                Enabling shared and collaborative dashboards would allow recruiters, hiring managers, and leadership to align on hiring progress and insights more effectively.
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Closing Reflection */}
         <div className="mb-16 border-t border-gray-200 pt-16">
           <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Closing Reflection</h3>
           <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
-            This project taught me a valuable lesson building UI systems:
-          </p>
-          <p className="text-[14px] md:text-base text-gray-800 font-medium leading-relaxed mb-6 italic pl-4 border-l-4 border-gray-300">
-            A design system is only as good as its adoption rate among engineers and PMs.
+            CRM Analytics required designing beyond dashboards.
           </p>
           <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
-            The technical execution (Figma setup, React props, CSS architecture) is only half the battle. The other half is advocacy, education, support, and building trust with the people who will use it every day.
+            It involved structuring recruitment data into a system that helps teams understand performance and make better hiring decisions.
           </p>
           <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
-            The system was a success because we treated it like a product itself.
+            This project strengthened my ability to design <strong>data-driven enterprise experiences</strong>, balancing complex analytics capabilities with clear and intuitive user interfaces.
           </p>
         </div>
         
@@ -467,10 +499,10 @@ export default function ProjectDetail3() {
             Back to Home
           </a>
           
-          <a href="#" className="text-gray-900 hover:text-indigo-600 font-medium flex flex-col items-end transition-colors group">
+          <a href="/project/1" className="text-gray-900 hover:text-indigo-600 font-medium flex flex-col items-end transition-colors group">
             <span className="text-xs text-gray-500 mb-1 group-hover:text-indigo-400 transition-colors">Next Project</span>
             <span className="flex items-center gap-2">
-              AI Chatbot Interface
+              B2B Conversational Interface
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>
