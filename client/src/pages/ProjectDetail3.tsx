@@ -295,7 +295,7 @@ export default function ProjectDetail3() {
             </div>
           </div>
 
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div className="mb-6 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
                 src="/c3-s1-1.png" 
