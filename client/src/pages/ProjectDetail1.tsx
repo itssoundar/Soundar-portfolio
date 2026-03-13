@@ -326,12 +326,15 @@ export default function ProjectDetail1() {
             Every AI action requires explicit approval before execution.
           </p>
 
-          <div className="bg-[#1b1c3c] p-6 md:p-10 rounded-xl mb-8 flex flex-col gap-6">
-             <div className="rounded-lg overflow-hidden border border-gray-700 shadow-md bg-white">
-              <img 
-                src="/Screenshot_2026-03-13_at_11.18.57_PM_1773424140494.png" 
-                alt="Dynamic Dashboard Generation" 
-                className="w-full h-auto"
+          <div className="pt-4 md:pt-8 rounded-xl bg-[#f3f4f600] mb-0">
+             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
+              <video 
+                src="/c1-s3.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full h-auto pointer-events-none"
               />
             </div>
           </div>
