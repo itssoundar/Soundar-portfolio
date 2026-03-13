@@ -252,10 +252,13 @@ export default function ProjectDetail1() {
           
           <div className="pt-4 md:pt-8 rounded-xl bg-[#f3f4f600] mb-0">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
-              <img 
-                src="/c1-s1.gif" 
-                alt="Conversational Intent Capture" 
-                className="w-full h-auto"
+              <video 
+                src="/c1-s1.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full h-auto pointer-events-none"
               />
             </div>
           </div>
@@ -295,10 +298,13 @@ export default function ProjectDetail1() {
 
           <div className="pt-4 md:pt-8 rounded-xl bg-[#f3f4f600] mb-0">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
-              <img 
-                src="/c1-s2.gif" 
-                alt="Agent Action Previews" 
-                className="w-full h-auto"
+              <video 
+                src="/c1-s2.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full h-auto pointer-events-none"
               />
             </div>
           </div>
