@@ -88,13 +88,19 @@ export function Hero() {
 
       </div>
       {/* Logos Section */}
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto pb-12 pt-8 overflow-hidden">
+      <div 
+        className="relative z-10 w-full max-w-[1200px] mx-auto pb-12 pt-8 overflow-hidden"
+        style={{
+          maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
+        }}
+      >
         {/* Ticker Container */}
         <div className="flex w-max animate-ticker hover:animation-play-state-paused">
           {/* First set of logos */}
           <div className="flex justify-around items-center">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-              <div key={`logo-1-${num}`} className="px-[60px]">
+              <div key={`logo-1-${num}`} className="px-[40px]">
                 <img 
                   src={`/works/worked_0${num}.png`} 
                   alt={`Company ${num}`} 
@@ -106,7 +112,7 @@ export function Hero() {
           {/* Duplicate set for seamless looping */}
           <div className="flex justify-around items-center">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-              <div key={`logo-2-${num}`} className="px-[60px]">
+              <div key={`logo-2-${num}`} className="px-[40px]">
                 <img 
                   src={`/works/worked_0${num}.png`} 
                   alt={`Company ${num}`} 
