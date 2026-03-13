@@ -70,7 +70,7 @@ export function WordsFromPeople() {
   }
 
   return (
-    <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-white relative overflow-hidden pt-[60px] pb-[60px]">
       <div className="container px-4 mx-auto max-w-[1200px]">
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
           <h2 className="text-[2.5rem] md:text-[3.5rem] font-serif font-medium text-[#222] tracking-[-0.02em] leading-[1.1] mb-6">
