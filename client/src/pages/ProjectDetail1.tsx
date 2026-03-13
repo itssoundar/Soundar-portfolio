@@ -250,7 +250,7 @@ export default function ProjectDetail1() {
             The system interprets intent and initiates structured execution flows instantly.
           </p>
           
-          <div className="p-4 md:p-8 rounded-xl bg-[#f3f4f600] mb-[0px] pt-[0px] pl-[0px] pr-[0px] pb-[0px]">
+          <div className="pt-4 md:pt-8 rounded-xl bg-[#f3f4f600] mb-0">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
               <img 
                 src="/c1-s1.gif" 
