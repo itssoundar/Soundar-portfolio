@@ -16,7 +16,7 @@ export function Projects() {
     },
     {
       id: "design-system",
-      title: <>Building scalable <span className="font-serif italic font-normal text-[1.15em]">design systems</span> for AI-first products</>,
+      title: <>Building CRM with the <span className="font-serif italic font-normal text-[1.15em]">Genesis Design System</span></>,
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop",
       bullets: [
         "Comprehensive component library with accessibility standards built-in.",
