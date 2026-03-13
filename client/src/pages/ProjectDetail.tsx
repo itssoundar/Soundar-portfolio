@@ -493,7 +493,6 @@ export default function ProjectDetail() {
         </div>
       </div>
       </div>
-      </div>
       <Footer />
     </main>
   );
