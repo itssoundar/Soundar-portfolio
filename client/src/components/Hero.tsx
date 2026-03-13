@@ -15,7 +15,7 @@ export function Hero() {
 
   return (
     <section 
-      className="relative min-h-screen w-full flex flex-col items-center justify-between bg-white selection:bg-gray-200"
+      className="relative min-h-screen w-full flex flex-col items-center justify-between bg-white selection:bg-gray-200 pt-[60px] pb-[60px] px-6 md:px-[86px]"
     >
       {/* Soft background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#f8f9fa] via-white to-[#fdfdfd] pointer-events-none" />
@@ -58,7 +58,7 @@ export function Hero() {
         className="absolute bottom-[25%] right-[5%] w-[120px] h-auto opacity-50 pointer-events-none hidden md:block transition-transform duration-75"
         style={{ transform: `translateY(${scrollY * 0.45}px)` }}
       />
-      <div className="relative z-10 w-full max-w-[1000px] mx-auto flex flex-col items-center pt-[15vh] px-4 md:px-8">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center pt-[15vh]">
         
         {/* Top Avatar & Greeting */}
         <div className="flex items-center gap-2 mb-10">
@@ -94,7 +94,7 @@ export function Hero() {
 
       </div>
       {/* Logos Section */}
-      <div className="relative z-10 w-full max-w-[1000px] mx-auto pb-12 pt-8 px-6">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto pb-12 pt-8">
         <div className="flex flex-wrap justify-center md:justify-between items-center gap-x-12 gap-y-10 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
           
           {/* Mock Logo 1 */}
@@ -134,7 +134,7 @@ export function Hero() {
         </div>
       </div>
       {/* Projects Section */}
-      <div className="relative z-10 w-full max-w-[1000px] mx-auto py-24 md:py-32 px-6 overflow-visible">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto overflow-visible">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.1]">

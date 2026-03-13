@@ -3,9 +3,9 @@ import { Mail, Linkedin, FileText } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative w-full bg-white py-24 md:py-32 overflow-hidden flex flex-col items-center pt-[60px] pb-[60px]">
+    <footer className="relative w-full bg-white overflow-hidden flex flex-col items-center pt-[60px] pb-[60px] px-6 md:px-[86px]">
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-[800px] mx-auto px-6 flex flex-col items-center mr-[0px] ml-[0px] pl-[0px] pr-[0px]">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center">
         
         {/* Heading */}
         <motion.div 

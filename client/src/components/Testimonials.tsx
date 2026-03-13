@@ -149,7 +149,7 @@ export function Testimonials() {
   return (
     <section 
       aria-labelledby="testimonials-heading"
-      className="py-24 md:py-32 relative overflow-hidden bg-[#ffffff] pt-[60px] pb-[60px]"
+      className="relative overflow-hidden bg-[#ffffff] pt-[60px] pb-[60px] px-6 md:px-[86px]"
     >
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
@@ -160,7 +160,7 @@ export function Testimonials() {
           ease: [0.16, 1, 0.3, 1],
           opacity: { duration: 0.8 }
         }}
-        className="container px-4 z-10 mx-auto max-w-[1200px] ml-[0px] mr-[0px]"
+        className="w-full z-10 mx-auto max-w-[1200px]"
       >
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center lg:items-start justify-between w-full">
           {/* Left Side */}

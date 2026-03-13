@@ -33,7 +33,7 @@ export function Experience() {
   ];
 
   return (
-    <section className="relative w-full bg-[#111111] text-white py-24 md:py-32 px-6 overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem] -mt-12 z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.1),0_10px_40px_rgba(0,0,0,0.1)] mb-12">
+    <section className="relative w-full bg-[#111111] text-white pt-[60px] pb-[60px] px-6 md:px-[86px] overflow-hidden rounded-t-[2.5rem] md:rounded-t-[4rem] rounded-b-[2.5rem] md:rounded-b-[4rem] -mt-12 z-20 shadow-[0_-10px_40px_rgba(0,0,0,0.1),0_10px_40px_rgba(0,0,0,0.1)] mb-12">
       {/* Top Background Image with Fade */}
       <div 
         className="absolute top-0 left-0 right-0 h-[500px] md:h-[700px] pointer-events-none opacity-40 md:opacity-60"
@@ -47,7 +47,7 @@ export function Experience() {
         }}
       />
       
-      <div className="relative z-10 w-full max-w-[900px] mx-auto">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto">
         <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium text-center mb-16 md:mb-24 tracking-[-0.02em] leading-[1.1]">
           Experiences that shaped <span className="font-serif italic font-normal text-white/90">my design lens</span>
         </h2>
@@ -81,7 +81,7 @@ export function Experience() {
             </p>
           </div>
 
-          <div className="relative z-10 flex flex-col md:flex-row gap-6 justify-center items-center px-6 max-w-[900px] mx-auto">
+          <div className="relative z-10 flex flex-col md:flex-row gap-6 justify-center items-center max-w-[1200px] mx-auto">
             {/* Left Tool Group */}
             <div className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col items-center">
               <h4 className="text-[#888888] text-[14px] font-medium text-center mb-8 tracking-wide">
@@ -127,7 +127,7 @@ export function Experience() {
           </div>
 
           {/* Marquee Ticker */}
-          <div className="relative z-10 mt-20 md:mt-28 -mx-6 py-6 border-t border-b border-white/5 overflow-hidden flex bg-[#111111]/80 backdrop-blur-md">
+          <div className="relative z-10 mt-20 md:mt-28 -mx-6 md:-mx-[86px] py-6 border-t border-b border-white/5 overflow-hidden flex bg-[#111111]/80 backdrop-blur-md">
             <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap">
               {[...Array(2)].map((_, i) => (
                 <div key={i} className="flex items-center gap-8 mx-4">
