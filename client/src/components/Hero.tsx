@@ -15,7 +15,7 @@ export function Hero() {
 
   return (
     <section 
-      className="relative min-h-[90vh] w-full flex flex-col items-center justify-between bg-white pb-10 px-6 md:px-[86px] pt-[40px]"
+      className="relative min-h-[90vh] w-full flex flex-col items-center justify-between pb-10 px-6 md:px-[86px] pt-[40px]"
       style={{
         backgroundImage: 'url(/hero-bg.jpg)',
         backgroundSize: 'cover',
@@ -89,32 +89,30 @@ export function Hero() {
       </div>
       {/* Logos Section */}
       <div className="relative z-10 w-full max-w-[1200px] mx-auto pb-12 pt-8 overflow-hidden">
-        {/* Gradients for smooth fade effect at edges to avoid sharp box cutoffs */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-[#fdfdfd] to-transparent z-20 pointer-events-none"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-[#fdfdfd] to-transparent z-20 pointer-events-none"></div>
-        
         {/* Ticker Container */}
         <div className="flex w-max animate-ticker hover:animation-play-state-paused">
           {/* First set of logos */}
-          <div className="flex justify-around items-center px-8 md:px-16 gap-16 md:gap-24">
+          <div className="flex justify-around items-center">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-              <img 
-                key={`logo-1-${num}`}
-                src={`/works/worked_0${num}.png`} 
-                alt={`Company ${num}`} 
-                className="h-10 md:h-14 w-auto max-w-[200px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
-              />
+              <div key={`logo-1-${num}`} className="px-[60px]">
+                <img 
+                  src={`/works/worked_0${num}.png`} 
+                  alt={`Company ${num}`} 
+                  className="h-10 md:h-14 w-auto max-w-[200px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
+                />
+              </div>
             ))}
           </div>
           {/* Duplicate set for seamless looping */}
-          <div className="flex justify-around items-center px-8 md:px-16 gap-16 md:gap-24">
+          <div className="flex justify-around items-center">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-              <img 
-                key={`logo-2-${num}`}
-                src={`/works/worked_0${num}.png`} 
-                alt={`Company ${num}`} 
-                className="h-10 md:h-14 w-auto max-w-[200px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
-              />
+              <div key={`logo-2-${num}`} className="px-[60px]">
+                <img 
+                  src={`/works/worked_0${num}.png`} 
+                  alt={`Company ${num}`} 
+                  className="h-10 md:h-14 w-auto max-w-[200px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
+                />
+              </div>
             ))}
           </div>
         </div>
