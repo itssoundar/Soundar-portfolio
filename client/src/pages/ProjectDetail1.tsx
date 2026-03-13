@@ -25,9 +25,7 @@ export default function ProjectDetail1() {
         style={{ backgroundImage: "url('/Case_hero.png')" }}
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
-          <h1 className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">
-            Transforming CRM workflows with an AI-Agent Builder
-          </h1>
+          <h1 className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">From Search to Action: Turning HR Intent into Intelligent Execution</h1>
         </div>
 
         {/* Main Interface Image - Placed inside the banner */}
