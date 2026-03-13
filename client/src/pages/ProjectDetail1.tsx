@@ -286,16 +286,6 @@ export default function ProjectDetail1() {
             Instead of configuring every rule manually, recruiters receive a ready-to-execute workflow with editable checkpoints.
           </p>
 
-          <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg mb-8">
-            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
-            <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
-              <li>Reduces setup time by ~78%</li>
-              <li>Eliminates repetitive field mapping and rule selection</li>
-              <li>Increases workflow activation by 1.5x</li>
-              <li>Preserves control without overwhelming configuration</li>
-            </ul>
-          </div>
-
           <div className="pt-4 md:pt-8 rounded-xl bg-[#f3f4f600] mb-0">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
               <video 
@@ -307,6 +297,16 @@ export default function ProjectDetail1() {
                 className="w-full h-auto pointer-events-none"
               />
             </div>
+          </div>
+
+          <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg mb-8">
+            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
+            <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
+              <li>Reduces setup time by ~78%</li>
+              <li>Eliminates repetitive field mapping and rule selection</li>
+              <li>Increases workflow activation by 1.5x</li>
+              <li>Preserves control without overwhelming configuration</li>
+            </ul>
           </div>
         </div>
 
@@ -339,7 +339,7 @@ export default function ProjectDetail1() {
             </div>
           </div>
 
-          <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
+          <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg mb-8">
             <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
               <li>Reduces dashboard creation time from ~20 minutes to under 4 minutes</li>
