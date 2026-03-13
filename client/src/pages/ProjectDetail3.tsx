@@ -25,7 +25,7 @@ export default function ProjectDetail3() {
         style={{ backgroundImage: "url('/Case_hero.png')" }}
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
-          <h1 className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">
+          <h1 className="text-[36px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">
             Crafting seamless conversational interfaces for B2B
           </h1>
         </div>
@@ -47,30 +47,30 @@ export default function ProjectDetail3() {
           <div className="w-full">
             {/* Project Header */}
             <div className="mb-0">
-              <h2 className="text-[28px] md:text-[34px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
+              <h2 className="text-[24px] md:text-[34px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
                 Crafting seamless conversational interfaces for<br className="hidden md:block" /> B2B
               </h2>
-              <p className="text-[#444] leading-[1.8] mb-12 text-[17px] font-medium tracking-wide">
+              <p className="text-[#444] leading-[1.8] mb-12 text-[14px] md:text-[17px] font-medium tracking-wide">
                 We designed a revolutionary conversational interface tailored for B2B enterprise users. By translating complex, multi-step workflows into intuitive chat-based interactions, we significantly reduced the learning curve and cognitive load, enabling power users to execute tasks faster and with greater confidence.
               </p>
 
               {/* Project Meta Details */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 pb-4 border-t border-gray-200">
                 <div>
-                  <p className="text-[17px] text-[#111] font-semibold mb-1 tracking-tight">App Name / Client</p>
-                  <p className="text-[16px] text-[#555]">Sense</p>
+                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">App Name / Client</p>
+                  <p className="text-[14px] md:text-[16px] text-[#555]">Sense</p>
                 </div>
                 <div>
-                  <p className="text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Role</p>
-                  <p className="text-[16px] text-[#555]">Senior Product Designer</p>
+                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Role</p>
+                  <p className="text-[14px] md:text-[16px] text-[#555]">Senior Product Designer</p>
                 </div>
                 <div>
-                  <p className="text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Platform</p>
-                  <p className="text-[16px] text-[#555]">Web App</p>
+                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Platform</p>
+                  <p className="text-[14px] md:text-[16px] text-[#555]">Web App</p>
                 </div>
                 <div>
-                  <p className="text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Industry</p>
-                  <p className="text-[16px] text-[#555]">SaaS - CRM</p>
+                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Industry</p>
+                  <p className="text-[14px] md:text-[16px] text-[#555]">SaaS - CRM</p>
                 </div>
               </div>
             </div>
@@ -83,8 +83,8 @@ export default function ProjectDetail3() {
 
         {/* Introduction Section */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Introduction</h3>
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Introduction</h3>
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
             As the HR platform rapidly expanded its feature set, the user experience became fragmented and complex. The team faced several critical challenges:
           </p>
           
@@ -96,21 +96,21 @@ export default function ProjectDetail3() {
               <li>Conflicting interaction behaviors that confused users</li>
             </ul>
             <div className="mt-6 pt-4 border-t border-gray-200">
-              <p className="text-gray-900 font-semibold italic">
+              <p className="text-[14px] md:text-base text-gray-900 font-semibold italic">
                 The product worked, but it didn't feel unified.
               </p>
             </div>
           </div>
           
-          <p className="text-gray-600 leading-relaxed">
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed">
             This lack of cohesion impacted user adoption and significantly increased onboarding time for new enterprise clients.
           </p>
         </div>
 
         {/* My Role Section */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">My Role</h3>
-          <p className="text-gray-600 leading-relaxed mb-4">
+          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">My Role</h3>
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
             As the lead Product Designer, I drove the design system initiative from conception to launch:
           </p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
@@ -125,23 +125,23 @@ export default function ProjectDetail3() {
 
         {/* Problem Statement Section */}
         <div className="bg-[#1b1c3c] text-white rounded-xl p-8 md:p-10 mb-16 shadow-lg relative overflow-hidden">
-          <h3 className="text-xl font-bold mb-6 text-white/90">Problem Statement</h3>
+          <h3 className="text-[18px] md:text-xl font-bold mb-6 text-white/90">Problem Statement</h3>
           <div className="absolute top-4 right-4 text-white/10 text-9xl font-serif leading-none font-bold select-none pointer-events-none">"</div>
           <div className="relative z-10">
-            <p className="text-lg md:text-xl leading-relaxed font-medium text-white/90 mb-6">
+            <p className="text-[14px] md:text-lg md:text-xl leading-relaxed font-medium text-white/90 mb-6">
               The platform had grown feature by feature without a unified design strategy, resulting in inconsistent UI patterns, slower development cycles, and increased cognitive load for users.
             </p>
             <div className="border-l-4 border-indigo-400 pl-4 py-1">
-              <p className="text-indigo-200 font-medium">The product was scaling.</p>
-              <p className="text-indigo-200 font-medium">The design language was not.</p>
+              <p className="text-[14px] md:text-base text-indigo-200 font-medium">The product was scaling.</p>
+              <p className="text-[14px] md:text-base text-indigo-200 font-medium">The design language was not.</p>
             </div>
           </div>
         </div>
 
         {/* Problem 1 Section */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Problem 1: Inconsistent Patterns Across Modules</h3>
-          <p className="text-gray-600 mb-6">Users found it difficult to navigate because:</p>
+          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 1: Inconsistent Patterns Across Modules</h3>
+          <p className="text-[14px] md:text-base text-gray-600 mb-6">Users found it difficult to navigate because:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
             <li>Similar actions had different button styles and locations</li>
             <li>Data tables presented information using conflicting structures</li>
@@ -160,7 +160,7 @@ export default function ProjectDetail3() {
           </div>
           
           <div className="bg-red-50 text-red-800 p-4 rounded-lg border border-red-100">
-            <p className="font-semibold mb-2">Impact:</p>
+            <p className="text-[14px] md:text-base font-semibold mb-2">Impact:</p>
             <ul className="list-disc pl-5 space-y-1 text-sm">
               <li>Higher onboarding time for new users</li>
               <li>Increased support tickets</li>
@@ -172,8 +172,8 @@ export default function ProjectDetail3() {
 
         {/* Problem 2 Section */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Problem 2: High UI Debt & Low Reusability</h3>
-          <p className="text-gray-600 mb-6">Without a centralized component library:</p>
+          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 2: High UI Debt & Low Reusability</h3>
+          <p className="text-[14px] md:text-base text-gray-600 mb-6">Without a centralized component library:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
             <li>Engineers rebuilt the same components repeatedly</li>
             <li>Designers spent too much time on basic UI decisions</li>
@@ -194,7 +194,7 @@ export default function ProjectDetail3() {
 
         {/* Goals Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Goals</h3>
+          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Goals</h3>
           
           <div className="grid md:grid-cols-12 gap-8 mb-10">
             <div className="md:col-span-3">
@@ -202,20 +202,20 @@ export default function ProjectDetail3() {
             </div>
             <div className="md:col-span-9 space-y-6">
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Improve Product Consistency Across All Modules</p>
-                <p className="text-gray-600 text-sm ml-4">Establish a cohesive brand identity and user experience across the entire platform.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Improve Product Consistency Across All Modules</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Establish a cohesive brand identity and user experience across the entire platform.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Reduce Design-to-Development Cycle Time</p>
-                <p className="text-gray-600 text-sm ml-4">Streamline the handoff process and empower developers to build features faster.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Reduce Design-to-Development Cycle Time</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Streamline the handoff process and empower developers to build features faster.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Improve Platform Scalability & Evolution</p>
-                <p className="text-gray-600 text-sm ml-4">Create a scalable foundation that accommodates future features without breaking existing UI.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Improve Platform Scalability & Evolution</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Create a scalable foundation that accommodates future features without breaking existing UI.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Enable Faster Feature Experimentation</p>
-                <p className="text-gray-600 text-sm ml-4">Provide a robust set of building blocks allowing product teams to test ideas quickly and safely.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Enable Faster Feature Experimentation</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Provide a robust set of building blocks allowing product teams to test ideas quickly and safely.</p>
               </div>
             </div>
           </div>
@@ -226,20 +226,20 @@ export default function ProjectDetail3() {
             </div>
             <div className="md:col-span-9 space-y-6">
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Consistent Interaction Patterns</p>
-                <p className="text-gray-600 text-sm ml-4">Provide familiar UI behaviors so users can navigate the system with confidence.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Consistent Interaction Patterns</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Provide familiar UI behaviors so users can navigate the system with confidence.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Predictable Workflows</p>
-                <p className="text-gray-600 text-sm ml-4">Design clear user flows that clearly communicate the next steps to complete a task.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Predictable Workflows</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Design clear user flows that clearly communicate the next steps to complete a task.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Reduced Cognitive Load When Context Switching</p>
-                <p className="text-gray-600 text-sm ml-4">Maintain visual harmony so moving between modules feels seamless and intuitive.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Reduced Cognitive Load When Context Switching</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Maintain visual harmony so moving between modules feels seamless and intuitive.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Faster Onboarding for New HR Admins</p>
-                <p className="text-gray-600 text-sm ml-4">Simplify the interface so new users can get up to speed without extensive training.</p>
+                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Faster Onboarding for New HR Admins</p>
+                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Simplify the interface so new users can get up to speed without extensive training.</p>
               </div>
             </div>
           </div>
@@ -247,7 +247,7 @@ export default function ProjectDetail3() {
 
         {/* Solution 1 Section */}
         <div className="mb-16 pt-12 border-t border-gray-200">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Solution 1: System Audit & Component Architecture</h3>
+          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 1: System Audit & Component Architecture</h3>
           
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
@@ -266,11 +266,11 @@ export default function ProjectDetail3() {
             </div>
           </div>
 
-          <p className="text-gray-600 leading-relaxed mb-6">
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
             We conducted a full visual audit to catalog every existing UI element. We discovered 14 button variations, 8 dropdown styles, and 5 different table designs.
           </p>
 
-          <p className="text-gray-600 font-medium mb-4">I structured the new architecture into:</p>
+          <p className="text-[14px] md:text-base text-gray-600 font-medium mb-4">I structured the new architecture into:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
             <li><strong>Base primitives:</strong> Typography, Colors, Spacing</li>
             <li><strong>Core components:</strong> Buttons, Inputs, Tooltips</li>
@@ -278,7 +278,7 @@ export default function ProjectDetail3() {
           </ul>
 
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="font-bold text-indigo-900 mb-2">Why it works:</p>
+            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it works:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
               <li>Establishes a single source of truth</li>
               <li>Reduces visual inconsistency</li>
@@ -290,7 +290,7 @@ export default function ProjectDetail3() {
 
         {/* Solution 2 Section */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Solution 2: Reusable CRM Component Library</h3>
+          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 2: Reusable CRM Component Library</h3>
           
           <div className="bg-[#1b1c3c] p-6 md:p-10 rounded-xl mb-8 flex flex-col gap-6">
              <div className="rounded-lg overflow-hidden border border-gray-700 shadow-md bg-white">
@@ -309,7 +309,7 @@ export default function ProjectDetail3() {
             </div>
           </div>
 
-          <p className="text-gray-600 leading-relaxed mb-4">
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
             Built a comprehensive Figma component library utilizing the latest features (auto-layout, variants, properties). The library included:
           </p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
@@ -321,7 +321,7 @@ export default function ProjectDetail3() {
           </ul>
 
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="font-bold text-indigo-900 mb-2">Why it works:</p>
+            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it works:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
               <li>Speeds up design workflow by 40%</li>
               <li>Improves developer hand-off significantly</li>
@@ -333,7 +333,7 @@ export default function ProjectDetail3() {
 
         {/* Solution 3 Section */}
         <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Solution 3: Interaction & Layout Standardization</h3>
+          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 3: Interaction & Layout Standardization</h3>
           
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-8">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
@@ -345,7 +345,7 @@ export default function ProjectDetail3() {
             </div>
           </div>
 
-          <p className="text-gray-600 leading-relaxed mb-4">
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
             Standardized complex layouts and interactions including:
           </p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
@@ -357,7 +357,7 @@ export default function ProjectDetail3() {
           </ul>
 
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="font-bold text-indigo-900 mb-2">Why it works:</p>
+            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it works:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
               <li>Reduces user learning curve for new features</li>
               <li>Provides a predictable experience across the platform</li>
@@ -369,43 +369,43 @@ export default function ProjectDetail3() {
 
         {/* What I Would Have Done Next Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
-          <p className="text-gray-600 leading-relaxed mb-8">
+          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-8">
             While the core system was successfully launched and adopted, a design system is never truly "done". If I had another 6 months on the project, I would have prioritized the following initiatives:
           </p>
           
           <div className="space-y-8">
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">1. Implement Design System Analytics Metrics</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
                 Currently, we measure success qualitatively through developer and designer feedback. I would implement telemetry analytics within our React components to track actual usage rates. Knowing which components are heavily used vs. rarely used would inform our prioritization roadmap and help deprecate unused patterns.
               </p>
             </div>
             
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">2. Build Automated Design Validations</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
                 Integrate tooling directly into the CI/CD pipeline that flags UI regressions. By introducing visual regression testing (like Percy or Chromatic), we could automatically catch UI inconsistencies before they hit staging, ensuring the coded application perfectly matches the design tokens.
               </p>
             </div>
             
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">3. Formalize the Component Contribution Process</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
                 Establish a clear, documented governance model for when and how product teams can propose new components or patterns back to the core system. This would transform the system from a top-down mandate to a community-driven ecosystem.
               </p>
             </div>
 
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">4. Comprehensive Accessibility Testing</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
                 While color contrast and basic ARIA roles were handled, I would conduct deep accessibility audits using screen readers (VoiceOver/JAWS) and keyboard navigation across all complex components (like data tables and multi-select dropdowns) to ensure strict WCAG 2.1 AA compliance.
               </p>
             </div>
             
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">5. Expand Theming System for White-labeling</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
                 As the company explores enterprise white-labeling, the design tokens architecture needs to be refactored to support deep theme customization (beyond just light/dark mode) allowing enterprise clients to inject their own brand colors and typography seamlessly.
               </p>
             </div>
@@ -414,46 +414,46 @@ export default function ProjectDetail3() {
 
         {/* Impact Summary Section */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Impact Summary</h3>
+          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Impact Summary</h3>
           
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
-              <h4 className="text-4xl font-bold mb-4">30%</h4>
-              <p className="font-semibold text-lg mb-2 leading-tight">Faster Design-to-Development Turnaround</p>
-              <p className="text-white/70 text-sm">Reduced UI bugs during QA significantly because engineers were using pre-built, tested components rather than custom building each time.</p>
+              <h4 className="text-[36px] md:text-4xl font-bold mb-4">30%</h4>
+              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Faster Design-to-Development Turnaround</p>
+              <p className="text-white/70 text-[14px] md:text-sm">Reduced UI bugs during QA significantly because engineers were using pre-built, tested components rather than custom building each time.</p>
             </div>
             
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
-              <h4 className="text-4xl font-bold mb-4">25%</h4>
-              <p className="font-semibold text-lg mb-2 leading-tight">Reduction in UI Inconsistency Bugs</p>
-              <p className="text-white/70 text-sm">Streamlined QA processes with fewer visual regressions reported across different modules.</p>
+              <h4 className="text-[36px] md:text-4xl font-bold mb-4">25%</h4>
+              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Reduction in UI Inconsistency Bugs</p>
+              <p className="text-white/70 text-[14px] md:text-sm">Streamlined QA processes with fewer visual regressions reported across different modules.</p>
             </div>
             
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
-              <h4 className="text-4xl font-bold mb-4">40+</h4>
-              <p className="font-semibold text-lg mb-2 leading-tight">Reduction in Deprecated Design Assets</p>
-              <p className="text-white/70 text-sm">Cleaned up legacy files and consolidated components, creating a leaner and more performant design workspace.</p>
+              <h4 className="text-[36px] md:text-4xl font-bold mb-4">40+</h4>
+              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Reduction in Deprecated Design Assets</p>
+              <p className="text-white/70 text-[14px] md:text-sm">Cleaned up legacy files and consolidated components, creating a leaner and more performant design workspace.</p>
             </div>
           </div>
           
-          <p className="text-gray-600 mt-6 italic text-center text-sm">
+          <p className="text-gray-600 mt-6 italic text-center text-[14px] md:text-sm">
             *Metrics gathered during the 6 months post-launch via engineering velocity tracking and QA ticket volume analysis.
           </p>
         </div>
 
         {/* Closing Reflection */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Closing Reflection</h3>
-          <p className="text-gray-600 leading-relaxed mb-4">
+          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Closing Reflection</h3>
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
             This project taught me a valuable lesson building UI systems:
           </p>
-          <p className="text-gray-800 font-medium leading-relaxed mb-6 italic pl-4 border-l-4 border-gray-300">
+          <p className="text-[14px] md:text-base text-gray-800 font-medium leading-relaxed mb-6 italic pl-4 border-l-4 border-gray-300">
             A design system is only as good as its adoption rate among engineers and PMs.
           </p>
-          <p className="text-gray-600 leading-relaxed mb-4">
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
             The technical execution (Figma setup, React props, CSS architecture) is only half the battle. The other half is advocacy, education, support, and building trust with the people who will use it every day.
           </p>
-          <p className="text-gray-600 leading-relaxed mb-4">
+          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
             The system was a success because we treated it like a product itself.
           </p>
         </div>
