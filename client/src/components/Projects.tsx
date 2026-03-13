@@ -56,10 +56,10 @@ export function Projects() {
           {projects.map((project, index) => (
             <Link key={project.id} href={project.link}>
 <span 
-                className={`block sticky bg-white rounded-[28px] p-3 md:p-4 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#e2e8f0]/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] z-${10 + index * 10} group pt-[20px] pb-[20px] pl-[20px] pr-[20px]`}
+                className={`block sticky bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#e2e8f0]/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] z-${10 + index * 10} group`}
                 style={{ top: `${96 + index * 32}px` }}
               >
-                <div className="flex flex-col md:flex-row gap-6 md:gap-14 items-stretch cursor-pointer">
+                <div className="flex flex-col md:flex-row gap-[24px] items-stretch cursor-pointer">
                   {/* Project Image Container */}
                   <div className={`w-full md:w-[45%] flex-shrink-0 ${project.imageBg} rounded-[20px] overflow-hidden relative min-h-[300px] md:min-h-[380px]`}>
                     <img 
@@ -71,7 +71,7 @@ export function Projects() {
                   </div>
 
                   {/* Project Content */}
-                  <div className="w-full md:w-[55%] flex flex-col justify-center pt-[0px] px-[12px] md:pt-0 md:pr-12 md:pl-12 md:pb-12 pl-[0px] pb-[0px] pr-[0px]">
+                  <div className="w-full md:w-[55%] flex flex-col justify-center">
                     <div className="mb-6">
                       <h3 className="text-[24px] md:text-[28px] font-medium text-[#111] tracking-[-0.01em] leading-[1.3]">
                         {project.title}
