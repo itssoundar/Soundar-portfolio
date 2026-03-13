@@ -88,43 +88,35 @@ export function Hero() {
 
       </div>
       {/* Logos Section */}
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto pb-12 pt-8">
-        <div className="flex flex-wrap justify-center md:justify-between items-center gap-x-12 gap-y-10 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
-          
-          {/* Mock Logo 1 */}
-          <div className="flex flex-col font-bold text-[18px] leading-[0.85] text-[#555]">
-            <span className="tracking-tight text-[#888]">glance</span>
-            <span className="tracking-tighter text-[1.4em] text-[#666]">roposo</span>
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto pb-12 pt-8 overflow-hidden">
+        {/* Gradients for smooth fade effect at edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-white to-transparent z-20 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-white to-transparent z-20 pointer-events-none"></div>
+        
+        {/* Ticker Container */}
+        <div className="flex w-[200%] animate-ticker hover:animation-play-state-paused">
+          {/* First set of logos */}
+          <div className="flex w-1/2 justify-around items-center px-4 md:px-12">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+              <img 
+                key={`logo-1-${num}`}
+                src={`/works/worked_0${num}.png`} 
+                alt={`Company ${num}`} 
+                className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 mx-8"
+              />
+            ))}
           </div>
-          
-          {/* Mock Logo 2 */}
-          <div className="flex flex-col text-[#333] items-start">
-            <span className="font-extrabold text-[24px] tracking-[-0.05em] leading-none text-[#555]">Hconr.</span>
-            <span className="text-[6.5px] tracking-[0.15em] text-[#888] uppercase font-bold mt-[4px]">Global Talent Exchange</span>
+          {/* Duplicate set for seamless looping */}
+          <div className="flex w-1/2 justify-around items-center px-4 md:px-12">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+              <img 
+                key={`logo-2-${num}`}
+                src={`/works/worked_0${num}.png`} 
+                alt={`Company ${num}`} 
+                className="h-10 md:h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100 mx-8"
+              />
+            ))}
           </div>
-
-          {/* Mock Logo 3 */}
-          <div className="flex items-center gap-[1px] font-bold text-[20px] text-[#555] tracking-tight">
-            <span>Cl</span>
-            <span className="text-[1.1em] mt-[-2px] text-[#888]">✿</span>
-            <span>vertex</span>
-          </div>
-
-          {/* Mock Logo 4 */}
-          <div className="flex flex-col items-center text-[#333]">
-            <span className="font-medium text-[26px] lowercase tracking-[-0.04em] leading-none text-[#555]">helpall</span>
-            <span className="text-[6px] tracking-[0.12em] text-[#888] uppercase mt-[5px] font-semibold">move society forward</span>
-          </div>
-
-          {/* Mock Logo 5 */}
-          <div className="flex items-center gap-2 text-[#555]">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-50">
-              <path d="M2 22L22 2L12 22L2 22Z" fill="currentColor"/>
-              <path d="M2 2L22 2L12 12L2 2Z" fill="currentColor" opacity="0.3"/>
-            </svg>
-            <span className="font-semibold text-[22px] tracking-[-0.03em] text-[#777]">SayF</span>
-          </div>
-
         </div>
       </div>
     </section>
