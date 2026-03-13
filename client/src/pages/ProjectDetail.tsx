@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 
+import Case1 from "@assets/Case1.png";
+
 export default function ProjectDetail() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -42,7 +44,7 @@ export default function ProjectDetail() {
         <div className="w-full max-w-[1000px] z-10 relative mt-4">
           <div className="rounded-t-xl md:rounded-t-2xl overflow-hidden shadow-2xl">
             <img 
-              src="/Case1.png" 
+              src={Case1} 
               alt="HR Platform Dashboard" 
               className="w-full h-auto block"
             />
