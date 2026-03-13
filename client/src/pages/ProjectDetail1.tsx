@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 
 import Case1 from "@assets/Case1.png";
 
-export default function ProjectDetail() {
+export default function ProjectDetail1() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -14,8 +14,8 @@ export default function ProjectDetail() {
     <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-[0px]">
       <div className="fixed top-6 left-4 md:left-8 z-50">
         <Link href="/">
-          <a className="bg-white/95 backdrop-blur-md flex items-center justify-center px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-200 hover:bg-gray-50 transition-all group mt-[20px] ml-[40px]">
-            <ArrowLeft className="w-5 h-5 text-[#111] group-hover:-translate-x-1 transition-transform" strokeWidth={2.5} />
+          <a className="bg-white/95 backdrop-blur-md flex items-center justify-center px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-200 hover:bg-black transition-all group mt-[20px] ml-[40px]">
+            <ArrowLeft className="w-5 h-5 text-black group-hover:text-white group-hover:-translate-x-1 transition-all" strokeWidth={3} />
           </a>
         </Link>
       </div>
@@ -26,7 +26,7 @@ export default function ProjectDetail() {
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
           <h1 className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">
-            Building a Scalable Design System for a Growing HR Platform
+            Transforming CRM workflows with an AI-Agent Builder
           </h1>
         </div>
 
@@ -48,13 +48,10 @@ export default function ProjectDetail() {
             {/* Project Header */}
             <div className="mb-0">
               <h2 className="text-[28px] md:text-[34px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
-                Building a Scalable Design System for a Growing HR<br className="hidden md:block" /> Platform
+                Transforming CRM workflows with an AI-Agent<br className="hidden md:block" /> Builder
               </h2>
               <p className="text-[#444] leading-[1.8] mb-12 text-[17px] font-medium tracking-wide">
-                Clovertex is a cloud organization specializing in architecting, building, automating, and managing applications
-                that revolve around data processing. A modern cloud solutions provider, Clovertex brings years of cloud and
-                HPC expertise to enable researchers to get productive at once. We provide a full solution tailored to specific
-                research needs allowing the HPC workload to move seamlessly to the cloud.
+                A modern CRM solution designed to simplify hiring processes. We integrated an AI-agent builder that transforms natural language prompts into structured workflows, reducing manual configuration time and enabling recruiters to focus on candidate experience rather than software management.
               </p>
 
               {/* Project Meta Details */}
