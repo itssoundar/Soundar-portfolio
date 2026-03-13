@@ -56,7 +56,7 @@ export function Projects() {
         <div className="flex flex-col gap-10 md:gap-16 pb-24 relative">
           {projects.map((project, index) => (
             <Link key={project.id} href={project.link}>
-              <a 
+<span 
                 className={`block sticky bg-white rounded-[28px] p-3 md:p-4 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#e2e8f0]/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] z-${10 + index * 10} group`}
                 style={{ top: `${96 + index * 32}px` }}
               >
@@ -95,8 +95,8 @@ export function Projects() {
                     </div>
                   </div>
                 </div>
-              </a>
-            </Link>
+              </span>
+</Link>
           ))}
         </div>
       </div>

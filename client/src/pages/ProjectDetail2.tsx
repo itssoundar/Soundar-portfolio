@@ -14,10 +14,10 @@ export default function ProjectDetail2() {
     <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-[0px]">
       <div className="fixed top-6 left-4 md:left-8 z-50">
         <Link href="/">
-          <a className="bg-white/95 backdrop-blur-md flex items-center justify-center px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-2 border-black hover:bg-black transition-all group mt-[20px] ml-[40px]">
+<span className="bg-white/95 backdrop-blur-md flex items-center justify-center px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-2 border-black hover:bg-black transition-all group mt-[20px] ml-[40px]">
             <ArrowLeft className="w-5 h-5 text-black group-hover:text-white group-hover:-translate-x-1 transition-all" strokeWidth={2.5} />
-          </a>
-        </Link>
+          </span>
+</Link>
       </div>
       {/* Top Banner section */}
       <div 
@@ -466,16 +466,16 @@ export default function ProjectDetail2() {
         {/* Next Project Footer */}
         <div className="pt-12 border-t border-gray-200 flex justify-between items-center mt-20">
           <Link href="/">
-            <a className="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-2 transition-colors">
+<span className="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-2 transition-colors cursor-pointer">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
               </svg>
               Back to Home
-            </a>
-          </Link>
+            </span>
+</Link>
           
           <Link href="/project/3">
-            <a className="text-gray-900 hover:text-indigo-600 font-medium flex flex-col items-end transition-colors group">
+<span className="text-gray-900 hover:text-indigo-600 font-medium flex flex-col items-end transition-colors group cursor-pointer">
               <span className="text-xs text-gray-500 mb-1 group-hover:text-indigo-400 transition-colors">Next Project</span>
               <span className="flex items-center gap-2">
                 Next Case Study
@@ -483,8 +483,8 @@ export default function ProjectDetail2() {
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </span>
-            </a>
-          </Link>
+            </span>
+</Link>
         </div>
       </div>
       </div>
