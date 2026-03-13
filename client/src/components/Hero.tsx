@@ -72,7 +72,7 @@ export function Hero() {
 
         {/* Main Headline Section */}
         <div className="flex flex-col items-center text-center w-full mt-4">
-          <h1 className="text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] text-[#111] tracking-[-0.04em] font-semibold leading-[1.05] max-w-[1100px]">
+          <h1 className="sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem] text-[#111] tracking-[-0.04em] font-semibold max-w-[1100px] text-[40px]">
             Product Designer helping teams <br className="hidden lg:block" />
             move <img src="/hero_inline.png" alt="design" className="inline-block align-middle w-[45px] h-[45px] md:w-[85px] md:h-[85px] object-cover rounded-[8px] md:rounded-[12px] mx-1 md:mx-3 shadow-md rotate-[6deg] -translate-y-1 md:-translate-y-3 border-[3px] md:border-[4px] border-white" /> beyond <br className="hidden lg:block" />
             what looks good to <span className="inline-flex items-center text-[#888] font-light mx-1 md:mx-2">→</span> what <br className="hidden lg:block" />
