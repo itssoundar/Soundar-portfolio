@@ -5,9 +5,9 @@ export function NavBar() {
   return (
     <div className="fixed top-6 left-1/2 -translate-x-1/2 w-full max-w-5xl px-4 z-50">
       <nav className="bg-white/95 backdrop-blur-md flex items-center justify-between px-3 py-2.5 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50">
-        <div className="pl-5 text-[15px] font-medium tracking-[0.03em] text-[#111]">
+        <a href="/" className="pl-5 text-[15px] font-medium tracking-[0.03em] text-[#111] hover:opacity-80 transition-opacity">
           DZNWITHSOUNDAR
-        </div>
+        </a>
         
         <div className="flex items-center gap-8 pr-1">
           <div className="hidden md:flex items-center gap-8 text-[15px] font-medium text-[#444]">
