@@ -159,20 +159,20 @@ export function Experience() {
           </div>
 
           {/* Marquee Ticker */}
-          <div className="relative z-10 mt-20 md:mt-28 -mx-6 md:-mx-[86px] py-6 border-t border-b border-white/5 overflow-hidden flex bg-[#111111]/80 backdrop-blur-md">
-            <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap">
-              {[...Array(2)].map((_, i) => (
-                <div key={i} className="flex items-center gap-8 mx-4">
-                  <span className="text-white text-[18px] font-medium tracking-wide uppercase">Design thinking</span>
-                  <img src="/star.png" alt="star" className="w-10 h-10 opacity-70" />
-                  <span className="text-white text-[18px] font-medium tracking-wide uppercase">Accessibility</span>
-                  <img src="/star.png" alt="star" className="w-10 h-10 opacity-70" />
-                  <span className="text-white text-[18px] font-medium tracking-wide uppercase">User friendly</span>
-                  <img src="/star.png" alt="star" className="w-10 h-10 opacity-70" />
-                  <span className="text-white text-[18px] font-medium tracking-wide uppercase">Vibe-Coding</span>
-                  <img src="/star.png" alt="star" className="w-10 h-10 opacity-70" />
-                  <span className="text-white text-[18px] font-medium tracking-wide uppercase">Behavioural design</span>
-                  <img src="/star.png" alt="star" className="w-10 h-10 opacity-70" />
+          <div className="relative z-10 mt-20 md:mt-28 -mx-6 md:-mx-[86px] py-6 border-t border-b border-white/5 overflow-hidden bg-[#111111]/80 backdrop-blur-md flex whitespace-nowrap">
+            <div className="flex items-center animate-[marquee_20s_linear_infinite] w-max">
+              {[...Array(4)].map((_, i) => (
+                <div key={i} className="flex items-center flex-shrink-0">
+                  <span className="text-white text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Design thinking</span>
+                  <img src="/star.png" alt="star" className="w-10 h-10 opacity-70 flex-shrink-0" />
+                  <span className="text-white text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Accessibility</span>
+                  <img src="/star.png" alt="star" className="w-10 h-10 opacity-70 flex-shrink-0" />
+                  <span className="text-white text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">User friendly</span>
+                  <img src="/star.png" alt="star" className="w-10 h-10 opacity-70 flex-shrink-0" />
+                  <span className="text-white text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Vibe-Coding</span>
+                  <img src="/star.png" alt="star" className="w-10 h-10 opacity-70 flex-shrink-0" />
+                  <span className="text-white text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Behavioural design</span>
+                  <img src="/star.png" alt="star" className="w-10 h-10 opacity-70 flex-shrink-0" />
                 </div>
               ))}
             </div>
