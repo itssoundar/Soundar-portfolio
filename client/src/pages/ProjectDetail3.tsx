@@ -283,11 +283,15 @@ export default function ProjectDetail3() {
           
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
-              <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
-                alt="Dashboards" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
-              />
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="w-full h-auto pointer-events-none"
+              >
+                <source src="/c3-s1.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
 
