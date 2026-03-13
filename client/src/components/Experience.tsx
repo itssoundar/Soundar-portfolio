@@ -163,16 +163,16 @@ export function Experience() {
             <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap">
               {[...Array(2)].map((_, i) => (
                 <div key={i} className="flex items-center gap-8 mx-4">
-                  <span className="text-white/60 text-[18px] font-medium tracking-wide uppercase">Design thinking</span>
-                  <img src="/star.png" alt="star" className="w-5 h-5 opacity-70" />
-                  <span className="text-white/60 text-[18px] font-medium tracking-wide uppercase">Accessibility</span>
-                  <img src="/star.png" alt="star" className="w-5 h-5 opacity-70" />
-                  <span className="text-white/60 text-[18px] font-medium tracking-wide uppercase">User friendly</span>
-                  <img src="/star.png" alt="star" className="w-5 h-5 opacity-70" />
-                  <span className="text-white/60 text-[18px] font-medium tracking-wide uppercase">Vibe-Coding</span>
-                  <img src="/star.png" alt="star" className="w-5 h-5 opacity-70" />
-                  <span className="text-white/60 text-[18px] font-medium tracking-wide uppercase">Behavioural design</span>
-                  <img src="/star.png" alt="star" className="w-5 h-5 opacity-70" />
+                  <span className="text-white text-[18px] font-medium tracking-wide uppercase">Design thinking</span>
+                  <img src="/star.png" alt="star" className="w-6 h-6 opacity-70" />
+                  <span className="text-white text-[18px] font-medium tracking-wide uppercase">Accessibility</span>
+                  <img src="/star.png" alt="star" className="w-6 h-6 opacity-70" />
+                  <span className="text-white text-[18px] font-medium tracking-wide uppercase">User friendly</span>
+                  <img src="/star.png" alt="star" className="w-6 h-6 opacity-70" />
+                  <span className="text-white text-[18px] font-medium tracking-wide uppercase">Vibe-Coding</span>
+                  <img src="/star.png" alt="star" className="w-6 h-6 opacity-70" />
+                  <span className="text-white text-[18px] font-medium tracking-wide uppercase">Behavioural design</span>
+                  <img src="/star.png" alt="star" className="w-6 h-6 opacity-70" />
                 </div>
               ))}
             </div>
