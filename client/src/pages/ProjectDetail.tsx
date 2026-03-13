@@ -24,9 +24,6 @@ export default function ProjectDetail() {
         className="w-full text-white pt-32 flex flex-col items-center justify-start text-center px-6 relative overflow-hidden bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/Case_hero.png')" }}
       >
-        <div className="absolute inset-0 bg-[#2a2456]/20 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-gray-50 to-transparent z-0 pointer-events-none"></div>
-
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
           <h1 className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">
             Building a Scalable Design System for a Growing HR Platform
