@@ -252,10 +252,13 @@ export default function ProjectDetail1() {
           
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-8">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
-              <img 
-                src="/image_1773424110606.png" 
-                alt="Conversational Intent Capture" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+              <video 
+                src="/c1-s1.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="w-full h-auto"
               />
             </div>
           </div>
