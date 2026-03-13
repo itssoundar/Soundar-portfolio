@@ -293,10 +293,10 @@ export default function ProjectDetail1() {
             </ul>
           </div>
 
-          <div className="bg-[#1b1c3c] p-6 md:p-10 rounded-xl flex flex-col gap-6">
-             <div className="rounded-lg overflow-hidden border border-gray-700 shadow-md bg-white">
+          <div className="pt-4 md:pt-8 rounded-xl bg-[#f3f4f600] mb-0">
+             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
               <img 
-                src="/Screenshot_2026-03-13_at_11.18.47_PM_1773424129761.png" 
+                src="/c1-s2.gif" 
                 alt="Agent Action Previews" 
                 className="w-full h-auto"
               />
