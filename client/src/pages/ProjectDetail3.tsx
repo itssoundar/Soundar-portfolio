@@ -298,14 +298,14 @@ export default function ProjectDetail3() {
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                src="/c3-s1-1.png" 
                 alt="Dashboard view 1" 
                 className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
               />
             </div>
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                src="/c3-s1-2.png" 
                 alt="Dashboard view 2" 
                 className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
               />
