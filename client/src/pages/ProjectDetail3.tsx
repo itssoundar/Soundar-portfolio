@@ -281,7 +281,7 @@ export default function ProjectDetail3() {
         <div className="mb-16 pt-12 border-t border-gray-200">
           <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 1: Pre-Built Hiring Intelligence Dashboards</h3>
           
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
+          <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-0">
               <video 
                 autoPlay 
@@ -353,7 +353,7 @@ export default function ProjectDetail3() {
         <div className="mb-16">
           <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 2: Custom Dashboard & Report Builder</h3>
           
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
+          <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
               <img 
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
@@ -393,7 +393,7 @@ export default function ProjectDetail3() {
         <div className="mb-16">
           <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 3: Alerts & Predictive Insights</h3>
           
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-8">
+          <div className="mb-8">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
