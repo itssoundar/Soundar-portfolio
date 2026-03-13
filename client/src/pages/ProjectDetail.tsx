@@ -20,19 +20,12 @@ export default function ProjectDetail() {
         </Link>
       </div>
       {/* Top Banner section */}
-      <div className="w-full bg-[#2a2456] text-white pt-32 flex flex-col items-center justify-start text-center px-6 relative overflow-hidden">
-        {/* Subtle vertical striping effect for background */}
-        <div 
-          className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-          style={{ 
-            backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255,255,255,1) 1px, rgba(255,255,255,1) 2px)',
-            backgroundSize: '8px 100%' 
-          }}
-        ></div>
-        
-        {/* Center glowing radial gradient */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#413280]/60 via-transparent to-transparent pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#2a2456] to-transparent z-0 pointer-events-none"></div>
+      <div 
+        className="w-full text-white pt-32 flex flex-col items-center justify-start text-center px-6 relative overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/Case_hero.png')" }}
+      >
+        <div className="absolute inset-0 bg-[#2a2456]/20 pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-gray-50 to-transparent z-0 pointer-events-none"></div>
 
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
           <h1 className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">
