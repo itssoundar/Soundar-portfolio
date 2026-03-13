@@ -31,9 +31,9 @@ export function Projects() {
       title: <>Building CRM analytics and a custom <span className="font-serif italic font-normal text-[1.15em]">dashboard builder</span></>,
       image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop",
       bullets: [
-        "Designed an intuitive chat-based interface for complex enterprise workflows.",
-        "Improved user engagement by reducing cognitive load during task execution.",
-        "Integrated intelligent suggested actions based on contextual user data."
+        "Designed centralized dashboards to monitor hiring pipeline performance.",
+        "Enabled self-serve analytics through a flexible dashboard builder.",
+        "Surfaced insights on hiring velocity, recruiter productivity, and source effectiveness."
       ],
       imageBg: "bg-[#eefcf5]",
       link: "/project/conversational-b2b"
