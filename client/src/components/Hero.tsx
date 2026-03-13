@@ -17,7 +17,7 @@ export function Hero() {
       <div 
         className="absolute inset-0 z-0 animate-bg-pulse"
         style={{
-          backgroundImage: 'url(/hero-bg.jpg)',
+          backgroundImage: 'url(/hero-bg.jpg?v=2)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
