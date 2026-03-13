@@ -38,7 +38,7 @@ export default function ProjectDetail() {
           {/* Main Interface Image - Now placed cleanly overlapping the banner */}
           <div className="w-full overflow-hidden shadow-2xl relative z-30 bg-white -mt-32 md:-mt-48 mb-16 rounded-xl border border-gray-100">
             <img 
-              src="/learn_1773406966988.jpg" 
+              src="/Case_hero.png" 
               alt="HR Platform Dashboard" 
               className="w-full h-auto object-cover max-h-[600px] object-top"
               onError={(e) => {
