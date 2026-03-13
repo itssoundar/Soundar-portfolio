@@ -73,8 +73,9 @@ export function WordsFromPeople() {
     <section className="bg-white relative overflow-hidden pt-[60px] pb-[60px] px-6 md:px-[86px]">
       <div className="w-full mx-auto max-w-[1200px]">
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-          <h2 className="text-[32px] font-serif font-medium text-[#222] tracking-[-0.02em] leading-[1.1] mb-6">
-            Words from people
+          <h2 className="text-[40px] text-[#222] tracking-[-0.02em] mb-6">
+            <span className="font-serif italic font-normal">Words</span>
+            <span className="font-sans font-medium"> from people</span>
           </h2>
           <p className="text-[#666] text-[18px] leading-[1.6] max-w-2xl font-medium tracking-wide">
             No contracts, no hidden costs. Just tell us what you need and we'll deliver<br className="hidden md:block" /> accordingly.
