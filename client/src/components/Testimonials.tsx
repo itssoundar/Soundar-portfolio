@@ -165,11 +165,11 @@ export function Testimonials() {
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center lg:items-start justify-between w-full">
           {/* Left Side */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:sticky lg:top-32 max-w-xl shrink-0 lg:pt-12">
-            <h2 id="testimonials-heading" className="text-[32px] font-medium tracking-[-0.02em] leading-[1.1] text-[#222]">
+            <h2 id="testimonials-heading" className="text-[32px] font-medium tracking-[-0.02em] leading-[1.1] text-[#222] font-sans">
               See what <span className="text-[#111]">others</span><br className="hidden lg:block" />
               say about me
             </h2>
-            <p className="mt-6 text-[#666] text-[18px] leading-[1.6] max-w-md tracking-wide">
+            <p className="mt-6 text-[#666] text-[18px] leading-[1.6] max-w-md tracking-wide font-sans">
               I have helped many businesses make a killer design for their product. Wanna be the next?
             </p>
             <a href="#contact" className="mt-10 inline-flex items-center justify-center gap-2 rounded-full bg-[#B2F042] px-8 py-4 text-[18px] font-semibold text-black transition-all hover:scale-105 hover:bg-[#a0dc3b] shadow-sm">

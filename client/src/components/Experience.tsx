@@ -47,7 +47,7 @@ export function Experience() {
         }}
       />
       <div className="relative z-10 w-full max-w-[1200px] mx-auto">
-        <h2 className="text-[32px] font-medium text-center mb-16 md:mb-24 tracking-[-0.02em] leading-[1.1]">
+        <h2 className="text-[32px] font-medium text-center mb-16 md:mb-24 tracking-[-0.02em] leading-[1.1] font-sans">
           Experiences that shaped <span className="font-serif italic font-normal text-white/90">my design lens</span>
         </h2>
 
@@ -58,14 +58,14 @@ export function Experience() {
               className={`py-8 md:py-10 flex flex-col gap-3 ${index !== experiences.length - 1 ? 'border-b border-white/10' : ''}`}
             >
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                <h3 className="text-[24px] font-semibold tracking-wide text-white/95">
-                  {exp.role} <span className="font-normal text-white/80">{exp.company}</span>
+                <h3 className="text-[24px] font-semibold tracking-wide text-white/95 font-sans">
+                  {exp.role} <span className="font-normal text-white/80 font-sans">{exp.company}</span>
                 </h3>
-                <span className="text-white/50 text-[18px] font-medium tracking-wider">
+                <span className="text-white/50 text-[18px] font-medium tracking-wider font-sans">
                   {exp.period}
                 </span>
               </div>
-              <p className="text-[#888888] text-[18px] leading-[1.6] max-w-[600px] font-normal tracking-wide">
+              <p className="text-[#888888] text-[18px] leading-[1.6] max-w-[600px] font-normal tracking-wide font-sans">
                 {exp.description}
               </p>
             </div>

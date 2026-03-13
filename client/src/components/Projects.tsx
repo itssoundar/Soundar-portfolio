@@ -46,7 +46,7 @@ export function Projects() {
       <div className="relative z-20 w-full max-w-[1100px] mx-auto overflow-visible">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-[24px] md:text-[36px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1]">
+          <h2 className="text-[24px] md:text-[36px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans">
             Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
           </h2>
         </div>
