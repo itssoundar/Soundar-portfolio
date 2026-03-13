@@ -8,64 +8,80 @@ export default function ProjectDetail() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#f8f9fa] text-foreground selection:bg-primary selection:text-primary-foreground relative pt-20">
+    <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-20">
       <NavBar />
       
       {/* Top Banner section */}
-      <div className="w-full bg-gradient-to-b from-[#2a2b4a] to-[#1e1f3e] text-white pt-20 pb-56 flex flex-col items-center justify-start text-center px-4 relative overflow-hidden">
-        {/* Decorative elements to mimic the blurred background effect */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-indigo-500/20 rounded-full blur-[80px] pointer-events-none"></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#4a4c8a]/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="w-full bg-[#2a2456] text-white pt-32 pb-64 flex flex-col items-center justify-start text-center px-6 relative overflow-hidden">
+        {/* Subtle vertical striping effect for background */}
+        <div 
+          className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+          style={{ 
+            backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255,255,255,1) 1px, rgba(255,255,255,1) 2px)',
+            backgroundSize: '8px 100%' 
+          }}
+        ></div>
         
-        <div className="max-w-4xl z-10">
-          <h1 className="text-3xl md:text-5xl font-semibold leading-tight mb-2 tracking-tight text-white shadow-sm">
-            Building a Scalable Design System for a<br />Growing HR Platform
+        {/* Center glowing radial gradient */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#413280]/60 via-transparent to-transparent pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#2a2456] to-transparent z-0"></div>
+        
+        <div className="max-w-[800px] z-10 relative mt-4">
+          <h1 className="text-[32px] md:text-[40px] font-semibold leading-[1.3] mb-2 tracking-tight text-white font-sans">
+            Building a Scalable Design System for a<br className="hidden md:block" /> Growing HR Platform
           </h1>
         </div>
       </div>
 
-      <div className="max-w-[1000px] mx-auto bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] rounded-2xl -mt-40 relative z-20 mb-20">
-        
-        {/* Main Interface Image */}
-        <div className="w-full rounded-t-2xl overflow-hidden border-b border-gray-100 bg-[#f8f9fc] p-4 md:p-8">
-          <img 
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-            alt="HR Platform Dashboard" 
-            className="w-full h-auto rounded-xl shadow-lg border border-gray-200/60"
-          />
-        </div>
-
-        <div className="px-6 py-10 md:px-16 md:py-16">
-          {/* Project Header */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Building a Scalable Design System for a Growing HR Platform
-          </h2>
-          <p className="text-gray-600 leading-relaxed mb-10 text-base">
-            Over the course of 8 months, I led the complete redesign of an enterprise HR platform. Working closely with product managers and engineers, I established a robust design system that unified the user experience across 4 distinct product modules while reducing engineering delivery time by 30%. The new system standardized 150+ components and introduced a cohesive visual language that scaled beautifully.
-          </p>
-
-          {/* Project Meta Details */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-6 border-y border-gray-100 mb-12">
-            <div>
-              <p className="text-sm text-gray-500 font-medium mb-1">My Role</p>
-              <p className="font-semibold text-gray-900">Lead Product Designer</p>
-            </div>
-            <div>
-              <p className="text-sm text-gray-500 font-medium mb-1">Timeline</p>
-              <p className="font-semibold text-gray-900">8 Months</p>
-            </div>
-            <div>
-              <p className="text-sm text-gray-500 font-medium mb-1">Platform</p>
-              <p className="font-semibold text-gray-900">Web App</p>
-            </div>
-            <div>
-              <p className="text-sm text-gray-500 font-medium mb-1">Industry</p>
-              <p className="font-semibold text-gray-900">B2B / SaaS</p>
-            </div>
+      {/* Content Section */}
+      <div className="w-full bg-white relative z-20">
+        <div className="max-w-[1000px] mx-auto px-4 md:px-8">
+          
+          {/* Main Interface Image - Overlapping the dark banner and white background */}
+          <div className="w-full overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.1)] relative z-30 bg-white -mt-48 mb-16 rounded-b-none rounded-t-[12px]">
+            <img 
+              src="/learn_1773406966988.jpg" 
+              alt="HR Platform Dashboard" 
+              className="w-full h-auto object-cover max-h-[550px] object-top"
+              onError={(e) => {
+                e.currentTarget.src = "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop";
+              }}
+            />
           </div>
-        </div>
+
+          <div className="w-full pb-12">
+            {/* Project Header */}
+            <div className="mb-10">
+              <h2 className="text-[28px] md:text-[34px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
+                Building a Scalable Design System for a Growing HR<br className="hidden md:block" /> Platform
+              </h2>
+              <p className="text-[#444] leading-[1.8] mb-12 text-[17px] font-medium tracking-wide">
+                Clovertex is a cloud organization specializing in architecting, building, automating, and managing applications
+                that revolve around data processing. A modern cloud solutions provider, Clovertex brings years of cloud and
+                HPC expertise to enable researchers to get productive at once. We provide a full solution tailored to specific
+                research needs allowing the HPC workload to move seamlessly to the cloud.
+              </p>
+
+              {/* Project Meta Details */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 pb-10 border-t border-b border-gray-200 mb-16">
+                <div>
+                  <p className="text-[17px] text-[#111] font-semibold mb-1 tracking-tight">App Name / Client</p>
+                  <p className="text-[16px] text-[#555]">Sense</p>
+                </div>
+                <div>
+                  <p className="text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Role</p>
+                  <p className="text-[16px] text-[#555]">Senior Product Designer</p>
+                </div>
+                <div>
+                  <p className="text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Platform</p>
+                  <p className="text-[16px] text-[#555]">Web App</p>
+                </div>
+                <div>
+                  <p className="text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Industry</p>
+                  <p className="text-[16px] text-[#555]">SaaS - CRM</p>
+                </div>
+              </div>
+            </div>
 
         {/* Introduction Section */}
         <div className="mb-16">
