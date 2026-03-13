@@ -4,12 +4,12 @@ export function Projects() {
   const projects = [
     {
       id: "crm-ai",
-      title: <>Transforming CRM workflows with an <span className="font-serif italic font-normal text-[1.15em]">AI-Agent Builder</span> as an execution layer</>,
-      image: "/Case1.png",
+      title: <>From Search to Action: Turning HR Intent into <span className="font-serif italic font-normal text-[1.15em]">Intelligent Execution</span></>,
+      image: "/image_1773421521857.png",
       bullets: [
-        "Generate hiring workflows instantly through natural language prompts.",
-        "Automatically create analytics dashboards from recruiter questions.",
-        "Reduce manual configuration by translating user intent into structured CRM actions."
+        "Sense is an AI-driven HR recruitment platform for staffing agencies.",
+        "Generates hiring workflows instantly through natural language prompts.",
+        "Reduces manual configuration by translating user intent into structured actions."
       ],
       imageBg: "bg-[#eef2fc]",
       link: "/project/crm-ai"

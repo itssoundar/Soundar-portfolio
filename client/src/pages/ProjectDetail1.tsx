@@ -46,11 +46,12 @@ export default function ProjectDetail1() {
             {/* Project Header */}
             <div className="mb-0">
               <h2 className="text-[28px] md:text-[34px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
-                Transforming CRM workflows with an AI-Agent<br className="hidden md:block" /> Builder
+                From Search to Action: Turning HR Intent into Intelligent Execution
               </h2>
-              <p className="text-[#444] leading-[1.8] mb-12 text-[17px] font-medium tracking-wide">
-                A modern CRM solution designed to simplify hiring processes. We integrated an AI-agent builder that transforms natural language prompts into structured workflows, reducing manual configuration time and enabling recruiters to focus on candidate experience rather than software management.
-              </p>
+              <div className="text-[#444] leading-[1.8] mb-12 text-[17px] font-medium tracking-wide space-y-4">
+                <p>Sense is an AI-driven HR recruitment platform. Staffing agencies use Sense to automate communication, generate workflows, and manage candidates at scale.</p>
+                <p>As the CRM includes countless modules to configure workflows and automation execution. This process demands time and supported logic could sometimes be a difficult to configure for basic use cases like a simple text or email flows.</p>
+              </div>
 
               {/* Project Meta Details */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 pb-4 border-t border-gray-200">
@@ -81,402 +82,436 @@ export default function ProjectDetail1() {
 
         {/* Introduction Section */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Introduction</h3>
-          <p className="text-gray-600 leading-relaxed mb-6">
-            As the HR platform rapidly expanded its feature set, the user experience became fragmented and complex. The team faced several critical challenges:
+          <h2 className="text-[24px] md:text-[28px] font-bold text-[#111] mb-6 tracking-tight">Introduction</h2>
+          <p className="text-[#444] text-[17px] leading-[1.8] mb-6">
+            Sense is focused on a range of HR solutions. The managed integration process can be tedious and overwhelming and basic intent is lost.
+          </p>
+          <p className="text-[#444] text-[17px] leading-[1.8] mb-6">
+            HR Admins struggle because of complex modules doesn't operate on intent. It operates on configuration.
           </p>
           
-          <div className="bg-gray-50 border border-gray-100 rounded-xl p-6 mb-8">
-            <ul className="list-disc pl-5 space-y-3 text-gray-700 font-medium">
-              <li>Inconsistent UI patterns across different modules</li>
-              <li>Redundant components slowing down development</li>
-              <li>Different typography choices and spacing systems</li>
-              <li>Conflicting interaction behaviors that confused users</li>
+          <div className="bg-[#f8f9fa] border-l-4 border-[#111] py-4 px-6 mb-8">
+            <ul className="space-y-2 text-[#444] font-medium text-[17px]">
+              <li>"Why is database terminology in steps?"</li>
+              <li>"What are my field filters?"</li>
             </ul>
-            <div className="mt-6 pt-4 border-t border-gray-200">
-              <p className="text-gray-900 font-semibold italic">
-                The product worked, but it didn't feel unified.
-              </p>
-            </div>
           </div>
           
-          <p className="text-gray-600 leading-relaxed">
-            This lack of cohesion impacted user adoption and significantly increased onboarding time for new enterprise clients.
+          <p className="text-[#444] text-[17px] leading-[1.8]">
+            This causes recruiters using the ATS to be frustrated because they are dealing with a configuration UI instead of making candidate hires.
           </p>
         </div>
 
         {/* My Role Section */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">My Role</h3>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            As the lead Product Designer, I drove the design system initiative from conception to launch:
+          <h2 className="text-[24px] md:text-[28px] font-bold text-[#111] mb-6 tracking-tight">My Role</h2>
+          <p className="text-[#444] text-[17px] leading-[1.8] mb-4">
+            As a Senior Product Designer, I led the product to re-evaluate the heavy enterprise strategy. I defined the AI-Agent UI and also designed the conversational flow layout and validation process in the new AI Architecture.
           </p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
-            <li>Audited existing UI patterns across all products</li>
-            <li>Defined the foundational visual language (color, typography, spacing)</li>
-            <li>Created 150+ reusable Figma components</li>
-            <li>Partnered with engineering to align on implementation structure</li>
-            <li>Authored detailed documentation guidelines</li>
-            <li>Facilitated adoption across 3 separate product teams</li>
-          </ul>
+          <p className="text-[#444] text-[17px] leading-[1.8]">
+            I created wireframes and high-fidelity UI to help the engineering team conceptually build these models across ATS contexts — enhancing the search filters and validation processes.
+          </p>
         </div>
 
         {/* Problem Statement Section */}
-        <div className="bg-[#1b1c3c] text-white rounded-xl p-8 md:p-10 mb-16 shadow-lg relative overflow-hidden">
-          <h3 className="text-xl font-bold mb-6 text-white/90">Problem Statement</h3>
-          <div className="absolute top-4 right-4 text-white/10 text-9xl font-serif leading-none font-bold select-none pointer-events-none">"</div>
+        <div className="bg-[#1b1c3c] text-white rounded-2xl p-8 md:p-12 mb-20 shadow-lg relative overflow-hidden">
+          <h2 className="text-[24px] md:text-[28px] font-bold mb-8 text-white/90 tracking-tight">Problem Statement</h2>
+          <div className="absolute top-4 right-6 text-white/5 text-[120px] font-serif leading-none font-bold select-none pointer-events-none">"</div>
           <div className="relative z-10">
-            <p className="text-lg md:text-xl leading-relaxed font-medium text-white/90 mb-6">
-              The platform had grown feature by feature without a unified design strategy, resulting in inconsistent UI patterns, slower development cycles, and increased cognitive load for users.
+            <p className="text-[18px] md:text-[20px] leading-[1.7] font-medium text-white/90 mb-8">
+              The CRM is structured around instances and modules, not HR intent. A CRM is a guide, not execution.
             </p>
-            <div className="border-l-4 border-indigo-400 pl-4 py-1">
-              <p className="text-indigo-200 font-medium">The product was scaling.</p>
-              <p className="text-indigo-200 font-medium">The design language was not.</p>
+            <div className="border-l-4 border-indigo-400 pl-5 py-2">
+              <p className="text-indigo-100 text-[17px] leading-[1.6]">This paradigm creates cognitive overload, breaks dependency, and slows execution - directly hurting people interactions.</p>
             </div>
           </div>
         </div>
 
         {/* Problem 1 Section */}
         <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Problem 1: Inconsistent Patterns Across Modules</h3>
-          <p className="text-gray-600 mb-6">Users found it difficult to navigate because:</p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Similar actions had different button styles and locations</li>
-            <li>Data tables presented information using conflicting structures</li>
-            <li>Form inputs and error states varied wildly</li>
-            <li>Modal behaviors lacked standardization</li>
+          <h2 className="text-[24px] md:text-[28px] font-bold text-[#111] mb-6 tracking-tight">Problem 1: High Setup Friction & Low AI Adoption</h2>
+          <ul className="space-y-3 text-[#444] text-[17px] leading-[1.6] mb-10 font-normal">
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>Complex workflows include tool-tips and legends.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>UX is redundant and breaks anytime users refresh.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>Setup is hard to configure without a long workflow.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>In-product adoption dropped to 18%</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>Frustration leads to low utilization of the application.</span>
+            </li>
           </ul>
 
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
-             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
+          <div className="mb-6">
+             <div className="rounded-[16px] overflow-hidden border border-gray-200 shadow-sm bg-gray-50">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Inconsistent UI before redesign" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+                src="/Case1.png" 
+                alt="Recruiters UI" 
+                className="w-full h-auto object-cover"
               />
             </div>
-          </div>
-          
-          <div className="bg-red-50 text-red-800 p-4 rounded-lg border border-red-100">
-            <p className="font-semibold mb-2">Impact:</p>
-            <ul className="list-disc pl-5 space-y-1 text-sm">
-              <li>Higher onboarding time for new users</li>
-              <li>Increased support tickets</li>
-              <li>Slower feature discovery</li>
-              <li>Loss of brand trust</li>
-            </ul>
+            <p className="text-[14px] text-gray-500 mt-4 font-medium">Recruiters UI</p>
+            <p className="text-[14px] text-gray-500 mt-1">The input bar for actions.</p>
+            <p className="text-[14px] text-gray-500 mt-1">The system generating filters without bringing data.</p>
           </div>
         </div>
 
         {/* Problem 2 Section */}
-        <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Problem 2: High UI Debt & Low Reusability</h3>
-          <p className="text-gray-600 mb-6">Without a centralized component library:</p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Engineers rebuilt the same components repeatedly</li>
-            <li>Designers spent too much time on basic UI decisions</li>
-            <li>Code base became bloated and hard to maintain</li>
-            <li>Quality assurance took twice as long</li>
+        <div className="mb-20">
+          <h2 className="text-[24px] md:text-[28px] font-bold text-[#111] mb-6 tracking-tight">Problem 2: Trust Gap in Automation</h2>
+          <p className="text-[#444] text-[17px] mb-6">Low trust in AI generated suggestions.</p>
+          <ul className="space-y-3 text-[#444] text-[17px] leading-[1.6] mb-10 font-normal">
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>Users require full logs.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>Hard to see what happens.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>Needs human in the loop controls.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>The lack of explainable model steps.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>The UI is unreliable and breaks often.</span>
+            </li>
           </ul>
 
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
-             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
+          <div className="mb-6">
+             <div className="rounded-[16px] overflow-hidden border border-gray-200 shadow-sm bg-gray-50">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Code and UI debt examples" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+                src="/Case1.png" 
+                alt="The user challenges the AI" 
+                className="w-full h-auto object-cover"
               />
             </div>
+            <p className="text-[14px] text-gray-500 mt-4">The user challenges the AI and refuses to execute the task.</p>
           </div>
         </div>
 
         {/* Goals Section */}
-        <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Goals</h3>
+        <div className="mb-20">
+          <h2 className="text-[24px] md:text-[28px] font-bold text-[#111] mb-10 tracking-tight">Goals</h2>
           
-          <div className="grid md:grid-cols-12 gap-8 mb-10">
+          <div className="grid md:grid-cols-12 gap-8 mb-12">
             <div className="md:col-span-3">
-              <h4 className="text-lg font-bold text-gray-900">Business Goals</h4>
+              <h4 className="text-[18px] font-bold text-[#111]">Business Goals</h4>
             </div>
-            <div className="md:col-span-9 space-y-6">
+            <div className="md:col-span-9 space-y-8">
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Improve Product Consistency Across All Modules</p>
-                <p className="text-gray-600 text-sm ml-4">Establish a cohesive brand identity and user experience across the entire platform.</p>
+                <p className="font-bold text-[#111] mb-2 text-[17px]">• Increase Feature Adoption</p>
+                <p className="text-[#555] text-[16px] leading-[1.6] ml-4">Make AI-Agents an intuitive upgrade from manual workflows, driving product stickiness and ARR.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Reduce Design-to-Development Cycle Time</p>
-                <p className="text-gray-600 text-sm ml-4">Streamline the handoff process and empower developers to build features faster.</p>
+                <p className="font-bold text-[#111] mb-2 text-[17px]">• Reduce Product Dependency</p>
+                <p className="text-[#555] text-[16px] leading-[1.6] ml-4">Streamline the user journey allowing users to manage configurations, rule sets filters without relying heavily on support.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Improve Platform Scalability & Evolution</p>
-                <p className="text-gray-600 text-sm ml-4">Create a scalable foundation that accommodates future features without breaking existing UI.</p>
+                <p className="font-bold text-[#111] mb-2 text-[17px]">• Improve Platform Operations & Retention</p>
+                <p className="text-[#555] text-[16px] leading-[1.6] ml-4">Create an API architecture allowing third-party tools to communicate with Sense. This is an added integration layer and MRR.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Enable Faster Feature Experimentation</p>
-                <p className="text-gray-600 text-sm ml-4">Provide a robust set of building blocks allowing product teams to test ideas quickly and safely.</p>
+                <p className="font-bold text-[#111] mb-2 text-[17px]">• Demonstrate Relevance of AI</p>
+                <p className="text-[#555] text-[16px] leading-[1.6] ml-4">Showcase the value proposition of AI over the traditional manual configurations. Bring the AI - ATS - Candidate data into one.</p>
               </div>
             </div>
           </div>
 
-          <div className="grid md:grid-cols-12 gap-8 pt-8 border-t border-gray-100">
+          <div className="grid md:grid-cols-12 gap-8 pt-10 border-t border-gray-100">
             <div className="md:col-span-3">
-              <h4 className="text-lg font-bold text-gray-900">User Goals</h4>
+              <h4 className="text-[18px] font-bold text-[#111]">User Goals</h4>
             </div>
-            <div className="md:col-span-9 space-y-6">
+            <div className="md:col-span-9 space-y-8">
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Consistent Interaction Patterns</p>
-                <p className="text-gray-600 text-sm ml-4">Provide familiar UI behaviors so users can navigate the system with confidence.</p>
+                <p className="font-bold text-[#111] mb-2 text-[17px]">• Short ATS Navigation — Intuitive Making</p>
+                <p className="text-[#555] text-[16px] leading-[1.6] ml-4">Reduce time spent navigating complex routing tables and logic and focus on simple task actions.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Predictable Workflows</p>
-                <p className="text-gray-600 text-sm ml-4">Design clear user flows that clearly communicate the next steps to complete a task.</p>
+                <p className="font-bold text-[#111] mb-2 text-[17px]">• Intent Workflow Creation</p>
+                <p className="text-[#555] text-[16px] leading-[1.6] ml-4">Allow users to generate workflows quickly based on what you ask them to do from chat.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Reduced Cognitive Load When Context Switching</p>
-                <p className="text-gray-600 text-sm ml-4">Maintain visual harmony so moving between modules feels seamless and intuitive.</p>
+                <p className="font-bold text-[#111] mb-2 text-[17px]">• Visual Confidence with Natural Language</p>
+                <p className="text-[#555] text-[16px] leading-[1.6] ml-4">Enable users to generate analytics dashboards through conversational prompts.</p>
               </div>
               <div>
-                <p className="font-bold text-gray-900 mb-1">• Faster Onboarding for New HR Admins</p>
-                <p className="text-gray-600 text-sm ml-4">Simplify the interface so new users can get up to speed without extensive training.</p>
+                <p className="font-bold text-[#111] mb-2 text-[17px]">• Increase Confidence in AI Insights</p>
+                <p className="text-[#555] text-[16px] leading-[1.6] ml-4">Provide transparent, explainable AI logs and human-in-the-loop validation for executing actions.</p>
+              </div>
+              <div>
+                <p className="font-bold text-[#111] mb-2 text-[17px]">• Multiple Choices Layout & Actions</p>
+                <p className="text-[#555] text-[16px] leading-[1.6] ml-4">Let recruiters pick from layout of generated selections actions in UI state.</p>
               </div>
             </div>
           </div>
         </div>
 
         {/* Solution 1 Section */}
-        <div className="mb-16 pt-12 border-t border-gray-200">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Solution 1: System Audit & Component Architecture</h3>
+        <div className="mb-20">
+          <h2 className="text-[24px] md:text-[28px] font-bold text-[#111] mb-6 tracking-tight">Solution 1: Conversational AI Interface</h2>
           
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
-             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
+          <p className="text-[#444] text-[17px] leading-[1.8] mb-6">
+            The new layout introduces an AI assistant that intercepts user intents over the raw CRM, limited to navigation actions and simply translates user problems to structured language.
+          </p>
+
+          <ul className="space-y-3 text-[#444] text-[17px] leading-[1.6] mb-8 font-normal">
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>Users can input simple text.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>Creates a visual state for quick filtering suggestions.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+              <span>Keeps context of what stage in the funnel you are.</span>
+            </li>
+          </ul>
+
+          <p className="text-[15px] text-gray-500 mb-8 italic">User inputs simple tasks. AI suggests variables based on input structure.</p>
+
+          <div className="mb-8">
+             <div className="rounded-[16px] overflow-hidden border border-gray-200 shadow-sm bg-gray-50">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="System Audit Process" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
-              />
-            </div>
-             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Component Architecture" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+                src="/Case1.png" 
+                alt="Conversational AI Interface" 
+                className="w-full h-auto object-cover"
               />
             </div>
           </div>
-
-          <p className="text-gray-600 leading-relaxed mb-6">
-            We conducted a full visual audit to catalog every existing UI element. We discovered 14 button variations, 8 dropdown styles, and 5 different table designs.
-          </p>
-
-          <p className="text-gray-600 font-medium mb-4">I structured the new architecture into:</p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li><strong>Base primitives:</strong> Typography, Colors, Spacing</li>
-            <li><strong>Core components:</strong> Buttons, Inputs, Tooltips</li>
-            <li><strong>Complex patterns:</strong> Data tables, Navigation, Modals</li>
-          </ul>
-
-          <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="font-bold text-indigo-900 mb-2">Why it works:</p>
-            <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
-              <li>Establishes a single source of truth</li>
-              <li>Reduces visual inconsistency</li>
-              <li>Creates clear rules for when to use which component</li>
-              <li>Builds trust and predictability for the user</li>
+          
+          <div className="mb-8">
+            <p className="font-bold text-[#111] mb-4 text-[17px]">Why it works:</p>
+            <ul className="space-y-3 text-[#444] text-[16px] leading-[1.6]">
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Provides a very clear intent to action.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Takes less time to configure.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Makes an effort to know the ATS via conversational filters.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Allows flexing into fixed configuration UI manually.</span>
+              </li>
             </ul>
           </div>
         </div>
 
         {/* Solution 2 Section */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Solution 2: Reusable CRM Component Library</h3>
+        <div className="mb-20">
+          <h2 className="text-[24px] md:text-[28px] font-bold text-[#111] mb-6 tracking-tight">Solution 2: AI Workflow Auto-Builder</h2>
           
-          <div className="bg-[#1b1c3c] p-6 md:p-10 rounded-xl mb-8 flex flex-col gap-6">
-             <div className="rounded-lg overflow-hidden border border-gray-700 shadow-md bg-white">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Component Library 1" 
-                className="w-full h-auto"
-              />
-            </div>
-             <div className="rounded-lg overflow-hidden border border-gray-700 shadow-md bg-white">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Component Library 2" 
-                className="w-full h-auto"
-              />
-            </div>
+          <p className="text-[#444] text-[17px] leading-[1.8] mb-4">
+            The auto-builder structure generates discovery agency jobs, target criteria for job orders, and candidates from a set parameters generated in a detailed project triggers, rules, and assignments.
+          </p>
+          <p className="text-[#444] text-[17px] leading-[1.8] mb-8">
+            Instead of configuring fields manually, users simply verify AI created variables and confirm execution.
+          </p>
+
+          <div className="mb-10">
+            <p className="font-bold text-[#111] mb-4 text-[17px]">Why it works:</p>
+            <ul className="space-y-3 text-[#444] text-[16px] leading-[1.6]">
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Removes need for UI configurations.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Eliminates lengthy 8-10 step processes for execution.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Converts HR terms to system terms via NLP.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Encourages human check and balances in logic flow.</span>
+              </li>
+            </ul>
           </div>
 
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Built a comprehensive Figma component library utilizing the latest features (auto-layout, variants, properties). The library included:
-          </p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Interactive states (hover, active, disabled)</li>
-            <li>Dark/Light mode support</li>
-            <li>Responsive behaviors</li>
-            <li>Accessibility compliance guidelines</li>
-            <li>Extensive usage documentation</li>
-          </ul>
-
-          <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="font-bold text-indigo-900 mb-2">Why it works:</p>
-            <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
-              <li>Speeds up design workflow by 40%</li>
-              <li>Improves developer hand-off significantly</li>
-              <li>Eliminates "pixel-pushing" in day-to-day work</li>
-              <li>Ensures ADA compliance across the board</li>
-            </ul>
+          <div className="flex flex-col gap-6 mb-8">
+             <div className="rounded-[16px] overflow-hidden shadow-sm border border-gray-200 bg-gray-50">
+              <img 
+                src="/Case1.png" 
+                alt="AI Workflow Auto-Builder 1" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+             <div className="rounded-[16px] overflow-hidden shadow-sm border border-gray-200 bg-gray-50">
+              <img 
+                src="/Case1.png" 
+                alt="AI Workflow Auto-Builder 2" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
           </div>
         </div>
 
         {/* Solution 3 Section */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Solution 3: Interaction & Layout Standardization</h3>
+        <div className="mb-20">
+          <h2 className="text-[24px] md:text-[28px] font-bold text-[#111] mb-6 tracking-tight">Solution 3: AI-Generated CRM Analytics with Human-in-the-Loop Approval</h2>
           
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-8">
-             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
+          <p className="text-[#444] text-[17px] leading-[1.8] mb-4">
+            By replacing the view-filter split with an action layout, we give the recruiter a more direct approach to automation execution and simply requires them to review the logic and confirm.
+          </p>
+          <p className="text-[#444] text-[17px] leading-[1.8] mb-6">
+            The HR admin acts as an approver rather than a builder. The layout reduces configuration complexity and limits error.
+          </p>
+
+          <p className="text-[15px] text-gray-500 mb-8 italic">Note: The UI requires explicit confirmation execution.</p>
+
+          <div className="mb-8">
+             <div className="rounded-[16px] overflow-hidden border border-gray-200 shadow-sm bg-gray-50">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Layout Standardization" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+                src="/Case1.png" 
+                alt="AI-Generated CRM Analytics" 
+                className="w-full h-auto object-cover"
               />
             </div>
           </div>
 
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Standardized complex layouts and interactions including:
-          </p>
-          <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
-            <li>Page structures and max widths</li>
-            <li>Global navigation patterns</li>
-            <li>Data table filtering and sorting</li>
-            <li>Form validation and error handling</li>
-            <li>Empty states and loading skeletons</li>
-          </ul>
-
-          <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="font-bold text-indigo-900 mb-2">Why it works:</p>
-            <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
-              <li>Reduces user learning curve for new features</li>
-              <li>Provides a predictable experience across the platform</li>
-              <li>Helps users scan information faster</li>
-              <li>Minimizes destructive actions through standardized safeguards</li>
+          <div className="mb-8">
+            <p className="font-bold text-[#111] mb-4 text-[17px]">Why it works:</p>
+            <ul className="space-y-3 text-[#444] text-[16px] leading-[1.6]">
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Retains developer control logic but human in loop execution.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Clearly shows steps taken from prompt.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Allows for visual record auditing.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Prevents blind log reliance causing severe bad updates.</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-[#111] font-bold mt-0.5">-</span>
+                <span>Builds trust via transparency over time.</span>
+              </li>
             </ul>
           </div>
         </div>
 
         {/* What I Would Have Done Next Section */}
-        <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
-          <p className="text-gray-600 leading-relaxed mb-8">
-            While the core system was successfully launched and adopted, a design system is never truly "done". If I had another 6 months on the project, I would have prioritized the following initiatives:
+        <div className="mb-20 pt-16 border-t border-gray-200">
+          <h2 className="text-[24px] md:text-[28px] font-bold text-[#111] mb-8 tracking-tight">What I Would Have Done Next</h2>
+          <p className="text-[#444] text-[17px] leading-[1.8] mb-10">
+            Although the MVP showed promising results for execution capabilities. We had several limitations in measuring their contextual use and mapping out full UI functionality states.
           </p>
           
-          <div className="space-y-8">
+          <div className="space-y-10">
             <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">1. Implement Design System Analytics Metrics</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Currently, we measure success qualitatively through developer and designer feedback. I would implement telemetry analytics within our React components to track actual usage rates. Knowing which components are heavily used vs. rarely used would inform our prioritization roadmap and help deprecate unused patterns.
+              <h4 className="text-[18px] font-bold text-[#111] mb-3">1. More Error Exception — Context Sharing</h4>
+              <p className="text-[#555] text-[16px] leading-[1.7]">
+                As expected the complex data state of generated workflows, a visual error breakdown agenda limit is hard. Reducing overall reliance on manual adjustments, mapping what actions lead to failures gives a better state and defines a threshold point to limit hallucination.
               </p>
             </div>
             
             <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">2. Build Automated Design Validations</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Integrate tooling directly into the CI/CD pipeline that flags UI regressions. By introducing visual regression testing (like Percy or Chromatic), we could automatically catch UI inconsistencies before they hit staging, ensuring the coded application perfectly matches the design tokens.
+              <h4 className="text-[18px] font-bold text-[#111] mb-3">2. Fluid Layout in the Data View</h4>
+              <p className="text-[#555] text-[16px] leading-[1.7]">
+                I would replace the standard left side data tables array view to a fluid canvas view - introducing node structure format for visualizing AI intent connections and how actions logically stack up. A timeline view map for logical flow.
               </p>
             </div>
             
             <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">3. Formalize the Component Contribution Process</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Establish a clear, documented governance model for when and how product teams can propose new components or patterns back to the core system. This would transform the system from a top-down mandate to a community-driven ecosystem.
+              <h4 className="text-[18px] font-bold text-[#111] mb-3">3. Algorithmic Transparency</h4>
+              <p className="text-[#555] text-[16px] leading-[1.7]">
+                Provide a proper visual validation mapping the lineage from prompt to AI output. Showing precisely how logic rules were derived increases user trust and encourages users to make larger leaps with automation tools.
               </p>
             </div>
 
             <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">4. Comprehensive Accessibility Testing</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                While color contrast and basic ARIA roles were handled, I would conduct deep accessibility audits using screen readers (VoiceOver/JAWS) and keyboard navigation across all complex components (like data tables and multi-select dropdowns) to ensure strict WCAG 2.1 AA compliance.
+              <h4 className="text-[18px] font-bold text-[#111] mb-3">4. Enhancing Contextual Memory</h4>
+              <p className="text-[#555] text-[16px] leading-[1.7]">
+                Adding contextual awareness around recent searches and candidate states. Allowing users to branch out into multiple chat sessions based on contextual data without losing root context from initial chat flows.
               </p>
             </div>
             
             <div>
-              <h4 className="text-lg font-bold text-gray-900 mb-2">5. Expand Theming System for White-labeling</h4>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                As the company explores enterprise white-labeling, the design tokens architecture needs to be refactored to support deep theme customization (beyond just light/dark mode) allowing enterprise clients to inject their own brand colors and typography seamlessly.
+              <h4 className="text-[18px] font-bold text-[#111] mb-3">5. Missing Thread Principles UI</h4>
+              <p className="text-[#555] text-[16px] leading-[1.7]">
+                Allowing the user thread to branch out in new chats presents execution in isolation in the UI. A nesting system structure would let users pause one suggested direction, execute a task, and resume initial workflow actions from root tree.
               </p>
             </div>
           </div>
         </div>
 
         {/* Impact Summary Section */}
-        <div className="mb-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Impact Summary</h3>
+        <div className="mb-20">
+          <h2 className="text-[24px] md:text-[28px] font-bold text-[#111] mb-8 tracking-tight">Impact Summary</h2>
           
-          <div className="grid md:grid-cols-3 gap-4">
-            <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
-              <h4 className="text-4xl font-bold mb-4">30%</h4>
-              <p className="font-semibold text-lg mb-2 leading-tight">Faster Design-to-Development Turnaround</p>
-              <p className="text-white/70 text-sm">Reduced UI bugs during QA significantly because engineers were using pre-built, tested components rather than custom building each time.</p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-[#1b1c3c] text-white p-8 rounded-[20px]">
+              <h4 className="text-[48px] font-bold mb-4 font-sans tracking-tight">10x</h4>
+              <p className="font-semibold text-[18px] mb-2 leading-tight">Faster workflow setup</p>
+              <p className="text-white/70 text-[15px]">Vs manual configuration in UI</p>
             </div>
             
-            <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
-              <h4 className="text-4xl font-bold mb-4">25%</h4>
-              <p className="font-semibold text-lg mb-2 leading-tight">Reduction in UI Inconsistency Bugs</p>
-              <p className="text-white/70 text-sm">Streamlined QA processes with fewer visual regressions reported across different modules.</p>
+            <div className="bg-[#1b1c3c] text-white p-8 rounded-[20px]">
+              <h4 className="text-[48px] font-bold mb-4 font-sans tracking-tight">15x</h4>
+              <p className="font-semibold text-[18px] mb-2 leading-tight">Increase in AI workflow adoption</p>
+              <p className="text-white/70 text-[15px]">Target audience in product cohort</p>
             </div>
             
-            <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
-              <h4 className="text-4xl font-bold mb-4">40+</h4>
-              <p className="font-semibold text-lg mb-2 leading-tight">Reduction in Deprecated Design Assets</p>
-              <p className="text-white/70 text-sm">Cleaned up legacy files and consolidated components, creating a leaner and more performant design workspace.</p>
+            <div className="bg-[#1b1c3c] text-white p-8 rounded-[20px]">
+              <h4 className="text-[48px] font-bold mb-4 font-sans tracking-tight">85%</h4>
+              <p className="font-semibold text-[18px] mb-2 leading-tight">Task likelihood completion</p>
+              <p className="text-white/70 text-[15px]">Positive evaluation rating over manual configuration</p>
             </div>
           </div>
           
-          <p className="text-gray-600 mt-6 italic text-center text-sm">
-            *Metrics gathered during the 6 months post-launch via engineering velocity tracking and QA ticket volume analysis.
-          </p>
+          <div className="mt-8 text-[14px] text-gray-500 italic">
+            Note: Analytics are heavily dependent on immediate execution speed vs manual configurations. Complexity determines task drops so AI vs manual comparison provides a huge variable in standard completion vs setup.
+          </div>
         </div>
 
-        {/* Closing Reflection */}
-        <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-xl font-bold text-gray-900 mb-6">Closing Reflection</h3>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            This project taught me a valuable lesson building UI systems:
-          </p>
-          <p className="text-gray-800 font-medium leading-relaxed mb-6 italic pl-4 border-l-4 border-gray-300">
-            A design system is only as good as its adoption rate among engineers and PMs.
-          </p>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            The technical execution (Figma setup, React props, CSS architecture) is only half the battle. The other half is advocacy, education, support, and building trust with the people who will use it every day.
-          </p>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            The system was a success because we treated it like a product itself.
-          </p>
-        </div>
-        
-        {/* Next Project Footer */}
-        <div className="pt-12 border-t border-gray-200 flex justify-between items-center mt-20">
-          <a href="/" className="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-2 transition-colors">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            Back to Home
-          </a>
+        {/* Closing Reflection Section */}
+        <div className="mb-16 pt-16 border-t border-gray-200">
+          <h2 className="text-[24px] md:text-[28px] font-bold text-[#111] mb-8 tracking-tight">Closing Reflection</h2>
           
-          <a href="#" className="text-gray-900 hover:text-indigo-600 font-medium flex flex-col items-end transition-colors group">
-            <span className="text-xs text-gray-500 mb-1 group-hover:text-indigo-400 transition-colors">Next Project</span>
-            <span className="flex items-center gap-2">
-              AI Chatbot Interface
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </span>
-          </a>
+          <div className="space-y-5 text-[#555] text-[17px] leading-[1.8]">
+            <p>The switch from hard settings to intent.</p>
+            <p>If you give a recruiter an empty box, their mind has to work to build.</p>
+            <p>By using AI-Agent builders, you take away that cognitive leap required to initiate a workflow logic. Reducing the gap to action limits hesitation.</p>
+            <p>The UI of AI is natural language actions.</p>
+            <p>It was a fun project to be a part of.</p>
+          </div>
+        </div>
+
         </div>
       </div>
-      </div>
+
       <Footer />
     </main>
   );
