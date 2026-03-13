@@ -164,15 +164,15 @@ export function Experience() {
               {[...Array(2)].map((_, i) => (
                 <div key={i} className="flex items-center gap-8 mx-4">
                   <span className="text-white/60 text-[18px] font-medium tracking-wide uppercase">Design thinking</span>
-                  <span className="text-white/40 text-[18px]">✦</span>
+                  <img src="/star.png" alt="star" className="w-5 h-5 opacity-70" />
                   <span className="text-white/60 text-[18px] font-medium tracking-wide uppercase">Accessibility</span>
-                  <span className="text-white/40 text-[18px]">✦</span>
+                  <img src="/star.png" alt="star" className="w-5 h-5 opacity-70" />
                   <span className="text-white/60 text-[18px] font-medium tracking-wide uppercase">User friendly</span>
-                  <span className="text-white/40 text-[18px]">✦</span>
+                  <img src="/star.png" alt="star" className="w-5 h-5 opacity-70" />
                   <span className="text-white/60 text-[18px] font-medium tracking-wide uppercase">Vibe-Coding</span>
-                  <span className="text-white/40 text-[18px]">✦</span>
+                  <img src="/star.png" alt="star" className="w-5 h-5 opacity-70" />
                   <span className="text-white/60 text-[18px] font-medium tracking-wide uppercase">Behavioural design</span>
-                  <span className="text-white/40 text-[18px]">✦</span>
+                  <img src="/star.png" alt="star" className="w-5 h-5 opacity-70" />
                 </div>
               ))}
             </div>
