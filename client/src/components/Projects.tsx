@@ -71,7 +71,7 @@ export function Projects() {
                   </div>
 
                   {/* Project Content */}
-                  <div className="w-full md:w-[55%] flex flex-col justify-center pt-[0px] pb-[12px] px-[12px] md:pt-0 md:pr-12 md:pl-12 md:pb-12">
+                  <div className="w-full md:w-[55%] flex flex-col justify-center pt-[0px] px-[12px] md:pt-0 md:pr-12 md:pl-12 md:pb-12 pl-[0px] pr-[0px] pb-[0px]">
                     <div className="mb-6">
                       <h3 className="text-[24px] md:text-[28px] font-medium text-[#111] tracking-[-0.01em] leading-[1.3]">
                         {project.title}
