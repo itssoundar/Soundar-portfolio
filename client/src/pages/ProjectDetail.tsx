@@ -8,9 +8,8 @@ export default function ProjectDetail() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-20">
+    <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-[0px]">
       <NavBar />
-      
       {/* Top Banner section */}
       <div className="w-full bg-[#2a2456] text-white pt-32 pb-64 flex flex-col items-center justify-start text-center px-6 relative overflow-hidden">
         {/* Subtle vertical striping effect for background */}
@@ -32,7 +31,6 @@ export default function ProjectDetail() {
           </h1>
         </div>
       </div>
-
       {/* Content Section */}
       <div className="w-full bg-white relative z-20">
         <div className="max-w-[1000px] mx-auto px-4 md:px-8">
@@ -50,7 +48,6 @@ export default function ProjectDetail() {
           </div>
         </div>
       </div>
-
       {/* Project Overview Section */}
       <div className="w-full bg-gray-50 py-16 lg:py-24 border-b border-gray-200">
         <div className="max-w-[1000px] mx-auto px-4 md:px-8">
@@ -90,7 +87,6 @@ export default function ProjectDetail() {
           </div>
         </div>
       </div>
-
       {/* Case Study Content Section */}
       <div className="w-full bg-white py-16 lg:py-24 relative z-10">
         <div className="max-w-[1000px] mx-auto px-4 md:px-8">
