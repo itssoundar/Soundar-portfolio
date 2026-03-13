@@ -1,6 +1,7 @@
-import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { useEffect } from "react";
+import { Link } from "wouter";
+import { ArrowLeft } from "lucide-react";
 
 export default function ProjectDetail() {
   useEffect(() => {
@@ -9,7 +10,13 @@ export default function ProjectDetail() {
 
   return (
     <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-[0px]">
-      <NavBar />
+      <div className="fixed top-6 left-4 md:left-8 z-50">
+        <Link href="/">
+          <a className="bg-white/95 backdrop-blur-md flex items-center justify-center px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-200 hover:bg-gray-50 transition-all group">
+            <ArrowLeft className="w-5 h-5 text-[#111] group-hover:-translate-x-1 transition-transform" strokeWidth={2.5} />
+          </a>
+        </Link>
+      </div>
       {/* Top Banner section */}
       <div className="w-full bg-[#2a2456] text-white pt-32 flex flex-col items-center justify-start text-center px-6 relative overflow-hidden">
         {/* Subtle vertical striping effect for background */}
