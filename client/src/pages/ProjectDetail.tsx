@@ -11,7 +11,7 @@ export default function ProjectDetail() {
     <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-[0px]">
       <NavBar />
       {/* Top Banner section */}
-      <div className="w-full bg-[#2a2456] text-white pt-32 pb-64 flex flex-col items-center justify-start text-center px-6 relative overflow-hidden">
+      <div className="w-full bg-[#2a2456] text-white min-h-[80vh] pt-32 pb-56 flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
         {/* Subtle vertical striping effect for background */}
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none" 
