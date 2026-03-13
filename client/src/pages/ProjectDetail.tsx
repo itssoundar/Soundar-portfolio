@@ -11,41 +11,26 @@ export default function ProjectDetail() {
     <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-[0px]">
       <NavBar />
       {/* Top Banner section */}
-      <div className="w-full bg-[#2a2456] text-white min-h-[80vh] flex flex-col items-center justify-center text-center px-6 relative overflow-hidden pt-20 pb-48 md:pb-64">
-        {/* Subtle vertical striping effect for background */}
+      <div className="w-full min-h-[80vh] flex flex-col items-center justify-center text-center px-6 relative overflow-hidden pt-32 pb-16 bg-[#2a2456]">
+        {/* Background Image */}
         <div 
-          className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-          style={{ 
-            backgroundImage: 'repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255,255,255,1) 1px, rgba(255,255,255,1) 2px)',
-            backgroundSize: '8px 100%' 
-          }}
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat mix-blend-overlay opacity-60"
+          style={{ backgroundImage: "url('/Case_hero.png')" }}
         ></div>
         
-        {/* Center glowing radial gradient */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#413280]/60 via-transparent to-transparent pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#2a2456] to-transparent z-0"></div>
-        
+        {/* Subtle gradient overlays for readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2a2456] via-transparent to-transparent z-0 opacity-80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#2a2456]/50 via-transparent to-transparent z-0"></div>
+
         <div className="max-w-[800px] z-10 relative">
-          <h1 className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] mb-2 tracking-tight text-white font-sans">
-            Building a Scalable Design System for a<br className="hidden md:block" /> Growing HR Platform
+          <h1 className="text-[32px] md:text-[40px] lg:text-[56px] font-bold leading-[1.1] mb-6 tracking-tight text-white font-sans drop-shadow-md">
+            Building a Scalable Design System for a Growing HR Platform
           </h1>
         </div>
       </div>
       {/* Project Overview Section */}
-      <div className="w-full bg-gray-50 pb-16 lg:pb-24 border-b border-gray-200 relative z-20">
+      <div className="w-full bg-gray-50 pt-16 pb-16 lg:pb-24 border-b border-gray-200 relative z-20">
         <div className="max-w-[1000px] mx-auto px-4 md:px-8">
-          
-          {/* Main Interface Image - Now placed cleanly overlapping the banner */}
-          <div className="w-full overflow-hidden shadow-2xl relative z-30 bg-white -mt-32 md:-mt-48 mb-16 rounded-xl border border-gray-100">
-            <img 
-              src="/Case_hero.png" 
-              alt="HR Platform Dashboard" 
-              className="w-full h-auto object-cover max-h-[600px] object-top"
-              onError={(e) => {
-                e.currentTarget.src = "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop";
-              }}
-            />
-          </div>
           <div className="w-full">
             {/* Project Header */}
             <div className="mb-0">
