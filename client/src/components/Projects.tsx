@@ -46,7 +46,7 @@ export function Projects() {
       <div className="relative z-20 w-full max-w-[1100px] mx-auto overflow-visible">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-[36px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1]">
+          <h2 className="text-[24px] md:text-[36px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1]">
             Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
           </h2>
         </div>
@@ -73,12 +73,12 @@ export function Projects() {
                   {/* Project Content */}
                   <div className="w-full md:w-[55%] flex flex-col justify-center">
                     <div className="mb-6">
-                      <h3 className="text-[24px] md:text-[28px] font-medium text-[#111] tracking-[-0.01em] leading-[1.3]">
+                      <h3 className="text-[18px] md:text-[24px] font-medium text-[#111] tracking-[-0.01em] leading-[1.3] font-sans">
                         {project.title}
                       </h3>
                     </div>
                     
-                    <ul className="space-y-4 text-[#444] text-[15px] md:text-[16px] leading-[1.6] mb-10 font-normal">
+                    <ul className="space-y-4 text-[#444] text-[14px] md:text-[16px] leading-[1.6] mb-10 font-normal">
                       {project.bullets.map((bullet, i) => (
                         <li key={i} className="flex items-start gap-3.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
@@ -88,7 +88,7 @@ export function Projects() {
                     </ul>
 
                     <div>
-                      <div className="inline-flex items-center justify-center px-8 py-3.5 rounded-[12px] bg-gradient-to-b from-[#2a2a2a] to-[#0a0a0a] text-white font-medium text-[15px] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),_0_4px_12px_rgba(0,0,0,0.2)] border border-[#222] transition-all duration-300 group-hover:scale-[1.02]">
+                      <div className="inline-flex items-center justify-center px-8 py-3.5 rounded-[12px] bg-gradient-to-b from-[#2a2a2a] to-[#0a0a0a] text-white font-medium text-[14px] md:text-[15px] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),_0_4px_12px_rgba(0,0,0,0.2)] border border-[#222] transition-all duration-300 group-hover:scale-[1.02]">
                         View Project
                       </div>
                     </div>
