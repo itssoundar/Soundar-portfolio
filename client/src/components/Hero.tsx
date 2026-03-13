@@ -94,26 +94,26 @@ export function Hero() {
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-[#fdfdfd] to-transparent z-20 pointer-events-none"></div>
         
         {/* Ticker Container */}
-        <div className="flex w-[200%] animate-ticker hover:animation-play-state-paused">
+        <div className="flex w-max animate-ticker hover:animation-play-state-paused">
           {/* First set of logos */}
-          <div className="flex w-1/2 justify-around items-center px-4 md:px-12 gap-8">
+          <div className="flex justify-around items-center px-8 md:px-16 gap-16 md:gap-24">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
               <img 
                 key={`logo-1-${num}`}
                 src={`/works/worked_0${num}.png`} 
                 alt={`Company ${num}`} 
-                className="h-12 md:h-16 w-auto max-w-[180px] object-contain flex-shrink-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
+                className="h-10 md:h-14 w-auto max-w-[200px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
               />
             ))}
           </div>
           {/* Duplicate set for seamless looping */}
-          <div className="flex w-1/2 justify-around items-center px-4 md:px-12 gap-8">
+          <div className="flex justify-around items-center px-8 md:px-16 gap-16 md:gap-24">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
               <img 
                 key={`logo-2-${num}`}
                 src={`/works/worked_0${num}.png`} 
                 alt={`Company ${num}`} 
-                className="h-12 md:h-16 w-auto max-w-[180px] object-contain flex-shrink-0 grayscale opacity-70 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
+                className="h-10 md:h-14 w-auto max-w-[200px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
               />
             ))}
           </div>
