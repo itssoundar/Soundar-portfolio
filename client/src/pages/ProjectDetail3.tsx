@@ -282,7 +282,7 @@ export default function ProjectDetail3() {
           <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 1: Pre-Built Hiring Intelligence Dashboards</h3>
           
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
-             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
+             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-0">
               <video 
                 autoPlay 
                 loop 
@@ -292,6 +292,23 @@ export default function ProjectDetail3() {
               >
                 <source src="/c3-s1.mp4" type="video/mp4" />
               </video>
+            </div>
+          </div>
+
+          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
+              <img 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                alt="Dashboard view 1" 
+                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+              />
+            </div>
+             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
+              <img 
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
+                alt="Dashboard view 2" 
+                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+              />
             </div>
           </div>
 
