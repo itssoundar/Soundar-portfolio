@@ -15,7 +15,7 @@ export function Hero() {
 
   return (
     <section 
-      className="relative min-h-[90vh] w-full flex flex-col items-center justify-between bg-white pt-[60px] pb-10 px-6 md:px-[86px]"
+      className="relative min-h-[90vh] w-full flex flex-col items-center justify-between bg-white pb-10 px-6 md:px-[86px] pt-[40px]"
       style={{
         backgroundImage: 'url(/hero-bg.jpg)',
         backgroundSize: 'cover',
