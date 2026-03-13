@@ -11,7 +11,7 @@ export default function ProjectDetail() {
     <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-[0px]">
       <NavBar />
       {/* Top Banner section */}
-      <div className="w-full bg-[#2a2456] text-white min-h-[80vh] pt-32 pb-56 flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
+      <div className="w-full bg-[#2a2456] text-white min-h-[80vh] flex flex-col items-center justify-center text-center px-6 relative overflow-hidden pt-20 pb-48 md:pb-64">
         {/* Subtle vertical striping effect for background */}
         <div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none" 
@@ -25,32 +25,27 @@ export default function ProjectDetail() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#413280]/60 via-transparent to-transparent pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#2a2456] to-transparent z-0"></div>
         
-        <div className="max-w-[800px] z-10 relative mt-4">
-          <h1 className="text-[32px] md:text-[40px] font-semibold leading-[1.3] mb-2 tracking-tight text-white font-sans">
+        <div className="max-w-[800px] z-10 relative">
+          <h1 className="text-[32px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] mb-2 tracking-tight text-white font-sans">
             Building a Scalable Design System for a<br className="hidden md:block" /> Growing HR Platform
           </h1>
         </div>
       </div>
-      {/* Content Section */}
-      <div className="w-full bg-white relative z-20">
+      {/* Project Overview Section */}
+      <div className="w-full bg-gray-50 pb-16 lg:pb-24 border-b border-gray-200 relative z-20">
         <div className="max-w-[1000px] mx-auto px-4 md:px-8">
           
-          {/* Main Interface Image - Overlapping the dark banner and white background */}
-          <div className="w-full overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.1)] relative z-30 bg-white -mt-48 mb-16 rounded-b-none rounded-t-[12px]">
+          {/* Main Interface Image - Now placed cleanly overlapping the banner */}
+          <div className="w-full overflow-hidden shadow-2xl relative z-30 bg-white -mt-32 md:-mt-48 mb-16 rounded-xl border border-gray-100">
             <img 
               src="/learn_1773406966988.jpg" 
               alt="HR Platform Dashboard" 
-              className="w-full h-auto object-cover max-h-[550px] object-top"
+              className="w-full h-auto object-cover max-h-[600px] object-top"
               onError={(e) => {
                 e.currentTarget.src = "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop";
               }}
             />
           </div>
-        </div>
-      </div>
-      {/* Project Overview Section */}
-      <div className="w-full bg-gray-50 py-16 lg:py-24 border-b border-gray-200">
-        <div className="max-w-[1000px] mx-auto px-4 md:px-8">
           <div className="w-full">
             {/* Project Header */}
             <div className="mb-0">
