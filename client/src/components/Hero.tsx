@@ -15,12 +15,14 @@ export function Hero() {
 
   return (
     <section 
-      className="relative min-h-screen w-full flex flex-col items-center justify-between bg-white selection:bg-gray-200 pt-[60px] pb-[60px] px-6 md:px-[86px]"
+      className="relative min-h-[90vh] w-full flex flex-col items-center justify-between bg-white pt-[60px] pb-10 px-6 md:px-[86px]"
+      style={{
+        backgroundImage: 'url(/hero-bg.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
-      {/* Soft background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#f8f9fa] via-white to-[#fdfdfd] pointer-events-none" />
-      {/* Sky blue gradient overlay - top 20% */}
-      <div className="absolute top-0 left-0 right-0 h-[20vh] bg-gradient-to-b from-[#87CEEB] via-[#B0E0E6] to-transparent pointer-events-none opacity-55" />
       {/* Scattered Cloud Images with Parallax */}
       <img 
         src="/cloud.avif" 

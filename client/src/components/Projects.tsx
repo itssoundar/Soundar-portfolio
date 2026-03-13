@@ -1,7 +1,8 @@
 export function Projects() {
   return (
-    <section className="relative w-full bg-white pb-24 px-6 md:px-[86px] pt-12">
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto overflow-visible">
+    <section className="relative w-full bg-white pb-24 px-6 md:px-[86px] pt-12 -mt-16 z-20">
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-white/80 to-white pointer-events-none -translate-y-full z-10" />
+      <div className="relative z-20 w-full max-w-[1200px] mx-auto overflow-visible">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
           <h2 className="text-[2.5rem] md:text-[3.5rem] font-medium text-[#222] tracking-[-0.02em] leading-[1.1]">
