@@ -23,43 +23,6 @@ export function Hero() {
         backgroundRepeat: 'no-repeat'
       }}
     >
-      {/* Scattered Cloud Images with Parallax */}
-      <img 
-        src="/cloud.avif" 
-        alt="" 
-        className="absolute top-[8%] left-[5%] w-[120px] h-auto opacity-70 pointer-events-none hidden md:block transition-transform duration-75"
-        style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-      />
-      <img 
-        src="/cloud.avif" 
-        alt="" 
-        className="absolute top-[15%] right-[8%] w-[100px] h-auto opacity-60 pointer-events-none hidden md:block transition-transform duration-75"
-        style={{ transform: `translateY(${scrollY * 0.25}px)` }}
-      />
-      <img 
-        src="/cloud.avif" 
-        alt="" 
-        className="absolute top-[35%] left-[10%] w-[140px] h-auto opacity-50 pointer-events-none hidden lg:block transition-transform duration-75"
-        style={{ transform: `translateY(${scrollY * 0.4}px)` }}
-      />
-      <img 
-        src="/cloud.avif" 
-        alt="" 
-        className="absolute top-[40%] right-[12%] w-[110px] h-auto opacity-55 pointer-events-none hidden md:block transition-transform duration-75"
-        style={{ transform: `translateY(${scrollY * 0.35}px)` }}
-      />
-      <img 
-        src="/cloud.avif" 
-        alt="" 
-        className="absolute bottom-[30%] left-[8%] w-[130px] h-auto opacity-45 pointer-events-none hidden lg:block transition-transform duration-75"
-        style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-      />
-      <img 
-        src="/cloud.avif" 
-        alt="" 
-        className="absolute bottom-[25%] right-[5%] w-[120px] h-auto opacity-50 pointer-events-none hidden md:block transition-transform duration-75"
-        style={{ transform: `translateY(${scrollY * 0.45}px)` }}
-      />
       <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center pt-[110px]">
         
         {/* Top Avatar & Greeting */}
