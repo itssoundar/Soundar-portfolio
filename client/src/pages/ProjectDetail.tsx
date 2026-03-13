@@ -479,8 +479,8 @@ export default function ProjectDetail() {
             </span>
           </a>
         </div>
-
-        </div>
+      </div>
+      </div>
       </div>
       <Footer />
     </main>

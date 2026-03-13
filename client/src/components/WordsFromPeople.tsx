@@ -151,23 +151,33 @@ export function WordsFromPeople() {
                   key={testimonial.name}
                   layout
                   custom={direction}
-                  initial={(d: number) => ({
-                    y: d > 0 ? 60 : -60,
-                    opacity: 0,
-                    scale: d > 0 ? 0.8 : 1.1,
-                  })}
+                  variants={{
+                    initial: (d: number) => ({
+                      y: d > 0 ? 60 : -60,
+                      opacity: 0,
+                      scale: d > 0 ? 0.8 : 1.1,
+                    }),
+                    animate: (i: number) => ({
+                      y: i * 24,
+                      scale: 1 - i * 0.06,
+                      opacity: i === 0 ? 1 : i === 1 ? 0.6 : 0.2,
+                      zIndex: 10 - i,
+                    }),
+                    exit: (d: number) => ({
+                      y: d > 0 ? -60 : 60,
+                      opacity: 0,
+                      scale: d > 0 ? 1.1 : 0.8,
+                      zIndex: d > 0 ? 10 : 0,
+                    })
+                  }}
+                  initial="initial"
                   animate={{
                     y: i * 24,
                     scale: 1 - i * 0.06,
                     opacity: i === 0 ? 1 : i === 1 ? 0.6 : 0.2,
                     zIndex: 10 - i,
                   }}
-                  exit={(d: number) => ({
-                    y: d > 0 ? -60 : 60,
-                    opacity: 0,
-                    scale: d > 0 ? 1.1 : 0.8,
-                    zIndex: d > 0 ? 10 : 0,
-                  })}
+                  exit="exit"
                   transition={{
                     type: "spring",
                     stiffness: 300,
