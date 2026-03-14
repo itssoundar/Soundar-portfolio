@@ -40,7 +40,7 @@ export function OtherProjects({ currentProjectId }: { currentProjectId: string }
               <div className="group cursor-pointer block">
                 <div className={`rounded-[20px] overflow-hidden mb-6 aspect-[16/10] relative ${project.imageBg}`}>
                   <div 
-                    className="absolute inset-0 bg-contain bg-no-repeat bg-center transition-transform duration-500 group-hover:scale-[1.03]" 
+                    className="absolute inset-0 bg-cover bg-no-repeat bg-center transition-transform duration-500 group-hover:scale-[1.03]" 
                     style={{ backgroundImage: `url(${project.image})` }} 
                   />
                 </div>
