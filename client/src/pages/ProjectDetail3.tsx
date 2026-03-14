@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 
 import Case1 from "@assets/Case1.png";
+import { OtherProjects } from "@/components/OtherProjects";
 
 export default function ProjectDetail3() {
   useEffect(() => {
@@ -510,28 +511,9 @@ export default function ProjectDetail3() {
             This project strengthened my ability to design <strong>data-driven enterprise experiences</strong>, balancing complex analytics capabilities with clear and intuitive user interfaces.
           </p>
         </div>
-        
-        {/* Next Project Footer */}
-        <div className="pt-12 border-t border-gray-200 flex justify-between items-center mt-20">
-          <a href="/" className="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-2 transition-colors">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            Back to Home
-          </a>
-          
-          <a href="/project/1" className="text-gray-900 hover:text-indigo-600 font-medium flex flex-col items-end transition-colors group">
-            <span className="text-xs text-gray-500 mb-1 group-hover:text-indigo-400 transition-colors">Next Project</span>
-            <span className="flex items-center gap-2">
-              B2B Conversational Interface
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </span>
-          </a>
-        </div>
       </div>
       </div>
+      <OtherProjects currentProjectId="conversational-b2b" />
       <Footer />
     </main>
   );

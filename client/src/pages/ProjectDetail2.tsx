@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { ArrowLeft } from "lucide-react";
 
 import Case1 from "@assets/Case1.png";
+import { OtherProjects } from "@/components/OtherProjects";
 
 export default function ProjectDetail2() {
   useEffect(() => {
@@ -451,7 +452,7 @@ export default function ProjectDetail2() {
           </p>
 
           {/* Closing Reflection */}
-          <div className="border-t border-gray-200 pt-12">
+          <div className="border-t border-gray-200 pt-12 mb-16">
             <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Closing Reflection</h3>
             <div className="space-y-6 text-gray-600 leading-relaxed">
               <p>This project wasn't about adding AI to search.</p>
@@ -462,32 +463,9 @@ export default function ProjectDetail2() {
             </div>
           </div>
         </div>
-        
-        {/* Next Project Footer */}
-        <div className="pt-12 border-t border-gray-200 flex justify-between items-center mt-20">
-          <Link href="/">
-<span className="text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-2 transition-colors cursor-pointer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
-              Back to Home
-            </span>
-</Link>
-          
-          <Link href="/project/3">
-<span className="text-gray-900 hover:text-indigo-600 font-medium flex flex-col items-end transition-colors group cursor-pointer">
-              <span className="text-xs text-gray-500 mb-1 group-hover:text-indigo-400 transition-colors">Next Project</span>
-              <span className="flex items-center gap-2">
-                Next Case Study
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </span>
-            </span>
-</Link>
-        </div>
       </div>
       </div>
+      <OtherProjects currentProjectId="design-system" />
       <Footer />
     </main>
   );

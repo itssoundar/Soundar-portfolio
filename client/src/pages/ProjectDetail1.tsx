@@ -5,6 +5,8 @@ import { ArrowLeft } from "lucide-react";
 
 import Case1 from "@assets/Case1.png";
 
+import { OtherProjects } from "@/components/OtherProjects";
+
 export default function ProjectDetail1() {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -438,6 +440,7 @@ export default function ProjectDetail1() {
         
         </div>
       </div>
+      <OtherProjects currentProjectId="crm-ai" />
       <Footer />
     </main>
   );
