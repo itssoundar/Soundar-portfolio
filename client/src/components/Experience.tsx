@@ -80,7 +80,7 @@ export function Experience() {
         }}
       />
       <div className="relative z-10 w-full max-w-[1200px] mx-auto">
-        <h2 className="font-medium text-center mb-16 md:mb-24 tracking-[-0.02em] font-sans text-[28px]">
+        <h2 className="text-[32px] font-medium text-center mb-16 md:mb-24 tracking-[-0.02em] leading-[1.1] font-sans">
           Experiences that shaped <span className="font-serif italic font-normal text-white/90">my design lens</span>
         </h2>
 
