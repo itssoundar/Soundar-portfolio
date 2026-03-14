@@ -110,7 +110,7 @@ export default function ProjectDetail3() {
           <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">My Role</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             As a Senior Product Designer, I led the CRM modernisation initiative using Genesis.<br/><br/>
-            I initaited with:
+            I initiated with:
           </p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
             <li>Defined the analytics information architecture</li>
