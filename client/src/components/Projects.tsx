@@ -37,7 +37,6 @@ export function Projects() {
         "Surfaced insights on hiring velocity, recruiter productivity, and source effectiveness."
       ],
       imageBg: "bg-[#eefcf5]",
-      cardBg: "bg-[#faf2ed]",
       hoverBg: "hover:bg-[#FCF9F7]",
       isBgImage: true,
       link: "/project/conversational-b2b"
@@ -60,7 +59,7 @@ export function Projects() {
           {projects.map((project, index) => (
             <Link key={project.id} href={project.link}>
 <span 
-                className={`block sticky ${project.cardBg || 'bg-white'} ${project.hoverBg || ''} rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#e2e8f0]/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] z-${10 + index * 10} group`}
+                className={`block sticky bg-white ${project.hoverBg || ''} rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#e2e8f0]/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] z-${10 + index * 10} group`}
                 style={{ top: `${96 + index * 32}px` }}
               >
                 <div className="flex flex-col md:flex-row gap-[24px] items-stretch cursor-pointer">
