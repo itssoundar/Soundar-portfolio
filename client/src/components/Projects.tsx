@@ -31,7 +31,7 @@ export function Projects() {
     {
       id: "conversational-b2b",
       title: <>Building CRM analytics and a custom <span className="font-serif italic font-normal text-[1.15em]">dashboard builder</span></>,
-      image: "/C3new.png",
+      image: "/C3new.png?v=2",
       bullets: [
         "Designed centralized dashboards to monitor hiring pipeline performance.",
         "Enabled self-serve analytics through a flexible dashboard builder.",
