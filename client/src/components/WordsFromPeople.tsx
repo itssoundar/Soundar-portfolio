@@ -241,8 +241,7 @@ export function WordsFromPeople() {
                     </footer>
                   </blockquote>
                 </motion.div>
-                );
-              })}
+              ))}
             </AnimatePresence>
           </div>
           
