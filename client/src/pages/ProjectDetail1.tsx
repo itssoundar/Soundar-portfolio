@@ -80,7 +80,7 @@ export default function ProjectDetail1() {
         </div>
       </div>
       {/* Case Study Content Section */}
-      <div className="w-full bg-white py-16 lg:py-24 relative z-10">
+      <div className="w-full bg-white py-16 lg:py-24 relative z-10 pb-[0px]">
         <div className="max-w-[1000px] mx-auto px-4 md:px-8">
 
         {/* Introduction Section */}
