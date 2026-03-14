@@ -26,9 +26,7 @@ export default function ProjectDetail3() {
         style={{ backgroundImage: "url('/Case_hero.png')" }}
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
-          <h1 className="text-[36px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">
-            CRM Analytics
-          </h1>
+          <h1 className="text-[36px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">Building CRM analytics and a custom dashboard builder</h1>
         </div>
 
         {/* Main Interface Image - Placed inside the banner */}
