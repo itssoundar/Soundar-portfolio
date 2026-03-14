@@ -144,9 +144,16 @@ export function WordsFromPeople() {
           </div>
 
           {/* Mobile View (Stacked Cards Effect) */}
-          <div className="md:hidden flex justify-center items-start pt-8 min-h-[460px] relative w-full">
+          <div className="md:hidden flex justify-center items-start pt-12 pb-16 min-h-[460px] relative w-full overflow-visible">
             <AnimatePresence initial={false} custom={direction}>
-              {visibleTestimonials.map((testimonial, i) => (
+              {visibleTestimonials.map((testimonial, i) => {
+                // Calculate rotation and position to create a fanned out deck effect similar to the reference image
+                const rotate = i === 0 ? 0 : i === 1 ? -12 : 12;
+                const xOffset = i === 0 ? 0 : i === 1 ? -50 : 50;
+                const yOffset = i === 0 ? 0 : 20;
+                const scale = i === 0 ? 1 : 0.9;
+                
+                return (
                 <motion.div
                   key={testimonial.name}
                   layout
@@ -154,37 +161,51 @@ export function WordsFromPeople() {
                   variants={{
                     initial: (d: number) => ({
                       y: d > 0 ? 60 : -60,
+                      x: d > 0 ? 30 : -30,
                       opacity: 0,
                       scale: d > 0 ? 0.8 : 1.1,
+                      rotate: rotate * (d > 0 ? 1.5 : -1.5)
                     }),
                     animate: (i: number) => ({
-                      y: i * 24,
-                      scale: 1 - i * 0.06,
-                      opacity: i === 0 ? 1 : i === 1 ? 0.6 : 0.2,
+                      y: yOffset,
+                      x: xOffset,
+                      scale: scale,
+                      rotate: rotate,
+                      opacity: 1,
                       zIndex: 10 - i,
+                      boxShadow: i === 0 
+                        ? "0 20px 40px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)"
+                        : "0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)"
                     }),
                     exit: (d: number) => ({
                       y: d > 0 ? -60 : 60,
+                      x: d > 0 ? -30 : 30,
                       opacity: 0,
                       scale: d > 0 ? 1.1 : 0.8,
                       zIndex: d > 0 ? 10 : 0,
+                      rotate: rotate * (d > 0 ? -1.5 : 1.5)
                     })
                   }}
                   initial="initial"
                   animate={{
-                    y: i * 24,
-                    scale: 1 - i * 0.06,
-                    opacity: i === 0 ? 1 : i === 1 ? 0.6 : 0.2,
+                    y: yOffset,
+                    x: xOffset,
+                    scale: scale,
+                    rotate: rotate,
+                    opacity: 1,
                     zIndex: 10 - i,
+                    boxShadow: i === 0 
+                        ? "0 20px 40px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)"
+                        : "0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)"
                   }}
                   exit="exit"
                   transition={{
                     type: "spring",
-                    stiffness: 300,
-                    damping: 25
+                    stiffness: 260,
+                    damping: 20
                   }}
-                  className="absolute w-[90%] max-w-[350px] bg-white rounded-[20px] p-8 border border-gray-200/80 shadow-md group cursor-default"
-                  style={{ transformOrigin: "top center" }}
+                  className="absolute w-[80%] max-w-[320px] bg-white rounded-[20px] p-6 sm:p-8 border border-gray-200/80 group cursor-default"
+                  style={{ transformOrigin: "bottom center" }}
                 >
                   {/* Hover Background Image */}
                   <div 
