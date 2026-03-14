@@ -18,13 +18,14 @@ export function Projects() {
     {
       id: "design-system",
       title: <>Building CRM with the <span className="font-serif italic font-normal text-[1.15em]">Genesis Design System</span></>,
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop",
+      image: "/C2new.png?v=1",
       bullets: [
         "Built scalable components and tokens to unify UI across CRM modules.",
         "Reduced UI inconsistencies and improved design-to-development efficiency.",
         "Enabled faster feature delivery with reusable system patterns."
       ],
       imageBg: "bg-[#f5eefc]",
+      isBgImage: true,
       link: "/project/design-system"
     },
     {
