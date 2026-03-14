@@ -50,9 +50,12 @@ export function Projects() {
       <div className="relative z-20 w-full max-w-[1100px] mx-auto overflow-visible">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-[24px] md:text-[36px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans">
+          <h2 className="text-[24px] md:text-[36px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-4">
             Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
           </h2>
+          <p className="text-[15px] md:text-[17px] text-[#555] max-w-[600px] leading-relaxed">
+            From navigating early-stage ambiguity to building scalable systems, I design solutions that convert innovation into measurable impact.
+          </p>
         </div>
 
         {/* Project Cards */}
