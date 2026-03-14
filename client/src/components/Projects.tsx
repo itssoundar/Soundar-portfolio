@@ -29,13 +29,14 @@ export function Projects() {
     {
       id: "conversational-b2b",
       title: <>Building CRM analytics and a custom <span className="font-serif italic font-normal text-[1.15em]">dashboard builder</span></>,
-      image: "/C3.png",
+      image: "/C3new.png",
       bullets: [
         "Designed centralized dashboards to monitor hiring pipeline performance.",
         "Enabled self-serve analytics through a flexible dashboard builder.",
         "Surfaced insights on hiring velocity, recruiter productivity, and source effectiveness."
       ],
       imageBg: "bg-[#eefcf5]",
+      isBgImage: true,
       link: "/project/conversational-b2b"
     }
   ];
@@ -61,13 +62,21 @@ export function Projects() {
               >
                 <div className="flex flex-col md:flex-row gap-[24px] items-stretch cursor-pointer">
                   {/* Project Image Container */}
-                  <div className={`w-full md:w-[45%] flex-shrink-0 ${project.imageBg} rounded-[20px] overflow-hidden relative min-h-[300px] md:min-h-[380px]`}>
-                    <img 
-                      src={project.image} 
-                      alt={project.id} 
-                      className="absolute top-6 left-6 md:top-8 md:left-8 w-[calc(100%-24px)] md:w-[calc(100%-32px)] h-auto object-cover object-left-top rounded-tl-[12px] shadow-[-8px_-8px_24px_rgba(0,0,0,0.08)] transition-transform duration-500 group-hover:scale-[1.03] origin-top-left"
-                      data-testid={`img-project-${project.id}`}
-                    />
+                  <div className={`w-full md:w-[45%] flex-shrink-0 ${project.isBgImage ? '' : project.imageBg} rounded-[20px] overflow-hidden relative min-h-[300px] md:min-h-[380px]`}>
+                    {project.isBgImage ? (
+                      <div 
+                        className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.05]"
+                        style={{ backgroundImage: `url(${project.image})` }}
+                        data-testid={`bg-project-${project.id}`}
+                      />
+                    ) : (
+                      <img 
+                        src={project.image} 
+                        alt={project.id} 
+                        className="absolute top-6 left-6 md:top-8 md:left-8 w-[calc(100%-24px)] md:w-[calc(100%-32px)] h-auto object-cover object-left-top rounded-tl-[12px] shadow-[-8px_-8px_24px_rgba(0,0,0,0.08)] transition-transform duration-500 group-hover:scale-[1.03] origin-top-left"
+                        data-testid={`img-project-${project.id}`}
+                      />
+                    )}
                   </div>
 
                   {/* Project Content */}
