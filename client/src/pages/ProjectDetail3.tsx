@@ -26,7 +26,7 @@ export default function ProjectDetail3() {
         style={{ backgroundImage: "url('/Case_hero.png')" }}
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
-          <h1 className="text-[36px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">Building CRM analytics and a custom dashboard builder</h1>
+          <h1 className="text-[40px] md:text-[64px] font-semibold leading-[1.2] tracking-tight text-white font-sans">Building CRM analytics and a custom dashboard builder</h1>
         </div>
 
         {/* Main Interface Image - Placed inside the banner */}
@@ -46,10 +46,10 @@ export default function ProjectDetail3() {
           <div className="w-full">
             {/* Project Header */}
             <div className="mb-0">
-              <h2 className="text-[24px] md:text-[34px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
+              <h2 className="text-[32px] md:text-[40px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
                 CRM Analytics
               </h2>
-              <p className="text-[#444] leading-[1.8] mb-12 text-[14px] md:text-[17px] font-medium tracking-wide">
+              <p className="text-[#444] leading-[1.8] mb-12 text-[16px] md:text-[18px] font-medium tracking-wide">
                 Sense is an AI-powered recruiting platform that helps staffing agencies and enterprise teams manage hiring pipelines, automation, and analytics within a unified CRM.<br/><br/>
                 As the platform expanded across multiple modules, inconsistencies in UI patterns and components began to emerge. This project focused on revamping the CRM using the Genesis Design System to create a scalable and consistent product foundation.
               </p>
@@ -57,20 +57,20 @@ export default function ProjectDetail3() {
               {/* Project Meta Details */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 pb-4 border-t border-gray-200">
                 <div>
-                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">App Name / Client</p>
-                  <p className="text-[14px] md:text-[16px] text-[#555]">Sense</p>
+                  <p className="text-[16px] md:text-[18px] text-[#111] font-semibold mb-1 tracking-tight">App Name / Client</p>
+                  <p className="text-[16px] md:text-[18px] text-[#555]">Sense</p>
                 </div>
                 <div>
-                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Role</p>
-                  <p className="text-[14px] md:text-[16px] text-[#555]">Senior Product Designer</p>
+                  <p className="text-[16px] md:text-[18px] text-[#111] font-semibold mb-1 tracking-tight">Role</p>
+                  <p className="text-[16px] md:text-[18px] text-[#555]">Senior Product Designer</p>
                 </div>
                 <div>
-                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Platform</p>
-                  <p className="text-[14px] md:text-[16px] text-[#555]">Web App</p>
+                  <p className="text-[16px] md:text-[18px] text-[#111] font-semibold mb-1 tracking-tight">Platform</p>
+                  <p className="text-[16px] md:text-[18px] text-[#555]">Web App</p>
                 </div>
                 <div>
-                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Industry</p>
-                  <p className="text-[14px] md:text-[16px] text-[#555]">SaaS - CRM</p>
+                  <p className="text-[16px] md:text-[18px] text-[#111] font-semibold mb-1 tracking-tight">Industry</p>
+                  <p className="text-[16px] md:text-[18px] text-[#555]">SaaS - CRM</p>
                 </div>
               </div>
             </div>
@@ -83,8 +83,8 @@ export default function ProjectDetail3() {
 
         {/* Introduction Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Introduction</h3>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Introduction</h3>
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             When we launched the new CRM, one critical gap became obvious:<br/><br/>
             The system could execute hiring workflows but it couldn't measure them.<br/><br/>
             Recruitment Leaders, Data Analysts, and Hiring Managers needed answers to questions like:
@@ -99,7 +99,7 @@ export default function ProjectDetail3() {
             </ul>
           </div>
           
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed">
             Although the data existed across the system, extracting insights required manual exports and external analysis.<br/><br/>
             To solve this, we designed <strong>CRM Analytics</strong> a centralized analytics layer that enables recruitment teams to monitor performance, identify bottlenecks, and make faster hiring decisions.
           </p>
@@ -107,8 +107,8 @@ export default function ProjectDetail3() {
 
         {/* My Role Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">My Role</h3>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">My Role</h3>
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             As a Senior Product Designer, I led the CRM modernisation initiative using Genesis.<br/><br/>
             I initaited with:
           </p>
@@ -122,7 +122,7 @@ export default function ProjectDetail3() {
             <li>Designed alerts & predictive insight surfaces</li>
             <li>Led usability validation and rollout</li>
           </ul>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed">
             This was not just visualization work — it was system-level product thinking.<br/><br/>
             This project required aligning <strong>data architecture, user workflows, and business metrics</strong> into a unified analytics experience.
           </p>
@@ -130,14 +130,14 @@ export default function ProjectDetail3() {
 
         {/* Problem Statement Section */}
         <div className="bg-[#1b1c3c] text-white rounded-xl p-8 md:p-10 mb-16 shadow-lg relative overflow-hidden">
-          <h3 className="text-[18px] md:text-xl font-bold mb-6 text-white/90">Problem Statement</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold mb-6 text-white/90">Problem Statement</h3>
           <div className="absolute top-4 right-4 text-white/10 text-9xl font-serif leading-none font-bold select-none pointer-events-none">"</div>
           <div className="relative z-10">
-            <p className="text-[14px] md:text-lg md:text-xl leading-relaxed font-medium text-white/90 mb-6">
+            <p className="text-[16px] md:text-[20px] md:text-xl leading-relaxed font-medium text-white/90 mb-6">
               CRM lacked a centralized analytics engine, forcing enterprise customers to rely on manual reporting, analyst dependency, and fragmented data visibility.
             </p>
             <div className="border-l-4 border-indigo-400 pl-4 py-1">
-              <p className="text-[14px] md:text-base text-indigo-200 font-medium">Without centralized analytics:</p>
+              <p className="text-[16px] md:text-[18px] text-indigo-200 font-medium">Without centralized analytics:</p>
               <ul className="list-disc pl-5 space-y-1 mt-2 text-indigo-200 text-sm">
                 <li>Recruiters struggled to monitor pipeline progress</li>
                 <li>Leadership lacked visibility into hiring efficiency</li>
@@ -150,8 +150,8 @@ export default function ProjectDetail3() {
 
         {/* Problem 1 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 1: Fragmented Hiring Funnel Visibility</h3>
-          <p className="text-[14px] md:text-base text-gray-600 mb-6">Key recruitment metrics such as:</p>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 1: Fragmented Hiring Funnel Visibility</h3>
+          <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">Key recruitment metrics such as:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
             <li>Applicants</li>
             <li>Offers Sent</li>
@@ -160,7 +160,7 @@ export default function ProjectDetail3() {
             <li>Time-to-Hire</li>
             <li>Time spent in each stage</li>
           </ul>
-          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">
             were spread across different modules of the CRM.<br/><br/>
             Users had no clear funnel visualization to understand candidate progression or identify bottlenecks in the hiring process.<br/><br/>
             As a result, teams struggled to pinpoint where candidates were dropping off.
@@ -179,8 +179,8 @@ export default function ProjectDetail3() {
 
         {/* Problem 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 2: Limited Dashboard Customization</h3>
-          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 2: Limited Dashboard Customization</h3>
+          <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">
             Existing reports were static and difficult to customize.<br/><br/>
             Enterprise customers required flexibility to:
           </p>
@@ -190,7 +190,7 @@ export default function ProjectDetail3() {
             <li>Filter data by recruiter, job, location, or source</li>
             <li>Export reports for leadership and external stakeholders</li>
           </ul>
-          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">
             Without flexible reporting tools, most teams relied on analysts to generate dashboards.
           </p>
 
@@ -207,8 +207,8 @@ export default function ProjectDetail3() {
         
         {/* Problem 3 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 3: Lack of Proactive Insights</h3>
-          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 3: Lack of Proactive Insights</h3>
+          <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">
             Analytics primarily displayed historical data.<br/><br/>
             However, recruitment leaders needed early signals to prevent issues such as:
           </p>
@@ -218,14 +218,14 @@ export default function ProjectDetail3() {
             <li>Low offer acceptance rates</li>
             <li>Recruiter workload imbalance</li>
           </ul>
-          <p className="text-[14px] md:text-base text-gray-600">
+          <p className="text-[16px] md:text-[18px] text-gray-600">
             Without proactive alerts or predictive insights, problems were often identified too late.
           </p>
         </div>
 
         {/* Goals Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Goals</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Goals</h3>
           
           <div className="grid md:grid-cols-12 gap-8 mb-10">
             <div className="md:col-span-3">
@@ -233,20 +233,20 @@ export default function ProjectDetail3() {
             </div>
             <div className="md:col-span-9 space-y-6">
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Improve Analytics Adoption Across Recruitment Teams</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Enable hiring teams to easily access and use analytics to monitor recruitment performance and make informed decisions.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Improve Analytics Adoption Across Recruitment Teams</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Enable hiring teams to easily access and use analytics to monitor recruitment performance and make informed decisions.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Reduce Dependency on Manual Reporting</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Provide automated insights and dashboards to minimize reliance on manual data compilation and analyst support.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Reduce Dependency on Manual Reporting</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Provide automated insights and dashboards to minimize reliance on manual data compilation and analyst support.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Strengthen Enterprise Product Value Through Insights</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Deliver measurable analytics capabilities that reinforce the CRM's value as a strategic decision-making platform.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Strengthen Enterprise Product Value Through Insights</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Deliver measurable analytics capabilities that reinforce the CRM's value as a strategic decision-making platform.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Support Data-Driven Hiring Decisions</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Equip recruitment leaders with actionable insights to optimize hiring strategies and improve overall efficiency.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Support Data-Driven Hiring Decisions</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Equip recruitment leaders with actionable insights to optimize hiring strategies and improve overall efficiency.</p>
               </div>
             </div>
           </div>
@@ -257,20 +257,20 @@ export default function ProjectDetail3() {
             </div>
             <div className="md:col-span-9 space-y-6">
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Quickly Understand Hiring Performance</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Allow recruiters and hiring managers to easily track key metrics and evaluate recruitment progress.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Quickly Understand Hiring Performance</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Allow recruiters and hiring managers to easily track key metrics and evaluate recruitment progress.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Identify Bottlenecks in the Recruitment Funnel</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Surface insights that highlight delays or inefficiencies in the hiring pipeline.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Identify Bottlenecks in the Recruitment Funnel</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Surface insights that highlight delays or inefficiencies in the hiring pipeline.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Create Customized Dashboards Based on Role</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Enable users to tailor dashboards to their responsibilities and priorities.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Create Customized Dashboards Based on Role</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Enable users to tailor dashboards to their responsibilities and priorities.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Receive Proactive Alerts About Hiring Risks</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Notify teams about potential issues such as pipeline drop-offs or slow hiring stages.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Receive Proactive Alerts About Hiring Risks</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Notify teams about potential issues such as pipeline drop-offs or slow hiring stages.</p>
               </div>
             </div>
           </div>
@@ -278,7 +278,7 @@ export default function ProjectDetail3() {
 
         {/* Solution 1 Section */}
         <div className="mb-16 pt-12 border-t border-gray-200">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 1: Pre-Built Hiring Intelligence Dashboards</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 1: Pre-Built Hiring Intelligence Dashboards</h3>
           
           <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-0">
@@ -311,11 +311,11 @@ export default function ProjectDetail3() {
             </div>
           </div>
 
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             We designed a set of structured dashboards focused on the most critical hiring metrics.
           </p>
 
-          <p className="text-[14px] md:text-base text-gray-600 font-medium mb-4">Key dashboards included:</p>
+          <p className="text-[16px] md:text-[18px] text-gray-600 font-medium mb-4">Key dashboards included:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
             <li>Hiring Pipeline & Funnel Insights</li>
             <li>Job Status and Aging</li>
@@ -325,7 +325,7 @@ export default function ProjectDetail3() {
             <li>Diversity and Hiring Patterns</li>
           </ul>
 
-          <p className="text-[14px] md:text-base text-gray-600 font-medium mb-4">Each dashboard combined:</p>
+          <p className="text-[16px] md:text-[18px] text-gray-600 font-medium mb-4">Each dashboard combined:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
             <li>KPI summary cards</li>
             <li>Funnel visualizations</li>
@@ -333,12 +333,12 @@ export default function ProjectDetail3() {
             <li>detailed drill-down tables</li>
           </ul>
           
-          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">
             This structure helped teams quickly identify where issues occurred in the hiring process.
           </p>
 
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
+            <p className="text-[16px] md:text-[18px] font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
               <li>Provides a centralized view of recruitment performance</li>
               <li>Makes funnel bottlenecks immediately visible</li>
@@ -350,7 +350,7 @@ export default function ProjectDetail3() {
 
         {/* Solution 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 2: Custom Dashboard & Report Builder</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 2: Custom Dashboard & Report Builder</h3>
           
           <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
@@ -362,7 +362,7 @@ export default function ProjectDetail3() {
             </div>
           </div>
 
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             To support enterprise teams with different reporting needs, we introduced a <strong>custom dashboard builder</strong>.<br/><br/>
             Users could:
           </p>
@@ -373,12 +373,12 @@ export default function ProjectDetail3() {
             <li>Rearrange dashboard layouts</li>
             <li>Save and reuse dashboard configurations</li>
           </ul>
-          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">
             Reports could also be exported in multiple formats for external reporting.
           </p>
 
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
+            <p className="text-[16px] md:text-[18px] font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
               <li>Enables self-serve analytics without data expertise</li>
               <li>Allows teams to create role-specific dashboards</li>
@@ -390,7 +390,7 @@ export default function ProjectDetail3() {
 
         {/* Solution 3 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 3: Alerts & Predictive Insights</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 3: Alerts & Predictive Insights</h3>
           
           <div className="mb-8">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
@@ -406,7 +406,7 @@ export default function ProjectDetail3() {
             </div>
           </div>
 
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             To move analytics from reactive reporting to proactive intelligence, we introduced alerts and predictive insights.<br/><br/>
             Examples included:
           </p>
@@ -417,12 +417,12 @@ export default function ProjectDetail3() {
             <li>Recruiter workload imbalance.</li>
           </ul>
           
-          <p className="text-[14px] md:text-base text-gray-600 mb-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">
             These alerts helped teams identify problems earlier and take action before hiring performance declined.
           </p>
 
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
+            <p className="text-[16px] md:text-[18px] font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
               <li>Surfaces risks before they impact hiring outcomes.</li>
               <li>Helps recruiters prioritize actions.</li>
@@ -434,29 +434,29 @@ export default function ProjectDetail3() {
 
         {/* Impact Summary Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Impact Summary</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Impact Summary</h3>
           
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
               <h4 className="text-[36px] md:text-4xl font-bold mb-4">30%</h4>
-              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Faster design-to-development turnaround</p>
-              <p className="text-white/70 text-[14px] md:text-sm">Analytics usage increased significantly across recruiting teams</p>
+              <p className="font-semibold text-[16px] md:text-[20px] mb-2 leading-tight">Faster design-to-development turnaround</p>
+              <p className="text-white/70 text-[16px] md:text-[18px]">Analytics usage increased significantly across recruiting teams</p>
             </div>
             
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
               <h4 className="text-[36px] md:text-4xl font-bold mb-4">28%</h4>
-              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Reduction in UI inconsistency bugs</p>
-              <p className="text-white/70 text-[14px] md:text-sm">Recruiters engaged more actively with hiring performance metrics</p>
+              <p className="font-semibold text-[16px] md:text-[20px] mb-2 leading-tight">Reduction in UI inconsistency bugs</p>
+              <p className="text-white/70 text-[16px] md:text-[18px]">Recruiters engaged more actively with hiring performance metrics</p>
             </div>
             
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
               <h4 className="text-[36px] md:text-4xl font-bold mb-4">40%+</h4>
-              <p className="font-semibold text-[14px] md:text-lg mb-2 leading-tight">Reduction in duplicated design work</p>
-              <p className="text-white/70 text-[14px] md:text-sm">Leadership gained faster access to recruitment insights</p>
+              <p className="font-semibold text-[16px] md:text-[20px] mb-2 leading-tight">Reduction in duplicated design work</p>
+              <p className="text-white/70 text-[16px] md:text-[18px]">Leadership gained faster access to recruitment insights</p>
             </div>
           </div>
           
-          <p className="text-gray-600 mt-6 text-[14px] md:text-sm text-center">
+          <p className="text-gray-600 mt-6 text-[16px] md:text-[18px] text-center">
             Reporting cycles for leadership updates were significantly reduced<br/>
             More importantly, The CRM now feels like one cohesive product, not multiple stitched-together modules.
           </p>
@@ -464,36 +464,36 @@ export default function ProjectDetail3() {
 
         {/* What I Would Have Done Next Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-8">
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-8">
             Although the analytics solution helps teams better understand recruitment performance, the next phase would focus on expanding predictive insights and improving collaboration across hiring teams.
           </p>
           
           <div className="space-y-8">
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">1. Forecast Hiring Demand Trends</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-[16px] md:text-[18px] leading-relaxed">
                 Introducing forecasting capabilities would help teams anticipate future hiring needs based on historical recruitment data and pipeline trends.
               </p>
             </div>
             
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">2. Benchmark Recruiter Performance</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-[16px] md:text-[18px] leading-relaxed">
                 Providing benchmarking tools would allow organizations to compare recruiter performance across teams and identify opportunities for improvement.
               </p>
             </div>
             
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">3. Add Anomaly Detection for Hiring Metrics</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-[16px] md:text-[18px] leading-relaxed">
                 Integrating anomaly detection could automatically highlight unusual changes in hiring metrics, helping teams identify risks or unexpected shifts in the recruitment pipeline.
               </p>
             </div>
 
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">4. Improve Collaboration with Shared Dashboards</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-[16px] md:text-[18px] leading-relaxed">
                 Enabling shared and collaborative dashboards would allow recruiters, hiring managers, and leadership to align on hiring progress and insights more effectively.
               </p>
             </div>
@@ -502,14 +502,14 @@ export default function ProjectDetail3() {
 
         {/* Closing Reflection */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Closing Reflection</h3>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Closing Reflection</h3>
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             CRM Analytics required designing beyond dashboards.
           </p>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             It involved structuring recruitment data into a system that helps teams understand performance and make better hiring decisions.
           </p>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             This project strengthened my ability to design <strong>data-driven enterprise experiences</strong>, balancing complex analytics capabilities with clear and intuitive user interfaces.
           </p>
         </div>

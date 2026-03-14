@@ -27,7 +27,7 @@ export default function ProjectDetail1() {
         style={{ backgroundImage: "url('/Case_hero.png')" }}
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
-          <h1 className="text-[36px] md:text-[40px] lg:text-[48px] font-semibold leading-[1.2] tracking-tight text-white font-sans">From Search to Action: Turning HR Intent into Intelligent Execution</h1>
+          <h1 className="text-[40px] md:text-[64px] font-semibold leading-[1.2] tracking-tight text-white font-sans">From Search to Action: Turning HR Intent into Intelligent Execution</h1>
         </div>
 
         {/* Main Interface Image - Placed inside the banner */}
@@ -47,10 +47,10 @@ export default function ProjectDetail1() {
           <div className="w-full">
             {/* Project Header */}
             <div className="mb-0">
-              <h2 className="text-[24px] md:text-[34px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
+              <h2 className="text-[32px] md:text-[40px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
                 From Search to Action: Turning HR Intent<br className="hidden md:block" /> into Intelligent Execution
               </h2>
-              <p className="text-[#444] leading-[1.8] mb-12 text-[14px] md:text-[17px] font-medium tracking-wide">
+              <p className="text-[#444] leading-[1.8] mb-12 text-[16px] md:text-[18px] font-medium tracking-wide">
                 Sense is an AI-driven recruiting platform used by staffing agencies and enterprise talent teams to manage candidate pipelines, automate workflows, and engage candidates at scale.
                 <br /><br />
                 As the CRM evolved, recruiters still had to configure workflows and dashboards manually. This project explored how an AI execution layer could transform the CRM from a configuration-heavy system into an intent-driven experience.
@@ -59,20 +59,20 @@ export default function ProjectDetail1() {
               {/* Project Meta Details */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 pb-4 border-t border-gray-200">
                 <div>
-                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">App Name / Client</p>
-                  <p className="text-[14px] md:text-[16px] text-[#555]">Sense</p>
+                  <p className="text-[16px] md:text-[18px] text-[#111] font-semibold mb-1 tracking-tight">App Name / Client</p>
+                  <p className="text-[16px] md:text-[18px] text-[#555]">Sense</p>
                 </div>
                 <div>
-                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Role</p>
-                  <p className="text-[14px] md:text-[16px] text-[#555]">Senior Product Designer</p>
+                  <p className="text-[16px] md:text-[18px] text-[#111] font-semibold mb-1 tracking-tight">Role</p>
+                  <p className="text-[16px] md:text-[18px] text-[#555]">Senior Product Designer</p>
                 </div>
                 <div>
-                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Platform</p>
-                  <p className="text-[14px] md:text-[16px] text-[#555]">Web App</p>
+                  <p className="text-[16px] md:text-[18px] text-[#111] font-semibold mb-1 tracking-tight">Platform</p>
+                  <p className="text-[16px] md:text-[18px] text-[#555]">Web App</p>
                 </div>
                 <div>
-                  <p className="text-[14px] md:text-[17px] text-[#111] font-semibold mb-1 tracking-tight">Industry</p>
-                  <p className="text-[14px] md:text-[16px] text-[#555]">SaaS - CRM</p>
+                  <p className="text-[16px] md:text-[18px] text-[#111] font-semibold mb-1 tracking-tight">Industry</p>
+                  <p className="text-[16px] md:text-[18px] text-[#555]">SaaS - CRM</p>
                 </div>
               </div>
             </div>
@@ -85,54 +85,54 @@ export default function ProjectDetail1() {
 
         {/* Introduction Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Introduction</h3>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Introduction</h3>
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             Modern HR teams live inside CRM systems. They manage hiring pipelines, monitor attrition, track performance, and report metrics to leadership.
           </p>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             Yet when a simple question arises the system doesn't respond to intent. It responds to configuration.
           </p>
           
           <div className="bg-gray-50 border border-gray-100 rounded-xl p-6 mb-8">
             <div className="flex flex-col gap-2">
-              <p className="text-[14px] md:text-base text-gray-900 font-medium">"Why is attrition increasing in Sales?"</p>
-              <p className="text-[14px] md:text-base text-gray-900 font-medium">"How can we hire faster?"</p>
+              <p className="text-[16px] md:text-[18px] text-gray-900 font-medium">"Why is attrition increasing in Sales?"</p>
+              <p className="text-[16px] md:text-[18px] text-gray-900 font-medium">"How can we hire faster?"</p>
             </div>
           </div>
           
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed">
             This project reimagines Global Search as an AI operating layer that transforms CRM from a structured tool into an intelligent execution engine.
           </p>
         </div>
 
         {/* My Role Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">My Role</h3>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">My Role</h3>
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             As a Senior Product Designer, I led the initiative from problem framing to interaction strategy. I defined the AI interaction model, designed the conversational execution flows, and established human-in-the-loop trust patterns.
           </p>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             I worked closely with product and engineering to align on data interpretation logic and ensure the AI layer scaled across CRM modules — positioning it not as a feature enhancement, but as a foundational interaction shift.
           </p>
         </div>
 
         {/* Problem Statement Section */}
         <div className="bg-[#1b1c3c] text-white rounded-xl p-8 md:p-10 mb-16 shadow-lg relative overflow-hidden">
-          <h3 className="text-[18px] md:text-xl font-bold mb-6 text-white/90">Problem Statement</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold mb-6 text-white/90">Problem Statement</h3>
           <div className="absolute top-4 right-4 text-white/10 text-9xl font-serif leading-none font-bold select-none pointer-events-none">"</div>
           <div className="relative z-10">
-            <p className="text-[14px] md:text-lg md:text-xl leading-relaxed font-medium text-white/90 mb-6">
+            <p className="text-[16px] md:text-[20px] md:text-xl leading-relaxed font-medium text-white/90 mb-6">
               The CRM is structured around features and modules, but HR teams think in goals and outcomes.
             </p>
             <div className="border-l-4 border-indigo-400 pl-4 py-1">
-              <p className="text-[14px] md:text-base text-indigo-200 font-medium">This mismatch creates cognitive overload, analyst dependency, and slow execution — despite having powerful data systems.</p>
+              <p className="text-[16px] md:text-[18px] text-indigo-200 font-medium">This mismatch creates cognitive overload, analyst dependency, and slow execution — despite having powerful data systems.</p>
             </div>
           </div>
         </div>
 
         {/* Problem 1 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 1: High Setup Friction & Low AI Adoption</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 1: High Setup Friction & Low AI Adoption</h3>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
             <li>Workflow automation existed, but adoption was stagnant.</li>
             <li>62% of recruiters abandoned workflow setup midway</li>
@@ -152,16 +152,16 @@ export default function ProjectDetail1() {
           </div>
 
           <div className="mt-8 mb-4 max-w-2xl">
-            <p className="text-[14px] md:text-base text-gray-900 font-medium mb-2">Recruiters felt:</p>
-            <p className="text-[14px] md:text-xl font-medium italic text-gray-700 mb-2">"This feels like more work."</p>
-            <p className="text-[14px] md:text-base text-gray-600">The system demanded effort before delivering value.</p>
+            <p className="text-[16px] md:text-[18px] text-gray-900 font-medium mb-2">Recruiters felt:</p>
+            <p className="text-[16px] md:text-[24px] font-medium italic text-gray-700 mb-2">"This feels like more work."</p>
+            <p className="text-[16px] md:text-[18px] text-gray-600">The system demanded effort before delivering value.</p>
           </div>
         </div>
 
         {/* Problem 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-xl font-bold text-gray-900 mb-6">Problem 2: Trust Gap in Automation</h3>
-          <p className="text-[14px] md:text-base text-gray-600 mb-6">Even when AI generated suggestions:</p>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 2: Trust Gap in Automation</h3>
+          <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">Even when AI generated suggestions:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
             <li>Users questioned logic</li>
             <li>Feared "black box" behavior</li>
@@ -171,7 +171,7 @@ export default function ProjectDetail1() {
           </ul>
 
           <div className="bg-indigo-50 border border-indigo-100 rounded-xl p-6 mb-8">
-            <p className="text-indigo-900 font-medium text-[14px] md:text-lg text-center">
+            <p className="text-indigo-900 font-medium text-[16px] md:text-[20px] text-center">
               The real challenge: How do we balance momentum and control?
             </p>
           </div>
@@ -179,7 +179,7 @@ export default function ProjectDetail1() {
 
         {/* Goals Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Goals</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Goals</h3>
           
           <div className="grid md:grid-cols-12 gap-8 mb-10">
             <div className="md:col-span-3">
@@ -187,20 +187,20 @@ export default function ProjectDetail1() {
             </div>
             <div className="md:col-span-9 space-y-6">
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Increase Feature Adoption</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Make AI analytics and workflow capabilities more accessible to enterprise users and drive a 2x increase in workflow adoption.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Increase Feature Adoption</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Make AI analytics and workflow capabilities more accessible to enterprise users and drive a 2x increase in workflow adoption.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Reduce Analyst Dependency</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Empower HR and business teams to self-serve insights, dashboards, and workflows without relying heavily on analysts.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Reduce Analyst Dependency</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Empower HR and business teams to self-serve insights, dashboards, and workflows without relying heavily on analysts.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Improve Platform Stickiness & Retention</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Position the CRM as a decision engine, not just a data storage system, improving long-term platform engagement and retention.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Improve Platform Stickiness & Retention</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Position the CRM as a decision engine, not just a data storage system, improving long-term platform engagement and retention.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Demonstrate Enterprise AI ROI</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Strengthen the value narrative of AI-driven automation by reducing workflow setup time by 70%+ and enabling faster execution.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Demonstrate Enterprise AI ROI</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Strengthen the value narrative of AI-driven automation by reducing workflow setup time by 70%+ and enabling faster execution.</p>
               </div>
             </div>
           </div>
@@ -211,24 +211,24 @@ export default function ProjectDetail1() {
             </div>
             <div className="md:col-span-9 space-y-6">
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Move from Navigation → Decision Making</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Reduce time spent navigating complex configurations and help users focus on insights and actions.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Move from Navigation → Decision Making</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Reduce time spent navigating complex configurations and help users focus on insights and actions.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Instant Workflow Creation</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Allow users to generate workflows quickly instead of manually configuring multiple steps.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Instant Workflow Creation</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Allow users to generate workflows quickly instead of manually configuring multiple steps.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Create Dashboards with Natural Language</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Enable users to generate analytics dashboards through conversational prompts.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Create Dashboards with Natural Language</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Enable users to generate analytics dashboards through conversational prompts.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Increase Confidence in AI Insights</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Provide transparent, explainable AI outputs so users can trust and validate the recommendations.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Increase Confidence in AI Insights</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Provide transparent, explainable AI outputs so users can trust and validate the recommendations.</p>
               </div>
               <div>
-                <p className="text-[14px] md:text-base font-bold text-gray-900 mb-1">• Maintain Human Approval Control</p>
-                <p className="text-gray-600 text-[14px] md:text-sm ml-4">Ensure users can review and approve AI-generated workflows before execution.</p>
+                <p className="text-[16px] md:text-[18px] font-bold text-gray-900 mb-1">• Maintain Human Approval Control</p>
+                <p className="text-gray-600 text-[16px] md:text-[18px] ml-4">Ensure users can review and approve AI-generated workflows before execution.</p>
               </div>
             </div>
           </div>
@@ -236,19 +236,19 @@ export default function ProjectDetail1() {
 
         {/* Solution 1 Section */}
         <div className="mb-16 pt-12 border-t border-gray-200">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 1: Conversational AI Interface</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 1: Conversational AI Interface</h3>
           
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             The new design introduces an AI-powered execution layer embedded directly into the CRM. Instead of navigating across modules, recruiters can express intent in natural language.
           </p>
 
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             Users can type prompts like:<br/>
             "Create hiring workflow for senior backend engineers."<br/>
             "Show attrition trend for Sales in the last 6 months."
           </p>
 
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-8">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-8">
             The system interprets intent and initiates structured execution flows instantly.
           </p>
           
@@ -266,7 +266,7 @@ export default function ProjectDetail1() {
           </div>
 
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg">
-            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
+            <p className="text-[16px] md:text-[18px] font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
               <li>Eliminates multi-step module navigation</li>
               <li>Reduces cognitive overhead</li>
@@ -278,13 +278,13 @@ export default function ProjectDetail1() {
 
         {/* Solution 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 2: AI Workflow Auto-Builder</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 2: AI Workflow Auto-Builder</h3>
           
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             The redesigned workflow experience removes upfront setup fatigue. Based on user intent, AI automatically builds a structured hiring workflow — including stages, triggers, SLAs, and assignments.
           </p>
 
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-8">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-8">
             Instead of configuring every rule manually, recruiters receive a ready-to-execute workflow with editable checkpoints.
           </p>
 
@@ -302,7 +302,7 @@ export default function ProjectDetail1() {
           </div>
 
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg mb-8">
-            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
+            <p className="text-[16px] md:text-[18px] font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
               <li>Reduces setup time by ~78%</li>
               <li>Eliminates repetitive field mapping and rule selection</li>
@@ -314,17 +314,17 @@ export default function ProjectDetail1() {
 
         {/* Solution 3 Section */}
         <div className="mb-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-8">Solution 3: AI-Generated CRM Analytics with Human-in-the-Loop Approval</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 3: AI-Generated CRM Analytics with Human-in-the-Loop Approval</h3>
           
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-6">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             We extended the execution layer into analytics. Recruiters can generate dashboards using natural language prompts, and AI automatically selects relevant data sources, applies filters, and builds structured visualizations.
           </p>
 
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-4">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             Before saving or activating, users see a full preview with contextual insight summaries and editable components.
           </p>
 
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-8">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-8">
             Every AI action requires explicit approval before execution.
           </p>
 
@@ -342,7 +342,7 @@ export default function ProjectDetail1() {
           </div>
 
           <div className="bg-indigo-50 border border-indigo-100 p-5 rounded-lg mb-8">
-            <p className="text-[14px] md:text-base font-bold text-indigo-900 mb-2">Why it's better:</p>
+            <p className="text-[16px] md:text-[18px] font-bold text-indigo-900 mb-2">Why it's better:</p>
             <ul className="list-disc pl-5 space-y-1 text-indigo-800 text-sm">
               <li>Reduces dashboard creation time from ~20 minutes to under 4 minutes</li>
               <li>Lowers analyst dependency from 52% to 19%</li>
@@ -355,43 +355,43 @@ export default function ProjectDetail1() {
 
         {/* What I Would Have Done Next Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-8">
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-8">
             Although the solution addressed the immediate usability challenges, the next phase would focus on improving trust, transparency, and intelligence in the AI-driven workflow experience.
           </p>
           
           <div className="space-y-8">
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">1. Measuring Trust Through Behavior</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-[16px] md:text-[18px] leading-relaxed">
                 To understand how confident users are in AI-generated workflows, I would track behavioral signals such as edit frequency, override patterns, and manual adjustments. These insights would reveal whether users trust the system's outputs or frequently modify them before execution.
               </p>
             </div>
             
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">2. Tracking Prompt-to-Execution Success</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-[16px] md:text-[18px] leading-relaxed">
                 I would measure the success rate between the initial prompt and final workflow execution. Identifying where prompts fail, require corrections, or lead to incomplete workflows would help refine the AI interpretation and improve overall reliability.
               </p>
             </div>
             
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">3. Improving AI Transparency</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-[16px] md:text-[18px] leading-relaxed">
                 To build stronger user confidence, I would introduce visible data lineage within AI outputs. Showing the data sources, logic paths, and reasoning behind AI-generated insights would help users better understand and validate the system's recommendations.
               </p>
             </div>
 
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">4. Introducing Contextual Memory</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-[16px] md:text-[18px] leading-relaxed">
                 Adding contextual memory across sessions would allow the system to remember previous workflows, prompts, and user preferences. This would reduce repetitive configuration and make interactions feel more personalized and efficient over time.
               </p>
             </div>
 
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-2">5. Moving Toward Proactive AI</h4>
-              <p className="text-gray-600 text-[14px] md:text-sm leading-relaxed">
+              <p className="text-gray-600 text-[16px] md:text-[18px] leading-relaxed">
                 The long-term goal would be shifting the system from reactive responses to proactive intelligence. By analyzing patterns and user behavior, the platform could suggest workflows, highlight insights, and recommend optimizations before users even ask.
               </p>
             </div>
@@ -400,34 +400,34 @@ export default function ProjectDetail1() {
 
         {/* Business Impact Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-6">Impact Summary</h3>
+          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Impact Summary</h3>
           
           <div className="grid md:grid-cols-3 gap-4 mb-8">
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
               <h4 className="text-2xl font-bold mb-2">78%</h4>
-              <p className="font-semibold text-[14px] md:text-lg mb-4 leading-tight">Faster workflow setup</p>
-              <p className="text-white/80 text-[14px] md:text-sm">AI workflows reduced manual configuration time.</p>
+              <p className="font-semibold text-[16px] md:text-[20px] mb-4 leading-tight">Faster workflow setup</p>
+              <p className="text-white/80 text-[16px] md:text-[18px]">AI workflows reduced manual configuration time.</p>
             </div>
             
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
               <h4 className="text-2xl font-bold mb-2">1.5x</h4>
-              <p className="font-semibold text-[14px] md:text-lg mb-4 leading-tight">Increase in AI workflow adoption</p>
-              <p className="text-white/80 text-[14px] md:text-sm">Teams shifted from manual automation to AI-generated workflows.</p>
+              <p className="font-semibold text-[16px] md:text-[20px] mb-4 leading-tight">Increase in AI workflow adoption</p>
+              <p className="text-white/80 text-[16px] md:text-[18px]">Teams shifted from manual automation to AI-generated workflows.</p>
             </div>
             
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
               <h4 className="text-2xl font-bold mb-2">80%</h4>
-              <p className="font-semibold text-[14px] md:text-lg mb-4 leading-tight">Faster dashboard generation</p>
-              <p className="text-white/80 text-[14px] md:text-sm">Natural language prompts enabled instant dashboard creation.</p>
+              <p className="font-semibold text-[16px] md:text-[20px] mb-4 leading-tight">Faster dashboard generation</p>
+              <p className="text-white/80 text-[16px] md:text-[18px]">Natural language prompts enabled instant dashboard creation.</p>
             </div>
           </div>
 
-          <p className="text-[14px] md:text-base text-gray-600 leading-relaxed mb-16">
+          <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-16">
             More importantly, the redesign repositioned AI from being an assistant feature to becoming a foundational execution layer across the CRM, enabling teams to move from insight generation to automated decision-making.
           </p>
 
           <div className="border-t border-gray-200 pt-12">
-            <h3 className="text-[18px] md:text-2xl font-bold text-gray-900 mb-6">Closing Reflection</h3>
+            <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Closing Reflection</h3>
             <div className="space-y-6 text-gray-600 leading-relaxed">
               <p>This project wasn't about adding AI to search.</p>
               <p>It was about redesigning the interaction model of an enterprise CRM.</p>

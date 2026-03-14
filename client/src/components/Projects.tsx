@@ -50,10 +50,10 @@ export function Projects() {
       <div className="relative z-20 w-full max-w-[1100px] mx-auto overflow-visible">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-[24px] md:text-[36px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-4">
+          <h2 className="text-[32px] md:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-4">
             Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
           </h2>
-          <p className="text-[15px] md:text-[17px] text-[#555] max-w-[600px] leading-relaxed">
+          <p className="text-[16px] md:text-[18px] text-[#555] max-w-[600px] leading-relaxed">
             From navigating early-stage ambiguity to building scalable systems, I design solutions that convert innovation into measurable impact.
           </p>
         </div>
@@ -88,12 +88,12 @@ export function Projects() {
                   {/* Project Content */}
                   <div className="w-full md:w-[55%] flex flex-col justify-center">
                     <div className="mb-6">
-                      <h3 className="text-[18px] md:text-[24px] font-medium text-[#111] tracking-[-0.01em] leading-[1.3] font-sans">
+                      <h3 className="text-[24px] md:text-[32px] font-medium text-[#111] tracking-[-0.01em] leading-[1.3] font-sans">
                         {project.title}
                       </h3>
                     </div>
                     
-                    <ul className="space-y-4 text-[#444] text-[14px] md:text-[16px] leading-[1.6] mb-10 font-normal">
+                    <ul className="space-y-4 text-[#444] text-[16px] md:text-[18px] leading-[1.6] mb-10 font-normal">
                       {project.bullets.map((bullet, i) => (
                         <li key={i} className="flex items-start gap-3.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>

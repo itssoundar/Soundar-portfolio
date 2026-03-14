@@ -15,11 +15,11 @@ export function Footer() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 md:mb-10"
         >
-          <h2 className="text-[32px] font-medium text-[#222] tracking-[-0.02em] leading-[1.1] mb-6 font-sans">
+          <h2 className="text-[32px] md:text-[40px] font-medium text-[#222] tracking-[-0.02em] leading-[1.1] mb-6 font-sans">
             If something here caught your eye, sparked a<br />
             thought, <span className="font-serif italic font-normal text-[#111]">lets talk!</span>
           </h2>
-          <p className="text-[#666] text-[14px] md:text-[18px] leading-[1.6] max-w-[500px] mx-auto tracking-wide font-sans">
+          <p className="text-[#666] text-[16px] md:text-[18px] leading-[1.6] max-w-[500px] mx-auto tracking-wide font-sans">
             From concept to launch, we create seamless digital<br />
             experiences that resonate with your audience.
           </p>

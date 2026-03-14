@@ -80,7 +80,7 @@ export function Experience() {
         }}
       />
       <div className="relative z-10 w-full max-w-[1200px] mx-auto">
-        <h2 className="text-[32px] font-medium text-center mb-16 md:mb-24 tracking-[-0.02em] leading-[1.1] font-sans">
+        <h2 className="text-[32px] md:text-[40px] font-medium text-center mb-16 md:mb-24 tracking-[-0.02em] leading-[1.1] font-sans">
           Experiences that shaped <span className="font-serif italic font-normal text-white/90">my design lens</span>
         </h2>
 
@@ -91,14 +91,14 @@ export function Experience() {
               className={`py-8 md:py-10 flex flex-col gap-3 ${index !== experiences.length - 1 ? 'border-b border-white/10' : ''}`}
             >
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                <h3 className="text-[24px] font-semibold tracking-wide text-white/95 font-sans">
+                <h3 className="text-[24px] md:text-[32px] font-semibold tracking-wide text-white/95 font-sans">
                   {exp.role} <span className="font-normal text-white/80 font-sans">{exp.company}</span>
                 </h3>
-                <span className="text-white/50 text-[18px] font-medium tracking-wider font-sans">
+                <span className="text-white/50 text-[16px] md:text-[18px] font-medium tracking-wider font-sans">
                   {exp.period}
                 </span>
               </div>
-              <div className="text-[#888888] text-[15px] md:text-[17px] leading-[1.6] max-w-[700px] font-normal tracking-wide font-sans">
+              <div className="text-[#888888] text-[16px] md:text-[18px] leading-[1.6] max-w-[700px] font-normal tracking-wide font-sans">
                 {exp.description}
               </div>
             </div>
@@ -108,7 +108,7 @@ export function Experience() {
         {/* Philosophy and Tools Section */}
         <div className="md:mt-32 relative w-[100vw] left-1/2 -translate-x-1/2 pl-[24px] pr-[24px] mt-[0px] pt-[0px]">
           <div className="relative z-10 text-center mb-16 px-6">
-            <p className="text-[18px] leading-[1.6] font-medium text-white/90 max-w-[800px] mx-auto tracking-wide">
+            <p className="text-[16px] md:text-[18px] leading-[1.6] font-medium text-white/90 max-w-[800px] mx-auto tracking-wide">
               "I thrive on discovery and problem-solving, continuously exploring new ideas to create thoughtful, <span className="font-serif italic font-normal">impactful product experiences</span>"
             </p>
           </div>
