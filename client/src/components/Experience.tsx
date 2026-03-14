@@ -137,7 +137,7 @@ export function Experience() {
             </div>
 
             {/* Right Tool Group */}
-            <div className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col items-center">
+            <div className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col items-center pl-[20px] pr-[20px]">
               <h4 className="text-[#888888] text-[18px] font-medium text-center mb-8 tracking-wide">
                 Iterate, Refine, Prototype and ship
               </h4>
