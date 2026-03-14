@@ -4,11 +4,46 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const allTestimonials = [
   {
-    text: "I had the pleasure of managing Soundar, and I was consistently impressed with how quickly he adapted and grew. From day one, Soundar brought a strong sense of curiosity, humility, and dedication to the craft.\n\nHe quickly developed the confidence to contribute meaningful ideas and execute on them with precision. He worked across design systems, SaaS, and AI-driven products with a level of ownership and maturity well beyond his years of experience.\n\nWhat stood out most to me was his eagerness to learn and his ability to absorb feedback and immediately apply it in his work. That mindset, combined with his collaborative spirit, made him an invaluable teammate. I’m confident that Soundar will continue to excel in his career and make a strong impact wherever he goes.\n\nI’d highly recommend him to any team looking for a talented and driven product designer.",
+    text: "I am beyond impressed with the results and would highly recommend Design Studio to anyone looking to elevate their brand and online presence.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces",
-    name: "Samuel Jones",
-    role: "Design System Manager",
-    rotation: 0,
+    name: "Justin H.",
+    role: "Head of Product | Apex",
+    rotation: -4,
+  },
+  {
+    text: "Design studio makes me more productive and gets the job done in a fraction of the time. I'm glad I found Design studio.",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces",
+    name: "Alex",
+    role: "CEO | Copy Hero",
+    rotation: -1,
+  },
+  {
+    text: "Design studio has helped my team and I stay on the same page. Previously, we were all over the board. Using Design studio has definitely saved us time and money.",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces",
+    name: "Maria A.",
+    role: "Marketing Lead | Cars International",
+    rotation: 3,
+  },
+  {
+    text: "This platform's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Omar Raza",
+    role: "CEO",
+    rotation: -2,
+  },
+  {
+    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Zainab Hussain",
+    role: "Project Manager",
+    rotation: 2,
+  },
+  {
+    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
+    name: "Aliza Khan",
+    role: "Business Analyst",
+    rotation: -3,
   }
 ];
 
@@ -29,14 +64,13 @@ export function WordsFromPeople() {
   const visibleTestimonials = allTestimonials.slice(startIndex, startIndex + 3);
 
   // If we don't have enough to show 3 (at the end of the array), wrap around
-  if (visibleTestimonials.length < 3 && allTestimonials.length >= 3) {
+  if (visibleTestimonials.length < 3) {
     const needed = 3 - visibleTestimonials.length;
     visibleTestimonials.push(...allTestimonials.slice(0, needed));
   }
 
   return (
-    {/* To unhide this section in the future, remove the 'hidden' class from the section tag below */}
-    <section className="hidden bg-white relative overflow-hidden pt-[60px] pb-[60px] px-6 md:px-[86px]">
+    <section className="bg-white relative overflow-hidden pt-[60px] pb-[60px] px-6 md:px-[86px]">
       <div className="w-full mx-auto max-w-[1200px]">
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
           <h2 className="text-[40px] text-[#222] tracking-[-0.02em] mb-6">
@@ -221,24 +255,22 @@ export function WordsFromPeople() {
           </div>
           
           {/* Navigation Controls */}
-          {allTestimonials.length > 3 && (
-            <div className="flex items-center justify-center gap-4 mt-16">
-              <button 
-                onClick={handlePrev}
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-600 hover:text-black hover:border-gray-300 hover:shadow-md transition-all duration-300 focus:outline-none"
-                aria-label="Previous testimonials"
-              >
-                <ChevronLeft size={24} strokeWidth={1.5} />
-              </button>
-              <button 
-                onClick={handleNext}
-                className="w-12 h-12 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-600 hover:text-black hover:border-gray-300 hover:shadow-md transition-all duration-300 focus:outline-none"
-                aria-label="Next testimonials"
-              >
-                <ChevronRight size={24} strokeWidth={1.5} />
-              </button>
-            </div>
-          )}
+          <div className="flex items-center justify-center gap-4 mt-16">
+            <button 
+              onClick={handlePrev}
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-600 hover:text-black hover:border-gray-300 hover:shadow-md transition-all duration-300 focus:outline-none"
+              aria-label="Previous testimonials"
+            >
+              <ChevronLeft size={24} strokeWidth={1.5} />
+            </button>
+            <button 
+              onClick={handleNext}
+              className="w-12 h-12 flex items-center justify-center rounded-full bg-white border border-gray-200 text-gray-600 hover:text-black hover:border-gray-300 hover:shadow-md transition-all duration-300 focus:outline-none"
+              aria-label="Next testimonials"
+            >
+              <ChevronRight size={24} strokeWidth={1.5} />
+            </button>
+          </div>
         </div>
       </div>
     </section>
