@@ -26,7 +26,7 @@ export default function ProjectDetail2() {
         style={{ backgroundImage: "url('/Case_hero.png')" }}
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
-          <h1 className="text-[40px] md:text-[64px] font-semibold leading-[1.2] tracking-tight text-white font-sans">
+          <h1 className="text-[40px] md:text-[56px] font-semibold leading-[1.2] tracking-tight text-white font-sans">
             Building a Scalable Design System for a Growing HR Platform
           </h1>
         </div>
@@ -86,7 +86,7 @@ export default function ProjectDetail2() {
 
         {/* Introduction Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Introduction</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Introduction</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             As the CRM evolved, feature velocity increased — but visual consistency and interaction logic began fragmenting.
           </p>
@@ -109,7 +109,7 @@ export default function ProjectDetail2() {
 
         {/* My Role Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">My Role</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">My Role</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             As a Senior Product Designer, I led the CRM modernisation initiative using Genesis.
           </p>
@@ -129,7 +129,7 @@ export default function ProjectDetail2() {
 
         {/* Problem Statement Section */}
         <div className="bg-[#1b1c3c] text-white rounded-xl p-8 md:p-10 mb-16 shadow-lg relative overflow-hidden">
-          <h3 className="text-[24px] md:text-[32px] font-bold mb-6 text-white/90">Problem Statement</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold mb-6 text-white/90">Problem Statement</h3>
           <div className="absolute top-4 right-4 text-white/10 text-9xl font-serif leading-none font-bold select-none pointer-events-none">"</div>
           <div className="relative z-10">
             <p className="text-[16px] md:text-[20px] md:text-xl leading-relaxed font-medium text-white/90 mb-6">
@@ -144,7 +144,7 @@ export default function ProjectDetail2() {
 
         {/* Problem 1 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 1: Inconsistent Patterns Across Modules</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Problem 1: Inconsistent Patterns Across Modules</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">Each module evolved independently.</p>
           <p className="text-[16px] md:text-[18px] text-gray-900 font-medium mb-4">Examples:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
@@ -177,7 +177,7 @@ export default function ProjectDetail2() {
 
         {/* Problem 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 2: High UI Debt & Low Reusability</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Problem 2: High UI Debt & Low Reusability</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">Without a structured component system:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
             <li>Designers recreated patterns repeatedly</li>
@@ -193,7 +193,7 @@ export default function ProjectDetail2() {
 
         {/* Goals Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Goals</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Goals</h3>
           
           <div className="grid md:grid-cols-12 gap-8 mb-10">
             <div className="md:col-span-3">
@@ -246,7 +246,7 @@ export default function ProjectDetail2() {
 
         {/* Solution 1 Section */}
         <div className="mb-16 pt-12 border-t border-gray-200">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 1: System Audit & Component Architecture</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Solution 1: System Audit & Component Architecture</h3>
           
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
@@ -293,7 +293,7 @@ export default function ProjectDetail2() {
 
         {/* Solution 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 2: Reusable CRM Component Library</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Solution 2: Reusable CRM Component Library</h3>
           
           <div className="bg-[#1b1c3c] p-6 md:p-10 rounded-xl mb-8 flex flex-col gap-6">
              <div className="rounded-lg overflow-hidden border border-gray-700 shadow-md bg-white">
@@ -340,7 +340,7 @@ export default function ProjectDetail2() {
 
         {/* Solution 3 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 3: Interaction & Layout Standardization</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Solution 3: Interaction & Layout Standardization</h3>
           
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-8">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
@@ -380,7 +380,7 @@ export default function ProjectDetail2() {
 
         {/* What I Would Have Done Next Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-8">
             Although Genesis significantly improved product consistency and development efficiency, the next phase would focus on measuring adoption, strengthening governance, and expanding the system's impact across the platform.
           </p>
@@ -425,7 +425,7 @@ export default function ProjectDetail2() {
 
         {/* Impact Summary Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Impact Summary</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Impact Summary</h3>
           
           <div className="grid md:grid-cols-3 gap-4 mb-8">
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
@@ -453,7 +453,7 @@ export default function ProjectDetail2() {
 
           {/* Closing Reflection */}
           <div className="border-t border-gray-200 pt-12 mb-16">
-            <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Closing Reflection</h3>
+            <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Closing Reflection</h3>
             <div className="space-y-6 text-gray-600 leading-relaxed">
               <p>This project wasn't about adding AI to search.</p>
               <p>It was about redesigning the interaction model of an enterprise CRM.</p>

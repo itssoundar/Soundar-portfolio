@@ -88,7 +88,7 @@ export function Projects() {
                   {/* Project Content */}
                   <div className="w-full md:w-[55%] flex flex-col justify-center">
                     <div className="mb-6">
-                      <h3 className="text-[24px] md:text-[32px] font-medium text-[#111] tracking-[-0.01em] leading-[1.3] font-sans">
+                      <h3 className="text-[22px] md:text-[28px] font-medium text-[#111] tracking-[-0.01em] leading-[1.3] font-sans">
                         {project.title}
                       </h3>
                     </div>

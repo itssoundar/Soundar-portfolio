@@ -91,7 +91,7 @@ export function Experience() {
               className={`py-8 md:py-10 flex flex-col gap-3 ${index !== experiences.length - 1 ? 'border-b border-white/10' : ''}`}
             >
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                <h3 className="text-[24px] md:text-[32px] font-semibold tracking-wide text-white/95 font-sans">
+                <h3 className="text-[22px] md:text-[28px] font-semibold tracking-wide text-white/95 font-sans">
                   {exp.role} <span className="font-normal text-white/80 font-sans">{exp.company}</span>
                 </h3>
                 <span className="text-white/50 text-[16px] md:text-[18px] font-medium tracking-wider font-sans">

@@ -26,7 +26,7 @@ export default function ProjectDetail3() {
         style={{ backgroundImage: "url('/Case_hero.png')" }}
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
-          <h1 className="text-[40px] md:text-[64px] font-semibold leading-[1.2] tracking-tight text-white font-sans">Building CRM analytics and a custom dashboard builder</h1>
+          <h1 className="text-[40px] md:text-[56px] font-semibold leading-[1.2] tracking-tight text-white font-sans">Building CRM analytics and a custom dashboard builder</h1>
         </div>
 
         {/* Main Interface Image - Placed inside the banner */}
@@ -83,7 +83,7 @@ export default function ProjectDetail3() {
 
         {/* Introduction Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Introduction</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Introduction</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             When we launched the new CRM, one critical gap became obvious:<br/><br/>
             The system could execute hiring workflows but it couldn't measure them.<br/><br/>
@@ -107,7 +107,7 @@ export default function ProjectDetail3() {
 
         {/* My Role Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">My Role</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">My Role</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             As a Senior Product Designer, I led the CRM modernisation initiative using Genesis.<br/><br/>
             I initaited with:
@@ -130,7 +130,7 @@ export default function ProjectDetail3() {
 
         {/* Problem Statement Section */}
         <div className="bg-[#1b1c3c] text-white rounded-xl p-8 md:p-10 mb-16 shadow-lg relative overflow-hidden">
-          <h3 className="text-[24px] md:text-[32px] font-bold mb-6 text-white/90">Problem Statement</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold mb-6 text-white/90">Problem Statement</h3>
           <div className="absolute top-4 right-4 text-white/10 text-9xl font-serif leading-none font-bold select-none pointer-events-none">"</div>
           <div className="relative z-10">
             <p className="text-[16px] md:text-[20px] md:text-xl leading-relaxed font-medium text-white/90 mb-6">
@@ -150,7 +150,7 @@ export default function ProjectDetail3() {
 
         {/* Problem 1 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 1: Fragmented Hiring Funnel Visibility</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Problem 1: Fragmented Hiring Funnel Visibility</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">Key recruitment metrics such as:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
             <li>Applicants</li>
@@ -179,7 +179,7 @@ export default function ProjectDetail3() {
 
         {/* Problem 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 2: Limited Dashboard Customization</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Problem 2: Limited Dashboard Customization</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">
             Existing reports were static and difficult to customize.<br/><br/>
             Enterprise customers required flexibility to:
@@ -207,7 +207,7 @@ export default function ProjectDetail3() {
         
         {/* Problem 3 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 3: Lack of Proactive Insights</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Problem 3: Lack of Proactive Insights</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">
             Analytics primarily displayed historical data.<br/><br/>
             However, recruitment leaders needed early signals to prevent issues such as:
@@ -225,7 +225,7 @@ export default function ProjectDetail3() {
 
         {/* Goals Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Goals</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Goals</h3>
           
           <div className="grid md:grid-cols-12 gap-8 mb-10">
             <div className="md:col-span-3">
@@ -278,7 +278,7 @@ export default function ProjectDetail3() {
 
         {/* Solution 1 Section */}
         <div className="mb-16 pt-12 border-t border-gray-200">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 1: Pre-Built Hiring Intelligence Dashboards</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Solution 1: Pre-Built Hiring Intelligence Dashboards</h3>
           
           <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-0">
@@ -350,7 +350,7 @@ export default function ProjectDetail3() {
 
         {/* Solution 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 2: Custom Dashboard & Report Builder</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Solution 2: Custom Dashboard & Report Builder</h3>
           
           <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
@@ -390,7 +390,7 @@ export default function ProjectDetail3() {
 
         {/* Solution 3 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 3: Alerts & Predictive Insights</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Solution 3: Alerts & Predictive Insights</h3>
           
           <div className="mb-8">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
@@ -434,7 +434,7 @@ export default function ProjectDetail3() {
 
         {/* Impact Summary Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Impact Summary</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Impact Summary</h3>
           
           <div className="grid md:grid-cols-3 gap-4">
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
@@ -464,7 +464,7 @@ export default function ProjectDetail3() {
 
         {/* What I Would Have Done Next Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-8">
             Although the analytics solution helps teams better understand recruitment performance, the next phase would focus on expanding predictive insights and improving collaboration across hiring teams.
           </p>
@@ -502,7 +502,7 @@ export default function ProjectDetail3() {
 
         {/* Closing Reflection */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Closing Reflection</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Closing Reflection</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             CRM Analytics required designing beyond dashboards.
           </p>

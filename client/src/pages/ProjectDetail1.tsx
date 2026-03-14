@@ -27,7 +27,7 @@ export default function ProjectDetail1() {
         style={{ backgroundImage: "url('/Case_hero.png')" }}
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
-          <h1 className="text-[40px] md:text-[64px] font-semibold leading-[1.2] tracking-tight text-white font-sans">From Search to Action: Turning HR Intent into Intelligent Execution</h1>
+          <h1 className="text-[40px] md:text-[56px] font-semibold leading-[1.2] tracking-tight text-white font-sans">From Search to Action: Turning HR Intent into Intelligent Execution</h1>
         </div>
 
         {/* Main Interface Image - Placed inside the banner */}
@@ -85,7 +85,7 @@ export default function ProjectDetail1() {
 
         {/* Introduction Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Introduction</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Introduction</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             Modern HR teams live inside CRM systems. They manage hiring pipelines, monitor attrition, track performance, and report metrics to leadership.
           </p>
@@ -107,7 +107,7 @@ export default function ProjectDetail1() {
 
         {/* My Role Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">My Role</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">My Role</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             As a Senior Product Designer, I led the initiative from problem framing to interaction strategy. I defined the AI interaction model, designed the conversational execution flows, and established human-in-the-loop trust patterns.
           </p>
@@ -118,7 +118,7 @@ export default function ProjectDetail1() {
 
         {/* Problem Statement Section */}
         <div className="bg-[#1b1c3c] text-white rounded-xl p-8 md:p-10 mb-16 shadow-lg relative overflow-hidden">
-          <h3 className="text-[24px] md:text-[32px] font-bold mb-6 text-white/90">Problem Statement</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold mb-6 text-white/90">Problem Statement</h3>
           <div className="absolute top-4 right-4 text-white/10 text-9xl font-serif leading-none font-bold select-none pointer-events-none">"</div>
           <div className="relative z-10">
             <p className="text-[16px] md:text-[20px] md:text-xl leading-relaxed font-medium text-white/90 mb-6">
@@ -132,7 +132,7 @@ export default function ProjectDetail1() {
 
         {/* Problem 1 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 1: High Setup Friction & Low AI Adoption</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Problem 1: High Setup Friction & Low AI Adoption</h3>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
             <li>Workflow automation existed, but adoption was stagnant.</li>
             <li>62% of recruiters abandoned workflow setup midway</li>
@@ -160,7 +160,7 @@ export default function ProjectDetail1() {
 
         {/* Problem 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Problem 2: Trust Gap in Automation</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Problem 2: Trust Gap in Automation</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 mb-6">Even when AI generated suggestions:</p>
           <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-8">
             <li>Users questioned logic</li>
@@ -179,7 +179,7 @@ export default function ProjectDetail1() {
 
         {/* Goals Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Goals</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Goals</h3>
           
           <div className="grid md:grid-cols-12 gap-8 mb-10">
             <div className="md:col-span-3">
@@ -236,7 +236,7 @@ export default function ProjectDetail1() {
 
         {/* Solution 1 Section */}
         <div className="mb-16 pt-12 border-t border-gray-200">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 1: Conversational AI Interface</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Solution 1: Conversational AI Interface</h3>
           
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             The new design introduces an AI-powered execution layer embedded directly into the CRM. Instead of navigating across modules, recruiters can express intent in natural language.
@@ -278,7 +278,7 @@ export default function ProjectDetail1() {
 
         {/* Solution 2 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 2: AI Workflow Auto-Builder</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Solution 2: AI Workflow Auto-Builder</h3>
           
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             The redesigned workflow experience removes upfront setup fatigue. Based on user intent, AI automatically builds a structured hiring workflow — including stages, triggers, SLAs, and assignments.
@@ -314,7 +314,7 @@ export default function ProjectDetail1() {
 
         {/* Solution 3 Section */}
         <div className="mb-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-8">Solution 3: AI-Generated CRM Analytics with Human-in-the-Loop Approval</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Solution 3: AI-Generated CRM Analytics with Human-in-the-Loop Approval</h3>
           
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-6">
             We extended the execution layer into analytics. Recruiters can generate dashboards using natural language prompts, and AI automatically selects relevant data sources, applies filters, and builds structured visualizations.
@@ -355,7 +355,7 @@ export default function ProjectDetail1() {
 
         {/* What I Would Have Done Next Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">What I Would Have Done Next</h3>
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-8">
             Although the solution addressed the immediate usability challenges, the next phase would focus on improving trust, transparency, and intelligence in the AI-driven workflow experience.
           </p>
@@ -400,7 +400,7 @@ export default function ProjectDetail1() {
 
         {/* Business Impact Section */}
         <div className="mb-16 border-t border-gray-200 pt-16">
-          <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Impact Summary</h3>
+          <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Impact Summary</h3>
           
           <div className="grid md:grid-cols-3 gap-4 mb-8">
             <div className="bg-[#1b1c3c] text-white p-6 rounded-xl">
@@ -427,7 +427,7 @@ export default function ProjectDetail1() {
           </p>
 
           <div className="border-t border-gray-200 pt-12">
-            <h3 className="text-[24px] md:text-[32px] font-bold text-gray-900 mb-6">Closing Reflection</h3>
+            <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-6">Closing Reflection</h3>
             <div className="space-y-6 text-gray-600 leading-relaxed">
               <p>This project wasn't about adding AI to search.</p>
               <p>It was about redesigning the interaction model of an enterprise CRM.</p>
