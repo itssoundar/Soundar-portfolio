@@ -163,4 +163,12 @@
   animation: bg-pulse 20s ease-in-out infinite;
   transform-origin: center;
 }
+
+body.modal-open {
+  cursor: auto !important;
+}
+
+body.modal-open .smooth-cursor-container {
+  display: none !important;
+}
 /* Force reload */

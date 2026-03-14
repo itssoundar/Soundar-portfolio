@@ -261,7 +261,6 @@ export default function ProjectDetail1() {
                 muted 
                 playsInline
                 className="w-full h-auto pointer-events-none"
-                className="w-full h-auto pointer-events-none"
               />
             </div>
           </div>
@@ -297,7 +296,6 @@ export default function ProjectDetail1() {
                 loop 
                 muted 
                 playsInline
-                className="w-full h-auto pointer-events-none"
                 className="w-full h-auto pointer-events-none"
               />
             </div>
@@ -338,7 +336,6 @@ export default function ProjectDetail1() {
                 loop 
                 muted 
                 playsInline
-                className="w-full h-auto pointer-events-none"
                 className="w-full h-auto pointer-events-none"
               />
             </div>

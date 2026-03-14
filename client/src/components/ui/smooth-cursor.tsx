@@ -129,6 +129,12 @@ export function SmoothCursor({
       return;
     }
 
+    // Check if modal is open - if so, don't hide the cursor
+    if (document.body.classList.contains("modal-open")) {
+      document.body.style.cursor = "auto";
+      return;
+    }
+
     const updateVelocity = (currentPos: Position) => {
       const currentTime = Date.now();
       const deltaTime = currentTime - lastUpdateTime.current;
@@ -181,6 +187,18 @@ export function SmoothCursor({
 
     let rafId: number;
     const throttledMouseMove = (e: MouseEvent) => {
+      // Don't show custom cursor if a modal is open
+      if (document.body.classList.contains("modal-open")) {
+        const cursorEl = document.querySelector('.smooth-cursor-container') as HTMLElement;
+        if (cursorEl) cursorEl.style.display = 'none';
+        document.body.style.cursor = 'auto';
+        return;
+      } else {
+        const cursorEl = document.querySelector('.smooth-cursor-container') as HTMLElement;
+        if (cursorEl) cursorEl.style.display = 'block';
+        document.body.style.cursor = 'none';
+      }
+
       if (rafId) return;
 
       rafId = requestAnimationFrame(() => {
@@ -203,6 +221,7 @@ export function SmoothCursor({
 
   return (
     <motion.div
+      className="smooth-cursor-container"
       style={{
         position: "fixed",
         left: cursorX,

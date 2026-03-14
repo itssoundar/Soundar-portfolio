@@ -18,11 +18,17 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      document.body.style.cursor = "auto";
+      document.body.classList.add("modal-open");
     } else {
       document.body.style.overflow = "unset";
+      document.body.style.cursor = "";
+      document.body.classList.remove("modal-open");
     }
     return () => {
       document.body.style.overflow = "unset";
+      document.body.style.cursor = "";
+      document.body.classList.remove("modal-open");
     };
   }, [isOpen]);
 
@@ -34,12 +40,14 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
   
   return createPortal(
     <div 
-      className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 md:p-8" 
+      className="fixed inset-0 z-[999999] bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 md:p-8" 
       onClick={onClose}
+      style={{ cursor: 'auto' }}
     >
       <div 
-        className="bg-white rounded-2xl w-full max-w-5xl h-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+        className="bg-white rounded-2xl w-full max-w-5xl h-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200 relative z-50"
         onClick={e => e.stopPropagation()}
+        style={{ cursor: 'auto' }}
       >
         <div className="flex items-center justify-between p-4 border-b border-gray-100 shrink-0">
           <h3 className="font-medium font-sans text-lg">Resume Preview</h3>
