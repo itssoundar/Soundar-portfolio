@@ -90,6 +90,20 @@ export function SmoothCursor({
   },
 }: SmoothCursorProps) {
   const [isMoving, setIsMoving] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isMobileDevice = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/.test(userAgent);
+      setIsMobile(window.innerWidth <= 768 || ('ontouchstart' in window) || navigator.maxTouchPoints > 0 || isMobileDevice);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const lastMousePos = useRef<Position>({ x: 0, y: 0 });
   const velocity = useRef<Position>({ x: 0, y: 0 });
   const lastUpdateTime = useRef(Date.now());
@@ -110,6 +124,11 @@ export function SmoothCursor({
   });
 
   useEffect(() => {
+    if (isMobile) {
+      document.body.style.cursor = "auto";
+      return;
+    }
+
     const updateVelocity = (currentPos: Position) => {
       const currentTime = Date.now();
       const deltaTime = currentTime - lastUpdateTime.current;
@@ -179,6 +198,8 @@ export function SmoothCursor({
       if (rafId) cancelAnimationFrame(rafId);
     };
   }, [cursorX, cursorY, rotation, scale]);
+
+  if (isMobile) return null;
 
   return (
     <motion.div
