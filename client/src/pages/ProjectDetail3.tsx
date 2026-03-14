@@ -35,7 +35,7 @@ export default function ProjectDetail3() {
         <div className="w-full max-w-[1000px] z-10 relative mt-4">
           <div className="rounded-t-xl md:rounded-t-2xl overflow-hidden shadow-2xl">
             <img 
-              src={Case1} 
+              src="/c3-hero.png" 
               alt="CRM Analytics Dashboard" 
               className="w-full h-auto block"
             />
