@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
 import { Mail, Linkedin, FileText } from "lucide-react";
+import { useState } from "react";
+import { ResumeModal } from "./ResumeModal";
 
 export function Footer() {
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
+
   return (
     <footer id="contact" className="relative w-full bg-white overflow-hidden flex flex-col items-center pt-[40px] pb-[40px] px-6 md:px-[86px]">
       {/* Content Container */}
@@ -56,7 +60,13 @@ export function Footer() {
           </a>
 
           {/* Resume */}
-          <a href="#" className="flex items-center justify-between group border-b border-[#e5e5e5] pb-4">
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              setIsResumeOpen(true);
+            }} 
+            className="w-full flex items-center justify-between group border-b border-[#e5e5e5] pb-4 cursor-pointer bg-transparent border-none text-left"
+          >
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <FileText className="w-5 h-5" strokeWidth={1.5} />
               <span className="text-[18px] font-medium">Resume</span>
@@ -64,7 +74,7 @@ export function Footer() {
             <span className="text-[18px] text-[#666] group-hover:text-[#222] transition-all">
               View Resume
             </span>
-          </a>
+          </button>
         </motion.div>
 
         {/* Footer Bottom Text */}
@@ -103,6 +113,8 @@ export function Footer() {
           WebkitMaskImage: 'linear-gradient(to top, black 40%, transparent 100%)'
         }}
       />
+      
+      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </footer>
   );
 }
