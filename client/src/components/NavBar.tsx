@@ -55,7 +55,28 @@ export function NavBar() {
             >
               About
             </a>
-            <a href="/#contact" className="hover:text-black transition-colors">Contact</a>
+            <a 
+              href="/#contact" 
+              onClick={(e) => {
+                const isHome = window.location.pathname === "/";
+                if (isHome) {
+                  e.preventDefault();
+                  const contactSection = document.getElementById("contact");
+                  if (contactSection) {
+                    const navHeight = 100;
+                    const elementPosition = contactSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: "smooth"
+                    });
+                  }
+                }
+              }}
+              className="hover:text-black transition-colors"
+            >
+              Contact
+            </a>
           </div>
           
           <Button className="rounded-[14px] px-6 h-11 bg-black text-white hover:bg-[#222] font-medium text-[14px] flex items-center gap-2 transition-all">

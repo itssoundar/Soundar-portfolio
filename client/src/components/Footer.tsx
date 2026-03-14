@@ -3,7 +3,7 @@ import { Mail, Linkedin, FileText } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative w-full bg-white overflow-hidden flex flex-col items-center pt-[60px] pb-[60px] px-6 md:px-[86px]">
+    <footer id="contact" className="relative w-full bg-white overflow-hidden flex flex-col items-center pt-[60px] pb-[60px] px-6 md:px-[86px]">
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center">
         
