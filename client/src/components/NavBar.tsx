@@ -11,9 +11,9 @@ export function NavBar() {
         
         <div className="flex items-center gap-8 pr-1">
           <div className="hidden md:flex items-center gap-8 text-[15px] font-medium text-[#444] font-sans">
-            <a href="#works" className="hover:text-black transition-colors">Works</a>
+            <a href="#work" className="hover:text-black transition-colors">Work</a>
+            <a href="#about" className="hover:text-black transition-colors">About</a>
             <a href="#contact" className="hover:text-black transition-colors">Contact</a>
-            <a href="#life-stories" className="hover:text-black transition-colors">Life & Stories</a>
           </div>
           
           <Button className="rounded-[14px] px-6 h-11 bg-black text-white hover:bg-[#222] font-medium text-[14px] flex items-center gap-2 transition-all">
