@@ -62,7 +62,7 @@ export function Footer() {
               <span className="text-[18px] font-medium">Resume</span>
             </div>
             <span className="text-[18px] text-[#666] group-hover:text-[#222] transition-all">
-              Download CV
+              View Resume
             </span>
           </a>
         </motion.div>
