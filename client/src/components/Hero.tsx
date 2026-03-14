@@ -60,27 +60,27 @@ export function Hero() {
         }}
       >
         {/* Ticker Container */}
-        <div className="flex w-max animate-ticker hover:animation-play-state-paused">
+        <div className="flex w-max animate-ticker hover:animation-play-state-paused min-h-[80px] md:min-h-[140px] items-center">
           {/* First set of logos */}
-          <div className="flex justify-around items-center">
+          <div className="flex justify-around items-center py-8 md:py-10">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-              <div key={`logo-1-${num}`} className="px-2 md:px-[40px]">
+              <div key={`logo-1-${num}`} className="px-3 md:px-[40px]">
                 <img 
                   src={`/works/worked_0${num}.png`} 
                   alt={`Company ${num}`} 
-                  className="h-7 md:h-14 w-auto max-w-[80px] md:max-w-[200px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
+                  className="h-20 md:h-28 w-auto max-w-[140px] md:max-w-[260px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
                 />
               </div>
             ))}
           </div>
           {/* Duplicate set for seamless looping */}
-          <div className="flex justify-around items-center">
+          <div className="flex justify-around items-center py-8 md:py-10">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-              <div key={`logo-2-${num}`} className="px-2 md:px-[40px]">
+              <div key={`logo-2-${num}`} className="px-3 md:px-[40px]">
                 <img 
                   src={`/works/worked_0${num}.png`} 
                   alt={`Company ${num}`} 
-                  className="h-7 md:h-14 w-auto max-w-[80px] md:max-w-[200px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
+                  className="h-20 md:h-28 w-auto max-w-[140px] md:max-w-[260px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
                 />
               </div>
             ))}
