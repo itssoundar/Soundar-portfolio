@@ -21,9 +21,15 @@ export function metaImagesPlugin(): Plugin {
       const opengraphPngPath = path.join(publicDir, 'opengraph.png');
       const opengraphJpgPath = path.join(publicDir, 'opengraph.jpg');
       const opengraphJpegPath = path.join(publicDir, 'opengraph.jpeg');
+      const metaimageJpegPath = path.join(publicDir, 'metaimage.jpeg');
 
       let imageExt: string | null = null;
-      if (fs.existsSync(opengraphPngPath)) {
+      let imageName: string = 'opengraph';
+      
+      if (fs.existsSync(metaimageJpegPath)) {
+        imageExt = 'jpeg';
+        imageName = 'metaimage';
+      } else if (fs.existsSync(opengraphPngPath)) {
         imageExt = 'png';
       } else if (fs.existsSync(opengraphJpgPath)) {
         imageExt = 'jpg';
@@ -36,7 +42,7 @@ export function metaImagesPlugin(): Plugin {
         return html;
       }
 
-      const imageUrl = `${baseUrl}/opengraph.${imageExt}`;
+      const imageUrl = `${baseUrl}/${imageName}.${imageExt}`;
 
       log('[meta-images] updating meta image tags to:', imageUrl);
 
