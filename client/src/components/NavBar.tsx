@@ -60,7 +60,7 @@ export function NavBar() {
           </div>
           <div className="flex-1 w-full bg-gray-50 h-full overflow-hidden">
             <iframe 
-              src="/Soundar_resume2026.pdf" 
+              src="/works/Soundar_resume2026.pdf" 
               className="w-full h-full border-none"
               title="Resume Preview"
             />
