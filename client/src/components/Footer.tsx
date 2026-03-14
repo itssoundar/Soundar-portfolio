@@ -31,37 +31,37 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="w-full max-w-[500px] flex flex-col gap-6 mb-24 md:mb-32"
+          className="w-full flex flex-col gap-6 mb-24 md:mb-32"
         >
           {/* Email */}
-          <a href="mailto:rsoundar1998@gmail.com" className="flex items-center justify-between group">
+          <a href="mailto:rsoundar1998@gmail.com" className="flex items-center justify-between group border-b border-[#e5e5e5] pb-6">
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <Mail className="w-5 h-5" strokeWidth={1.5} />
               <span className="text-[18px] font-medium">Email</span>
             </div>
-            <span className="text-[18px] text-[#666] group-hover:text-[#222] underline underline-offset-4 decoration-[#666]/30 group-hover:decoration-[#222]/50 transition-all">
+            <span className="text-[18px] text-[#666] group-hover:text-[#222] transition-all">
               rsoundar1998@gmail.com
             </span>
           </a>
 
           {/* LinkedIn */}
-          <a href="#" className="flex items-center justify-between group">
+          <a href="#" className="flex items-center justify-between group border-b border-[#e5e5e5] pb-6">
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <Linkedin className="w-5 h-5" strokeWidth={1.5} />
               <span className="text-[18px] font-medium">LinkedIn</span>
             </div>
-            <span className="text-[18px] text-[#666] group-hover:text-[#222] underline underline-offset-4 decoration-[#666]/30 group-hover:decoration-[#222]/50 transition-all">
+            <span className="text-[18px] text-[#666] group-hover:text-[#222] transition-all">
               /in/soundarr/
             </span>
           </a>
 
           {/* Resume */}
-          <a href="#" className="flex items-center justify-between group">
+          <a href="#" className="flex items-center justify-between group border-b border-[#e5e5e5] pb-6">
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <FileText className="w-5 h-5" strokeWidth={1.5} />
               <span className="text-[18px] font-medium">Resume</span>
             </div>
-            <span className="text-[18px] text-[#666] group-hover:text-[#222] underline underline-offset-4 decoration-[#666]/30 group-hover:decoration-[#222]/50 transition-all">
+            <span className="text-[18px] text-[#666] group-hover:text-[#222] transition-all">
               Download CV
             </span>
           </a>
