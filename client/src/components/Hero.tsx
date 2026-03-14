@@ -60,27 +60,27 @@ export function Hero() {
         }}
       >
         {/* Ticker Container */}
-        <div className="flex w-max animate-ticker hover:animation-play-state-paused min-h-[80px] md:min-h-[40px] items-center">
+        <div className="flex w-max animate-ticker hover:animation-play-state-paused min-h-[80px] md:min-h-[70px] items-center">
           {/* First set of logos */}
-          <div className="flex justify-around items-center py-6 md:py-0">
+          <div className="flex justify-around items-center py-6 md:py-4">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
               <div key={`logo-1-${num}`} className="px-3 md:px-[40px]">
                 <img 
                   src={`/works/worked_0${num}.png`} 
                   alt={`Company ${num}`} 
-                  className="h-20 md:h-8 w-auto max-w-[140px] md:max-w-[120px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
+                  className="h-20 md:h-14 w-auto max-w-[140px] md:max-w-[180px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
                 />
               </div>
             ))}
           </div>
           {/* Duplicate set for seamless looping */}
-          <div className="flex justify-around items-center py-6 md:py-0">
+          <div className="flex justify-around items-center py-6 md:py-4">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
               <div key={`logo-2-${num}`} className="px-3 md:px-[40px]">
                 <img 
                   src={`/works/worked_0${num}.png`} 
                   alt={`Company ${num}`} 
-                  className="h-20 md:h-8 w-auto max-w-[140px] md:max-w-[120px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
+                  className="h-20 md:h-14 w-auto max-w-[140px] md:max-w-[180px] object-contain flex-shrink-0 grayscale opacity-90 hover:opacity-100 hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
                 />
               </div>
             ))}
