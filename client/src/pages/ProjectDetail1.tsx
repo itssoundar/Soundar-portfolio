@@ -32,7 +32,7 @@ export default function ProjectDetail1() {
         <div className="w-full max-w-[1000px] z-10 relative mt-4">
           <div className="rounded-t-xl md:rounded-t-2xl overflow-hidden shadow-2xl">
             <img 
-              src={Case1} 
+              src="/Case 1/C1new.png" 
               alt="HR Platform Dashboard" 
               className="w-full h-auto block"
             />
@@ -253,7 +253,7 @@ export default function ProjectDetail1() {
           <div className="pt-4 md:pt-8 rounded-xl bg-[#f3f4f600] mb-0">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
               <video 
-                src="/c1-s1.mp4" 
+                src="/Case 1/c1-s1.mp4" 
                 autoPlay 
                 loop 
                 muted 
@@ -289,7 +289,7 @@ export default function ProjectDetail1() {
           <div className="pt-4 md:pt-8 rounded-xl bg-[#f3f4f600] mb-0">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
               <video 
-                src="/c1-s2.mp4" 
+                src="/Case 1/c1-s2.mp4" 
                 autoPlay 
                 loop 
                 muted 
@@ -329,7 +329,7 @@ export default function ProjectDetail1() {
           <div className="pt-4 md:pt-8 rounded-xl bg-[#f3f4f600] mb-0">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
               <video 
-                src="/c1-s3.mp4" 
+                src="/Case 1/c1-s3.mp4" 
                 autoPlay 
                 loop 
                 muted 
