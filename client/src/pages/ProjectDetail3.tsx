@@ -394,11 +394,15 @@ export default function ProjectDetail3() {
           
           <div className="mb-8">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
-              <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
-                alt="Alerts" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
-              />
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline 
+                className="w-full h-auto pointer-events-none"
+              >
+                <source src="/c3-s3.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
 
