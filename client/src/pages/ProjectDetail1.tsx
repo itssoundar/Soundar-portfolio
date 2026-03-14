@@ -121,7 +121,7 @@ export default function ProjectDetail1() {
           <h3 className="text-[22px] md:text-[28px] font-bold mb-6 text-white/90">Problem Statement</h3>
           <div className="absolute top-4 right-4 text-white/10 text-9xl font-serif leading-none font-bold select-none pointer-events-none">"</div>
           <div className="relative z-10">
-            <p className="text-[16px] md:text-[20px] md:text-xl leading-relaxed font-medium text-white/90 mb-6">
+            <p className="text-[16px] md:text-[20px] leading-relaxed font-medium text-white/90 mb-6">
               The CRM is structured around features and modules, but HR teams think in goals and outcomes.
             </p>
             <div className="border-l-4 border-indigo-400 pl-4 py-1">

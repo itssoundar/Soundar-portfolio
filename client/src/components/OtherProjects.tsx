@@ -33,7 +33,7 @@ export function OtherProjects({ currentProjectId }: { currentProjectId: string }
   return (
     <div className="w-full bg-[#FAFAFA] py-16 lg:py-24 border-t border-gray-100 mt-20">
       <div className="max-w-[1000px] mx-auto px-4 md:px-8">
-        <h3 className="text-[22px] md:text-2xl font-bold text-gray-900 mb-8 md:mb-12 font-sans">Other Projects</h3>
+        <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8 md:mb-12 font-sans">Other Projects</h3>
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {otherProjects.map(project => (
             <Link key={project.id} href={project.link}>
