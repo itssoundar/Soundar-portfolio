@@ -45,7 +45,7 @@ export function Projects() {
   ];
 
   return (
-    <section className="relative w-full bg-[#f8f9fa] pb-32 px-6 md:px-[86px] pt-12 -mt-16 z-20">
+    <section id="work" className="relative w-full bg-[#f8f9fa] pb-32 px-6 md:px-[86px] pt-12 -mt-16 z-20">
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-[#f8f9fa]/80 to-[#f8f9fa] pointer-events-none -translate-y-full z-10" />
       <div className="relative z-20 w-full max-w-[1100px] mx-auto overflow-visible">
         {/* Section Header */}

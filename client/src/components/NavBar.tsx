@@ -11,9 +11,30 @@ export function NavBar() {
         
         <div className="flex items-center gap-8 pr-1">
           <div className="hidden md:flex items-center gap-8 text-[15px] font-medium text-[#444] font-sans">
-            <a href="#work" className="hover:text-black transition-colors">Work</a>
-            <a href="#about" className="hover:text-black transition-colors">About</a>
-            <a href="#contact" className="hover:text-black transition-colors">Contact</a>
+            <a 
+              href="/#work" 
+              onClick={(e) => {
+                const isHome = window.location.pathname === "/";
+                if (isHome) {
+                  e.preventDefault();
+                  const workSection = document.getElementById("work");
+                  if (workSection) {
+                    const navHeight = 100; // approximate navbar height + padding
+                    const elementPosition = workSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: "smooth"
+                    });
+                  }
+                }
+              }}
+              className="hover:text-black transition-colors"
+            >
+              Work
+            </a>
+            <a href="/#about" className="hover:text-black transition-colors">About</a>
+            <a href="/#contact" className="hover:text-black transition-colors">Contact</a>
           </div>
           
           <Button className="rounded-[14px] px-6 h-11 bg-black text-white hover:bg-[#222] font-medium text-[14px] flex items-center gap-2 transition-all">
