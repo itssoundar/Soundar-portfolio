@@ -38,9 +38,9 @@ export function Hero() {
 
         {/* Main Headline Section */}
         <div className="flex flex-col items-center text-center w-full mt-4">
-          <h1 className="text-[36px] md:text-[40px] text-[#222] tracking-[-0.02em] font-medium w-full leading-[1.3] font-sans">
-            Product Designer helping teams <br />
-            move beyond what looks good <br />
+          <h1 className="text-[32px] md:text-[40px] text-[#222] tracking-[-0.02em] font-medium w-full leading-[1.3] font-sans max-w-[320px] md:max-w-none mx-auto">
+            Product Designer helping teams <br className="hidden md:block" />
+            move beyond what looks good <br className="hidden md:block" />
             to <span className="inline-flex items-center text-[#888] font-light mx-1">→</span> what <span className="font-serif italic font-normal text-[#111]">users can rely on.</span>
           </h1>
           
