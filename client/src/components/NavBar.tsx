@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Download, Menu, X } from "lucide-react";
+import { Download, Menu, X, Eye } from "lucide-react";
 import { useState } from "react";
 
 export function NavBar() {
@@ -40,8 +40,8 @@ export function NavBar() {
           
           {/* Desktop Resume Button */}
           <Button className="hidden md:flex rounded-[14px] px-6 h-11 bg-black text-white hover:bg-[#222] font-medium text-[14px] items-center gap-2 transition-all">
-            <Download className="w-4 h-4" />
-            Download Resume
+            <Eye className="w-4 h-4" />
+            View Resume
           </Button>
 
           {/* Mobile Menu Toggle Button */}
@@ -64,8 +64,8 @@ export function NavBar() {
           </div>
           <div className="pt-2 border-t border-gray-100">
             <Button className="w-full rounded-[14px] h-12 bg-black text-white hover:bg-[#222] font-medium text-[15px] flex items-center justify-center gap-2 transition-all">
-              <Download className="w-4 h-4" />
-              Download Resume
+              <Eye className="w-4 h-4" />
+              View Resume
             </Button>
           </div>
         </div>
