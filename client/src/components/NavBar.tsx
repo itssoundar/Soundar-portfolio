@@ -41,13 +41,13 @@ export function NavBar() {
           </div>
           
           {/* Desktop Resume Button */}
-          <Button 
+          <button 
             onClick={() => setIsResumeOpen(true)}
-            className="hidden md:flex rounded-[14px] px-6 h-11 bg-black text-white hover:bg-[#222] font-medium text-[14px] items-center gap-2 transition-all"
+            className="hidden md:flex rounded-[14px] px-6 h-11 bg-black text-white hover:bg-[#222] font-medium text-[14px] items-center gap-2 transition-all cursor-pointer"
           >
             <Eye className="w-4 h-4" />
             View Resume
-          </Button>
+          </button>
 
           {/* Mobile Menu Toggle Button */}
           <button 
@@ -68,21 +68,21 @@ export function NavBar() {
             <a href="/#contact" onClick={(e) => handleNavClick(e, 'contact')} className="hover:text-black transition-colors px-4 py-2 hover:bg-gray-50 rounded-xl">Contact</a>
           </div>
           <div className="pt-2 border-t border-gray-100">
-            <Button 
+            <button 
               onClick={() => {
                 setIsResumeOpen(true);
                 setIsMobileMenuOpen(false);
               }}
-              className="w-full rounded-[14px] h-12 bg-black text-white hover:bg-[#222] font-medium text-[15px] flex items-center justify-center gap-2 transition-all"
+              className="w-full rounded-[14px] h-12 bg-black text-white hover:bg-[#222] font-medium text-[15px] flex items-center justify-center gap-2 transition-all cursor-pointer"
             >
               <Eye className="w-4 h-4" />
               View Resume
-            </Button>
+            </button>
           </div>
         </div>
       )}
       
-      <ResumeModal />
+      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </div>
   );
 }

@@ -71,9 +71,7 @@ export function Footer() {
               <FileText className="w-5 h-5" strokeWidth={1.5} />
               <span className="text-[18px] font-medium">Resume</span>
             </div>
-            <span className="text-[18px] text-[#666] group-hover:text-[#222] transition-all">
-              View Resume
-            </span>
+            <span className="text-[18px] text-[#666] group-hover:text-[#222] transition-all">View CV</span>
           </button>
         </motion.div>
 
@@ -113,7 +111,6 @@ export function Footer() {
           WebkitMaskImage: 'linear-gradient(to top, black 40%, transparent 100%)'
         }}
       />
-      
       <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
     </footer>
   );
