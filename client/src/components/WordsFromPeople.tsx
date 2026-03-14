@@ -69,6 +69,10 @@ export function WordsFromPeople() {
     visibleTestimonials.push(...allTestimonials.slice(0, needed));
   }
 
+  // Return null to hide this section temporarily
+  // To unhide this section, comment out or remove the 'return null;' line below
+  return null;
+
   return (
     <section className="bg-white relative overflow-hidden pt-[60px] pb-[60px] px-6 md:px-[86px]">
       <div className="w-full mx-auto max-w-[1200px]">
