@@ -33,7 +33,28 @@ export function NavBar() {
             >
               Work
             </a>
-            <a href="/#about" className="hover:text-black transition-colors">About</a>
+            <a 
+              href="/#about" 
+              onClick={(e) => {
+                const isHome = window.location.pathname === "/";
+                if (isHome) {
+                  e.preventDefault();
+                  const aboutSection = document.getElementById("about");
+                  if (aboutSection) {
+                    const navHeight = 100;
+                    const elementPosition = aboutSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: "smooth"
+                    });
+                  }
+                }
+              }}
+              className="hover:text-black transition-colors"
+            >
+              About
+            </a>
             <a href="/#contact" className="hover:text-black transition-colors">Contact</a>
           </div>
           
