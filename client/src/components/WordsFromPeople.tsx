@@ -144,7 +144,7 @@ export function WordsFromPeople() {
           </div>
 
           {/* Mobile View (Stacked Cards Effect) */}
-          <div className="md:hidden flex justify-center items-start pt-12 pb-16 min-h-[460px] relative w-full overflow-visible">
+          <div className="md:hidden flex justify-center items-end pb-8 min-h-[460px] relative w-full overflow-visible">
             <AnimatePresence initial={false} custom={direction}>
               {visibleTestimonials.map((testimonial, i) => {
                 // To match the reference layout: 
@@ -158,7 +158,7 @@ export function WordsFromPeople() {
                 // Rotation and offsets matching the reference
                 const rotate = i === 0 ? 0 : i === 1 ? -8 : 8;
                 const xOffset = i === 0 ? 0 : i === 1 ? -25 : 25;
-                const yOffset = i === 0 ? 0 : 15;
+                const yOffset = i === 0 ? 0 : 0; 
                 const scale = i === 0 ? 1 : 0.95;
                 
                 return (
@@ -212,7 +212,7 @@ export function WordsFromPeople() {
                     stiffness: 260,
                     damping: 20
                   }}
-                  className="absolute w-[80%] max-w-[320px] bg-white rounded-[20px] p-6 sm:p-8 border border-gray-200/80 group cursor-default"
+                  className="absolute w-[85%] max-w-[340px] bg-white rounded-[20px] p-6 sm:p-8 border border-gray-200/80 group cursor-default bottom-0"
                   style={{ transformOrigin: "bottom center" }}
                 >
                   {/* Hover Background Image */}
