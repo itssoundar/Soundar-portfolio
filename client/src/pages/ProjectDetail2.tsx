@@ -49,7 +49,7 @@ export default function ProjectDetail2() {
             {/* Project Header */}
             <div className="mb-0">
               <h2 className="text-[24px] md:text-[34px] font-bold text-[#222] mb-6 leading-[1.3] tracking-tight font-sans">
-                Building a Scalable Design System<br className="hidden md:block" /> for a Growing HR Platform
+                Building a Scalable Design System for a Growing HR Platform
               </h2>
               <p className="text-[#444] leading-[1.8] mb-12 text-[14px] md:text-[17px] font-medium tracking-wide">
                 Sense is an AI-powered recruiting platform that helps staffing agencies and enterprise teams manage hiring pipelines, automation, and analytics within a unified CRM.
