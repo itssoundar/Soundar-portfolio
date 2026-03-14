@@ -92,7 +92,7 @@ export function Footer() {
       </div>
       {/* Background Image at Bottom */}
       <div 
-        className="absolute bottom-0 left-0 w-full h-[400px] md:h-[500px] pointer-events-none z-0 mix-blend-multiply"
+        className="absolute bottom-0 left-0 w-full h-[400px] md:h-[500px] pointer-events-none z-0 mix-blend-multiply animate-bg-pulse"
         style={{
           backgroundImage: 'url("/Footer_bg.png")',
           backgroundSize: 'cover',
