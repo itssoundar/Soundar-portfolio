@@ -147,11 +147,19 @@ export function WordsFromPeople() {
           <div className="md:hidden flex justify-center items-start pt-12 pb-16 min-h-[460px] relative w-full overflow-visible">
             <AnimatePresence initial={false} custom={direction}>
               {visibleTestimonials.map((testimonial, i) => {
-                // Calculate rotation and position to create a fanned out deck effect similar to the reference image
-                const rotate = i === 0 ? 0 : i === 1 ? -12 : 12;
-                const xOffset = i === 0 ? 0 : i === 1 ? -50 : 50;
-                const yOffset = i === 0 ? 0 : 20;
-                const scale = i === 0 ? 1 : 0.9;
+                // To match the reference layout: 
+                // The current card (i=0) is in front, straight.
+                // The previous card (i=1) is rotated left behind it.
+                // The next card (i=2) is rotated right behind it.
+                
+                // Calculate zIndex: i=0 is on top, i=1 and i=2 are behind
+                const zIndex = i === 0 ? 30 : i === 1 ? 20 : 10;
+                
+                // Rotation and offsets matching the reference
+                const rotate = i === 0 ? 0 : i === 1 ? -8 : 8;
+                const xOffset = i === 0 ? 0 : i === 1 ? -25 : 25;
+                const yOffset = i === 0 ? 0 : 15;
+                const scale = i === 0 ? 1 : 0.95;
                 
                 return (
                 <motion.div
@@ -172,7 +180,7 @@ export function WordsFromPeople() {
                       scale: scale,
                       rotate: rotate,
                       opacity: 1,
-                      zIndex: 10 - i,
+                      zIndex: zIndex,
                       boxShadow: i === 0 
                         ? "0 20px 40px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)"
                         : "0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)"
@@ -182,7 +190,7 @@ export function WordsFromPeople() {
                       x: d > 0 ? -30 : 30,
                       opacity: 0,
                       scale: d > 0 ? 1.1 : 0.8,
-                      zIndex: d > 0 ? 10 : 0,
+                      zIndex: d > 0 ? 30 : 0,
                       rotate: rotate * (d > 0 ? -1.5 : 1.5)
                     })
                   }}
@@ -193,7 +201,7 @@ export function WordsFromPeople() {
                     scale: scale,
                     rotate: rotate,
                     opacity: 1,
-                    zIndex: 10 - i,
+                    zIndex: zIndex,
                     boxShadow: i === 0 
                         ? "0 20px 40px -12px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.05)"
                         : "0 10px 20px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05)"
