@@ -53,7 +53,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           <h3 className="font-medium font-sans text-lg">Resume Preview</h3>
           <div className="flex items-center gap-2">
             <a 
-              href="/works/Soundar_resume2026.pdf" 
+              href="/Soundar_Resume2026.pdf" 
               target="_blank" 
               rel="noopener noreferrer"
               className="px-4 py-2 bg-black text-white text-sm font-medium rounded-xl hover:bg-[#222] transition-colors flex items-center gap-2"
@@ -72,7 +72,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
         <div className="flex-1 w-full bg-[#525659] h-full overflow-y-auto">
           <div className="flex justify-center py-8 min-h-full">
             <Document
-              file="/works/Soundar_resume2026.pdf"
+              file="/Soundar_Resume2026.pdf"
               onLoadSuccess={onDocumentLoadSuccess}
               className="flex flex-col items-center gap-4"
               loading={
@@ -85,7 +85,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                 <div className="flex flex-col items-center justify-center p-12 text-white text-center">
                   <p className="mb-4">Failed to load PDF.</p>
                   <a 
-                    href="/works/Soundar_resume2026.pdf" 
+                    href="/Soundar_Resume2026.pdf" 
                     download
                     className="bg-white text-black px-6 py-3 rounded-xl font-medium hover:bg-gray-200 transition-colors inline-flex items-center gap-2"
                   >
