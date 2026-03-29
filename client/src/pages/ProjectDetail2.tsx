@@ -337,6 +337,16 @@ export default function ProjectDetail2() {
               />
             </div>
           </div>
+          
+          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-8">
+             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
+              <img 
+                src="/c2-s2-1.jpg" 
+                alt="Layout Standardization" 
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
 
           <p className="text-[16px] md:text-[18px] text-gray-600 leading-relaxed mb-4">
             Beyond visuals, I standardized:
