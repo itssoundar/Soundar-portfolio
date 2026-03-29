@@ -36,8 +36,11 @@ export function OtherProjects({ currentProjectId }: { currentProjectId: string }
         <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8 md:mb-12 font-sans">Other Projects</h3>
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {otherProjects.map(project => (
-            <Link key={project.id} href={project.link}>
-              <div className="group cursor-pointer block">
+            <Link 
+              key={project.id} 
+              href={project.link}
+              className="group cursor-pointer block"
+            >
                 <div className={`rounded-[20px] overflow-hidden mb-6 aspect-[16/10] relative ${project.imageBg}`}>
                   <div 
                     className="absolute inset-0 bg-cover bg-no-repeat bg-center transition-transform duration-500 group-hover:scale-[1.03]" 
@@ -46,7 +49,6 @@ export function OtherProjects({ currentProjectId }: { currentProjectId: string }
                 </div>
                 <h4 className="text-[18px] md:text-[20px] font-bold text-gray-900 mb-2 font-sans">{project.title}</h4>
                 <p className="text-[15px] text-gray-500 leading-relaxed font-medium">{project.description}</p>
-              </div>
             </Link>
           ))}
         </div>
