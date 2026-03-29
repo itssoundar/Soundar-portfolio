@@ -330,7 +330,7 @@ export default function ProjectDetail2() {
           
           <div className="mb-8 rounded-xl overflow-hidden shadow-sm border border-gray-200">
             <img 
-              src="/c2-s3-1.png" 
+              src="/c2-s3-1.jpg" 
               alt="Layout Standardization" 
               className="w-full h-auto block"
             />
