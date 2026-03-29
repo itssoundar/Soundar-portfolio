@@ -157,9 +157,9 @@ export default function ProjectDetail2() {
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
+                src="/c2-s3-1.jpg" 
                 alt="Inconsistent UI before redesign" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+                className="w-full h-auto"
               />
             </div>
           </div>
