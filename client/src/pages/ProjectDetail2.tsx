@@ -291,7 +291,7 @@ export default function ProjectDetail2() {
           <div className="bg-[#1b1c3c] p-6 md:p-10 rounded-xl mb-8 flex flex-col gap-6">
              <div className="rounded-lg overflow-hidden border border-gray-700 shadow-md bg-white">
               <img 
-                src="/c2-s1-1.png" 
+                src="/c2-s2-1.jpg" 
                 alt="Component Library" 
                 className="w-full h-auto"
               />
@@ -331,9 +331,9 @@ export default function ProjectDetail2() {
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-8">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
+                src="/c2-s2-1.jpg" 
                 alt="Layout Standardization" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+                className="w-full h-auto"
               />
             </div>
           </div>
