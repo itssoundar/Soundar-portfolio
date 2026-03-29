@@ -64,8 +64,7 @@ export function Projects() {
             <Link 
               key={project.id} 
               href={project.link}
-              className={`block sticky bg-white ${project.hoverBg || ''} rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#e2e8f0]/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] group z-${10 + index * 10}`}
-              style={{ top: `${96 + index * 32}px` }}
+              className={`block bg-white ${project.hoverBg || ''} rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#e2e8f0]/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] group`}
             >
                 <div className="flex flex-col md:flex-row gap-[24px] items-stretch cursor-pointer">
                   {/* Project Image Container */}
