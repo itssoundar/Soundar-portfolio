@@ -249,18 +249,11 @@ export default function ProjectDetail2() {
           <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Solution 1: System Audit & Component Architecture</h3>
           
           <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
-             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
-              <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="System Audit Process" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
-              />
-            </div>
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop" 
-                alt="Component Architecture" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+                src="/c2-s1-1.png" 
+                alt="System Audit Process and Component Architecture" 
+                className="w-full h-auto"
               />
             </div>
           </div>
