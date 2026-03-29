@@ -328,14 +328,12 @@ export default function ProjectDetail2() {
         <div className="mb-16">
           <h3 className="text-[22px] md:text-[28px] font-bold text-gray-900 mb-8">Solution 3: Interaction & Layout Standardization</h3>
           
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-8">
-             <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
-              <img 
-                src="/c2-s2-1.jpg" 
-                alt="Layout Standardization" 
-                className="w-full h-auto"
-              />
-            </div>
+          <div className="mb-8 rounded-xl overflow-hidden shadow-sm border border-gray-200">
+            <img 
+              src="/c2-s3-1.png" 
+              alt="Layout Standardization" 
+              className="w-full h-auto block"
+            />
           </div>
           
           <div className="mb-8 rounded-xl overflow-hidden shadow-sm border border-gray-200">
