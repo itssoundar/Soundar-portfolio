@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
 export function Hero() {
   const [scrollY, setScrollY] = useState(0);
@@ -28,50 +27,32 @@ export function Hero() {
       <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center pt-[110px]">
         
         {/* Top Avatar & Greeting */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="flex items-center gap-2 mb-10"
-        >
+        <div className="flex items-center gap-2 mb-10">
           <div className="w-[50px] h-[50px] flex items-center justify-center">
             <img src="/Soundar.png" alt="Soundar avatar" className="w-full h-full object-cover rounded-full drop-shadow-sm" />
           </div>
           <span className="text-[#333] font-medium text-[18px] tracking-wide mt-1">
             Hey ..! I'm Soundar ,
           </span>
-        </motion.div>
+        </div>
 
         {/* Main Headline Section */}
         <div className="flex flex-col items-center text-center w-full mt-4">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[40px] md:text-[56px] text-[#222] tracking-[-0.02em] font-medium w-full leading-[1.3] font-sans max-w-[320px] md:max-w-none mx-auto"
-          >
+          <h1 className="text-[40px] md:text-[56px] text-[#222] tracking-[-0.02em] font-medium w-full leading-[1.3] font-sans max-w-[320px] md:max-w-none mx-auto">
             Product Designer helping teams <br className="hidden md:block" />
             move beyond what looks good <br className="hidden md:block" />
             to <span className="inline-flex items-center text-[#888] font-light mx-1">→</span> what <span className="font-serif italic font-normal text-[#111]">users can rely on.</span>
-          </motion.h1>
+          </h1>
           
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="text-[#444] max-w-[700px] text-[16px] md:text-[18px] leading-[1.5] text-center mt-6 font-normal font-sans"
-          >
+          <p className="text-[#444] max-w-[700px] text-[16px] md:text-[18px] leading-[1.5] text-center mt-6 font-normal font-sans">
             Translating 0→1 chaos into usable, scalable design systems <br className="hidden md:block" />
             across B2B, SaaS, and AI-first products.
-          </motion.p>
+          </p>
         </div>
 
       </div>
       {/* Logos Section */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.6 }}
+      <div 
         className="relative z-10 w-full max-w-[1200px] mx-auto pb-12 pt-8 overflow-hidden"
         style={{
           maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
@@ -105,7 +86,7 @@ export function Hero() {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
