@@ -10,42 +10,51 @@ export function Projects() {
     offset: ["start end", "end start"]
   });
 
-  // Chat interface appears (0.3 -> 0.45)
-  // Stays during typing (0.45 -> 0.6) and button press (0.6 -> 0.65)
-  // Slides down and fades out (0.65 -> 0.75)
-  const chatBoxY = useTransform(scrollYProgress, [0.1, 0.25, 0.65, 0.75], [100, 0, 0, 150]);
-  const chatBoxOpacity = useTransform(scrollYProgress, [0.1, 0.25, 0.65, 0.75], [0, 1, 1, 0]);
-  const chatBoxScale = useTransform(scrollYProgress, [0.65, 0.75], [1, 0.9]);
+  // Chat interface appears (0.1 -> 0.2)
+  // Stays during typing (0.2 -> 0.3) and button press (0.3 -> 0.35)
+  // Slides down and fades out BEFORE card expands (0.35 -> 0.45)
+  const chatBoxY = useTransform(scrollYProgress, [0.1, 0.2, 0.35, 0.45], [100, 0, 0, 50]);
+  const chatBoxOpacity = useTransform(scrollYProgress, [0.1, 0.2, 0.35, 0.45], [0, 1, 1, 0]);
+  const chatBoxScale = useTransform(scrollYProgress, [0.35, 0.45], [1, 0.9]);
 
   const textToType = "Generate a complete CRM dashboard...";
   const [typedText, setTypedText] = useState("");
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    let progress = (latest - 0.25) / 0.15; // 0.25 to 0.4
+    let progress = (latest - 0.2) / 0.1; // 0.2 to 0.3
     if (progress < 0) progress = 0;
     if (progress > 1) progress = 1;
     setTypedText(textToType.slice(0, Math.round(progress * textToType.length)));
   });
 
-  const sendBtnScale = useTransform(scrollYProgress, [0.4, 0.45, 0.5], [1, 0.85, 1]);
-  const sendBtnOpacity = useTransform(scrollYProgress, [0.4, 0.45, 0.5], [1, 0.7, 1]);
+  const sendBtnScale = useTransform(scrollYProgress, [0.3, 0.32, 0.35], [1, 0.85, 1]);
+  const sendBtnOpacity = useTransform(scrollYProgress, [0.3, 0.32, 0.35], [1, 0.7, 1]);
+
+  // Figma overlay fades out exactly when chat fades out (0.35 -> 0.45)
+  const figmaOpacity = useTransform(scrollYProgress, [0.35, 0.45], [1, 0]);
 
   // Expanding Card Animation (0.55 -> 0.75)
-  const imgWidthTemplate = useMotionTemplate`min(100vw - 32px, ${useTransform(scrollYProgress, [0.55, 0.75], [280, 660])}px)`;
-  const imgHeightTemplate = useMotionTemplate`${useTransform(scrollYProgress, [0.55, 0.75], [360, 420])}px`;
-  const contentWidthTemplate = useMotionTemplate`${useTransform(scrollYProgress, [0.55, 0.75], [0, 540])}px`;
+  const expandProgress = useTransform(scrollYProgress, [0.55, 0.75], [0, 1]);
+  const containerWidthTemplate = useMotionTemplate`calc(320px + (100% - 320px) * ${expandProgress})`;
+  const containerRadiusTemplate = useMotionTemplate`calc(16px + (32px - 16px) * ${expandProgress})`;
+  
+  // When expandProgress is 0, imgWidth is 100%. When 1, it's 55% (matching lg:w-[55%])
+  const imgWidthTemplate = useMotionTemplate`calc(100% - 45% * ${expandProgress})`;
+  // We need to define imgHeightTemplate
+  const imgHeightTemplate = useMotionTemplate`calc(320px + (100% - 320px) * ${expandProgress})`;
+  // When expandProgress is 0, contentWidth is 0%. When 1, it's 45% (matching lg:w-[45%])
+  const contentWidthTemplate = useMotionTemplate`calc(45% * ${expandProgress})`;
   const contentOpacity = useTransform(scrollYProgress, [0.65, 0.75], [0, 1]);
-  const figmaOpacity = useTransform(scrollYProgress, [0.55, 0.65], [1, 0]);
 
   const containerStyle = {
-    width: "fit-content",
+    width: containerWidthTemplate,
     backgroundColor: useTransform(scrollYProgress, [0.55, 0.7], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]),
     borderColor: useTransform(scrollYProgress, [0.55, 0.7], ["rgba(226, 232, 240, 0)", "rgba(226, 232, 240, 0.6)"]),
     boxShadow: useTransform(scrollYProgress, [0.55, 0.75], ["0px 0px 0px rgba(0,0,0,0)", "0px 4px 24px rgba(0,0,0,0.06)"]),
-    borderRadius: useTransform(scrollYProgress, [0.55, 0.75], ["0px", "32px"]),
+    borderRadius: containerRadiusTemplate,
     borderWidth: useTransform(scrollYProgress, [0.55, 0.56], ["0px", "1px"]),
     borderStyle: "solid",
-    overflow: useTransform(scrollYProgress, (latest) => latest > 0.65 ? "hidden" : "visible"),
+    overflow: useTransform(scrollYProgress, (latest) => latest > 0.5 ? "hidden" : "visible"),
   } as any;
 
   const projects = [
