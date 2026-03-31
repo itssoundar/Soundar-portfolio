@@ -13,41 +13,39 @@ export function Projects() {
   // Chat interface appears (0.3 -> 0.45)
   // Stays during typing (0.45 -> 0.6) and button press (0.6 -> 0.65)
   // Slides down and fades out (0.65 -> 0.75)
-  const chatBoxY = useTransform(scrollYProgress, [0.3, 0.45, 0.65, 0.75], [100, 0, 0, 150]);
-  const chatBoxOpacity = useTransform(scrollYProgress, [0.3, 0.45, 0.65, 0.75], [0, 1, 1, 0]);
+  const chatBoxY = useTransform(scrollYProgress, [0.1, 0.25, 0.65, 0.75], [100, 0, 0, 150]);
+  const chatBoxOpacity = useTransform(scrollYProgress, [0.1, 0.25, 0.65, 0.75], [0, 1, 1, 0]);
   const chatBoxScale = useTransform(scrollYProgress, [0.65, 0.75], [1, 0.9]);
 
-  const textToType = "Generate a complete CRM dashboard";
+  const textToType = "Generate a complete CRM dashboard...";
   const [typedText, setTypedText] = useState("");
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    let progress = (latest - 0.45) / 0.15; // 0.45 to 0.6
+    let progress = (latest - 0.25) / 0.15; // 0.25 to 0.4
     if (progress < 0) progress = 0;
     if (progress > 1) progress = 1;
     setTypedText(textToType.slice(0, Math.round(progress * textToType.length)));
   });
 
-  const sendBtnScale = useTransform(scrollYProgress, [0.6, 0.62, 0.65], [1, 0.85, 1]);
-  const sendBtnOpacity = useTransform(scrollYProgress, [0.6, 0.62, 0.65], [1, 0.7, 1]);
+  const sendBtnScale = useTransform(scrollYProgress, [0.4, 0.45, 0.5], [1, 0.85, 1]);
+  const sendBtnOpacity = useTransform(scrollYProgress, [0.4, 0.45, 0.5], [1, 0.7, 1]);
 
-  // Expanding Card Animation (0.65 -> 0.75)
-  const imgWidth = useTransform(scrollYProgress, [0.65, 0.75], [100, 55]);
-  const contentWidth = useTransform(scrollYProgress, [0.65, 0.75], [0, 45]);
-  const contentOpacity = useTransform(scrollYProgress, [0.68, 0.75], [0, 1]);
-  const figmaOpacity = useTransform(scrollYProgress, [0.65, 0.68], [1, 0]);
+  // Expanding Card Animation (0.55 -> 0.75)
+  const imgWidthTemplate = useMotionTemplate`min(100vw - 32px, ${useTransform(scrollYProgress, [0.55, 0.75], [280, 660])}px)`;
+  const imgHeightTemplate = useMotionTemplate`${useTransform(scrollYProgress, [0.55, 0.75], [360, 420])}px`;
+  const contentWidthTemplate = useMotionTemplate`${useTransform(scrollYProgress, [0.55, 0.75], [0, 540])}px`;
+  const contentOpacity = useTransform(scrollYProgress, [0.65, 0.75], [0, 1]);
+  const figmaOpacity = useTransform(scrollYProgress, [0.55, 0.65], [1, 0]);
 
   const containerStyle = {
-    width: useMotionTemplate`min(100%, ${useTransform(scrollYProgress, [0.65, 0.75], [340, 1200])}px)`,
-    backgroundColor: useTransform(scrollYProgress, [0.65, 0.7], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]),
-    borderColor: useTransform(scrollYProgress, [0.65, 0.7], ["rgba(226, 232, 240, 0)", "rgba(226, 232, 240, 0.6)"]),
-    boxShadow: useTransform(scrollYProgress, [0.65, 0.75], ["0px 0px 0px rgba(0,0,0,0)", "0px 4px 24px rgba(0,0,0,0.06)"]),
-    borderRadius: useTransform(scrollYProgress, [0.65, 0.75], ["0px", "32px"]),
-    borderWidth: useTransform(scrollYProgress, [0.65, 0.66], ["0px", "1px"]),
+    width: "fit-content",
+    backgroundColor: useTransform(scrollYProgress, [0.55, 0.7], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]),
+    borderColor: useTransform(scrollYProgress, [0.55, 0.7], ["rgba(226, 232, 240, 0)", "rgba(226, 232, 240, 0.6)"]),
+    boxShadow: useTransform(scrollYProgress, [0.55, 0.75], ["0px 0px 0px rgba(0,0,0,0)", "0px 4px 24px rgba(0,0,0,0.06)"]),
+    borderRadius: useTransform(scrollYProgress, [0.55, 0.75], ["0px", "32px"]),
+    borderWidth: useTransform(scrollYProgress, [0.55, 0.56], ["0px", "1px"]),
     borderStyle: "solid",
-    overflow: useTransform(scrollYProgress, (latest) => latest > 0.68 ? "hidden" : "visible"),
-    "--img-w": useMotionTemplate`${imgWidth}%`,
-    "--content-w": useMotionTemplate`${contentWidth}%`,
-    "--content-max-h": useMotionTemplate`${useTransform(scrollYProgress, [0.65, 0.75], [0, 1000])}px`,
+    overflow: useTransform(scrollYProgress, (latest) => latest > 0.65 ? "hidden" : "visible"),
   } as any;
 
   const projects = [
@@ -94,27 +92,28 @@ export function Projects() {
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-[#f8f9fa]/80 to-[#f8f9fa] pointer-events-none -translate-y-full z-10" />
       <div className="relative z-20 w-full max-w-[1200px] mx-auto overflow-visible">
         
-        {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-4 md:mb-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-center"
-          >
-            <h2 className="text-[32px] md:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-4">
-              Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
-            </h2>
-            <p className="text-[16px] md:text-[18px] text-[#555] max-w-[600px] leading-relaxed">
-              From navigating early-stage ambiguity to building scalable systems, I design solutions that convert innovation into measurable impact.
-            </p>
-          </motion.div>
-        </div>
-
         {/* Scroll Interaction Area */}
         <div ref={containerRef} className="relative h-[150vh] w-full">
-          <div className="sticky top-[15vh] w-full flex flex-col items-center justify-center pt-10 mt-10">
+          <div className="sticky top-[8vh] md:top-[12vh] w-full flex flex-col items-center justify-start pt-4 md:pt-10">
+            
+            {/* Section Header (Now inside sticky so it stays during morph) */}
+            <div className="flex flex-col items-center text-center mb-8 md:mb-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col items-center"
+              >
+                <h2 className="text-[32px] md:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-4">
+                  Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
+                </h2>
+                <p className="text-[16px] md:text-[18px] text-[#555] max-w-[600px] leading-relaxed">
+                  From navigating early-stage ambiguity to building scalable systems, I design solutions that convert innovation into measurable impact.
+                </p>
+              </motion.div>
+            </div>
+
             <div className="relative flex flex-col items-center w-full">
               
               {/* Expanding Card */}
@@ -123,7 +122,10 @@ export function Projects() {
                 style={containerStyle}
               >
                 {/* Left Side: Image / Figma Preview */}
-                <div className="w-full md:w-[var(--img-w)] h-[320px] md:h-[380px] lg:h-[420px] relative flex-shrink-0 border-b md:border-b-0 md:border-r border-[#e2e8f0]/60 overflow-hidden bg-[#f8f9fa] flex items-center justify-center">
+                <motion.div 
+                  className="relative flex-shrink-0 border-b md:border-b-0 md:border-r border-[#e2e8f0]/60 overflow-hidden bg-[#f8f9fa] flex items-center justify-center"
+                  style={{ width: imgWidthTemplate, height: imgHeightTemplate }}
+                >
                   
                   {/* Figma Overlay */}
                   <motion.div 
@@ -162,8 +164,8 @@ export function Projects() {
 
                 {/* Right Side: Content */}
                 <motion.div 
-                  className="w-full md:w-[var(--content-w)] max-h-[var(--content-max-h)] overflow-hidden flex flex-col justify-center bg-white flex-shrink-0"
-                  style={{ opacity: contentOpacity }}
+                  className="overflow-hidden flex flex-col justify-center bg-white flex-shrink-0"
+                  style={{ width: contentWidthTemplate, opacity: contentOpacity }}
                 >
                   <div className="w-[100vw] md:w-[calc(1200px*0.45)] p-6 md:p-8 lg:p-12 flex flex-col justify-center h-full">
                     <h3 className="text-[20px] md:text-[24px] lg:text-[28px] font-medium text-[#111] tracking-[-0.02em] leading-[1.25] mb-4">
@@ -191,33 +193,35 @@ export function Projects() {
               {/* Chat Box */}
               <motion.div 
                 style={{ y: chatBoxY, opacity: chatBoxOpacity, x: "-50%", scale: chatBoxScale }}
-                className="absolute top-[260px] md:top-[300px] lg:top-[340px] left-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.15)] border border-[#222] flex flex-col gap-4 z-40 pointer-events-none"
+                className="absolute top-[300px] md:top-[330px] left-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.2)] border border-[#222] flex flex-col gap-3 z-40 pointer-events-none"
               >
-                <div className="flex items-center gap-3">
-                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#222] rounded-[10px] border border-[#333]">
+                {/* Top Row: Project Badge & Text */}
+                <div className="flex items-center gap-3 overflow-hidden pl-1">
+                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#222] rounded-[10px] border border-[#333] flex-shrink-0">
                       <ImageIcon size={14} className="text-[#aaa]" />
                       <span className="text-[13px] font-medium text-[#eee]">Project</span>
                    </div>
-                   <div className="text-[15px] text-[#fff] font-sans flex-1 truncate">
+                   <div className="text-[15px] text-[#fff] font-sans flex-1 whitespace-nowrap overflow-hidden flex items-center">
                       {typedText}
-                      <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }} className="inline-block w-[2px] h-[1em] bg-[#fff] align-middle ml-[2px] translate-y-[-1px]" />
+                      <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }} className="inline-block w-[2px] h-[1em] bg-[#fff] ml-[2px]" />
                    </div>
                 </div>
                 
-                <div className="flex justify-between items-center mt-2 px-1">
+                {/* Bottom Row: Icons & Send */}
+                <div className="flex items-center justify-between mt-1 px-1">
                    <button className="p-2 -ml-2 text-[#888] transition-colors rounded-full">
                       <Paperclip size={18} />
                    </button>
                    <div className="flex items-center gap-2">
-                      <button className="p-2 text-[#888] transition-colors rounded-full">
-                         <Box size={18} />
-                      </button>
-                      <motion.button 
-                         className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm"
-                         style={{ scale: sendBtnScale, opacity: sendBtnOpacity }}
-                      >
-                         <ArrowUp size={16} strokeWidth={3} />
-                      </motion.button>
+                     <button className="p-2 text-[#888] transition-colors rounded-full">
+                        <Box size={18} />
+                     </button>
+                     <motion.button 
+                        className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm"
+                        style={{ scale: sendBtnScale, opacity: sendBtnOpacity }}
+                     >
+                        <ArrowUp size={16} strokeWidth={3} />
+                     </motion.button>
                    </div>
                 </div>
               </motion.div>
