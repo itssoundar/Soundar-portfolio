@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { motion, useScroll, useTransform, useMotionValueEvent, useMotionTemplate } from "framer-motion";
 import { useRef, useState } from "react";
-import { Image as ImageIcon, Paperclip, Box, ArrowUp } from "lucide-react";
+import { Image as ImageIcon, Paperclip, Box, ArrowUp, Component } from "lucide-react";
 
 export function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -10,32 +10,32 @@ export function Projects() {
     offset: ["start 12%", "end end"]
   });
 
-  // Chat interface appears (0.00 -> 0.10)
-  // Stays during typing (0.10 -> 0.25) and button press (0.25 -> 0.30)
-  // Slides down and fades out (0.30 -> 0.40)
-  const chatBoxY = useTransform(scrollYProgress, [0.00, 0.10, 0.30, 0.40], [100, 0, 0, 50]);
-  const chatBoxOpacity = useTransform(scrollYProgress, [0.00, 0.10, 0.30, 0.40], [0, 1, 1, 0]);
-  const chatBoxScale = useTransform(scrollYProgress, [0.30, 0.40], [1, 0.9]);
+  // Chat interface appears (0.15 -> 0.25) - Starts later so the user sees the bare Figma bounding box first
+  // Stays during typing (0.25 -> 0.40) and button press (0.40 -> 0.42)
+  // Slides down and fades out (0.45 -> 0.55)
+  const chatBoxY = useTransform(scrollYProgress, [0.00, 0.15, 0.25, 0.45, 0.55], [150, 150, 0, 0, 50]);
+  const chatBoxOpacity = useTransform(scrollYProgress, [0.00, 0.15, 0.25, 0.45, 0.55], [0, 0, 1, 1, 0]);
+  const chatBoxScale = useTransform(scrollYProgress, [0.45, 0.55], [1, 0.9]);
 
   const textToType = "Generate a complete CRM dashboard...";
   const [typedText, setTypedText] = useState("");
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    let progress = (latest - 0.10) / 0.15; // 0.10 to 0.25
+    let progress = (latest - 0.25) / 0.15; // 0.25 to 0.40
     if (progress < 0) progress = 0;
     if (progress > 1) progress = 1;
     setTypedText(textToType.slice(0, Math.round(progress * textToType.length)));
   });
 
-  const sendBtnScale = useTransform(scrollYProgress, [0.25, 0.27, 0.30], [1, 0.85, 1]);
-  const sendBtnOpacity = useTransform(scrollYProgress, [0.25, 0.27, 0.30], [1, 0.7, 1]);
+  const sendBtnScale = useTransform(scrollYProgress, [0.40, 0.41, 0.42], [1, 0.85, 1]);
+  const sendBtnOpacity = useTransform(scrollYProgress, [0.40, 0.41, 0.42], [1, 0.7, 1]);
 
-  // Initial Image and Figma fades out (0.30 -> 0.40)
-  const initialImageOpacity = useTransform(scrollYProgress, [0.30, 0.40], [1, 0]);
-  const initialImageScale = useTransform(scrollYProgress, [0.30, 0.40], [1, 0.8]);
+  // Initial Image and Figma fades out (0.45 -> 0.55)
+  const initialImageOpacity = useTransform(scrollYProgress, [0.45, 0.55], [1, 0]);
+  const initialImageScale = useTransform(scrollYProgress, [0.45, 0.55], [1, 0.8]);
 
-  // Expanding Card Animation (0.45 -> 0.65)
-  const expandProgress = useTransform(scrollYProgress, [0.45, 0.65], [0, 1]);
+  // Expanding Card Animation (0.55 -> 0.75)
+  const expandProgress = useTransform(scrollYProgress, [0.55, 0.75], [0, 1]);
   const containerWidthTemplate = useMotionTemplate`calc(240px + (100% - 240px) * ${expandProgress})`;
   const containerRadiusTemplate = useMotionTemplate`calc(16px + (32px - 16px) * ${expandProgress})`;
   
@@ -47,26 +47,26 @@ export function Projects() {
   // Content Width matching lg:w-[45%]
   const contentWidthTemplate = useMotionTemplate`calc(45% * ${expandProgress})`;
   
-  // Figma opacity (0.30 -> 0.40)
-  const figmaOpacity = useTransform(scrollYProgress, [0.30, 0.40], [1, 0]);
-  const figmaScale = useTransform(scrollYProgress, [0.30, 0.40], [1, 1.05]);
-  const expandedImageOpacity = useTransform(scrollYProgress, [0.30, 0.40], [0, 1]);
+  // Figma opacity (0.45 -> 0.55)
+  const figmaOpacity = useTransform(scrollYProgress, [0.45, 0.55], [1, 0]);
+  const figmaScale = useTransform(scrollYProgress, [0.45, 0.55], [1, 1.05]);
+  const expandedImageOpacity = useTransform(scrollYProgress, [0.45, 0.55], [0, 1]);
   
-  // Shimmer Opacity (0.45 -> 0.55 to show, 0.75 -> 0.85 to hide)
-  const shimmerOpacity = useTransform(scrollYProgress, [0.45, 0.55, 0.75, 0.85], [0, 1, 1, 0]);
-  // Content Opacity (0.80 -> 0.90)
-  const contentOpacity = useTransform(scrollYProgress, [0.80, 0.90], [0, 1]);
+  // Shimmer Opacity (0.55 -> 0.65 to show, 0.80 -> 0.90 to hide)
+  const shimmerOpacity = useTransform(scrollYProgress, [0.55, 0.65, 0.80, 0.90], [0, 1, 1, 0]);
+  // Content Opacity (0.85 -> 0.95)
+  const contentOpacity = useTransform(scrollYProgress, [0.85, 0.95], [0, 1]);
 
   const containerStyle = {
     width: containerWidthTemplate,
     minHeight: "320px",
-    backgroundColor: useTransform(scrollYProgress, [0.45, 0.65], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]),
-    borderColor: useTransform(scrollYProgress, [0.45, 0.65], ["rgba(226, 232, 240, 0)", "rgba(226, 232, 240, 0.6)"]),
-    boxShadow: useTransform(scrollYProgress, [0.45, 0.65], ["0px 0px 0px rgba(0,0,0,0)", "0px 4px 24px rgba(0,0,0,0.06)"]),
+    backgroundColor: useTransform(scrollYProgress, [0.55, 0.75], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]),
+    borderColor: useTransform(scrollYProgress, [0.55, 0.75], ["rgba(226, 232, 240, 0)", "rgba(226, 232, 240, 0.6)"]),
+    boxShadow: useTransform(scrollYProgress, [0.55, 0.75], ["0px 0px 0px rgba(0,0,0,0)", "0px 4px 24px rgba(0,0,0,0.06)"]),
     borderRadius: containerRadiusTemplate,
-    borderWidth: useTransform(scrollYProgress, [0.45, 0.46], ["0px", "1px"]),
+    borderWidth: useTransform(scrollYProgress, [0.55, 0.56], ["0px", "1px"]),
     borderStyle: "solid",
-    overflow: useTransform(scrollYProgress, (latest) => latest > 0.40 ? "hidden" : "visible"),
+    overflow: useTransform(scrollYProgress, (latest) => latest > 0.50 ? "hidden" : "visible"),
   } as any;
 
   const projects = [
@@ -152,8 +152,15 @@ export function Projects() {
 
                 {/* Left Side: Image / Figma Preview */}
                 <motion.div 
-                  className="relative flex-shrink-0 border-b md:border-b-0 md:border-r border-[#e2e8f0]/60 overflow-hidden bg-[#f8f9fa] flex items-center justify-center"
-                  style={{ width: imgWidthTemplate, height: imgHeightTemplate }}
+                  className="relative flex-shrink-0 flex items-center justify-center"
+                  style={{ 
+                    width: imgWidthTemplate, 
+                    height: imgHeightTemplate,
+                    overflow: useTransform(scrollYProgress, (latest) => latest > 0.48 ? "hidden" : "visible"),
+                    backgroundColor: useTransform(scrollYProgress, [0.52, 0.72], ["rgba(248, 249, 250, 0)", "rgba(248, 249, 250, 1)"]),
+                    borderRightWidth: useTransform(scrollYProgress, [0.52, 0.53], ["0px", "1px"]),
+                    borderColor: "rgba(226, 232, 240, 0.6)",
+                  }}
                 >
                   
                   {/* Figma Overlay */}
@@ -232,12 +239,12 @@ export function Projects() {
               {/* Chat Box */}
               <motion.div 
                 style={{ y: chatBoxY, opacity: chatBoxOpacity, x: "-50%", scale: chatBoxScale }}
-                className="absolute top-[300px] md:top-[330px] left-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.2)] border border-[#222] flex flex-col gap-3 z-40 pointer-events-none"
+                className="absolute top-[280px] left-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.2)] border border-[#222] flex flex-col gap-3 z-40 pointer-events-none"
               >
                 {/* Top Row: Project Badge & Text */}
                 <div className="flex items-center gap-3 overflow-hidden pl-1">
                    <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#222] rounded-[10px] border border-[#333] flex-shrink-0">
-                      <ImageIcon size={14} className="text-[#aaa]" />
+                      <Component size={14} className="text-[#aaa]" />
                       <span className="text-[13px] font-medium text-[#eee]">Project</span>
                    </div>
                    <div className="text-[15px] text-[#fff] font-sans flex-1 whitespace-nowrap overflow-hidden flex items-center">
