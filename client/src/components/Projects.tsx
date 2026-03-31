@@ -1,38 +1,6 @@
 import { Link } from "wouter";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-
-// Typing effect component
-const TypewriterText = ({ text }: { text: string }) => {
-  const [displayText, setDisplayText] = useState("");
-  const containerRef = useRef(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
-
-  useEffect(() => {
-    if (isInView) {
-      let i = 0;
-      const intervalId = setInterval(() => {
-        setDisplayText(text.slice(0, i + 1));
-        i++;
-        if (i >= text.length) {
-          clearInterval(intervalId);
-        }
-      }, 30); // Speed of typing
-      return () => clearInterval(intervalId);
-    }
-  }, [isInView, text]);
-
-  return (
-    <div ref={containerRef} className="inline-block relative">
-      <span>{displayText}</span>
-      <motion.span 
-        animate={{ opacity: [1, 0] }} 
-        transition={{ repeat: Infinity, duration: 0.8 }}
-        className="inline-block w-[3px] h-[1em] bg-[#111] ml-1 align-middle translate-y-[-1px]"
-      />
-    </div>
-  );
-};
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -85,51 +53,25 @@ export function Projects() {
   ];
 
   return (
-    <section id="work" className="relative w-full bg-[#f8f9fa] pb-32 px-6 md:px-[86px] pt-20 z-20" ref={containerRef}>
+    <section id="work" className="relative w-full bg-[#f8f9fa] pb-32 px-6 md:px-[86px] pt-12 -mt-16 z-20" ref={containerRef}>
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-[#f8f9fa]/80 to-[#f8f9fa] pointer-events-none -translate-y-full z-10" />
       <div className="relative z-20 w-full max-w-[1100px] mx-auto overflow-visible">
-        {/* Chat Interface / Section Header */}
-        <div className="flex flex-col items-start mb-24 max-w-[800px] mx-auto">
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            className="w-full flex justify-end mb-6"
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col items-center"
           >
-            <div className="bg-[#111] text-white px-6 py-4 rounded-2xl rounded-tr-sm shadow-md max-w-[80%]">
-              <p className="text-[16px] md:text-[20px] font-sans leading-relaxed">
-                Show me some of the recent projects that you've built. Focus on complex B2B solutions.
-              </p>
-            </div>
+            <h2 className="text-[32px] md:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-4">
+              Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
+            </h2>
+            <p className="text-[16px] md:text-[18px] text-[#555] max-w-[600px] leading-relaxed">
+              From navigating early-stage ambiguity to building scalable systems, I design solutions that convert innovation into measurable impact.
+            </p>
           </motion.div>
-
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#e2e8f0] to-[#cbd5e1] flex items-center justify-center flex-shrink-0 shadow-sm border border-white">
-              <span className="text-[#111] font-serif italic text-lg">H</span>
-            </div>
-            
-            <div className="pt-2">
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.3, delay: 0.6 }}
-                className="mb-6 flex items-center space-x-2 bg-white/50 px-4 py-2 rounded-full border border-[#e2e8f0] w-fit shadow-sm backdrop-blur-sm"
-              >
-                <div className="flex space-x-1">
-                  <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 1, delay: 0 }} className="w-1.5 h-1.5 bg-[#555] rounded-full"></motion.div>
-                  <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} className="w-1.5 h-1.5 bg-[#555] rounded-full"></motion.div>
-                  <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} className="w-1.5 h-1.5 bg-[#555] rounded-full"></motion.div>
-                </div>
-                <span className="text-xs font-medium text-[#555] uppercase tracking-wider">Generating</span>
-              </motion.div>
-
-              <h2 className="text-[28px] md:text-[36px] font-medium text-[#111] tracking-[-0.02em] leading-[1.3] font-sans mb-4">
-                <TypewriterText text="Here are a few selected projects where I tackled early-stage ambiguity to build scalable design systems." />
-              </h2>
-            </div>
-          </div>
         </div>
 
         {/* Project Cards */}
@@ -143,7 +85,7 @@ export function Projects() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ 
                   duration: 0.8, 
-                  delay: 1.5 + (index * 0.2), // Wait for chat animation
+                  delay: index * 0.2,
                   ease: [0.16, 1, 0.3, 1] 
                 }}
               >
