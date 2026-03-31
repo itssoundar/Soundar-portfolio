@@ -130,6 +130,21 @@
   }
 }
 
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer-effect {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, #f3f4f6 8%, #e5e7eb 18%, #f3f4f6 33%);
+  background-size: 1000px 100%;
+}
+
 @keyframes ticker {
   0% {
     transform: translateX(0);

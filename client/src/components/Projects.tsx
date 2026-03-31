@@ -10,51 +10,61 @@ export function Projects() {
     offset: ["start end", "end start"]
   });
 
-  // Chat interface appears (0.1 -> 0.2)
-  // Stays during typing (0.2 -> 0.3) and button press (0.3 -> 0.35)
-  // Slides down and fades out BEFORE card expands (0.35 -> 0.45)
-  const chatBoxY = useTransform(scrollYProgress, [0.1, 0.2, 0.35, 0.45], [100, 0, 0, 50]);
-  const chatBoxOpacity = useTransform(scrollYProgress, [0.1, 0.2, 0.35, 0.45], [0, 1, 1, 0]);
-  const chatBoxScale = useTransform(scrollYProgress, [0.35, 0.45], [1, 0.9]);
+  // Chat interface appears (0.05 -> 0.15)
+  // Stays during typing (0.15 -> 0.25) and button press (0.25 -> 0.3)
+  // Slides down and fades out (0.3 -> 0.4)
+  const chatBoxY = useTransform(scrollYProgress, [0.05, 0.15, 0.3, 0.4], [100, 0, 0, 50]);
+  const chatBoxOpacity = useTransform(scrollYProgress, [0.05, 0.15, 0.3, 0.4], [0, 1, 1, 0]);
+  const chatBoxScale = useTransform(scrollYProgress, [0.3, 0.4], [1, 0.9]);
 
   const textToType = "Generate a complete CRM dashboard...";
   const [typedText, setTypedText] = useState("");
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    let progress = (latest - 0.2) / 0.1; // 0.2 to 0.3
+    let progress = (latest - 0.15) / 0.1; // 0.15 to 0.25
     if (progress < 0) progress = 0;
     if (progress > 1) progress = 1;
     setTypedText(textToType.slice(0, Math.round(progress * textToType.length)));
   });
 
-  const sendBtnScale = useTransform(scrollYProgress, [0.3, 0.32, 0.35], [1, 0.85, 1]);
-  const sendBtnOpacity = useTransform(scrollYProgress, [0.3, 0.32, 0.35], [1, 0.7, 1]);
+  const sendBtnScale = useTransform(scrollYProgress, [0.25, 0.27, 0.3], [1, 0.85, 1]);
+  const sendBtnOpacity = useTransform(scrollYProgress, [0.25, 0.27, 0.3], [1, 0.7, 1]);
 
-  // Figma overlay fades out exactly when chat fades out (0.35 -> 0.45)
-  const figmaOpacity = useTransform(scrollYProgress, [0.35, 0.45], [1, 0]);
+  // Initial Image and Figma fades out (0.3 -> 0.4)
+  const initialImageOpacity = useTransform(scrollYProgress, [0.3, 0.4], [1, 0]);
+  const initialImageScale = useTransform(scrollYProgress, [0.3, 0.4], [1, 0.8]);
 
-  // Expanding Card Animation (0.55 -> 0.75)
-  const expandProgress = useTransform(scrollYProgress, [0.55, 0.75], [0, 1]);
+  // Expanding Card Animation (0.45 -> 0.6)
+  const expandProgress = useTransform(scrollYProgress, [0.45, 0.6], [0, 1]);
   const containerWidthTemplate = useMotionTemplate`calc(320px + (100% - 320px) * ${expandProgress})`;
   const containerRadiusTemplate = useMotionTemplate`calc(16px + (32px - 16px) * ${expandProgress})`;
   
-  // When expandProgress is 0, imgWidth is 100%. When 1, it's 55% (matching lg:w-[55%])
+  // Img Width matching lg:w-[55%]
   const imgWidthTemplate = useMotionTemplate`calc(100% - 45% * ${expandProgress})`;
-  // We need to define imgHeightTemplate
+  // Img Height from 320px to 100%
   const imgHeightTemplate = useMotionTemplate`calc(320px + (100% - 320px) * ${expandProgress})`;
-  // When expandProgress is 0, contentWidth is 0%. When 1, it's 45% (matching lg:w-[45%])
+  
+  // Content Width matching lg:w-[45%]
   const contentWidthTemplate = useMotionTemplate`calc(45% * ${expandProgress})`;
-  const contentOpacity = useTransform(scrollYProgress, [0.65, 0.75], [0, 1]);
+  
+  // Figma opacity (0.3 -> 0.4)
+  const figmaOpacity = useTransform(scrollYProgress, [0.3, 0.4], [1, 0]);
+  
+  // Shimmer Opacity (0.45 -> 0.55 to show, 0.7 -> 0.8 to hide)
+  const shimmerOpacity = useTransform(scrollYProgress, [0.45, 0.55, 0.7, 0.8], [0, 1, 1, 0]);
+  // Content Opacity (0.75 -> 0.85)
+  const contentOpacity = useTransform(scrollYProgress, [0.75, 0.85], [0, 1]);
 
   const containerStyle = {
     width: containerWidthTemplate,
-    backgroundColor: useTransform(scrollYProgress, [0.55, 0.7], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]),
-    borderColor: useTransform(scrollYProgress, [0.55, 0.7], ["rgba(226, 232, 240, 0)", "rgba(226, 232, 240, 0.6)"]),
-    boxShadow: useTransform(scrollYProgress, [0.55, 0.75], ["0px 0px 0px rgba(0,0,0,0)", "0px 4px 24px rgba(0,0,0,0.06)"]),
+    minHeight: "320px",
+    backgroundColor: useTransform(scrollYProgress, [0.45, 0.6], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]),
+    borderColor: useTransform(scrollYProgress, [0.45, 0.6], ["rgba(226, 232, 240, 0)", "rgba(226, 232, 240, 0.6)"]),
+    boxShadow: useTransform(scrollYProgress, [0.45, 0.6], ["0px 0px 0px rgba(0,0,0,0)", "0px 4px 24px rgba(0,0,0,0.06)"]),
     borderRadius: containerRadiusTemplate,
-    borderWidth: useTransform(scrollYProgress, [0.55, 0.56], ["0px", "1px"]),
+    borderWidth: useTransform(scrollYProgress, [0.45, 0.46], ["0px", "1px"]),
     borderStyle: "solid",
-    overflow: useTransform(scrollYProgress, (latest) => latest > 0.5 ? "hidden" : "visible"),
+    overflow: useTransform(scrollYProgress, (latest) => latest > 0.4 ? "hidden" : "visible"),
   } as any;
 
   const projects = [
@@ -130,6 +140,14 @@ export function Projects() {
                 className="relative mx-auto flex flex-col md:flex-row z-20 transition-transform duration-500 hover:-translate-y-1 items-stretch"
                 style={containerStyle}
               >
+                {/* Shimmer Overlay */}
+                <motion.div
+                  className="absolute inset-0 z-40 bg-white"
+                  style={{ opacity: shimmerOpacity }}
+                >
+                  <div className="w-full h-full shimmer-effect" />
+                </motion.div>
+
                 {/* Left Side: Image / Figma Preview */}
                 <motion.div 
                   className="relative flex-shrink-0 border-b md:border-b-0 md:border-r border-[#e2e8f0]/60 overflow-hidden bg-[#f8f9fa] flex items-center justify-center"
@@ -138,7 +156,7 @@ export function Projects() {
                   
                   {/* Figma Overlay */}
                   <motion.div 
-                    style={{ opacity: figmaOpacity }} 
+                    style={{ opacity: figmaOpacity, scale: initialImageScale }} 
                     className="absolute w-[240px] h-[320px] z-30 pointer-events-none"
                   >
                      {/* Top Bar */}
@@ -164,9 +182,15 @@ export function Projects() {
                      </div>
                   </motion.div>
 
-                  {/* The Image */}
+                  {/* Initial Shrunk Image */}
                   <motion.div 
-                    className="absolute inset-0 w-full h-full bg-cover bg-top transition-transform duration-700"
+                    className="absolute z-20 w-[240px] h-[320px] bg-cover bg-top"
+                    style={{ backgroundImage: `url(${project1.image})`, opacity: initialImageOpacity, scale: initialImageScale }}
+                  />
+
+                  {/* Full Expanded Image */}
+                  <motion.div 
+                    className="absolute inset-0 w-full h-full bg-cover bg-top transition-transform duration-700 z-10"
                     style={{ backgroundImage: `url(${project1.image})` }}
                   />
                 </motion.div>
