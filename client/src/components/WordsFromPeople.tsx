@@ -76,7 +76,13 @@ export function WordsFromPeople() {
   return (
     <section className="bg-white relative overflow-hidden pt-[60px] pb-[60px] px-6 md:px-[86px]">
       <div className="w-full mx-auto max-w-[1200px]">
-        <div className="flex flex-col items-center text-center mb-16 md:mb-24">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center text-center mb-16 md:mb-24"
+        >
           <h2 className="text-[40px] text-[#222] tracking-[-0.02em] mb-6">
             <span className="font-serif italic font-normal">Words</span>
             <span className="font-sans font-medium"> from people</span>
@@ -84,9 +90,15 @@ export function WordsFromPeople() {
           <p className="text-[#666] text-[18px] leading-[1.6] max-w-2xl font-medium tracking-wide">
             No contracts, no hidden costs. Just tell us what you need and we'll deliver<br className="hidden md:block" /> accordingly.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="relative">
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="relative"
+        >
           {/* Desktop/Tablet View (Multiple Cards) */}
           <div className="hidden md:flex flex-row justify-center items-stretch gap-6 min-h-[380px]">
             <AnimatePresence mode="popLayout">

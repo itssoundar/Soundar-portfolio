@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 export function Experience() {
   const experiences = [
     {
@@ -80,13 +82,23 @@ export function Experience() {
         }}
       />
       <div className="relative z-10 w-full max-w-[1200px] mx-auto">
-        <h2 className="text-[32px] md:text-[40px] font-medium text-center mb-16 md:mb-24 tracking-[-0.02em] leading-[1.1] font-sans">
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="text-[32px] md:text-[40px] font-medium text-center mb-16 md:mb-24 tracking-[-0.02em] leading-[1.1] font-sans"
+        >
           Experiences that shaped <span className="font-serif italic font-normal text-white/90">my design lens</span>
-        </h2>
+        </motion.h2>
 
         <div className="flex flex-col">
           {experiences.map((exp, index) => (
-            <div 
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
               key={index} 
               className={`py-8 md:py-10 flex flex-col gap-3 ${index !== experiences.length - 1 ? 'border-b border-white/10' : ''}`}
             >
@@ -107,15 +119,27 @@ export function Experience() {
 
         {/* Philosophy and Tools Section */}
         <div className="md:mt-32 relative w-[100vw] left-1/2 -translate-x-1/2 pl-[24px] pr-[24px] mt-[0px] pt-[0px]">
-          <div className="relative z-10 text-center mb-16 px-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="relative z-10 text-center mb-16 px-6"
+          >
             <p className="text-[16px] md:text-[18px] leading-[1.6] font-medium text-white/90 max-w-[800px] mx-auto tracking-wide">
               "I thrive on discovery and problem-solving, continuously exploring new ideas to create thoughtful, <span className="font-serif italic font-normal">impactful product experiences</span>"
             </p>
-          </div>
+          </motion.div>
 
           <div className="relative z-10 flex flex-col md:flex-row gap-6 justify-center items-center max-w-[1200px] mx-auto">
             {/* Left Tool Group */}
-            <div className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col items-center pl-[20px] pr-[20px]">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col items-center pl-[20px] pr-[20px]"
+            >
               <h4 className="text-[#888888] text-[18px] font-medium text-center mb-8 tracking-wide">
                 Plan, Strategy, Brainstorm and research
               </h4>
@@ -126,18 +150,31 @@ export function Experience() {
                   { src: "/tools/1.3.jpeg", alt: "Anthropic", z: "z-[30]" },
                   { src: "/tools/1.4.jpeg", alt: "Tool 4", z: "z-[20]" },
                   { src: "/tools/1.5.png", alt: "Miro", z: "z-[10]" },
-                ].map((tool) => (
-                  <div key={tool.alt} className={`relative w-14 h-14 md:w-[72px] md:h-[72px] rounded-[18px] md:rounded-[24px] shadow-[12px_0_20px_rgba(0,0,0,0.6),0_6px_12px_rgba(0,0,0,0.4)] transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 ${tool.z} flex-shrink-0 bg-[#111]`}>
+                ].map((tool, i) => (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: i * 0.1, ease: "easeOut" }}
+                    key={tool.alt} 
+                    className={`relative w-14 h-14 md:w-[72px] md:h-[72px] rounded-[18px] md:rounded-[24px] shadow-[12px_0_20px_rgba(0,0,0,0.6),0_6px_12px_rgba(0,0,0,0.4)] transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 ${tool.z} flex-shrink-0 bg-[#111]`}
+                  >
                     <img src={tool.src} alt={tool.alt} className="w-full h-full object-cover rounded-[18px] md:rounded-[24px]" />
                     {/* 3D Glass/Bevel Overlay */}
                     <div className="absolute inset-0 rounded-[18px] md:rounded-[24px] shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-6px_10px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.15)] pointer-events-none" />
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Tool Group */}
-            <div className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col items-center pl-[20px] pr-[20px]">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col items-center pl-[20px] pr-[20px]"
+            >
               <h4 className="text-[#888888] text-[18px] font-medium text-center mb-8 tracking-wide">
                 Iterate, Refine, Prototype and ship
               </h4>
@@ -147,15 +184,22 @@ export function Experience() {
                   { src: "/tools/2.2.jpeg", alt: "Framer", z: "z-[30]" },
                   { src: "/tools/2.3.png", alt: "Webflow", z: "z-[20]" },
                   { src: "/tools/2.4.webp", alt: "V0", z: "z-[10]" },
-                ].map((tool) => (
-                  <div key={tool.alt} className={`relative w-14 h-14 md:w-[72px] md:h-[72px] rounded-[18px] md:rounded-[24px] shadow-[12px_0_20px_rgba(0,0,0,0.6),0_6px_12px_rgba(0,0,0,0.4)] transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 ${tool.z} flex-shrink-0 bg-[#111]`}>
+                ].map((tool, i) => (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.2 + i * 0.1, ease: "easeOut" }}
+                    key={tool.alt} 
+                    className={`relative w-14 h-14 md:w-[72px] md:h-[72px] rounded-[18px] md:rounded-[24px] shadow-[12px_0_20px_rgba(0,0,0,0.6),0_6px_12px_rgba(0,0,0,0.4)] transform hover:-translate-y-2 hover:scale-110 transition-all duration-300 ${tool.z} flex-shrink-0 bg-[#111]`}
+                  >
                     <img src={tool.src} alt={tool.alt} className="w-full h-full object-cover rounded-[18px] md:rounded-[24px]" />
                     {/* 3D Glass/Bevel Overlay */}
                     <div className="absolute inset-0 rounded-[18px] md:rounded-[24px] shadow-[inset_0_2px_4px_rgba(255,255,255,0.6),inset_0_-6px_10px_rgba(0,0,0,0.5),inset_0_0_0_1px_rgba(255,255,255,0.15)] pointer-events-none" />
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Marquee Ticker */}
