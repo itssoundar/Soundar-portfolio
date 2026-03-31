@@ -160,7 +160,7 @@ export function Projects() {
                     className="absolute inset-0 w-full h-full bg-cover bg-top transition-transform duration-700"
                     style={{ backgroundImage: `url(${project1.image})` }}
                   />
-                </div>
+                </motion.div>
 
                 {/* Right Side: Content */}
                 <motion.div 
