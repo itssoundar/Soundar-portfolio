@@ -36,13 +36,13 @@ export function Projects() {
 
   // Expanding Card Animation (0.55 -> 0.75)
   const expandProgress = useTransform(scrollYProgress, [0.55, 0.75], [0, 1]);
-  const containerWidthTemplate = useMotionTemplate`calc(240px + (100% - 240px) * ${expandProgress})`;
+  const containerWidthTemplate = useMotionTemplate`calc(360px + (100% - 360px) * ${expandProgress})`;
   const containerRadiusTemplate = useMotionTemplate`calc(16px + (32px - 16px) * ${expandProgress})`;
   
   // Img Width matching lg:w-[55%]
   const imgWidthTemplate = useMotionTemplate`calc(100% - 45% * ${expandProgress})`;
-  // Img Height from 320px to 100%
-  const imgHeightTemplate = useMotionTemplate`calc(320px + (100% - 320px) * ${expandProgress})`;
+  // Img Height from 480px to 100%
+  const imgHeightTemplate = useMotionTemplate`calc(480px + (100% - 480px) * ${expandProgress})`;
   
   // Content Width matching lg:w-[45%]
   const contentWidthTemplate = useMotionTemplate`calc(45% * ${expandProgress})`;
@@ -59,7 +59,7 @@ export function Projects() {
 
   const containerStyle = {
     width: containerWidthTemplate,
-    minHeight: "320px",
+    minHeight: "480px",
     backgroundColor: useTransform(scrollYProgress, [0.55, 0.75], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]),
     borderColor: useTransform(scrollYProgress, [0.55, 0.75], ["rgba(226, 232, 240, 0)", "rgba(226, 232, 240, 0.6)"]),
     boxShadow: useTransform(scrollYProgress, [0.55, 0.75], ["0px 0px 0px rgba(0,0,0,0)", "0px 4px 24px rgba(0,0,0,0.06)"]),
@@ -115,10 +115,10 @@ export function Projects() {
         
         {/* Scroll Interaction Area */}
         <div ref={containerRef} className="relative h-[150vh] w-full">
-          <div className="sticky top-[8vh] md:top-[12vh] w-full flex flex-col items-center justify-start pt-4 md:pt-10">
+          <div className="sticky top-[8vh] md:top-[12vh] w-full flex flex-col items-center justify-start pt-8 md:pt-12">
             
             {/* Section Header (Now inside sticky so it stays during morph) */}
-            <div className="flex flex-col items-center text-center mb-8 md:mb-12">
+            <div className="flex flex-col items-center text-center mb-16 md:mb-[72px] flex-shrink-0">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -166,7 +166,7 @@ export function Projects() {
                   {/* Figma Overlay */}
                   <motion.div 
                     style={{ opacity: figmaOpacity, scale: figmaScale }} 
-                    className="absolute w-[240px] h-[320px] z-30 pointer-events-none"
+                    className="absolute w-[360px] h-[480px] z-30 pointer-events-none"
                   >
                      {/* Top Bar */}
                      <div className="absolute -top-[30px] left-0 right-0 flex justify-between items-end mb-2 text-[#111] px-[2px]">
@@ -195,7 +195,7 @@ export function Projects() {
                   <motion.img 
                     src={project1.image}
                     alt="Project preview"
-                    className="absolute z-20 w-[240px] h-[320px] object-cover object-center"
+                    className="absolute z-20 w-[360px] h-[480px] object-cover object-center shadow-[0_8px_30px_rgba(0,0,0,0.12)]"
                     style={{ opacity: initialImageOpacity, scale: figmaScale }}
                   />
 
