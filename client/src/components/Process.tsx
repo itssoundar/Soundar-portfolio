@@ -69,7 +69,7 @@ export function Process() {
         </motion.div>
       </div>
 
-      <div ref={containerRef} className="relative w-full" style={{ height: \`\${steps.length * 100}vh\` }}>
+      <div ref={containerRef} className="relative w-full" style={{ height: `${steps.length * 100}vh` }}>
         <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden">
           <div className="w-full max-w-[1200px] mx-auto px-6 md:px-[86px] flex flex-col md:flex-row items-center gap-12 md:gap-20">
             
@@ -90,7 +90,7 @@ export function Process() {
                   return (
                     <div 
                       key={idx} 
-                      className={\`absolute left-0 top-1/2 -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] w-full \${isActive ? 'opacity-100 translate-y-[-50%] scale-100' : 'opacity-0 translate-y-[-30%] scale-95 pointer-events-none'}\`}
+                      className={`absolute left-0 top-1/2 -translate-y-1/2 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] w-full ${isActive ? 'opacity-100 translate-y-[-50%] scale-100' : 'opacity-0 translate-y-[-30%] scale-95 pointer-events-none'}`}
                     >
                       <span className="text-[#888] font-serif italic text-[24px] mb-4 block">{step.num}</span>
                       <h3 className="text-[32px] md:text-[42px] lg:text-[48px] font-medium text-[#111] leading-[1.1] mb-6 tracking-tight">
@@ -112,7 +112,7 @@ export function Process() {
                   return (
                     <div
                       key={idx}
-                      className={\`absolute inset-0 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] \${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'}\`}
+                      className={`absolute inset-0 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'}`}
                     >
                       <img src={step.img} alt={step.title} className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-black/5" />

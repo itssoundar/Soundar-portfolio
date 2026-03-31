@@ -113,7 +113,7 @@ export function Experience() {
               <div className="text-[#888888] text-[16px] md:text-[18px] leading-[1.6] max-w-[700px] font-normal tracking-wide font-sans">
                 {exp.description}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

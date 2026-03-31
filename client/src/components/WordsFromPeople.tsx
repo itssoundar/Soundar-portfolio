@@ -287,7 +287,7 @@ export function WordsFromPeople() {
               <ChevronRight size={24} strokeWidth={1.5} />
             </button>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
