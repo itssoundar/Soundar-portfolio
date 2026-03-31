@@ -1,68 +1,50 @@
 import { Link } from "wouter";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
-const ImageIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>;
-const PaperclipIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>;
-const CubeIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>;
-const ArrowUpIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>;
-const SparkleIcon = (props: React.SVGProps<SVGSVGElement>) => <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none" {...props}><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>;
-
-const TypewriterText = ({ text, start, onComplete }: { text: string, start: boolean, onComplete?: () => void }) => {
+// Typing effect component
+const TypewriterText = ({ text }: { text: string }) => {
   const [displayText, setDisplayText] = useState("");
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   useEffect(() => {
-    if (!start) return;
-    let i = 0;
-    const intervalId = setInterval(() => {
-      setDisplayText(text.slice(0, i + 1));
-      i++;
-      if (i >= text.length) {
-        clearInterval(intervalId);
-        setTimeout(() => {
-           if(onComplete) onComplete();
-        }, 400);
-      }
-    }, 25);
-
-    return () => clearInterval(intervalId);
-  }, [start, text, onComplete]);
+    if (isInView) {
+      let i = 0;
+      const intervalId = setInterval(() => {
+        setDisplayText(text.slice(0, i + 1));
+        i++;
+        if (i >= text.length) {
+          clearInterval(intervalId);
+        }
+      }, 30); // Speed of typing
+      return () => clearInterval(intervalId);
+    }
+  }, [isInView, text]);
 
   return (
-    <span className="relative">
-      {displayText}
-      {start && displayText.length < text.length && (
-        <motion.span 
-           animate={{ opacity: [1, 0] }} 
-           transition={{ repeat: Infinity, duration: 0.6 }} 
-           className="inline-block w-[2px] h-[1.2em] bg-[#888] ml-1 align-middle translate-y-[-1px]" 
-        />
-      )}
-    </span>
+    <div ref={containerRef} className="inline-block relative">
+      <span>{displayText}</span>
+      <motion.span 
+        animate={{ opacity: [1, 0] }} 
+        transition={{ repeat: Infinity, duration: 0.8 }}
+        className="inline-block w-[3px] h-[1em] bg-[#111] ml-1 align-middle translate-y-[-1px]"
+      />
+    </div>
   );
 };
 
 export function Projects() {
-  const [phase, setPhase] = useState(0); 
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-200px" });
-
-  useEffect(() => {
-    if (isInView && phase === 0) {
-      setTimeout(() => setPhase(1), 500);
-    }
-  }, [isInView, phase]);
-
-  useEffect(() => {
-    if (phase === 2) {
-      setTimeout(() => setPhase(3), 1200);
-    }
-  }, [phase]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
 
   const projects = [
     {
       id: "crm-ai",
-      title: <>Transforming CRM workflows with an <span className="font-serif italic font-normal text-white">AI-Agent Builder</span> as an execution layer</>,
+      title: <>Transforming CRM workflows with an <span className="font-serif italic font-normal text-[1.15em]">AI-Agent Builder</span> as an execution layer</>,
       image: "/C1new.png?v=1",
       bullets: [
         "Generate hiring workflows instantly through natural language prompts.",
@@ -75,7 +57,7 @@ export function Projects() {
     },
     {
       id: "design-system",
-      title: <>Building CRM with the <span className="font-serif italic font-normal text-white">Genesis Design System</span></>,
+      title: <>Building CRM with the <span className="font-serif italic font-normal text-[1.15em]">Genesis Design System</span></>,
       image: "/C2new.png?v=1",
       bullets: [
         "Built scalable components and tokens to unify UI across CRM modules.",
@@ -88,7 +70,7 @@ export function Projects() {
     },
     {
       id: "conversational-b2b",
-      title: <>Building CRM analytics and a custom <span className="font-serif italic font-normal text-white">dashboard builder</span></>,
+      title: <>Building CRM analytics and a custom <span className="font-serif italic font-normal text-[1.15em]">dashboard builder</span></>,
       image: "/C3.png",
       bullets: [
         "Designed centralized dashboards to monitor hiring pipeline performance.",
@@ -103,162 +85,120 @@ export function Projects() {
   ];
 
   return (
-    <section id="work" className="relative w-full bg-[#0f0f0f] pb-32 px-6 md:px-12 pt-32 z-20 overflow-hidden" ref={sectionRef}>
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#f8f9fa] to-[#0f0f0f] opacity-10 pointer-events-none -translate-y-full z-10" />
-      
-      <div className="flex flex-col items-center text-center mb-24 relative z-10">
-        <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true, margin: "-100px" }}
-           transition={{ duration: 0.6 }}
-        >
-          <div className="text-[#888] text-[10px] md:text-[12px] tracking-[0.2em] uppercase mb-6 font-mono">
-            Agentic Intelligence
+    <section id="work" className="relative w-full bg-[#f8f9fa] pb-32 px-6 md:px-[86px] pt-20 z-20" ref={containerRef}>
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-[#f8f9fa]/80 to-[#f8f9fa] pointer-events-none -translate-y-full z-10" />
+      <div className="relative z-20 w-full max-w-[1100px] mx-auto overflow-visible">
+        {/* Chat Interface / Section Header */}
+        <div className="flex flex-col items-start mb-24 max-w-[800px] mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="w-full flex justify-end mb-6"
+          >
+            <div className="bg-[#111] text-white px-6 py-4 rounded-2xl rounded-tr-sm shadow-md max-w-[80%]">
+              <p className="text-[16px] md:text-[20px] font-sans leading-relaxed">
+                Show me some of the recent projects that you've built. Focus on complex B2B solutions.
+              </p>
+            </div>
+          </motion.div>
+
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#e2e8f0] to-[#cbd5e1] flex items-center justify-center flex-shrink-0 shadow-sm border border-white">
+              <span className="text-[#111] font-serif italic text-lg">H</span>
+            </div>
+            
+            <div className="pt-2">
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.3, delay: 0.6 }}
+                className="mb-6 flex items-center space-x-2 bg-white/50 px-4 py-2 rounded-full border border-[#e2e8f0] w-fit shadow-sm backdrop-blur-sm"
+              >
+                <div className="flex space-x-1">
+                  <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 1, delay: 0 }} className="w-1.5 h-1.5 bg-[#555] rounded-full"></motion.div>
+                  <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 1, delay: 0.2 }} className="w-1.5 h-1.5 bg-[#555] rounded-full"></motion.div>
+                  <motion.div animate={{ y: [0, -5, 0] }} transition={{ repeat: Infinity, duration: 1, delay: 0.4 }} className="w-1.5 h-1.5 bg-[#555] rounded-full"></motion.div>
+                </div>
+                <span className="text-xs font-medium text-[#555] uppercase tracking-wider">Generating</span>
+              </motion.div>
+
+              <h2 className="text-[28px] md:text-[36px] font-medium text-[#111] tracking-[-0.02em] leading-[1.3] font-sans mb-4">
+                <TypewriterText text="Here are a few selected projects where I tackled early-stage ambiguity to build scalable design systems." />
+              </h2>
+            </div>
           </div>
-          <h2 className="text-[36px] md:text-[56px] font-medium text-[#f5f5f5] tracking-[-0.03em] leading-[1.1] font-serif mb-6">
-            Thinking, in Systems
-          </h2>
-          <p className="text-[15px] md:text-[18px] text-[#888] max-w-[540px] leading-[1.6] font-sans mx-auto">
-            Design decisions don't happen in isolation. I unify color, layout, and voice into cohesive product worlds, built to scale.
-          </p>
-        </motion.div>
-      </div>
+        </div>
 
-      <div className="w-full max-w-[1200px] mx-auto relative flex justify-center items-start min-h-[600px] z-10 pb-16">
-        <motion.div layout className="flex flex-col md:flex-row gap-6 md:gap-8 w-full justify-center">
-          {projects.map((project, i) => {
-            if (phase < 3 && i !== 0) return null;
-            const isGenerating = phase < 3;
-
+        {/* Project Cards */}
+        <div className="flex flex-col gap-10 md:gap-16 pb-24 relative">
+          {projects.map((project, index) => {
             return (
-               <motion.div
-                 layout
-                 key={project.id}
-                 initial={i !== 0 ? { opacity: 0, x: -40 } : false}
-                 animate={{ opacity: 1, x: 0 }}
-                 transition={{ duration: 0.8, delay: i !== 0 ? i * 0.15 : 0, ease: [0.16, 1, 0.3, 1] }}
-                 className="w-full md:w-[calc(33.333%-1.5rem)] max-w-[400px] shrink-0 flex flex-col group"
-               >
-                 {/* Top Bar */}
-                 <motion.div layout className="flex items-center justify-between text-[#555] text-[11px] mb-3 px-1 font-mono tracking-wide">
-                   <div className="flex items-center gap-2">
-                     <ImageIcon />
-                     <span>Image</span>
-                   </div>
-                   <span>720 x 960</span>
-                 </motion.div>
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 80, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: 1.5 + (index * 0.2), // Wait for chat animation
+                  ease: [0.16, 1, 0.3, 1] 
+                }}
+              >
+                <Link 
+                  href={project.link}
+                  className={`block bg-white ${project.hoverBg || ''} rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#e2e8f0]/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] group`}
+                >
+                    <div className="flex flex-col md:flex-row gap-[24px] items-stretch cursor-pointer">
+                      {/* Project Image Container */}
+                      <div className={`w-full md:w-[45%] flex-shrink-0 ${project.isBgImage ? '' : project.imageBg} rounded-[20px] overflow-hidden relative min-h-[300px] md:min-h-[380px]`}>
+                        {project.isBgImage ? (
+                          <div 
+                            className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-[1.05]"
+                            style={{ backgroundImage: `url(${project.image})` }}
+                            data-testid={`bg-project-${project.id}`}
+                          />
+                        ) : (
+                          <img 
+                            src={project.image} 
+                            alt={project.id} 
+                            className="absolute top-6 left-6 md:top-8 md:left-8 w-[calc(100%-24px)] md:w-[calc(100%-32px)] h-auto object-cover object-left-top rounded-tl-[12px] shadow-[-8px_-8px_24px_rgba(0,0,0,0.08)] transition-transform duration-500 group-hover:scale-[1.03] origin-top-left"
+                            data-testid={`img-project-${project.id}`}
+                          />
+                        )}
+                      </div>
 
-                 {/* Image Wrapper */}
-                 <motion.div layout className="relative w-full aspect-[4/5] rounded-[16px] overflow-visible">
-                   <div className={`absolute inset-0 rounded-[16px] overflow-hidden ${project.imageBg || 'bg-[#161616]'} border border-[#2a2a2a] shadow-[0_0_40px_rgba(0,0,0,0.2)]`}>
-                     {project.isBgImage ? (
-                        <motion.div 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: isGenerating ? 0.02 : 1 }}
-                          transition={{ duration: 1 }}
-                          className="absolute inset-0 w-full h-full bg-cover bg-center origin-center group-hover:scale-[1.03] transition-transform duration-700"
-                          style={{ backgroundImage: `url(${project.image})` }}
-                        />
-                     ) : (
-                        <motion.img 
-                          src={project.image} 
-                          alt="Project Image" 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: isGenerating ? 0.02 : 1 }}
-                          transition={{ duration: 1 }}
-                          className="w-full h-full object-cover object-left-top origin-center group-hover:scale-[1.03] transition-transform duration-700"
-                        />
-                     )}
+                      {/* Project Content */}
+                      <div className="w-full md:w-[55%] flex flex-col justify-center">
+                        <div className="mb-6">
+                          <h3 className="text-[22px] md:text-[28px] font-medium text-[#111] tracking-[-0.01em] leading-[1.3] font-sans">
+                            {project.title}
+                          </h3>
+                        </div>
+                        
+                        <ul className="space-y-4 text-[#444] text-[16px] md:text-[18px] leading-[1.6] mb-10 font-normal">
+                          {project.bullets.map((bullet, i) => (
+                            <li key={i} className="flex items-start gap-3.5">
+                              <span className="w-1.5 h-1.5 rounded-full bg-[#111] mt-2.5 flex-shrink-0"></span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
 
-                     {/* Placeholder Grid Lines / Loading */}
-                     <AnimatePresence>
-                       {isGenerating && (
-                         <motion.div
-                           exit={{ opacity: 0 }}
-                           className="absolute inset-0 flex flex-col items-center justify-center bg-[#111] z-10"
-                         >
-                           <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 12, ease: "linear" }} className="w-16 h-16 text-[#222]">
-                             <CubeIcon className="w-16 h-16" />
-                           </motion.div>
-                         </motion.div>
-                       )}
-                     </AnimatePresence>
-                   </div>
-
-                   {/* Prompt Box */}
-                   <AnimatePresence>
-                     {i === 0 && phase < 3 && (
-                        <motion.div
-                           key="prompt-box"
-                           exit={{ opacity: 0, y: 15, scale: 0.95 }}
-                           transition={{ duration: 0.3 }}
-                           className="absolute -bottom-10 md:-bottom-14 left-1/2 -translate-x-1/2 w-[calc(100%+32px)] md:w-[130%] min-w-[320px] max-w-[480px] z-50"
-                        >
-                           <div className="bg-[#151515] border border-[#2a2a2a] rounded-[24px] p-4 flex flex-col gap-4 shadow-[0_24px_48px_rgba(0,0,0,0.6)] backdrop-blur-xl">
-                              <div className="flex items-start gap-3">
-                                <div className="flex items-center gap-1.5 bg-[#222] border border-[#333] rounded-lg px-2.5 py-1.5 shrink-0 mt-0.5">
-                                  <SparkleIcon className="w-3.5 h-3.5 text-[#ccc]" />
-                                  <span className="text-[#ccc] text-[11px] font-medium tracking-wide">Projects</span>
-                                </div>
-                                <div className="text-[#eee] text-[14px] leading-[1.6] flex-1 pt-1 min-h-[44px]">
-                                  <TypewriterText
-                                     text="Create a set of comprehensive case studies for complex B2B systems."
-                                     start={phase >= 1}
-                                     onComplete={() => setPhase(2)}
-                                  />
-                                </div>
-                              </div>
-                              <div className="flex items-center justify-between mt-1 pl-1 pr-1">
-                                 <PaperclipIcon className="text-[#555] w-5 h-5 transition-colors" />
-                                 <div className="flex items-center gap-3">
-                                    <CubeIcon className="text-[#555] w-5 h-5 transition-colors" />
-                                    <motion.button
-                                       animate={{
-                                         backgroundColor: phase >= 2 ? "#fff" : "#222",
-                                         color: phase >= 2 ? "#000" : "#555"
-                                       }}
-                                       className="w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300"
-                                    >
-                                       <ArrowUpIcon className="w-4 h-4" />
-                                    </motion.button>
-                                 </div>
-                              </div>
-                           </div>
-                        </motion.div>
-                     )}
-                   </AnimatePresence>
-                 </motion.div>
-
-                 {/* Content */}
-                 <motion.div
-                   initial={{ opacity: 0, y: 10 }}
-                   animate={{ opacity: isGenerating ? 0 : 1, y: isGenerating ? 10 : 0 }}
-                   transition={{ duration: 0.6, delay: 0.4 + (i * 0.1) }}
-                   className="mt-8 px-1 flex flex-col gap-5"
-                 >
-                   <h3 className="text-[#f5f5f5] text-[20px] font-medium leading-[1.3] tracking-[-0.01em]">
-                     {project.title}
-                   </h3>
-                   <ul className="space-y-3 text-[#888] text-[13px] leading-[1.6]">
-                      {project.bullets.map((b, idx) => (
-                         <li key={idx} className="flex gap-3 items-start">
-                           <span className="bg-[#444] mt-2 w-1.5 h-1.5 rounded-full shrink-0"></span>
-                           <span>{b}</span>
-                         </li>
-                      ))}
-                   </ul>
-                   <div className="pt-2">
-                     <Link href={project.link} className="inline-flex items-center gap-2 text-[12px] text-white font-medium group/link tracking-wide uppercase">
-                       <span className="border-b border-[#333] group-hover/link:border-white transition-colors pb-0.5">View Case Study</span>
-                       <ArrowUpIcon className="w-3.5 h-3.5 rotate-45 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
-                     </Link>
-                   </div>
-                 </motion.div>
-               </motion.div>
-            )
+                        <div>
+                          <div className="inline-flex items-center justify-center px-8 py-3.5 rounded-[12px] bg-gradient-to-b from-[#2a2a2a] to-[#0a0a0a] text-white font-medium text-[14px] md:text-[15px] shadow-[inset_0_1px_0_rgba(255,255,255,0.15),_0_4px_12px_rgba(0,0,0,0.2)] border border-[#222] transition-all duration-300 group-hover:scale-[1.02]">
+                            View Project
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </Link>
+              </motion.div>
+            );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
