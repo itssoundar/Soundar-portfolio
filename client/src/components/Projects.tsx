@@ -1,7 +1,7 @@
 import { Link } from "wouter";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { Image as ImageIcon } from "lucide-react";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { useRef, useState } from "react";
+import { Image as ImageIcon, Paperclip, Box, ArrowUp } from "lucide-react";
 
 export function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -9,6 +9,25 @@ export function Projects() {
     target: containerRef,
     offset: ["start end", "end start"]
   });
+
+  const chatBoxY = useTransform(scrollYProgress, [0.2, 0.35], [100, 0]);
+  const chatBoxOpacity = useTransform(scrollYProgress, [0.2, 0.35], [0, 1]);
+
+  const textToType = "Generate a complete CRM dashboard";
+  const [typedText, setTypedText] = useState("");
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    let progress = (latest - 0.35) / 0.2; // 0.35 to 0.55
+    if (progress < 0) progress = 0;
+    if (progress > 1) progress = 1;
+    setTypedText(textToType.slice(0, Math.round(progress * textToType.length)));
+  });
+
+  const sendBtnScale = useTransform(scrollYProgress, [0.55, 0.58, 0.6], [1, 0.85, 1]);
+  const sendBtnOpacity = useTransform(scrollYProgress, [0.55, 0.58, 0.6], [1, 0.7, 1]);
+
+  const interactionOpacity = useTransform(scrollYProgress, [0.65, 0.75], [1, 0]);
+  const imageScale = useTransform(scrollYProgress, [0.65, 0.75], [1, 1.05]);
 
   const projects = [
     {
@@ -45,11 +64,12 @@ export function Projects() {
   ];
 
   return (
-    <section id="work" className="relative w-full bg-[#f8f9fa] pb-32 px-6 md:px-[86px] pt-12 -mt-16 z-20" ref={containerRef}>
+    <section id="work" className="relative w-full bg-[#f8f9fa] pb-32 px-6 md:px-[86px] pt-12 -mt-16 z-20">
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-[#f8f9fa]/80 to-[#f8f9fa] pointer-events-none -translate-y-full z-10" />
       <div className="relative z-20 w-full max-w-[1100px] mx-auto overflow-visible">
+        
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-24 md:mb-32">
+        <div className="flex flex-col items-center text-center mb-16 md:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,6 +84,85 @@ export function Projects() {
               From navigating early-stage ambiguity to building scalable systems, I design solutions that convert innovation into measurable impact.
             </p>
           </motion.div>
+        </div>
+
+        {/* Scroll Interaction Area */}
+        <div ref={containerRef} className="relative h-[130vh] w-full mb-12">
+          <div className="sticky top-[20vh] w-full flex flex-col items-center justify-center pt-10">
+            <motion.div 
+              className="relative flex flex-col items-center"
+              style={{ opacity: interactionOpacity, scale: imageScale }}
+            >
+              {/* Small Image Container */}
+              <div className="w-[260px] md:w-[320px] flex flex-col mb-16">
+                 {/* Top Bar matching reference */}
+                 <div className="flex justify-between items-end mb-2 text-[#111] px-[2px]">
+                    <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide">
+                       <ImageIcon size={13} className="opacity-80" />
+                       <span>Image</span>
+                    </div>
+                    <div className="text-[12px] font-medium text-[#888] tracking-widest">
+                       720 x 960
+                    </div>
+                 </div>
+
+                 {/* Image Outline */}
+                 <div className="w-full aspect-[3/4] relative">
+                    <div className="absolute inset-0 border-[1.5px] border-[#0d99ff] z-20 pointer-events-none">
+                       {/* Corner Handles */}
+                       <div className="absolute -top-[4px] -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
+                       <div className="absolute -top-[4px] -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
+                       <div className="absolute -bottom-[4px] -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
+                       <div className="absolute -bottom-[4px] -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
+                       {/* Edge Handles */}
+                       <div className="absolute top-1/2 -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-y-1/2"></div>
+                       <div className="absolute top-1/2 -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-y-1/2"></div>
+                       <div className="absolute -top-[4px] left-1/2 w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-x-1/2"></div>
+                       <div className="absolute -bottom-[4px] left-1/2 w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-x-1/2"></div>
+                    </div>
+                    
+                    <div 
+                       className="w-full h-full bg-cover bg-center bg-[#eef2fc]"
+                       style={{ backgroundImage: `url(/C1new.png?v=1)` }}
+                    />
+                 </div>
+              </div>
+
+              {/* Chat Box */}
+              <motion.div 
+                style={{ y: chatBoxY, opacity: chatBoxOpacity, x: "-50%" }}
+                className="absolute -bottom-8 left-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.15)] border border-[#222] flex flex-col gap-4 z-30"
+              >
+                <div className="flex items-center gap-3">
+                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#222] rounded-[10px] border border-[#333]">
+                      <ImageIcon size={14} className="text-[#aaa]" />
+                      <span className="text-[13px] font-medium text-[#eee]">Project</span>
+                   </div>
+                   <div className="text-[15px] text-[#fff] font-sans flex-1 truncate">
+                      {typedText}
+                      <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }} className="inline-block w-[2px] h-[1em] bg-[#fff] align-middle ml-[2px] translate-y-[-1px]" />
+                   </div>
+                </div>
+                
+                <div className="flex justify-between items-center mt-2 px-1">
+                   <button className="p-2 -ml-2 text-[#888] hover:text-[#fff] transition-colors rounded-full hover:bg-[#222]">
+                      <Paperclip size={18} />
+                   </button>
+                   <div className="flex items-center gap-2">
+                      <button className="p-2 text-[#888] hover:text-[#fff] transition-colors rounded-full hover:bg-[#222]">
+                         <Box size={18} />
+                      </button>
+                      <motion.button 
+                         className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm"
+                         style={{ scale: sendBtnScale, opacity: sendBtnOpacity }}
+                      >
+                         <ArrowUp size={16} strokeWidth={3} />
+                      </motion.button>
+                   </div>
+                </div>
+              </motion.div>
+            </motion.div>
+          </div>
         </div>
 
         {/* Project Cards */}
