@@ -118,7 +118,7 @@ export function Projects() {
           <div className="sticky top-[8vh] md:top-[12vh] w-full flex flex-col items-center justify-start pt-8 md:pt-12">
             
             {/* Section Header (Now inside sticky so it stays during morph) */}
-            <div className="flex flex-col items-center text-center mb-16 md:mb-[72px] flex-shrink-0">
+            <div className="flex flex-col items-center text-center mb-12 md:mb-16 flex-shrink-0">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -126,11 +126,11 @@ export function Projects() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="flex flex-col items-center"
               >
-                <h2 className="text-[32px] md:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-4">
+                <h2 className="text-[32px] md:text-[36px] font-medium text-[#111] mb-3 md:mb-4">
                   Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
                 </h2>
-                <p className="text-[16px] md:text-[18px] text-[#555] max-w-[600px] leading-relaxed">
-                  From navigating early-stage ambiguity to building scalable systems, I design solutions that convert innovation into measurable impact.
+                <p className="text-[14px] md:text-[15px] text-[#666] max-w-[500px] leading-[1.6]">
+                  From navigating early-stage ambiguity to building scalable systems, I <br className="hidden md:block" /> design solutions that convert innovation into measurable impact.
                 </p>
               </motion.div>
             </div>
@@ -239,34 +239,34 @@ export function Projects() {
               {/* Chat Box */}
               <motion.div 
                 style={{ y: chatBoxY, opacity: chatBoxOpacity, x: "-50%", scale: chatBoxScale }}
-                className="absolute top-[280px] left-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.2)] border border-[#222] flex flex-col gap-3 z-40 pointer-events-none"
+                className="absolute top-[420px] left-1/2 w-[380px] bg-[#111111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.2)] flex flex-col gap-3 z-40 pointer-events-none border border-[#222]"
               >
                 {/* Top Row: Project Badge & Text */}
-                <div className="flex items-center gap-3 overflow-hidden pl-1">
-                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#222] rounded-[10px] border border-[#333] flex-shrink-0">
-                      <Component size={14} className="text-[#aaa]" />
+                <div className="flex items-center gap-3 overflow-hidden px-1">
+                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#262626] rounded-[10px] flex-shrink-0 border border-[#333]">
+                      <Component size={14} className="text-[#a0a0a0]" />
                       <span className="text-[13px] font-medium text-[#eee]">Project</span>
                    </div>
-                   <div className="text-[15px] text-[#fff] font-sans flex-1 whitespace-nowrap overflow-hidden flex items-center">
+                   <div className="text-[15px] text-[#fff] font-sans flex-1 whitespace-nowrap overflow-hidden flex items-center tracking-wide">
                       {typedText}
-                      <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }} className="inline-block w-[2px] h-[1em] bg-[#fff] ml-[2px]" />
+                      <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }} className="inline-block w-[1.5px] h-[1.1em] bg-[#fff] ml-[2px]" />
                    </div>
                 </div>
                 
                 {/* Bottom Row: Icons & Send */}
-                <div className="flex items-center justify-between mt-1 px-1">
-                   <button className="p-2 -ml-2 text-[#888] transition-colors rounded-full">
+                <div className="flex items-center justify-between px-1">
+                   <button className="p-1 -ml-1 text-[#888] transition-colors rounded-full">
                       <Paperclip size={18} />
                    </button>
                    <div className="flex items-center gap-2">
-                     <button className="p-2 text-[#888] transition-colors rounded-full">
+                     <button className="p-1 text-[#888] transition-colors rounded-full">
                         <Box size={18} />
                      </button>
                      <motion.button 
-                        className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm"
+                        className="w-[32px] h-[32px] rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm"
                         style={{ scale: sendBtnScale, opacity: sendBtnOpacity }}
                      >
-                        <ArrowUp size={16} strokeWidth={3} />
+                        <ArrowUp size={18} strokeWidth={2.5} />
                      </motion.button>
                    </div>
                 </div>
