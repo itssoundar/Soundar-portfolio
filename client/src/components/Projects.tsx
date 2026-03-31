@@ -36,13 +36,13 @@ export function Projects() {
 
   // Expanding Card Animation (0.55 -> 0.75)
   const expandProgress = useTransform(scrollYProgress, [0.55, 0.75], [0, 1]);
-  const containerWidthTemplate = useMotionTemplate`calc(240px + (100% - 240px) * ${expandProgress})`;
+  const containerWidthTemplate = useMotionTemplate`calc(420px + (100% - 420px) * ${expandProgress})`;
   const containerRadiusTemplate = useMotionTemplate`calc(16px + (32px - 16px) * ${expandProgress})`;
   
   // Img Width matching lg:w-[55%]
   const imgWidthTemplate = useMotionTemplate`calc(100% - 45% * ${expandProgress})`;
-  // Img Height from 320px to 100%
-  const imgHeightTemplate = useMotionTemplate`calc(320px + (100% - 320px) * ${expandProgress})`;
+  // Img Height from 560px to 100%
+  const imgHeightTemplate = useMotionTemplate`calc(560px + (100% - 560px) * ${expandProgress})`;
   
   // Content Width matching lg:w-[45%]
   const contentWidthTemplate = useMotionTemplate`calc(45% * ${expandProgress})`;
@@ -73,7 +73,7 @@ export function Projects() {
     {
       id: "crm-ai",
       title: <>Transforming CRM workflows with an <span className="font-serif italic font-normal">AI-Agent Builder</span> as an execution layer</>,
-      image: "/C1new.png?v=1",
+      image: "/project-hero.png",
       bullets: [
         "Generate hiring workflows instantly through natural language prompts.",
         "Automatically create analytics dashboards from recruiter questions.",
@@ -166,7 +166,7 @@ export function Projects() {
                   {/* Figma Overlay */}
                   <motion.div 
                     style={{ opacity: figmaOpacity, scale: figmaScale }} 
-                    className="absolute w-[240px] h-[320px] z-30 pointer-events-none"
+                    className="absolute w-[420px] h-[560px] z-30 pointer-events-none"
                   >
                      {/* Top Bar */}
                      <div className="absolute -top-[30px] left-0 right-0 flex justify-between items-end mb-2 text-[#111] px-[2px]">
@@ -195,7 +195,7 @@ export function Projects() {
                   <motion.img 
                     src={project1.image}
                     alt="Project preview"
-                    className="absolute z-20 w-[240px] h-[320px] object-cover object-center"
+                    className="absolute z-20 w-[420px] h-[560px] object-cover object-center"
                     style={{ opacity: initialImageOpacity, scale: figmaScale }}
                   />
 
