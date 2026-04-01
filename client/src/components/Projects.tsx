@@ -138,15 +138,23 @@ export function Projects() {
             </div>
 
             {/* Visual Transformation Area */}
-            <div className="relative w-full flex justify-center items-center min-h-[500px]">
+            <div className="relative w-full flex justify-center items-center">
               
+              {/* Stage 4: Card 1 reveals precisely where the image was */}
+              <motion.div 
+                style={{ opacity: card1Opacity, scale: card1Scale }}
+                className={`w-full relative z-10 transition-all duration-300 ${card1Active ? 'pointer-events-auto' : 'pointer-events-none'}`}
+              >
+                {renderCardContent(projects[0])}
+              </motion.div>
+
               {/* Stage 1 & 3: Background Image and Chat Layer */}
               <motion.div 
                 style={{ opacity: imageLayerOpacity }}
-                className="absolute z-20 flex flex-col items-center w-[300px] md:w-[400px] pointer-events-none"
+                className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none"
               >
                 {/* Figma Preview Container */}
-                <div className="w-full relative">
+                <div className="w-[300px] md:w-[400px] relative">
                   {/* Top Bar */}
                   <div className="flex justify-between items-end mb-2 text-[#111] px-[2px]">
                     <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide">
@@ -210,14 +218,6 @@ export function Projects() {
                     </div>
                   </motion.div>
                 </div>
-              </motion.div>
-
-              {/* Stage 4: Card 1 reveals precisely where the image was */}
-              <motion.div 
-                style={{ opacity: card1Opacity, scale: card1Scale }}
-                className={`w-full absolute z-10 transition-all duration-300 ${card1Active ? 'pointer-events-auto' : 'pointer-events-none'}`}
-              >
-                {renderCardContent(projects[0])}
               </motion.div>
 
             </div>
