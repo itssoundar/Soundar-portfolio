@@ -97,7 +97,7 @@ export function Projects() {
 
     // Stage 3 — Image fades + depth
     .to(imageRef.current, {
-      opacity: 0.3,
+      opacity: 0,
       scale: 0.95,
       duration: 1,
     }, "+=0.2")
@@ -120,18 +120,12 @@ export function Projects() {
         scale: 1,
         opacity: 1,
         duration: 1,
-        ease: "back.out(1.7)"
+        ease: "power2.out"
       },
-      "<" // Start slightly overlapping with image fade out
+      "<+=0.2" // Slight delay after image starts fading to ensure no overlap
     )
 
-    // Stage 6 — Image fully gone
-    .to(imageRef.current, {
-      opacity: 0,
-      duration: 0.5,
-    }, "<")
-
-    // Stage 7 — Card refinement (remove grayscale)
+    // Stage 6 — Card refinement (remove grayscale)
     .to(card1Ref.current, {
       filter: "grayscale(0%)",
       duration: 1,
@@ -230,8 +224,8 @@ export function Projects() {
               {/* Stage 4: Card 1 reveals precisely where the image was */}
               <div 
                 ref={card1Ref}
-                className="w-full absolute top-0 left-0 z-10 pointer-events-auto opacity-0"
-                style={{ transform: "scale(0.8)" }}
+                className="w-[90%] md:w-full max-w-[1000px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-auto opacity-0"
+                style={{ transform: "translate(-50%, -50%) scale(0.8)" }}
               >
                 {renderCardContent(projects[0])}
               </div>
@@ -239,7 +233,7 @@ export function Projects() {
               {/* Stage 1 & 3: Background Image and Chat Layer */}
               <div 
                 ref={imageRef}
-                className="absolute z-20 flex flex-col items-center justify-center pointer-events-none transform -translate-y-12"
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center justify-center pointer-events-none"
               >
                 {/* Figma Preview Container */}
                 <div className="w-[300px] md:w-[400px] relative">
