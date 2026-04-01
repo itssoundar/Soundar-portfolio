@@ -121,6 +121,16 @@ export function Projects() {
                 className="relative mx-auto flex flex-col md:flex-row z-20 transition-transform duration-500 hover:-translate-y-1"
                 style={containerStyle}
               >
+                {/* Left Side: Image / Figma Preview */}
+                <div className="w-full md:w-[var(--img-w)] relative flex-shrink-0 border-b md:border-b-0 md:border-r border-[#e2e8f0]/60">
+                  
+                  {/* The Image */}
+                  <div 
+                    className="w-full h-[453px] md:h-[453px] lg:h-[500px] bg-cover bg-center group-hover:scale-[1.03] transition-transform duration-700"
+                    style={{ backgroundImage: `url(${project1.image})` }}
+                  />
+                </div>
+
                 {/* Right Side: Content */}
                 <motion.div 
                   className="w-full md:w-[var(--content-w)] max-h-[var(--content-max-h)] md:max-h-none overflow-hidden flex flex-col justify-center bg-white flex-shrink-0"
