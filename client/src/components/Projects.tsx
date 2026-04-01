@@ -1,56 +1,18 @@
 import { Link } from "wouter";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Image as ImageIcon, Paperclip, Box, ArrowUp } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
-  
-  // Track scroll over the interactive pinned section
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-
-  // Stage 1: Chat appears (0.05 -> 0.15)
-  // Stage 3: Chat moves slightly downward (0.25 -> 0.35)
-  // Stage 4: Chat moves further downward and fades out (0.35 -> 0.45)
-  const chatY = useTransform(scrollYProgress, [0.05, 0.15, 0.25, 0.35, 0.45], [40, 0, 0, 20, 60]);
-  const chatOpacity = useTransform(scrollYProgress, [0.05, 0.15, 0.35, 0.45], [0, 1, 1, 0]);
-
-  // Stage 2: Typing Interaction (0.15 -> 0.25)
-  const textToType = "Generate a complete CRM dashboard";
-  const [typedText, setTypedText] = useState("");
-
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    let progress = (latest - 0.15) / 0.10; 
-    if (progress < 0) progress = 0;
-    if (progress > 1) progress = 1;
-    setTypedText(textToType.slice(0, Math.round(progress * textToType.length)));
-  });
-
-  // Send button animates right after typing (0.25 -> 0.28)
-  const sendBtnScale = useTransform(scrollYProgress, [0.25, 0.265, 0.28], [1, 0.85, 1]);
-  const sendBtnOpacity = useTransform(scrollYProgress, [0.25, 0.265, 0.28], [1, 0.7, 1]);
-
-  // Stage 3: Image fades out and slightly pushes back (0.28 -> 0.38)
-  const imageLayerOpacity = useTransform(scrollYProgress, [0.28, 0.38], [1, 0]);
-  const imageLayerScale = useTransform(scrollYProgress, [0.28, 0.38], [1, 0.95]);
-  
-  // Stage 5: Card 1 Entry - Fades in, scaling 80% -> 100% (0.35 -> 0.48)
-  const card1Scale = useTransform(scrollYProgress, [0.35, 0.48], [0.8, 1]);
-  const card1Opacity = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
-
-  // Stage 6: Card Refinement - Loading/Wireframe state to final detail (0.48 -> 0.6)
-  const card1Grayscale = useTransform(scrollYProgress, [0.48, 0.6], [1, 0]);
-  const card1Filter = useTransform(card1Grayscale, (g) => `grayscale(${g * 100}%)`);
-  const card1WireframeOpacity = useTransform(scrollYProgress, [0.48, 0.6], [1, 0]);
-
-  // To prevent interaction with card1 while it's hidden
-  const [card1Active, setCard1Active] = useState(false);
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setCard1Active(latest >= 0.4);
-  });
+  const imageRef = useRef<HTMLDivElement>(null);
+  const chatRef = useRef<HTMLDivElement>(null);
+  const card1Ref = useRef<HTMLDivElement>(null);
+  const typingTextRef = useRef<HTMLSpanElement>(null);
+  const sendBtnRef = useRef<HTMLButtonElement>(null);
 
   const projects = [
     {
@@ -87,6 +49,124 @@ export function Projects() {
       link: "/project/conversational-b2b",
     }
   ];
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    // Create the main timeline for the pinned section
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.2, // Smooth scrubbing
+        pin: ".sticky-content", // Pin the sticky container
+      }
+    });
+
+    const textToType = "Generate a complete CRM dashboard";
+
+    // Stage 1 — Chat enters
+    tl.to(chatRef.current, {
+      y: -120, // Move up into view
+      opacity: 1,
+      duration: 1,
+      ease: "power2.out"
+    })
+    
+    // Stage 2 — Typing (fake via onUpdate)
+    .to({}, { 
+      duration: 1.5,
+      onUpdate: function() {
+        if (typingTextRef.current) {
+          const progress = this.progress();
+          const charCount = Math.round(progress * textToType.length);
+          typingTextRef.current.innerText = textToType.slice(0, charCount);
+        }
+      }
+    })
+
+    // Send button press animation
+    .to(sendBtnRef.current, {
+      scale: 0.85,
+      opacity: 0.7,
+      duration: 0.2,
+      yoyo: true,
+      repeat: 1
+    })
+
+    // Stage 3 — Image fades + depth
+    .to(imageRef.current, {
+      opacity: 0.3,
+      scale: 0.95,
+      duration: 1,
+    }, "+=0.2")
+
+    // Stage 4 — Chat exits (NO SCALE, just moves down and fades)
+    .to(chatRef.current, {
+      y: 100,
+      opacity: 0,
+      duration: 1,
+    }, "<")
+
+    // Stage 5 — Project card enters (from scale 0.8 to 1)
+    .fromTo(card1Ref.current, 
+      {
+        scale: 0.8,
+        opacity: 0,
+        filter: "grayscale(100%)" // Start as wireframe/loading state
+      },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+        ease: "back.out(1.7)"
+      },
+      "<" // Start slightly overlapping with image fade out
+    )
+
+    // Stage 6 — Image fully gone
+    .to(imageRef.current, {
+      opacity: 0,
+      duration: 0.5,
+    }, "<")
+
+    // Stage 7 — Card refinement (remove grayscale)
+    .to(card1Ref.current, {
+      filter: "grayscale(0%)",
+      duration: 1,
+    });
+
+    // Cleanup
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
+  }, []);
+
+  // Separate ScrollTrigger for the next cards (Stage 8)
+  useEffect(() => {
+    const nextCards = document.querySelectorAll(".next-card");
+    
+    if (nextCards.length > 0) {
+      gsap.fromTo(nextCards, 
+        {
+          y: 100,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".next-cards-container",
+            start: "top 80%",
+          }
+        }
+      );
+    }
+  }, []);
 
   const renderCardContent = (project: typeof projects[0]) => (
     <div className="w-full bg-white rounded-[24px] md:rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-[#e2e8f0]/60 overflow-hidden flex flex-col md:flex-row group hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-shadow duration-500">
@@ -128,14 +208,14 @@ export function Projects() {
       
       <div className="relative z-20 w-full max-w-[1200px] mx-auto overflow-visible">
         
-        {/* Scroll Interaction Container */}
-        <div ref={containerRef} className="h-[250vh] relative w-full">
+        {/* Scroll Interaction Container - Tall enough for scrubbing */}
+        <div ref={containerRef} className="h-[400vh] relative w-full">
           
           {/* Pinned Section */}
-          <div className="sticky top-[12vh] w-full flex flex-col items-center pt-8">
+          <div className="sticky-content sticky top-[10vh] w-full h-[85vh] flex flex-col items-center pt-4 overflow-hidden">
             
             {/* Initial State: Heading & Subtext */}
-            <div className="flex flex-col items-center text-center mb-12 md:mb-16">
+            <div className="flex flex-col items-center text-center mb-8 md:mb-12 flex-shrink-0">
               <h2 className="text-[32px] md:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-4">
                 Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
               </h2>
@@ -145,26 +225,21 @@ export function Projects() {
             </div>
 
             {/* Visual Transformation Area */}
-            <div className="relative w-full flex justify-center items-center">
+            <div className="relative w-full flex-1 flex justify-center items-center mt-4">
               
               {/* Stage 4: Card 1 reveals precisely where the image was */}
-              <motion.div 
-                style={{ opacity: card1Opacity, scale: card1Scale, filter: card1Filter }}
-                className={`w-full relative z-10 transition-all duration-300 ${card1Active ? 'pointer-events-auto' : 'pointer-events-none'}`}
+              <div 
+                ref={card1Ref}
+                className="w-full absolute top-0 left-0 z-10 pointer-events-auto opacity-0"
+                style={{ transform: "scale(0.8)" }}
               >
                 {renderCardContent(projects[0])}
-                
-                {/* Wireframe overlay for Stage 5/6 transition */}
-                <motion.div 
-                  className="absolute inset-0 bg-white/40 backdrop-blur-[2px] z-20 pointer-events-none"
-                  style={{ opacity: card1WireframeOpacity }}
-                />
-              </motion.div>
+              </div>
 
               {/* Stage 1 & 3: Background Image and Chat Layer */}
-              <motion.div 
-                style={{ opacity: imageLayerOpacity, scale: imageLayerScale }}
-                className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none"
+              <div 
+                ref={imageRef}
+                className="absolute z-20 flex flex-col items-center justify-center pointer-events-none transform -translate-y-12"
               >
                 {/* Figma Preview Container */}
                 <div className="w-[300px] md:w-[400px] relative">
@@ -196,64 +271,56 @@ export function Projects() {
                       style={{ backgroundImage: `url(${projects[0].image})` }}
                     />
                   </div>
-
-                  {/* Chat Box Overlay (Stage 1 & 2) */}
-                  <motion.div 
-                    style={{ y: chatY, opacity: chatOpacity }}
-                    className="absolute -bottom-8 md:-bottom-10 left-1/2 -translate-x-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[20px] p-3 shadow-[0_24px_48px_rgba(0,0,0,0.25)] border border-[#222] flex flex-col gap-3 z-40 pointer-events-auto"
-                  >
-                    <div className="flex items-center gap-2 px-1">
-                       <div className="flex items-center gap-1.5 px-2 py-1.5 bg-[#222] rounded-[8px] border border-[#333]">
-                          <ImageIcon size={14} className="text-[#aaa]" />
-                          <span className="text-[13px] font-medium text-[#eee]">Project</span>
-                       </div>
-                       <div className="text-[15px] text-[#fff] font-sans flex-1 truncate flex items-center">
-                          {typedText}
-                          <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }} className="inline-block w-[2px] h-[1em] bg-[#fff] ml-[2px]" />
-                       </div>
-                    </div>
-                    
-                    <div className="flex justify-between items-center px-1">
-                       <button className="text-[#888]">
-                          <Paperclip size={18} />
-                       </button>
-                       <div className="flex items-center gap-3">
-                          <button className="text-[#888]">
-                             <Box size={18} />
-                          </button>
-                          <motion.button 
-                             className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm"
-                             style={{ scale: sendBtnScale, opacity: sendBtnOpacity }}
-                          >
-                             <ArrowUp size={16} strokeWidth={3} />
-                          </motion.button>
-                       </div>
-                    </div>
-                  </motion.div>
                 </div>
-              </motion.div>
+              </div>
+              
+              {/* Chat Box Overlay (Stage 1 & 2) */}
+              <div 
+                ref={chatRef}
+                className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[20px] p-3 shadow-[0_24px_48px_rgba(0,0,0,0.25)] border border-[#222] flex flex-col gap-3 z-40 opacity-0 pointer-events-auto"
+              >
+                <div className="flex items-center gap-2 px-1">
+                    <div className="flex items-center gap-1.5 px-2 py-1.5 bg-[#222] rounded-[8px] border border-[#333]">
+                      <ImageIcon size={14} className="text-[#aaa]" />
+                      <span className="text-[13px] font-medium text-[#eee]">Project</span>
+                    </div>
+                    <div className="text-[15px] text-[#fff] font-sans flex-1 truncate flex items-center">
+                      <span ref={typingTextRef}></span>
+                      <span className="inline-block w-[2px] h-[1em] bg-[#fff] ml-[2px] animate-pulse" />
+                    </div>
+                </div>
+                
+                <div className="flex justify-between items-center px-1">
+                    <button className="text-[#888]">
+                      <Paperclip size={18} />
+                    </button>
+                    <div className="flex items-center gap-3">
+                      <button className="text-[#888]">
+                          <Box size={18} />
+                      </button>
+                      <button 
+                          ref={sendBtnRef}
+                          className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm transform-origin-center"
+                      >
+                          <ArrowUp size={16} strokeWidth={3} />
+                      </button>
+                    </div>
+                </div>
+              </div>
 
             </div>
           </div>
         </div>
 
         {/* Stage 5: Expansion - Sequential Cards */}
-        <div className="flex flex-col gap-12 md:gap-24 relative z-20 mt-12 md:mt-24">
-          {projects.slice(1).map((project, index) => (
-            <motion.div
+        <div className="next-cards-container flex flex-col gap-12 md:gap-24 relative z-20 mt-12 md:mt-24">
+          {projects.slice(1).map((project) => (
+            <div
               key={project.id}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ 
-                duration: 0.8, 
-                ease: [0.16, 1, 0.3, 1],
-                delay: index * 0.15 
-              }}
-              className="w-full"
+              className="next-card w-full"
             >
               {renderCardContent(project)}
-            </motion.div>
+            </div>
           ))}
         </div>
         
