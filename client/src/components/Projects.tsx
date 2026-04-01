@@ -12,37 +12,44 @@ export function Projects() {
     offset: ["start start", "end start"]
   });
 
-  // Stage 1: Chat appears (0.05 -> 0.2)
-  // Stage 4: Chat moves away (downward) and fades out (0.45 -> 0.6)
-  const chatY = useTransform(scrollYProgress, [0.05, 0.2, 0.45, 0.6], [40, 0, 0, 60]);
-  const chatOpacity = useTransform(scrollYProgress, [0.05, 0.2, 0.45, 0.6], [0, 1, 1, 0]);
+  // Stage 1: Chat appears (0.05 -> 0.15)
+  // Stage 3: Chat moves slightly downward (0.25 -> 0.35)
+  // Stage 4: Chat moves further downward and fades out (0.35 -> 0.45)
+  const chatY = useTransform(scrollYProgress, [0.05, 0.15, 0.25, 0.35, 0.45], [40, 0, 0, 20, 60]);
+  const chatOpacity = useTransform(scrollYProgress, [0.05, 0.15, 0.35, 0.45], [0, 1, 1, 0]);
 
-  // Stage 2: Typing Interaction (0.2 -> 0.4)
+  // Stage 2: Typing Interaction (0.15 -> 0.25)
   const textToType = "Generate a complete CRM dashboard";
   const [typedText, setTypedText] = useState("");
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    let progress = (latest - 0.2) / 0.2; 
+    let progress = (latest - 0.15) / 0.10; 
     if (progress < 0) progress = 0;
     if (progress > 1) progress = 1;
     setTypedText(textToType.slice(0, Math.round(progress * textToType.length)));
   });
 
-  // Stage 3: Send button animates (0.42 -> 0.48)
-  const sendBtnScale = useTransform(scrollYProgress, [0.42, 0.45, 0.48], [1, 0.85, 1]);
-  const sendBtnOpacity = useTransform(scrollYProgress, [0.42, 0.45, 0.48], [1, 0.7, 1]);
+  // Send button animates right after typing (0.25 -> 0.28)
+  const sendBtnScale = useTransform(scrollYProgress, [0.25, 0.265, 0.28], [1, 0.85, 1]);
+  const sendBtnOpacity = useTransform(scrollYProgress, [0.25, 0.265, 0.28], [1, 0.7, 1]);
 
-  // Stage 4: Image fades out without any scale or position changes (0.45 -> 0.6)
-  const imageLayerOpacity = useTransform(scrollYProgress, [0.45, 0.6], [1, 0]);
+  // Stage 3: Image fades out and slightly pushes back (0.28 -> 0.38)
+  const imageLayerOpacity = useTransform(scrollYProgress, [0.28, 0.38], [1, 0]);
+  const imageLayerScale = useTransform(scrollYProgress, [0.28, 0.38], [1, 0.95]);
   
-  // Stage 4: Card 1 transitions - Fades in EXACTLY over the image, scaling 80% -> 100% (0.45 -> 0.65)
-  const card1Scale = useTransform(scrollYProgress, [0.45, 0.65], [0.8, 1]);
-  const card1Opacity = useTransform(scrollYProgress, [0.45, 0.6], [0, 1]);
+  // Stage 5: Card 1 Entry - Fades in, scaling 80% -> 100% (0.35 -> 0.48)
+  const card1Scale = useTransform(scrollYProgress, [0.35, 0.48], [0.8, 1]);
+  const card1Opacity = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
+
+  // Stage 6: Card Refinement - Loading/Wireframe state to final detail (0.48 -> 0.6)
+  const card1Grayscale = useTransform(scrollYProgress, [0.48, 0.6], [1, 0]);
+  const card1Filter = useTransform(card1Grayscale, (g) => `grayscale(${g * 100}%)`);
+  const card1WireframeOpacity = useTransform(scrollYProgress, [0.48, 0.6], [1, 0]);
 
   // To prevent interaction with card1 while it's hidden
   const [card1Active, setCard1Active] = useState(false);
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setCard1Active(latest >= 0.45);
+    setCard1Active(latest >= 0.4);
   });
 
   const projects = [
@@ -142,15 +149,21 @@ export function Projects() {
               
               {/* Stage 4: Card 1 reveals precisely where the image was */}
               <motion.div 
-                style={{ opacity: card1Opacity, scale: card1Scale }}
+                style={{ opacity: card1Opacity, scale: card1Scale, filter: card1Filter }}
                 className={`w-full relative z-10 transition-all duration-300 ${card1Active ? 'pointer-events-auto' : 'pointer-events-none'}`}
               >
                 {renderCardContent(projects[0])}
+                
+                {/* Wireframe overlay for Stage 5/6 transition */}
+                <motion.div 
+                  className="absolute inset-0 bg-white/40 backdrop-blur-[2px] z-20 pointer-events-none"
+                  style={{ opacity: card1WireframeOpacity }}
+                />
               </motion.div>
 
               {/* Stage 1 & 3: Background Image and Chat Layer */}
               <motion.div 
-                style={{ opacity: imageLayerOpacity }}
+                style={{ opacity: imageLayerOpacity, scale: imageLayerScale }}
                 className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none"
               >
                 {/* Figma Preview Container */}

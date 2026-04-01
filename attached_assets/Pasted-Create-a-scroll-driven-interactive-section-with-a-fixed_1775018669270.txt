@@ -1,0 +1,64 @@
+Create a scroll-driven interactive section with a fixed viewport and progressive transitions.
+
+Layout (Initial State):
+
+The section should occupy 100vh (full viewport height)
+Place heading and subheading at the top
+Below that, place a moderately sized image (not oversized, visually balanced)
+Keep the entire layout clean and centered within the viewport
+
+Stage 1 (Scroll – Chat Entry):
+
+Keep the entire section fixed within the viewport
+Introduce a chat interface from the bottom
+The chat interface should overlap the lower portion of the image
+No scaling — only translate (move up) + fade-in
+
+Stage 2 (Scroll – Typing Interaction):
+
+Keep heading, subheading, image, and chat all visible within the same fixed frame
+Trigger typing animation inside the chat interface
+Text should appear progressively (scroll-synced, not time-based)
+
+Stage 3 (Scroll – Image Fade + Depth):
+
+Gradually fade out the image
+Slightly push the image backward (scale down very subtly or reduce opacity only)
+Move the chat interface slightly downward to shift focus
+
+Stage 4 (Scroll – Chat Exit):
+
+Fade out the chat interface while moving it downward
+Do NOT scale the chat interface
+
+Stage 5 (Scroll – Project Card Entry):
+
+From the exact position of the faded image, introduce a project card
+Initial state: grayscale + wireframe-like (low emphasis, loading feel)
+Animate:
+Scale from 80% → 100%
+Opacity from 0 → 1
+Keep this transition smooth and centered
+
+Stage 6 (Scroll – Card Refinement):
+
+Transition the grayscale/wireframe card into a fully detailed project card
+This should feel like a “loading → final output” transformation
+
+Stage 7 (Scroll – Next Content):
+
+Only after the first project card is fully visible, allow the next card to appear
+Next cards should appear from the bottom (not stacked or overlapping)
+Maintain clear vertical spacing
+
+Animation Guidelines:
+
+All animations must be scroll-linked (not time-based)
+Use smooth easing (ease-in-out)
+Avoid abrupt transitions
+Slight overlaps between stages are allowed for natural flow
+Maintain a calm, premium pace (not too fast)
+
+Goal:
+Create a smooth, narrative-driven interaction where the UI evolves from:
+static layout → system interaction (chat) → transformation → final output (project card).
