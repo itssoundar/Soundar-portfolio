@@ -163,9 +163,9 @@ export function Projects() {
   }, []);
 
   const renderCardContent = (project: typeof projects[0]) => (
-    <div className="w-full bg-white rounded-[24px] md:rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-[#e2e8f0]/60 overflow-hidden flex flex-col md:flex-row">
+    <div className="w-full bg-white rounded-[24px] md:rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-[#e2e8f0]/60 overflow-hidden flex flex-col md:flex-row md:h-[480px]">
       {/* Left Side: Image */}
-      <div className="w-full md:w-[50%] lg:w-[55%] h-[280px] sm:h-[400px] md:h-auto relative overflow-hidden bg-[#f8f9fa] border-b md:border-b-0 md:border-r border-[#e2e8f0]/60">
+      <div className="w-full md:w-[50%] lg:w-[52%] h-[280px] sm:h-[400px] md:h-full relative overflow-hidden bg-[#f8f9fa] border-b md:border-b-0 md:border-r border-[#e2e8f0]/60">
         <div 
           className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${project.image})` }}
@@ -173,8 +173,8 @@ export function Projects() {
       </div>
 
       {/* Right Side: Content */}
-      <div className="w-full md:w-[50%] lg:w-[45%] p-8 md:p-12 lg:p-14 flex flex-col justify-center bg-white">
-        <h3 className="text-[26px] md:text-[32px] lg:text-[34px] font-medium text-[#111] tracking-[-0.02em] leading-[1.25] mb-8">
+      <div className="w-full md:w-[50%] lg:w-[48%] p-8 md:p-10 lg:p-12 flex flex-col justify-center bg-white h-full">
+        <h3 className="text-[24px] md:text-[28px] lg:text-[30px] font-medium text-[#111] tracking-[-0.02em] leading-[1.25] mb-6">
           {project.title}
         </h3>
         
@@ -309,11 +309,11 @@ export function Projects() {
       </div>
 
       {/* Stage 5: Expansion - Sequential Cards */}
-      <div className="next-cards-container flex flex-col gap-12 md:gap-24 relative z-20 mt-12 md:mt-24">
+      <div className="next-cards-container flex flex-col items-center gap-12 md:gap-24 relative z-20 mt-12 md:mt-24 pb-24">
         {projects.slice(1).map((project) => (
           <div
             key={project.id}
-            className="next-card w-full"
+            className="next-card w-[90%] md:w-full max-w-[1000px]"
           >
             {renderCardContent(project)}
           </div>
