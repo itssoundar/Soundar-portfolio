@@ -34,7 +34,6 @@ export function Projects() {
   const imgWidth = useTransform(scrollYProgress, [0.65, 0.75], [100, 55]);
   const contentWidth = useTransform(scrollYProgress, [0.65, 0.75], [0, 45]);
   const contentOpacity = useTransform(scrollYProgress, [0.68, 0.75], [0, 1]);
-  const figmaOpacity = useTransform(scrollYProgress, [0.65, 0.68], [1, 0]);
 
   const containerStyle = {
     width: useMotionTemplate`min(100%, ${useTransform(scrollYProgress, [0.65, 0.75], [340, 1200])}px)`,
@@ -125,34 +124,6 @@ export function Projects() {
                 {/* Left Side: Image / Figma Preview */}
                 <div className="w-full md:w-[var(--img-w)] relative flex-shrink-0 border-b md:border-b-0 md:border-r border-[#e2e8f0]/60">
                   
-                  {/* Figma Overlay */}
-                  <motion.div 
-                    style={{ opacity: figmaOpacity }} 
-                    className="absolute inset-0 z-30 pointer-events-none"
-                  >
-                     {/* Top Bar */}
-                     <div className="absolute -top-[30px] left-0 right-0 flex justify-between items-end mb-2 text-[#111] px-[2px]">
-                        <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide">
-                           <ImageIcon size={13} className="opacity-80" />
-                           <span>Image</span>
-                        </div>
-                        <div className="text-[12px] font-medium text-[#888] tracking-widest">
-                           720 x 960
-                        </div>
-                     </div>
-                     {/* Handles */}
-                     <div className="absolute inset-0 border-[1.5px] border-[#0d99ff]">
-                        <div className="absolute -top-[4px] -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
-                        <div className="absolute -top-[4px] -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
-                        <div className="absolute -bottom-[4px] -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
-                        <div className="absolute -bottom-[4px] -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
-                        <div className="absolute top-1/2 -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-y-1/2"></div>
-                        <div className="absolute top-1/2 -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-y-1/2"></div>
-                        <div className="absolute -top-[4px] left-1/2 w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-x-1/2"></div>
-                        <div className="absolute -bottom-[4px] left-1/2 w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-x-1/2"></div>
-                     </div>
-                  </motion.div>
-
                   {/* The Image */}
                   <div 
                     className="w-full h-[453px] md:h-[453px] lg:h-[500px] bg-cover bg-center group-hover:scale-[1.03] transition-transform duration-700"
