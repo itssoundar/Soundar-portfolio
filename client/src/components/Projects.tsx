@@ -1,47 +1,37 @@
 import { Link } from "wouter";
-import { motion, useScroll, useTransform, useMotionValueEvent, useMotionTemplate } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useRef, useState } from "react";
-import { Image as ImageIcon, Paperclip, Box, ArrowUp, Sparkles } from "lucide-react";
+import { Image as ImageIcon, Paperclip, Box, ArrowUp } from "lucide-react";
 
 export function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
+    offset: ["start start", "end start"]
   });
 
-  // Chat interface appears (0.3 -> 0.45)
-  // Stays during typing (0.45 -> 0.6) and button press (0.6 -> 0.65)
-  // Slides down and fades out (0.65 -> 0.75)
-  const chatBoxY = useTransform(scrollYProgress, [0.3, 0.45, 0.65, 0.75], [100, 0, 0, 150]);
-  const chatBoxOpacity = useTransform(scrollYProgress, [0.3, 0.45, 0.65, 0.75], [0, 1, 1, 0]);
-  const chatBoxScale = useTransform(scrollYProgress, [0.65, 0.75], [1, 0.9]);
+  // Chat interface appears (0.1 -> 0.3)
+  // Stays during typing (0.3 -> 0.5) and button press (0.5 -> 0.6)
+  // Both image and chat scale down and fade out (0.6 -> 0.8)
+  const chatBoxY = useTransform(scrollYProgress, [0.1, 0.3], [50, 0]);
+  const chatBoxOpacity = useTransform(scrollYProgress, [0.1, 0.3], [0, 1]);
 
   const textToType = "Generate a complete CRM dashboard";
   const [typedText, setTypedText] = useState("");
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    let progress = (latest - 0.45) / 0.15; // 0.45 to 0.6
+    let progress = (latest - 0.3) / 0.2; // 0.3 to 0.5
     if (progress < 0) progress = 0;
     if (progress > 1) progress = 1;
     setTypedText(textToType.slice(0, Math.round(progress * textToType.length)));
   });
 
-  const sendBtnScale = useTransform(scrollYProgress, [0.6, 0.62, 0.65], [1, 0.85, 1]);
-  const sendBtnOpacity = useTransform(scrollYProgress, [0.6, 0.62, 0.65], [1, 0.7, 1]);
+  const sendBtnScale = useTransform(scrollYProgress, [0.5, 0.55, 0.6], [1, 0.85, 1]);
+  const sendBtnOpacity = useTransform(scrollYProgress, [0.5, 0.55, 0.6], [1, 0.7, 1]);
 
-  // Small Preview Card Fades Out
-  const smallCardOpacity = useTransform(scrollYProgress, [0.65, 0.68], [1, 0]);
-  const smallCardScale = useTransform(scrollYProgress, [0.65, 0.68], [1, 0.95]);
-
-  // Big Generated Card Fades In
-  const bigCardOpacity = useTransform(scrollYProgress, [0.68, 0.72], [0, 1]);
-  const bigCardScale = useTransform(scrollYProgress, [0.68, 0.75], [0.95, 1]);
-  const bigCardY = useTransform(scrollYProgress, [0.68, 0.75], [40, 0]);
-  
-  // Generation Wipe Effect for Image
-  const generateProgress = useTransform(scrollYProgress, [0.68, 0.75], [0, 100]);
-  const clipPath = useMotionTemplate`polygon(0 0, 100% 0, 100% ${generateProgress}%, 0 ${generateProgress}%)`;
+  // Preview Card & Chat Fades Out Together
+  const previewScale = useTransform(scrollYProgress, [0.6, 0.8], [1, 0.9]);
+  const previewOpacity = useTransform(scrollYProgress, [0.6, 0.8], [1, 0]);
 
   const projects = [
     {
@@ -79,16 +69,13 @@ export function Projects() {
     }
   ];
 
-  const project1 = projects[0];
-  const remainingProjects = projects.slice(1);
-
   return (
     <section id="work" className="relative w-full bg-[#f8f9fa] pb-32 px-4 md:px-12 lg:px-[86px] pt-12 z-20">
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-[#f8f9fa]/80 to-[#f8f9fa] pointer-events-none -translate-y-full z-10" />
       <div className="relative z-20 w-full max-w-[1200px] mx-auto overflow-visible">
         
         {/* Section Header */}
-        <div className="flex flex-col items-center text-center mb-4 md:mb-8">
+        <div className="flex flex-col items-center text-center mb-8 md:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,147 +93,93 @@ export function Projects() {
         </div>
 
         {/* Scroll Interaction Area */}
-        <div ref={containerRef} className="relative h-[200vh] w-full">
-          <div className="sticky top-[15vh] w-full flex flex-col items-center justify-center pt-10 mt-16">
-            <div className="relative flex flex-col items-center w-full min-h-[500px]">
-              
-              {/* STATE 1: SMALL PREVIEW CARD (Fades Out) */}
-              <motion.div 
-                className="absolute top-0 z-20 w-[340px] rounded-2xl overflow-hidden bg-white shadow-sm border border-[#e2e8f0]/60"
-                style={{ opacity: smallCardOpacity, scale: smallCardScale }}
-              >
-                <div className="w-full aspect-[4/3] bg-[#fafafa] relative overflow-hidden flex items-center justify-center">
-                    {/* Placeholder skeleton before generation */}
-                    <div className="w-full h-full flex flex-col gap-4 p-6 opacity-40">
-                        <div className="flex justify-between items-center pb-2">
-                           <div className="flex flex-col gap-2 w-1/2">
-                              <div className="h-4 bg-[#e2e8f0] rounded w-3/4" />
-                              <div className="h-3 bg-[#e2e8f0] rounded w-1/2" />
-                           </div>
-                           <div className="h-8 w-8 bg-[#e2e8f0] rounded-full" />
-                        </div>
-                        <div className="w-full h-24 bg-[#e2e8f0] rounded-xl" />
-                        <div className="flex gap-3 flex-1">
-                           <div className="flex-1 bg-[#e2e8f0] rounded-xl" />
-                           <div className="flex-1 bg-[#e2e8f0] rounded-xl" />
-                        </div>
-                    </div>
+        <div ref={containerRef} className="relative h-[120vh] w-full">
+          <div className="sticky top-[15vh] w-full flex flex-col items-center justify-center pt-10">
+            <motion.div 
+              className="relative flex flex-col items-center w-full max-w-[400px]"
+              style={{ opacity: previewOpacity, scale: previewScale }}
+            >
+              {/* Figma Preview Container */}
+              <div className="w-full relative z-20">
+                {/* Top Bar */}
+                <div className="flex justify-between items-end mb-2 text-[#111] px-[2px]">
+                  <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide">
+                    <ImageIcon size={13} className="opacity-80" />
+                    <span>Image</span>
+                  </div>
+                  <div className="text-[12px] font-medium text-[#888] tracking-widest">
+                    720 x 960
+                  </div>
                 </div>
-              </motion.div>
 
-              {/* STATE 2: BIG GENERATED PROJECT CARD (Fades In) */}
-              <motion.div 
-                className="absolute top-0 z-30 w-full max-w-[1200px] flex flex-col md:flex-row bg-white rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-[#e2e8f0]/60 overflow-hidden"
-                style={{ opacity: bigCardOpacity, scale: bigCardScale, y: bigCardY }}
-              >
-                {/* Left Side: Generated Image with Wipe Effect */}
-                <div className="w-full md:w-[55%] h-[453px] lg:h-[500px] relative flex-shrink-0 border-b md:border-b-0 md:border-r border-[#e2e8f0]/60 overflow-hidden bg-[#fafafa]">
+                {/* Image with Outline */}
+                <div className="w-full aspect-[3/4] relative">
+                  <div className="absolute inset-0 border-[1.5px] border-[#0d99ff] z-20 pointer-events-none">
+                    <div className="absolute -top-[4px] -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
+                    <div className="absolute -top-[4px] -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
+                    <div className="absolute -bottom-[4px] -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
+                    <div className="absolute -bottom-[4px] -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
+                    <div className="absolute top-1/2 -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-y-1/2"></div>
+                    <div className="absolute top-1/2 -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-y-1/2"></div>
+                    <div className="absolute -top-[4px] left-1/2 w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-x-1/2"></div>
+                    <div className="absolute -bottom-[4px] left-1/2 w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-x-1/2"></div>
+                  </div>
+                  <div 
+                    className="w-full h-full bg-cover bg-center bg-[#eef2fc]"
+                    style={{ backgroundImage: `url(${projects[0].image})` }}
+                  />
+                </div>
+
+                {/* Chat Box Overlay (Positioned correctly over bottom edge) */}
+                <motion.div 
+                  style={{ y: chatBoxY, opacity: chatBoxOpacity }}
+                  className="absolute -bottom-8 md:-bottom-10 left-1/2 -translate-x-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[20px] p-3 shadow-[0_24px_48px_rgba(0,0,0,0.25)] border border-[#222] flex flex-col gap-3 z-40 pointer-events-none"
+                >
+                  <div className="flex items-center gap-2 px-1">
+                     <div className="flex items-center gap-1.5 px-2 py-1.5 bg-[#222] rounded-[8px] border border-[#333]">
+                        <ImageIcon size={14} className="text-[#aaa]" />
+                        <span className="text-[13px] font-medium text-[#eee]">Project</span>
+                     </div>
+                     <div className="text-[15px] text-[#fff] font-sans flex-1 truncate flex items-center">
+                        {typedText}
+                        <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }} className="inline-block w-[2px] h-[1em] bg-[#fff] ml-[2px]" />
+                     </div>
+                  </div>
                   
-                  {/* Grid background for "generation" feel */}
-                  <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg, #111 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-                  
-                  {/* Wipe Reveal Image */}
-                  <motion.div 
-                    className="absolute inset-0 w-full h-full bg-cover bg-top z-20"
-                    style={{ 
-                       backgroundImage: `url(${project1.image})`,
-                       clipPath: clipPath
-                    }}
-                  >
-                     {/* Scanning Line at the edge of the wipe */}
-                     <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#0d99ff] shadow-[0_0_15px_rgba(13,153,255,0.8)]" />
-                  </motion.div>
+                  <div className="flex justify-between items-center px-1">
+                     <button className="text-[#888]">
+                        <Paperclip size={18} />
+                     </button>
+                     <div className="flex items-center gap-3">
+                        <button className="text-[#888]">
+                           <Box size={18} />
+                        </button>
+                        <motion.button 
+                           className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm"
+                           style={{ scale: sendBtnScale, opacity: sendBtnOpacity }}
+                        >
+                           <ArrowUp size={16} strokeWidth={3} />
+                        </motion.button>
+                     </div>
+                  </div>
+                </motion.div>
+              </div>
 
-                  {/* "Generating" Overlay Text (Visible before fully generated) */}
-                  <motion.div 
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 z-10 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-[#0d99ff]/20 shadow-[0_4px_20px_rgba(13,153,255,0.15)]"
-                    style={{ opacity: useTransform(scrollYProgress, [0.73, 0.74], [1, 0]) }}
-                  >
-                     <Sparkles size={16} className="text-[#0d99ff] animate-pulse" />
-                     <span className="text-[14px] font-medium text-[#0d99ff]">Generating UI...</span>
-                  </motion.div>
-                </div>
-
-                {/* Right Side: Content */}
-                <div className="w-full md:w-[45%] p-8 md:p-12 lg:p-14 flex flex-col justify-center bg-white">
-                  <h3 className="text-[26px] md:text-[32px] lg:text-[34px] font-medium text-[#111] tracking-[-0.02em] leading-[1.25] mb-8">
-                    {project1.title}
-                  </h3>
-                  
-                  <ul className="space-y-4 mb-10">
-                    {project1.bullets.map((bullet, i) => (
-                      <li key={i} className="flex items-start gap-3.5 text-[#555] text-[15px] md:text-[16px] leading-[1.6]">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#333] mt-[10px] flex-shrink-0" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <Link href={project1.link}>
-                    <button className="px-7 py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-300 w-fit pointer-events-auto">
-                      View Project
-                    </button>
-                  </Link>
-                </div>
-              </motion.div>
-
-              {/* Chat Box */}
-              <motion.div 
-                style={{ y: chatBoxY, opacity: chatBoxOpacity, x: "-50%", scale: chatBoxScale }}
-                className="absolute top-[480px] lg:top-[530px] left-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.15)] border border-[#222] flex flex-col gap-4 z-50 pointer-events-none"
-              >
-                <div className="flex items-center gap-3">
-                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#222] rounded-[10px] border border-[#333]">
-                      <ImageIcon size={14} className="text-[#aaa]" />
-                      <span className="text-[13px] font-medium text-[#eee]">Project</span>
-                   </div>
-                   <div className="text-[15px] text-[#fff] font-sans flex-1 truncate">
-                      {typedText}
-                      <motion.span animate={{ opacity: [1, 0] }} transition={{ repeat: Infinity, duration: 0.8 }} className="inline-block w-[2px] h-[1em] bg-[#fff] align-middle ml-[2px] translate-y-[-1px]" />
-                   </div>
-                </div>
-                
-                <div className="flex justify-between items-center mt-2 px-1">
-                   <button className="p-2 -ml-2 text-[#888] transition-colors rounded-full">
-                      <Paperclip size={18} />
-                   </button>
-                   <div className="flex items-center gap-2">
-                      <button className="p-2 text-[#888] transition-colors rounded-full">
-                         <Box size={18} />
-                      </button>
-                      <motion.button 
-                         className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm"
-                         style={{ scale: sendBtnScale, opacity: sendBtnOpacity }}
-                      >
-                         <ArrowUp size={16} strokeWidth={3} />
-                      </motion.button>
-                   </div>
-                </div>
-              </motion.div>
-
-            </div>
+            </motion.div>
           </div>
         </div>
 
-        {/* Remaining Project Cards */}
-        <div className="flex flex-col gap-12 md:gap-24 pb-24 relative z-20 mt-[30vh]">
-          {remainingProjects.map((project, index) => {
+        {/* Regular Project Cards - Standard rendering */}
+        <div className="flex flex-col gap-12 md:gap-24 relative z-20 -mt-[20vh] md:-mt-[15vh]">
+          {projects.map((project) => {
             return (
-              <motion.div
+              <div
                 key={project.id}
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ 
-                  duration: 0.8, 
-                  ease: [0.16, 1, 0.3, 1],
-                  delay: index * 0.1
-                }}
-                className="w-full bg-white rounded-[24px] md:rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-[#e2e8f0]/60 overflow-hidden flex flex-col md:flex-row group transition-all duration-500 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1"
+                className="w-full bg-white rounded-[24px] md:rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-[#e2e8f0]/60 overflow-hidden flex flex-col md:flex-row group hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-shadow duration-500"
               >
                 {/* Left Side: Image */}
                 <div className="w-full md:w-[50%] lg:w-[55%] h-[280px] sm:h-[400px] md:h-auto relative overflow-hidden bg-[#f8f9fa] border-b md:border-b-0 md:border-r border-[#e2e8f0]/60">
-                  <motion.div 
+                  <div 
                     className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.03]"
                     style={{ backgroundImage: `url(${project.image})` }}
                   />
@@ -268,12 +201,12 @@ export function Projects() {
                   </ul>
 
                   <Link href={project.link}>
-                    <button className="px-7 py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-300 w-fit">
+                    <button className="px-7 py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-300 w-fit pointer-events-auto">
                       View Project
                     </button>
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>
