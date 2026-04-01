@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { motion, useScroll, useTransform, useMotionValueEvent, useMotionTemplate } from "framer-motion";
 import { useRef, useState } from "react";
-import { Image as ImageIcon, Paperclip, Box, ArrowUp } from "lucide-react";
+import { Image as ImageIcon, Paperclip, Box, ArrowUp, Sparkles } from "lucide-react";
 
 export function Projects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -30,24 +30,18 @@ export function Projects() {
   const sendBtnScale = useTransform(scrollYProgress, [0.6, 0.62, 0.65], [1, 0.85, 1]);
   const sendBtnOpacity = useTransform(scrollYProgress, [0.6, 0.62, 0.65], [1, 0.7, 1]);
 
-  // Expanding Card Animation (0.65 -> 0.75)
-  const imgWidth = useTransform(scrollYProgress, [0.65, 0.75], [100, 55]);
-  const contentWidth = useTransform(scrollYProgress, [0.65, 0.75], [0, 45]);
-  const contentOpacity = useTransform(scrollYProgress, [0.68, 0.75], [0, 1]);
+  // Small Preview Card Fades Out
+  const smallCardOpacity = useTransform(scrollYProgress, [0.65, 0.68], [1, 0]);
+  const smallCardScale = useTransform(scrollYProgress, [0.65, 0.68], [1, 0.95]);
 
-  const containerStyle = {
-    width: useMotionTemplate`min(100%, ${useTransform(scrollYProgress, [0.65, 0.75], [340, 1200])}px)`,
-    backgroundColor: useTransform(scrollYProgress, [0.65, 0.7], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]),
-    borderColor: useTransform(scrollYProgress, [0.65, 0.7], ["rgba(226, 232, 240, 0)", "rgba(226, 232, 240, 0.6)"]),
-    boxShadow: useTransform(scrollYProgress, [0.65, 0.75], ["0px 0px 0px rgba(0,0,0,0)", "0px 4px 24px rgba(0,0,0,0.06)"]),
-    borderRadius: useTransform(scrollYProgress, [0.65, 0.75], ["0px", "32px"]),
-    borderWidth: useTransform(scrollYProgress, [0.65, 0.66], ["0px", "1px"]),
-    borderStyle: "solid",
-    overflow: useTransform(scrollYProgress, (latest) => latest > 0.68 ? "hidden" : "visible"),
-    "--img-w": useMotionTemplate`${imgWidth}%`,
-    "--content-w": useMotionTemplate`${contentWidth}%`,
-    "--content-max-h": useMotionTemplate`${useTransform(scrollYProgress, [0.65, 0.75], [0, 1000])}px`,
-  } as any;
+  // Big Generated Card Fades In
+  const bigCardOpacity = useTransform(scrollYProgress, [0.68, 0.72], [0, 1]);
+  const bigCardScale = useTransform(scrollYProgress, [0.68, 0.75], [0.95, 1]);
+  const bigCardY = useTransform(scrollYProgress, [0.68, 0.75], [40, 0]);
+  
+  // Generation Wipe Effect for Image
+  const generateProgress = useTransform(scrollYProgress, [0.68, 0.75], [0, 100]);
+  const clipPath = useMotionTemplate`polygon(0 0, 100% 0, 100% ${generateProgress}%, 0 ${generateProgress}%)`;
 
   const projects = [
     {
@@ -116,53 +110,90 @@ export function Projects() {
           <div className="sticky top-[15vh] w-full flex flex-col items-center justify-center pt-10 mt-16">
             <div className="relative flex flex-col items-center w-full min-h-[500px]">
               
-              {/* Expanding Card */}
+              {/* STATE 1: SMALL PREVIEW CARD (Fades Out) */}
               <motion.div 
-                className="relative mx-auto flex flex-col md:flex-row z-20 transition-transform duration-500 hover:-translate-y-1"
-                style={containerStyle}
+                className="absolute top-0 z-20 w-[340px] rounded-2xl overflow-hidden bg-white shadow-sm border border-[#e2e8f0]/60"
+                style={{ opacity: smallCardOpacity, scale: smallCardScale }}
               >
-                {/* Left Side: Image / Figma Preview */}
-                <div className="w-full md:w-[var(--img-w)] relative flex-shrink-0 border-b md:border-b-0 md:border-r border-[#e2e8f0]/60">
+                <div className="w-full aspect-[4/3] bg-[#fafafa] relative overflow-hidden flex items-center justify-center">
+                    {/* Placeholder skeleton before generation */}
+                    <div className="w-full h-full flex flex-col gap-4 p-6 opacity-40">
+                        <div className="flex justify-between items-center pb-2">
+                           <div className="flex flex-col gap-2 w-1/2">
+                              <div className="h-4 bg-[#e2e8f0] rounded w-3/4" />
+                              <div className="h-3 bg-[#e2e8f0] rounded w-1/2" />
+                           </div>
+                           <div className="h-8 w-8 bg-[#e2e8f0] rounded-full" />
+                        </div>
+                        <div className="w-full h-24 bg-[#e2e8f0] rounded-xl" />
+                        <div className="flex gap-3 flex-1">
+                           <div className="flex-1 bg-[#e2e8f0] rounded-xl" />
+                           <div className="flex-1 bg-[#e2e8f0] rounded-xl" />
+                        </div>
+                    </div>
+                </div>
+              </motion.div>
+
+              {/* STATE 2: BIG GENERATED PROJECT CARD (Fades In) */}
+              <motion.div 
+                className="absolute top-0 z-30 w-full max-w-[1200px] flex flex-col md:flex-row bg-white rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-[#e2e8f0]/60 overflow-hidden"
+                style={{ opacity: bigCardOpacity, scale: bigCardScale, y: bigCardY }}
+              >
+                {/* Left Side: Generated Image with Wipe Effect */}
+                <div className="w-full md:w-[55%] h-[453px] lg:h-[500px] relative flex-shrink-0 border-b md:border-b-0 md:border-r border-[#e2e8f0]/60 overflow-hidden bg-[#fafafa]">
                   
-                  {/* The Image */}
-                  <div 
-                    className="w-full h-[453px] md:h-[453px] lg:h-[500px] bg-cover bg-center group-hover:scale-[1.03] transition-transform duration-700"
-                    style={{ backgroundImage: `url(${project1.image})` }}
-                  />
+                  {/* Grid background for "generation" feel */}
+                  <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#111 1px, transparent 1px), linear-gradient(90deg, #111 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                  
+                  {/* Wipe Reveal Image */}
+                  <motion.div 
+                    className="absolute inset-0 w-full h-full bg-cover bg-top z-20"
+                    style={{ 
+                       backgroundImage: `url(${project1.image})`,
+                       clipPath: clipPath
+                    }}
+                  >
+                     {/* Scanning Line at the edge of the wipe */}
+                     <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#0d99ff] shadow-[0_0_15px_rgba(13,153,255,0.8)]" />
+                  </motion.div>
+
+                  {/* "Generating" Overlay Text (Visible before fully generated) */}
+                  <motion.div 
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2 z-10 bg-white/90 backdrop-blur-md px-5 py-2.5 rounded-full border border-[#0d99ff]/20 shadow-[0_4px_20px_rgba(13,153,255,0.15)]"
+                    style={{ opacity: useTransform(scrollYProgress, [0.73, 0.74], [1, 0]) }}
+                  >
+                     <Sparkles size={16} className="text-[#0d99ff] animate-pulse" />
+                     <span className="text-[14px] font-medium text-[#0d99ff]">Generating UI...</span>
+                  </motion.div>
                 </div>
 
                 {/* Right Side: Content */}
-                <motion.div 
-                  className="w-full md:w-[var(--content-w)] max-h-[var(--content-max-h)] md:max-h-none overflow-hidden flex flex-col justify-center bg-white flex-shrink-0"
-                  style={{ opacity: contentOpacity }}
-                >
-                  <div className="w-full md:w-[calc(1200px*0.45)] p-8 md:p-12 lg:p-14 flex flex-col justify-center">
-                    <h3 className="text-[26px] md:text-[32px] lg:text-[34px] font-medium text-[#111] tracking-[-0.02em] leading-[1.25] mb-8">
-                      {project1.title}
-                    </h3>
-                    
-                    <ul className="space-y-4 mb-10">
-                      {project1.bullets.map((bullet, i) => (
-                        <li key={i} className="flex items-start gap-3.5 text-[#555] text-[15px] md:text-[16px] leading-[1.6]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#333] mt-[10px] flex-shrink-0" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
+                <div className="w-full md:w-[45%] p-8 md:p-12 lg:p-14 flex flex-col justify-center bg-white">
+                  <h3 className="text-[26px] md:text-[32px] lg:text-[34px] font-medium text-[#111] tracking-[-0.02em] leading-[1.25] mb-8">
+                    {project1.title}
+                  </h3>
+                  
+                  <ul className="space-y-4 mb-10">
+                    {project1.bullets.map((bullet, i) => (
+                      <li key={i} className="flex items-start gap-3.5 text-[#555] text-[15px] md:text-[16px] leading-[1.6]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#333] mt-[10px] flex-shrink-0" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
 
-                    <Link href={project1.link}>
-                      <button className="px-7 py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-300 w-fit pointer-events-auto">
-                        View Project
-                      </button>
-                    </Link>
-                  </div>
-                </motion.div>
+                  <Link href={project1.link}>
+                    <button className="px-7 py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-300 w-fit pointer-events-auto">
+                      View Project
+                    </button>
+                  </Link>
+                </div>
               </motion.div>
 
               {/* Chat Box */}
               <motion.div 
                 style={{ y: chatBoxY, opacity: chatBoxOpacity, x: "-50%", scale: chatBoxScale }}
-                className="absolute top-[480px] lg:top-[530px] left-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.15)] border border-[#222] flex flex-col gap-4 z-40 pointer-events-none"
+                className="absolute top-[480px] lg:top-[530px] left-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.15)] border border-[#222] flex flex-col gap-4 z-50 pointer-events-none"
               >
                 <div className="flex items-center gap-3">
                    <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#222] rounded-[10px] border border-[#333]">
@@ -198,7 +229,7 @@ export function Projects() {
         </div>
 
         {/* Remaining Project Cards */}
-        <div className="flex flex-col gap-12 md:gap-24 pb-24 relative z-20 mt-16 md:mt-24">
+        <div className="flex flex-col gap-12 md:gap-24 pb-24 relative z-20 mt-[30vh]">
           {remainingProjects.map((project, index) => {
             return (
               <motion.div
