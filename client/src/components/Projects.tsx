@@ -303,22 +303,22 @@ export function Projects() {
                     </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Stage 5: Expansion - Sequential Cards */}
-        <div className="next-cards-container flex flex-col gap-12 md:gap-24 relative z-20 mt-12 md:mt-24">
-          {projects.slice(1).map((project) => (
-            <div
-              key={project.id}
-              className="next-card w-full"
-            >
-              {renderCardContent(project)}
-            </div>
-          ))}
-        </div>
+      {/* Stage 5: Expansion - Sequential Cards */}
+      <div className="next-cards-container flex flex-col gap-12 md:gap-24 relative z-20 mt-12 md:mt-24">
+        {projects.slice(1).map((project) => (
+          <div
+            key={project.id}
+            className="next-card w-full"
+          >
+            {renderCardContent(project)}
+          </div>
+        ))}
+      </div>
         
       </div>
     </section>
