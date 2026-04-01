@@ -113,9 +113,9 @@ export function Projects() {
         </div>
 
         {/* Scroll Interaction Area */}
-        <div ref={containerRef} className="relative h-[40vh] w-full">
-          <div className="sticky top-[15vh] w-full flex flex-col items-center justify-center pt-10">
-            <div className="relative flex flex-col items-center w-full">
+        <div ref={containerRef} className="relative h-[200vh] w-full">
+          <div className="sticky top-[15vh] w-full flex flex-col items-center justify-center pt-10 mt-16">
+            <div className="relative flex flex-col items-center w-full min-h-[500px]">
               
               {/* Expanding Card */}
               <motion.div 
@@ -155,7 +155,7 @@ export function Projects() {
 
                   {/* The Image */}
                   <div 
-                    className="w-full h-[360px] md:h-[400px] lg:h-[420px] bg-cover bg-center group-hover:scale-[1.03] transition-transform duration-700"
+                    className="w-full h-[453px] md:h-[453px] lg:h-[500px] bg-cover bg-center group-hover:scale-[1.03] transition-transform duration-700"
                     style={{ backgroundImage: `url(${project1.image})` }}
                   />
                 </div>
@@ -165,22 +165,22 @@ export function Projects() {
                   className="w-full md:w-[var(--content-w)] max-h-[var(--content-max-h)] md:max-h-none overflow-hidden flex flex-col justify-center bg-white flex-shrink-0"
                   style={{ opacity: contentOpacity }}
                 >
-                  <div className="w-full md:w-[calc(1200px*0.45)] p-6 md:p-10 lg:p-12 flex flex-col justify-center">
-                    <h3 className="text-[24px] md:text-[28px] lg:text-[32px] font-medium text-[#111] tracking-[-0.02em] leading-[1.2] mb-6">
+                  <div className="w-full md:w-[calc(1200px*0.45)] p-8 md:p-12 lg:p-14 flex flex-col justify-center">
+                    <h3 className="text-[26px] md:text-[32px] lg:text-[34px] font-medium text-[#111] tracking-[-0.02em] leading-[1.25] mb-8">
                       {project1.title}
                     </h3>
                     
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-4 mb-10">
                       {project1.bullets.map((bullet, i) => (
-                        <li key={i} className="flex items-start gap-3.5 text-[#555] text-[14px] md:text-[15px] leading-[1.6]">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#333] mt-[8px] flex-shrink-0" />
+                        <li key={i} className="flex items-start gap-3.5 text-[#555] text-[15px] md:text-[16px] leading-[1.6]">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#333] mt-[10px] flex-shrink-0" />
                           <span>{bullet}</span>
                         </li>
                       ))}
                     </ul>
 
                     <Link href={project1.link}>
-                      <button className="px-6 py-3 rounded-[12px] bg-[#111] text-white font-medium text-[14px] shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-300 w-fit pointer-events-auto">
+                      <button className="px-7 py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-300 w-fit pointer-events-auto">
                         View Project
                       </button>
                     </Link>
@@ -191,7 +191,7 @@ export function Projects() {
               {/* Chat Box */}
               <motion.div 
                 style={{ y: chatBoxY, opacity: chatBoxOpacity, x: "-50%", scale: chatBoxScale }}
-                className="absolute top-[400px] lg:top-[440px] left-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.15)] border border-[#222] flex flex-col gap-4 z-40 pointer-events-none"
+                className="absolute top-[480px] lg:top-[530px] left-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[24px] p-4 shadow-[0_24px_48px_rgba(0,0,0,0.15)] border border-[#222] flex flex-col gap-4 z-40 pointer-events-none"
               >
                 <div className="flex items-center gap-3">
                    <div className="flex items-center gap-1.5 px-3 py-1.5 bg-[#222] rounded-[10px] border border-[#333]">
@@ -227,7 +227,7 @@ export function Projects() {
         </div>
 
         {/* Remaining Project Cards */}
-        <div className="flex flex-col gap-12 md:gap-24 pb-24 relative z-20 mt-8 md:mt-12">
+        <div className="flex flex-col gap-12 md:gap-24 pb-24 relative z-20 mt-16 md:mt-24">
           {remainingProjects.map((project, index) => {
             return (
               <motion.div
