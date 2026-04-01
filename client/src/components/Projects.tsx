@@ -13,10 +13,9 @@ export function Projects() {
   });
 
   // Stage 1: Chat appears (0.05 -> 0.2)
-  // Stage 3: Chat moves slightly downward (0.4 -> 0.5)
-  // Stage 4: Chat fades out along with image (0.45 -> 0.55)
-  const chatY = useTransform(scrollYProgress, [0.05, 0.2, 0.4, 0.5], [40, 0, 0, 20]);
-  const chatOpacity = useTransform(scrollYProgress, [0.05, 0.2, 0.45, 0.55], [0, 1, 1, 0]);
+  // Stage 4: Chat moves away (downward) and fades out (0.45 -> 0.6)
+  const chatY = useTransform(scrollYProgress, [0.05, 0.2, 0.45, 0.6], [40, 0, 0, 60]);
+  const chatOpacity = useTransform(scrollYProgress, [0.05, 0.2, 0.45, 0.6], [0, 1, 1, 0]);
 
   // Stage 2: Typing Interaction (0.2 -> 0.4)
   const textToType = "Generate a complete CRM dashboard";
@@ -33,19 +32,17 @@ export function Projects() {
   const sendBtnScale = useTransform(scrollYProgress, [0.42, 0.45, 0.48], [1, 0.85, 1]);
   const sendBtnOpacity = useTransform(scrollYProgress, [0.42, 0.45, 0.48], [1, 0.7, 1]);
 
-  // Stage 3 & 4: Image fades out and scales down slightly
-  const imageLayerScale = useTransform(scrollYProgress, [0.45, 0.55], [1, 0.95]);
-  const imageLayerOpacity = useTransform(scrollYProgress, [0.45, 0.55], [1, 0]);
+  // Stage 4: Image fades out without any scale or position changes (0.45 -> 0.6)
+  const imageLayerOpacity = useTransform(scrollYProgress, [0.45, 0.6], [1, 0]);
   
-  // Stage 4: Card 1 transitions - Fades in EXACTLY over the image
-  const card1Scale = useTransform(scrollYProgress, [0.5, 0.65], [0.8, 1]);
-  const card1Opacity = useTransform(scrollYProgress, [0.5, 0.6], [0, 1]);
-  const card1Y = useTransform(scrollYProgress, [0.5, 0.65], [30, 0]);
+  // Stage 4: Card 1 transitions - Fades in EXACTLY over the image, scaling 80% -> 100% (0.45 -> 0.65)
+  const card1Scale = useTransform(scrollYProgress, [0.45, 0.65], [0.8, 1]);
+  const card1Opacity = useTransform(scrollYProgress, [0.45, 0.6], [0, 1]);
 
   // To prevent interaction with card1 while it's hidden
   const [card1Active, setCard1Active] = useState(false);
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    setCard1Active(latest >= 0.5);
+    setCard1Active(latest >= 0.45);
   });
 
   const projects = [
@@ -145,7 +142,7 @@ export function Projects() {
               
               {/* Stage 1 & 3: Background Image and Chat Layer */}
               <motion.div 
-                style={{ opacity: imageLayerOpacity, scale: imageLayerScale }}
+                style={{ opacity: imageLayerOpacity }}
                 className="absolute z-20 flex flex-col items-center w-[300px] md:w-[400px] pointer-events-none"
               >
                 {/* Figma Preview Container */}
@@ -217,7 +214,7 @@ export function Projects() {
 
               {/* Stage 4: Card 1 reveals precisely where the image was */}
               <motion.div 
-                style={{ opacity: card1Opacity, scale: card1Scale, y: card1Y }}
+                style={{ opacity: card1Opacity, scale: card1Scale }}
                 className={`w-full absolute z-10 transition-all duration-300 ${card1Active ? 'pointer-events-auto' : 'pointer-events-none'}`}
               >
                 {renderCardContent(projects[0])}
