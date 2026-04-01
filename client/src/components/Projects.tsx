@@ -60,7 +60,7 @@ export function Projects() {
         start: "top top",
         end: "bottom bottom",
         scrub: 1.2, // Smooth scrubbing
-        pin: ".sticky-content", // Pin the sticky container
+        // CSS position: sticky is handling the pinning
       }
     });
 
@@ -163,11 +163,11 @@ export function Projects() {
   }, []);
 
   const renderCardContent = (project: typeof projects[0]) => (
-    <div className="w-full bg-white rounded-[24px] md:rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-[#e2e8f0]/60 overflow-hidden flex flex-col md:flex-row group hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-shadow duration-500">
+    <div className="w-full bg-white rounded-[24px] md:rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-[#e2e8f0]/60 overflow-hidden flex flex-col md:flex-row">
       {/* Left Side: Image */}
       <div className="w-full md:w-[50%] lg:w-[55%] h-[280px] sm:h-[400px] md:h-auto relative overflow-hidden bg-[#f8f9fa] border-b md:border-b-0 md:border-r border-[#e2e8f0]/60">
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-[1.03]"
+          className="absolute inset-0 w-full h-full bg-cover bg-center"
           style={{ backgroundImage: `url(${project.image})` }}
         />
       </div>
@@ -206,7 +206,7 @@ export function Projects() {
         <div ref={containerRef} className="h-[400vh] relative w-full">
           
           {/* Pinned Section */}
-          <div className="sticky-content sticky top-[10vh] w-full h-[85vh] flex flex-col items-center pt-4 overflow-hidden">
+          <div className="sticky-content sticky top-[5vh] md:top-[10vh] w-full min-h-[85vh] flex flex-col items-center pt-4">
             
             {/* Initial State: Heading & Subtext */}
             <div className="flex flex-col items-center text-center mb-8 md:mb-12 flex-shrink-0">
@@ -222,20 +222,22 @@ export function Projects() {
             <div className="relative w-full flex-1 flex justify-center items-center mt-4">
               
               {/* Stage 4: Card 1 reveals precisely where the image was */}
-              <div 
-                ref={card1Ref}
-                className="w-[90%] md:w-full max-w-[1000px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-auto opacity-0"
-                style={{ transform: "translate(-50%, -50%) scale(0.8)" }}
-              >
-                {renderCardContent(projects[0])}
+              <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
+                <div 
+                  ref={card1Ref}
+                  className="w-[90%] md:w-full max-w-[1000px] opacity-0 pointer-events-auto"
+                >
+                  {renderCardContent(projects[0])}
+                </div>
               </div>
 
               {/* Stage 1 & 3: Background Image and Chat Layer */}
-              <div 
-                ref={imageRef}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 flex flex-col items-center justify-center pointer-events-none"
-              >
-                {/* Figma Preview Container */}
+              <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+                <div 
+                  ref={imageRef}
+                  className="flex flex-col items-center justify-center"
+                >
+                  {/* Figma Preview Container */}
                 <div className="w-[300px] md:w-[400px] relative">
                   {/* Top Bar */}
                   <div className="flex justify-between items-end mb-2 text-[#111] px-[2px]">
