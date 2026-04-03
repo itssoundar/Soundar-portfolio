@@ -214,20 +214,20 @@ export function Projects() {
         <div ref={containerRef} className="h-[400vh] relative w-full">
           
           {/* Pinned Section */}
-          <div className="sticky-content sticky top-[80px] md:top-[10vh] w-full flex flex-col pt-4">
+          <div className="sticky-content sticky top-[60px] sm:top-[80px] md:top-[10vh] w-full flex flex-col pt-4 pb-2 sm:pb-6 h-[calc(100svh-60px)] sm:h-[calc(100svh-80px)] md:h-auto md:min-h-[80vh]">
             
             {/* Initial State: Heading & Subtext */}
-            <div className="flex flex-col items-center text-center mb-4 md:mb-12 flex-shrink-0">
-              <h2 className="text-[28px] md:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-3 md:mb-4">
+            <div className="flex flex-col items-center text-center mb-1 sm:mb-4 md:mb-12 flex-shrink-0">
+              <h2 className="text-[28px] md:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-2 sm:mb-3 md:mb-4">
                 Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
               </h2>
-              <p className="text-[15px] md:text-[18px] text-[#555] max-w-[600px] leading-relaxed px-4 md:px-0">
+              <p className="text-[14px] sm:text-[15px] md:text-[18px] text-[#555] max-w-[600px] leading-relaxed px-4 md:px-0">
                 From navigating early-stage ambiguity to building scalable systems, I design solutions that convert innovation into measurable impact.
               </p>
             </div>
 
             {/* Visual Transformation Area */}
-            <div className="relative w-full flex-1 flex justify-center items-center mt-2 md:mt-4 h-[450px] sm:h-[500px] md:h-[600px] min-h-[450px] sm:min-h-[500px] md:min-h-[600px]">
+            <div className="relative w-full flex-1 min-h-[300px] flex justify-center items-center mt-2 md:mt-4 sm:h-[500px] md:h-[600px] sm:min-h-[500px] md:min-h-[600px]">
               
               {/* Stage 4: Card 1 reveals precisely where the image was */}
               <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
@@ -313,7 +313,7 @@ export function Projects() {
               </div>
               
               {/* Chat Box Wrapper - Absolute bottom center */}
-              <div className="absolute -bottom-12 sm:-bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-50 w-[92%] sm:w-full max-w-[640px] sm:px-4 pointer-events-none">
+              <div className="absolute bottom-0 sm:-bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-50 w-[92%] sm:w-full max-w-[640px] sm:px-4 pointer-events-none">
                 <div 
                   ref={chatRef}
                   className="w-full bg-[#111] rounded-[20px] sm:rounded-[20px] md:rounded-[32px] p-4 sm:p-4 md:p-5 shadow-[0_32px_80px_rgba(0,0,0,0.4)] border border-[#222] flex flex-col gap-3 sm:gap-3 opacity-0 pointer-events-auto transform translate-y-12"
