@@ -205,9 +205,8 @@ export function Projects() {
   );
 
   return (
-    <section id="work" className="relative w-full bg-[#f8f9fa] pb-32 px-4 md:px-12 lg:px-[86px] pt-12 z-20">
+    <section id="work" className="relative w-full bg-[#f8f9fa] px-4 md:px-12 lg:px-[86px] pt-12 z-20 pb-[48px]">
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-[#f8f9fa]/80 to-[#f8f9fa] pointer-events-none -translate-y-full z-10" />
-      
       <div className="relative z-20 w-full max-w-[1200px] mx-auto overflow-visible">
         
         {/* Scroll Interaction Container - Tall enough for scrubbing */}
