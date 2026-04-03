@@ -313,7 +313,7 @@ export function Projects() {
               </div>
               
               {/* Chat Box Wrapper - Absolute bottom center */}
-              <div className="absolute bottom-0 sm:-bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-50 w-[92%] sm:w-full max-w-[640px] sm:px-4 pointer-events-none">
+              <div className="absolute bottom-[28px] sm:-bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-50 w-[92%] sm:w-full max-w-[640px] sm:px-4 pointer-events-none">
                 <div 
                   ref={chatRef}
                   className="w-full bg-[#111] rounded-[20px] sm:rounded-[20px] md:rounded-[32px] p-4 sm:p-4 md:p-5 shadow-[0_32px_80px_rgba(0,0,0,0.4)] border border-[#222] flex flex-col gap-3 sm:gap-3 opacity-0 pointer-events-auto transform translate-y-12"
