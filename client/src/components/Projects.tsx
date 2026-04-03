@@ -237,37 +237,11 @@ export function Projects() {
                   ref={imageRef}
                   className="flex flex-col items-center justify-center"
                 >
-                  {/* Figma Preview Container */}
-                <div className="w-[300px] md:w-[400px] relative">
-                  {/* Top Bar */}
-                  <div className="flex justify-between items-end mb-2 text-[#111] px-[2px]">
-                    <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide">
-                      <ImageIcon size={13} className="opacity-80" />
-                      <span>Image</span>
-                    </div>
-                    <div className="text-[12px] font-medium text-[#888] tracking-widest">
-                      720 x 960
-                    </div>
-                  </div>
-
-                  {/* Image with Outline */}
-                  <div className="w-full aspect-[3/4] relative">
-                    <div className="absolute inset-0 border-[1.5px] border-[#0d99ff] z-20 pointer-events-none">
-                      <div className="absolute -top-[4px] -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
-                      <div className="absolute -top-[4px] -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
-                      <div className="absolute -bottom-[4px] -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
-                      <div className="absolute -bottom-[4px] -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff]"></div>
-                      <div className="absolute top-1/2 -left-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-y-1/2"></div>
-                      <div className="absolute top-1/2 -right-[4px] w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-y-1/2"></div>
-                      <div className="absolute -top-[4px] left-1/2 w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-x-1/2"></div>
-                      <div className="absolute -bottom-[4px] left-1/2 w-2 h-2 bg-white border-[1.5px] border-[#0d99ff] -translate-x-1/2"></div>
-                    </div>
-                    <div 
-                      className="w-full h-full bg-cover bg-center bg-[#eef2fc]"
-                      style={{ backgroundImage: `url(${projects[0].image})` }}
-                    />
-                  </div>
-                </div>
+                  <img 
+                    src="/Soundarbio.png" 
+                    alt="Process Preview"
+                    className="w-[320px] md:w-[460px] h-auto object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.12)]"
+                  />
               </div>
               
               {/* Chat Box Overlay (Stage 1 & 2) */}
