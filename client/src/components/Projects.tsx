@@ -303,7 +303,7 @@ export function Projects() {
                     <img 
                       src="/Soundar1.png" 
                       alt="Process Preview"
-                      className="h-[350px] sm:h-[280px] md:h-[380px] w-auto object-contain object-bottom mx-auto transform translate-y-12 scale-[1.15] sm:scale-100 sm:-translate-y-12 md:-translate-y-12 lg:-translate-y-16"
+                      className="h-[350px] sm:h-[280px] md:h-[380px] w-auto object-contain object-bottom mx-auto transform -translate-y-56 scale-[1.15] sm:scale-100 sm:-translate-y-12 md:-translate-y-12 lg:-translate-y-16"
                     />
                     {/* Bottom gradient fade specifically for the image */}
                     <div className="absolute bottom-[-20px] sm:bottom-4 left-0 right-0 h-32 sm:h-24 md:h-32 bg-gradient-to-t from-[#f8f9fa] via-[#f8f9fa]/90 to-transparent pointer-events-none z-30" />
