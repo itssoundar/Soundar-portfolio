@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 import { useEffect, useRef } from "react";
-import { Image as ImageIcon, Paperclip, Box, ArrowUp } from "lucide-react";
+import { Image as ImageIcon, Paperclip, Box, ArrowUp, PenTool, Layers, TrendingUp } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -68,7 +68,7 @@ export function Projects() {
 
     // Stage 1 — Chat enters
     tl.to(chatRef.current, {
-      y: -120, // Move up into view
+      y: -80, // Move up into view
       opacity: 1,
       duration: 1,
       ease: "power2.out"
@@ -235,46 +235,104 @@ export function Projects() {
               <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
                 <div 
                   ref={imageRef}
-                  className="flex flex-col items-center justify-center"
+                  className="flex flex-col items-center justify-center relative w-full max-w-[800px] h-[400px] md:h-[500px]"
                 >
-                  <img 
-                    src="/Soundarbio.png" 
-                    alt="Process Preview"
-                    className="w-[320px] md:w-[460px] h-auto object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.12)]"
-                  />
+                  {/* Floating elements behind/around the main image */}
+                  <div className="absolute top-10 left-0 md:-left-16 flex flex-col gap-4 z-10 hidden sm:flex">
+                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0]">
+                      <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center text-white shrink-0 shadow-inner">
+                        <PenTool size={16} />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[13px] font-semibold text-[#111] leading-tight">End-to-end Product Design</span>
+                        <span className="text-[11px] text-[#666] leading-tight mt-0.5">CRM, AI tools, analytics dashboards</span>
+                      </div>
+                    </div>
+                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0]">
+                      <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center text-white shrink-0 shadow-inner">
+                        <Layers size={16} />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[13px] font-semibold text-[#111] leading-tight">Design Systems</span>
+                        <span className="text-[11px] text-[#666] leading-tight mt-0.5">Built scalable UI systems<br/>across products</span>
+                      </div>
+                    </div>
+                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0]">
+                      <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center text-white shrink-0 shadow-inner">
+                        <TrendingUp size={16} />
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-[13px] font-semibold text-[#111] leading-tight">Workflow Optimization</span>
+                        <span className="text-[11px] text-[#666] leading-tight mt-0.5">Improved task efficiency<br/>and usability</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right side floating cards */}
+                  <div className="absolute top-4 right-0 md:-right-12 flex flex-col gap-6 z-10 rotate-6 hidden sm:flex">
+                    <div className="bg-white p-4 md:p-5 rounded-[24px] shadow-[0_12px_40px_rgba(0,0,0,0.08)] flex flex-col w-[150px] md:w-[170px] border border-[#f0f0f0]">
+                      <span className="text-[9px] md:text-[10px] text-[#666] font-medium tracking-wide mb-2 bg-[#f8f9fa] w-fit px-2.5 py-1 rounded-full border border-[#eee]">Impact</span>
+                      <span className="text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">+32%</span>
+                      <span className="text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Conversion Increase</span>
+                      <span className="text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Optimized onboarding for SaaS CRM</span>
+                      <div className="w-7 h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto">
+                        <TrendingUp size={14} />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-16 right-4 md:-right-8 flex flex-col gap-6 z-10 -rotate-3 hidden sm:flex">
+                    <div className="bg-white p-4 md:p-5 rounded-[24px] shadow-[0_12px_40px_rgba(0,0,0,0.08)] flex flex-col w-[150px] md:w-[170px] border border-[#f0f0f0]">
+                      <span className="text-[9px] md:text-[10px] text-[#666] font-medium tracking-wide mb-2 bg-[#f8f9fa] w-fit px-2.5 py-1 rounded-full border border-[#eee]">Impact</span>
+                      <span className="text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">-25%</span>
+                      <span className="text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Reduced Drop-off</span>
+                      <span className="text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Simplified multi-step workflows</span>
+                      <div className="w-7 h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto">
+                        <TrendingUp size={14} className="rotate-180" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="relative z-20 mt-8 md:mt-12">
+                    <img 
+                      src="/Soundarbio.png" 
+                      alt="Process Preview"
+                      className="h-[280px] md:h-[380px] w-auto object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.12)]"
+                    />
+                    {/* Bottom gradient fade specifically for the image */}
+                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#f8f9fa] to-transparent pointer-events-none z-30" />
+                  </div>
               </div>
               
               {/* Chat Box Overlay (Stage 1 & 2) */}
               <div 
                 ref={chatRef}
-                className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[340px] md:w-[460px] bg-[#111] rounded-[20px] p-3 shadow-[0_24px_48px_rgba(0,0,0,0.25)] border border-[#222] flex flex-col gap-3 z-40 opacity-0 pointer-events-auto"
+                className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[340px] md:w-[640px] bg-[#151515] rounded-[100px] px-6 py-4 shadow-[0_24px_64px_rgba(0,0,0,0.4)] border border-[#333] flex items-center justify-between z-40 opacity-0 pointer-events-auto"
               >
-                <div className="flex items-center gap-2 px-1">
-                    <div className="flex items-center gap-1.5 px-2 py-1.5 bg-[#222] rounded-[8px] border border-[#333]">
+                <div className="flex items-center gap-4 flex-1">
+                    <button className="text-[#666] hover:text-[#aaa] transition-colors shrink-0">
+                      <Paperclip size={20} />
+                    </button>
+                    <div className="flex items-center gap-2 px-3 py-1.5 bg-[#252525] rounded-[8px] border border-[#333] shrink-0">
                       <ImageIcon size={14} className="text-[#aaa]" />
                       <span className="text-[13px] font-medium text-[#eee]">Project</span>
                     </div>
-                    <div className="text-[15px] text-[#fff] font-sans flex-1 truncate flex items-center">
+                    <div className="text-[16px] text-[#fff] font-sans flex-1 truncate flex items-center tracking-wide">
                       <span ref={typingTextRef}></span>
-                      <span className="inline-block w-[2px] h-[1em] bg-[#fff] ml-[2px] animate-pulse" />
+                      <span className="inline-block w-[2px] h-[1.1em] bg-[#fff] ml-[2px] animate-pulse" />
                     </div>
                 </div>
                 
-                <div className="flex justify-between items-center px-1">
-                    <button className="text-[#888]">
-                      <Paperclip size={18} />
-                    </button>
-                    <div className="flex items-center gap-3">
-                      <button className="text-[#888]">
-                          <Box size={18} />
-                      </button>
-                      <button 
-                          ref={sendBtnRef}
-                          className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm transform-origin-center"
-                      >
-                          <ArrowUp size={16} strokeWidth={3} />
-                      </button>
-                    </div>
+                <div className="flex items-center gap-5 shrink-0 pl-4">
+                  <button className="text-[#666] hover:text-[#aaa] transition-colors">
+                      <Box size={20} />
+                  </button>
+                  <button 
+                      ref={sendBtnRef}
+                      className="w-10 h-10 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm transform-origin-center hover:scale-105 transition-transform"
+                  >
+                      <ArrowUp size={20} strokeWidth={3} />
+                  </button>
                 </div>
               </div>
             </div>
