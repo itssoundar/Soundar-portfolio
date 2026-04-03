@@ -238,14 +238,14 @@ export function Projects() {
               </div>
 
               {/* Stage 1 & 3: Background Image and Chat Layer */}
-              <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none mt-16 sm:mt-0">
+              <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none mt-0 sm:mt-0">
                 <div 
                   ref={imageRef}
-                  className="flex flex-col items-center justify-center relative w-full max-w-[800px] h-[300px] sm:h-[400px] md:h-[500px] -translate-y-20 sm:translate-y-0"
+                  className="flex flex-col items-center justify-center relative w-full max-w-[800px] h-[450px] sm:h-[400px] md:h-[500px] -translate-y-4 sm:translate-y-0"
                 >
                   {/* Floating elements behind/around the main image */}
-                  <div className="absolute -top-6 sm:top-10 left-0 sm:-left-8 md:-left-16 lg:-left-24 flex flex-col gap-2 sm:gap-4 z-10 scale-[0.6] sm:scale-90 lg:scale-100 origin-left">
-                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] scale-[0.65] sm:scale-90 lg:scale-100 origin-left">
+                  <div className="absolute top-[120px] sm:top-10 -left-6 sm:-left-8 md:-left-16 lg:-left-24 flex flex-col gap-2.5 sm:gap-4 z-20 scale-[0.6] sm:scale-90 lg:scale-100 origin-left">
+                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] origin-left">
                       <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center text-white shrink-0 shadow-inner">
                         <PenTool size={16} />
                       </div>
@@ -254,7 +254,7 @@ export function Projects() {
                         <span className="text-[11px] text-[#666] leading-tight mt-0.5">CRM, AI tools, analytics dashboards</span>
                       </div>
                     </div>
-                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] scale-[0.65] sm:scale-[0.8] lg:scale-100 origin-left">
+                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] origin-left">
                       <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center text-white shrink-0 shadow-inner">
                         <Layers size={16} />
                       </div>
@@ -263,7 +263,7 @@ export function Projects() {
                         <span className="text-[11px] text-[#666] leading-tight mt-0.5">Built scalable UI systems<br/>across products</span>
                       </div>
                     </div>
-                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] scale-[0.65] sm:scale-75 lg:scale-100 origin-left flex">
+                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] origin-left flex">
                       <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center text-white shrink-0 shadow-inner">
                         <TrendingUp size={16} />
                       </div>
@@ -275,55 +275,53 @@ export function Projects() {
                   </div>
 
                   {/* Right side floating cards */}
-                  <div className="absolute -top-24 sm:top-4 right-0 sm:right-0 md:-right-12 lg:-right-16 flex flex-col gap-6 z-10 rotate-6 origin-right scale-[0.65] sm:scale-90 lg:scale-100">
-                    <div className="bg-white p-3.5 md:p-5 rounded-[24px] shadow-[0_12px_40px_rgba(0,0,0,0.08)] flex flex-col w-[130px] sm:w-[150px] md:w-[170px] border border-[#f0f0f0]">
+                  <div className="absolute top-[80px] sm:top-4 -right-6 sm:right-0 md:-right-12 lg:-right-16 flex flex-col z-10 rotate-[6deg] origin-right scale-[0.65] sm:scale-90 lg:scale-100">
+                    <div className="bg-white p-3.5 md:p-5 rounded-[16px] shadow-[0_12px_40px_rgba(0,0,0,0.08)] flex flex-col w-[150px] sm:w-[150px] md:w-[170px] border border-[#f0f0f0]">
                       <span className="text-[9px] md:text-[10px] text-[#666] font-medium tracking-wide mb-2 bg-[#f8f9fa] w-fit px-2.5 py-1 rounded-full border border-[#eee]">Impact</span>
-                      <span className="text-[20px] sm:text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">+32%</span>
-                      <span className="text-[11px] sm:text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Conversion Increase</span>
-                      <span className="text-[9px] sm:text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Optimized onboarding for SaaS CRM</span>
-                      <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto">
+                      <span className="text-[24px] sm:text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">+32%</span>
+                      <span className="text-[12px] sm:text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Conversion Increase</span>
+                      <span className="text-[10px] sm:text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Optimized onboarding for SaaS CRM</span>
+                      <div className="w-7 h-7 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto opacity-0 hidden">
                         <TrendingUp size={14} />
                       </div>
                     </div>
                   </div>
 
-                  <div className="absolute bottom-32 sm:bottom-28 md:bottom-24 right-0 sm:right-4 md:-right-8 lg:-right-12 flex flex-col gap-6 z-10 -rotate-3 origin-right scale-[0.65] sm:scale-90 lg:scale-100">
-                    <div className="bg-white p-3.5 md:p-5 rounded-[24px] shadow-[0_12px_40px_rgba(0,0,0,0.08)] flex flex-col w-[130px] sm:w-[150px] md:w-[170px] border border-[#f0f0f0]">
+                  <div className="absolute top-[170px] sm:bottom-28 md:bottom-24 -right-1 sm:right-4 md:-right-8 lg:-right-12 flex flex-col z-20 -rotate-[3deg] origin-right scale-[0.65] sm:scale-90 lg:scale-100">
+                    <div className="bg-white p-3.5 md:p-5 rounded-[16px] shadow-[-8px_12px_40px_rgba(0,0,0,0.12)] flex flex-col w-[150px] sm:w-[150px] md:w-[170px] border border-[#f0f0f0]">
                       <span className="text-[9px] md:text-[10px] text-[#666] font-medium tracking-wide mb-2 bg-[#f8f9fa] w-fit px-2.5 py-1 rounded-full border border-[#eee]">Impact</span>
-                      <span className="text-[20px] sm:text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">-25%</span>
-                      <span className="text-[11px] sm:text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Reduced Drop-off</span>
-                      <span className="text-[9px] sm:text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Simplified multi-step workflows</span>
-                      <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto">
+                      <span className="text-[24px] sm:text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">-25%</span>
+                      <span className="text-[12px] sm:text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Reduced Drop-off</span>
+                      <span className="text-[10px] sm:text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Simplified multi-step workflows</span>
+                      <div className="w-7 h-7 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto">
                         <TrendingUp size={14} className="rotate-180" />
                       </div>
                     </div>
                   </div>
 
-                  <div className="relative z-20 mt-0 md:mt-12 flex-1 flex flex-col justify-center max-h-[300px] sm:max-h-full w-full pointer-events-none">
+                  <div className="relative z-10 mt-10 md:mt-12 flex-1 flex flex-col justify-center max-h-[350px] sm:max-h-full w-full pointer-events-none">
                     <img 
                       src="/Soundar1.png" 
                       alt="Process Preview"
-                      className="h-[250px] sm:h-[280px] md:h-[380px] w-auto object-contain object-bottom mx-auto transform translate-y-36 sm:-translate-y-12 md:-translate-y-12 lg:-translate-y-16"
+                      className="h-[350px] sm:h-[280px] md:h-[380px] w-auto object-contain object-bottom mx-auto transform translate-y-12 scale-[1.15] sm:scale-100 sm:-translate-y-12 md:-translate-y-12 lg:-translate-y-16"
                     />
                     {/* Bottom gradient fade specifically for the image */}
-                    <div className="absolute bottom-2 sm:bottom-4 left-0 right-0 h-16 sm:h-24 md:h-32 bg-gradient-to-t from-[#f8f9fa] to-transparent pointer-events-none z-30" />
+                    <div className="absolute bottom-[-20px] sm:bottom-4 left-0 right-0 h-32 sm:h-24 md:h-32 bg-gradient-to-t from-[#f8f9fa] via-[#f8f9fa]/90 to-transparent pointer-events-none z-30" />
                   </div>
               </div>
               
               {/* Chat Box Wrapper - Absolute bottom center */}
-              <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-full max-w-[640px] sm:px-4 pointer-events-none">
+              <div className="absolute bottom-[30px] md:bottom-12 left-1/2 -translate-x-1/2 z-50 w-[92%] sm:w-full max-w-[640px] sm:px-4 pointer-events-none">
                 <div 
                   ref={chatRef}
-                  className="w-full bg-[#151515]/95 backdrop-blur-xl rounded-[16px] sm:rounded-[20px] md:rounded-[32px] p-3 sm:p-4 md:p-5 shadow-[0_32px_80px_rgba(0,0,0,0.4)] border border-[#333] flex flex-col gap-2 sm:gap-3 opacity-0 pointer-events-auto transform translate-y-12"
+                  className="w-full bg-[#111] rounded-[20px] sm:rounded-[20px] md:rounded-[32px] p-4 sm:p-4 md:p-5 shadow-[0_32px_80px_rgba(0,0,0,0.4)] border border-[#222] flex flex-col gap-3 sm:gap-3 opacity-0 pointer-events-auto transform translate-y-12"
                 >
                   {/* Top Row: Text */}
                   <div className="flex-1 min-w-0 max-h-[100px] sm:max-h-[140px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                    <div className="text-[12px] sm:text-[15px] md:text-[16px] text-[#fff] font-sans w-full tracking-wide leading-[18px] sm:leading-[26px] md:leading-[28px] text-left">
-                      <span className="inline-flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 h-[18px] sm:h-[26px] md:h-7 bg-[#252525] rounded-[4px] sm:rounded-[6px] md:rounded-[8px] border border-[#333] align-middle mr-1.5 sm:mr-2 md:mr-2.5 -mt-1">
-                        <ImageIcon size={8} className="text-[#aaa] sm:hidden" />
-                        <ImageIcon size={10} className="text-[#aaa] hidden sm:block md:hidden" />
-                        <ImageIcon size={12} className="text-[#aaa] hidden md:block" />
-                        <span className="text-[9px] sm:text-[12px] md:text-[13px] font-medium text-[#eee]">Project</span>
+                    <div className="text-[14px] sm:text-[15px] md:text-[16px] text-[#fff] font-sans w-full tracking-wide leading-[22px] sm:leading-[26px] md:leading-[28px] text-left">
+                      <span className="inline-flex items-center justify-center gap-1.5 px-2 h-[24px] bg-[#222] rounded-[6px] border border-[#333] align-middle mr-2 -mt-1">
+                        <ImageIcon size={10} className="text-[#aaa]" />
+                        <span className="text-[11px] font-medium text-[#eee]">Project</span>
                       </span>
                       <span ref={typingTextRef} className="whitespace-pre-wrap break-words align-middle" style={{ lineHeight: '1.6' }}></span>
                       <span className="inline-block w-[2px] h-[1.2em] bg-[#fff] ml-[2px] animate-pulse align-middle -mt-[2px]"></span>
@@ -331,23 +329,20 @@ export function Projects() {
                   </div>
                   
                   {/* Bottom Row: Actions */}
-                  <div className="flex items-center justify-between mt-1">
-                    <button className="text-[#666] hover:text-[#aaa] transition-colors flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full hover:bg-[#222]">
-                      <Paperclip size={16} className="sm:hidden" />
-                      <Paperclip size={18} className="hidden sm:block" />
+                  <div className="flex items-center justify-between mt-2">
+                    <button className="text-[#888] hover:text-[#aaa] transition-colors flex h-8 w-8 items-center justify-center rounded-full hover:bg-[#222]">
+                      <Paperclip size={18} />
                     </button>
                     
-                    <div className="flex items-center gap-1.5 sm:gap-2">
-                      <button className="text-[#666] hover:text-[#aaa] transition-colors flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full hover:bg-[#222]">
-                          <Box size={16} className="sm:hidden" />
-                          <Box size={18} className="hidden sm:block" />
+                    <div className="flex items-center gap-2">
+                      <button className="text-[#888] hover:text-[#aaa] transition-colors flex h-8 w-8 items-center justify-center rounded-full hover:bg-[#222]">
+                          <Box size={18} />
                       </button>
                       <button 
                           ref={sendBtnRef}
-                          className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm transform-origin-center hover:scale-105 transition-transform"
+                          className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm transform-origin-center hover:scale-105 transition-transform"
                       >
-                          <ArrowUp size={14} strokeWidth={3} className="sm:hidden" />
-                          <ArrowUp size={18} strokeWidth={3} className="hidden sm:block" />
+                          <ArrowUp size={16} strokeWidth={3} />
                       </button>
                     </div>
                   </div>
