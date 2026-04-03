@@ -295,7 +295,7 @@ export function Projects() {
 
                   <div className="relative z-20 mt-8 md:mt-12">
                     <img 
-                      src="/Soundarbio.png" 
+                      src="/Soundar1.png" 
                       alt="Process Preview"
                       className="h-[280px] md:h-[380px] w-auto object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.12)]"
                     />
