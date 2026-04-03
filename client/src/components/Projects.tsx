@@ -68,7 +68,7 @@ export function Projects() {
 
     // Stage 1 — Chat enters
     tl.to(chatRef.current, {
-      y: -80, // Move up into view
+      y: 0, // Move into view, positioning handled by CSS bottom
       opacity: 1,
       duration: 1,
       ease: "power2.out"
@@ -212,7 +212,7 @@ export function Projects() {
         <div ref={containerRef} className="h-[400vh] relative w-full">
           
           {/* Pinned Section */}
-          <div className="sticky-content sticky top-[5vh] md:top-[10vh] w-full min-h-[85vh] flex flex-col items-center pt-4">
+          <div className="sticky-content sticky top-[5vh] md:top-[10vh] w-full min-h-[85vh] flex flex-col pt-4">
             
             {/* Initial State: Heading & Subtext */}
             <div className="flex flex-col items-center text-center mb-8 md:mb-12 flex-shrink-0">
@@ -310,40 +310,42 @@ export function Projects() {
                   </div>
               </div>
               
-              {/* Chat Box Overlay (Stage 1 & 2) */}
-              <div 
-                ref={chatRef}
-                className="absolute bottom-4 md:-bottom-8 left-0 right-0 mx-auto w-[calc(100vw-32px)] sm:w-[calc(100vw-32px)] max-w-[640px] bg-[#151515] rounded-[20px] md:rounded-[32px] p-4 md:p-5 shadow-[0_24px_64px_rgba(0,0,0,0.4)] border border-[#333] flex flex-col gap-3 z-40 opacity-0 pointer-events-auto transition-all duration-300"
-              >
-                {/* Top Row: Text */}
-                <div className="flex-1 min-w-0 max-h-[140px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                  <div className="text-[15px] md:text-[16px] text-[#fff] font-sans w-full tracking-wide leading-[26px] md:leading-[28px] text-left">
-                    <span className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-2.5 h-[26px] md:h-7 bg-[#252525] rounded-[6px] md:rounded-[8px] border border-[#333] align-middle mr-2 md:mr-2.5 -mt-1">
-                      <ImageIcon size={10} className="text-[#aaa] md:hidden" />
-                      <ImageIcon size={12} className="text-[#aaa] hidden md:block" />
-                      <span className="text-[12px] md:text-[13px] font-medium text-[#eee]">Project</span>
-                    </span>
-                    <span ref={typingTextRef} className="whitespace-pre-wrap break-words align-middle" style={{ lineHeight: '1.6' }}></span>
-                    <span className="inline-block w-[2px] h-[1.2em] bg-[#fff] ml-[2px] animate-pulse align-middle -mt-[2px]"></span>
+              {/* Chat Box Wrapper - Sticky to bottom of viewport */}
+              <div className="w-full sticky bottom-0 z-40 pb-6 md:pb-8 pt-16 px-4 mt-auto flex justify-center pointer-events-none bg-gradient-to-t from-[#f8f9fa] via-[#f8f9fa] to-transparent">
+                <div 
+                  ref={chatRef}
+                  className="w-full max-w-[640px] bg-[#151515] rounded-[20px] md:rounded-[32px] p-4 md:p-5 shadow-[0_24px_64px_rgba(0,0,0,0.4)] border border-[#333] flex flex-col gap-3 opacity-0 pointer-events-auto transform translate-y-12"
+                >
+                  {/* Top Row: Text */}
+                  <div className="flex-1 min-w-0 max-h-[140px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                    <div className="text-[15px] md:text-[16px] text-[#fff] font-sans w-full tracking-wide leading-[26px] md:leading-[28px] text-left">
+                      <span className="inline-flex items-center justify-center gap-1.5 md:gap-2 px-2.5 h-[26px] md:h-7 bg-[#252525] rounded-[6px] md:rounded-[8px] border border-[#333] align-middle mr-2 md:mr-2.5 -mt-1">
+                        <ImageIcon size={10} className="text-[#aaa] md:hidden" />
+                        <ImageIcon size={12} className="text-[#aaa] hidden md:block" />
+                        <span className="text-[12px] md:text-[13px] font-medium text-[#eee]">Project</span>
+                      </span>
+                      <span ref={typingTextRef} className="whitespace-pre-wrap break-words align-middle" style={{ lineHeight: '1.6' }}></span>
+                      <span className="inline-block w-[2px] h-[1.2em] bg-[#fff] ml-[2px] animate-pulse align-middle -mt-[2px]"></span>
+                    </div>
                   </div>
-                </div>
-                
-                {/* Bottom Row: Actions */}
-                <div className="flex items-center justify-between mt-1">
-                  <button className="text-[#666] hover:text-[#aaa] transition-colors flex h-8 w-8 items-center justify-center rounded-full hover:bg-[#222]">
-                    <Paperclip size={18} />
-                  </button>
                   
-                  <div className="flex items-center gap-2">
+                  {/* Bottom Row: Actions */}
+                  <div className="flex items-center justify-between mt-1">
                     <button className="text-[#666] hover:text-[#aaa] transition-colors flex h-8 w-8 items-center justify-center rounded-full hover:bg-[#222]">
-                        <Box size={18} />
+                      <Paperclip size={18} />
                     </button>
-                    <button 
-                        ref={sendBtnRef}
-                        className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm transform-origin-center hover:scale-105 transition-transform"
-                    >
-                        <ArrowUp size={18} strokeWidth={3} />
-                    </button>
+                    
+                    <div className="flex items-center gap-2">
+                      <button className="text-[#666] hover:text-[#aaa] transition-colors flex h-8 w-8 items-center justify-center rounded-full hover:bg-[#222]">
+                          <Box size={18} />
+                      </button>
+                      <button 
+                          ref={sendBtnRef}
+                          className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm transform-origin-center hover:scale-105 transition-transform"
+                      >
+                          <ArrowUp size={18} strokeWidth={3} />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
