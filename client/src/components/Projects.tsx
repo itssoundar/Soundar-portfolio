@@ -310,11 +310,11 @@ export function Projects() {
                   </div>
               </div>
               
-              {/* Chat Box Wrapper - Sticky to bottom of viewport */}
-              <div className="w-full sticky bottom-0 z-40 pb-6 md:pb-8 pt-16 px-4 mt-auto flex justify-center pointer-events-none bg-gradient-to-t from-[#f8f9fa] via-[#f8f9fa] to-transparent">
+              {/* Chat Box Wrapper - Absolute bottom center */}
+              <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 z-50 w-full max-w-[640px] px-4 pointer-events-none">
                 <div 
                   ref={chatRef}
-                  className="w-full max-w-[640px] bg-[#151515] rounded-[20px] md:rounded-[32px] p-4 md:p-5 shadow-[0_24px_64px_rgba(0,0,0,0.4)] border border-[#333] flex flex-col gap-3 opacity-0 pointer-events-auto transform translate-y-12"
+                  className="w-full bg-[#151515]/95 backdrop-blur-xl rounded-[20px] md:rounded-[32px] p-4 md:p-5 shadow-[0_32px_80px_rgba(0,0,0,0.4)] border border-[#333] flex flex-col gap-3 opacity-0 pointer-events-auto transform translate-y-12"
                 >
                   {/* Top Row: Text */}
                   <div className="flex-1 min-w-0 max-h-[140px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
