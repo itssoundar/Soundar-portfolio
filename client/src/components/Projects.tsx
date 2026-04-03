@@ -169,7 +169,7 @@ export function Projects() {
   }, []);
 
   const renderCardContent = (project: typeof projects[0], isFirst: boolean = false) => (
-    <Link href={project.link} className={`block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] pointer-events-auto ${isFirst ? 'mb-[180px] sm:mb-0' : ''}`}>
+    <Link href={project.link} className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] pointer-events-auto">
       <div className="flex flex-col md:flex-row gap-[12px] md:gap-[24px] items-stretch cursor-pointer md:h-[400px]">
         {/* Left Side: Image */}
         <div className="w-full md:w-[45%] h-[180px] sm:h-[400px] md:h-full relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50">
@@ -355,7 +355,7 @@ export function Projects() {
       </div>
 
       {/* Stage 5: Expansion - Sequential Cards */}
-      <div className="relative z-50 w-full bg-[#f8f9fa] md:pt-24 md:mt-24 mt-[0px] pt-[0px]">
+      <div className="relative z-50 w-full bg-[#f8f9fa] pt-[180px] sm:pt-[180px] md:pt-24 mt-0 md:mt-24">
         <div className="next-cards-container flex flex-col items-center gap-8 md:gap-24 pb-24 w-full">
           {projects.slice(1).map((project) => (
             <div
