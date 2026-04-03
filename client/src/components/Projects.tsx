@@ -169,32 +169,36 @@ export function Projects() {
   }, []);
 
   const renderCardContent = (project: typeof projects[0]) => (
-    <div className="w-full bg-white rounded-[24px] md:rounded-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-[#e2e8f0]/60 overflow-hidden flex flex-col md:flex-row md:h-[480px]">
+    <div className="w-full bg-white rounded-[24px] md:rounded-[32px] shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-[#eaeaea] overflow-hidden flex flex-col md:flex-row md:h-[480px] lg:h-[500px]">
       {/* Left Side: Image */}
-      <div className="w-full md:w-[50%] lg:w-[52%] h-[280px] sm:h-[400px] md:h-full relative overflow-hidden bg-[#f8f9fa] border-b md:border-b-0 md:border-r border-[#e2e8f0]/60">
+      <div className="w-full md:w-[50%] lg:w-[52%] h-[280px] sm:h-[400px] md:h-full p-2 sm:p-3 md:p-4 lg:p-5">
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: `url(${project.image})` }}
-        />
+          className="w-full h-full relative rounded-[16px] md:rounded-[20px] overflow-hidden bg-[#f4f4f4] border border-[#f0f0f0]/50"
+        >
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: `url(${project.image})` }}
+          />
+        </div>
       </div>
 
       {/* Right Side: Content */}
-      <div className="w-full md:w-[50%] lg:w-[48%] p-8 md:p-10 lg:p-12 flex flex-col justify-center bg-white h-full">
-        <h3 className="text-[24px] md:text-[28px] lg:text-[30px] font-medium text-[#111] tracking-[-0.02em] leading-[1.25] mb-6">
+      <div className="w-full md:w-[50%] lg:w-[48%] p-6 pt-4 md:p-8 lg:p-12 lg:pl-10 flex flex-col justify-center bg-white h-full">
+        <h3 className="text-[26px] sm:text-[30px] md:text-[32px] lg:text-[36px] xl:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-6 md:mb-8 pr-2 lg:pr-8">
           {project.title}
         </h3>
         
-        <ul className="space-y-4 mb-10">
+        <ul className="space-y-4 md:space-y-5 mb-8 md:mb-10 pr-2 lg:pr-10">
           {project.bullets.map((bullet, i) => (
-            <li key={i} className="flex items-start gap-3.5 text-[#555] text-[15px] md:text-[16px] leading-[1.6]">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#333] mt-[10px] flex-shrink-0" />
+            <li key={i} className="flex items-start gap-4 text-[#444] text-[15px] lg:text-[17px] leading-[1.6]">
+              <span className="w-[5px] h-[5px] rounded-full bg-[#111] mt-[11px] flex-shrink-0" />
               <span>{bullet}</span>
             </li>
           ))}
         </ul>
 
         <Link href={project.link}>
-          <button className="px-7 py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:bg-black hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-300 w-fit pointer-events-auto">
+          <button className="px-8 py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[15px] lg:text-[16px] hover:bg-[#000] transition-all duration-300 w-fit pointer-events-auto shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
             View Project
           </button>
         </Link>
