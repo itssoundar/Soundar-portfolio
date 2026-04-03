@@ -161,7 +161,7 @@ export function Projects() {
           ease: "power2.out",
           scrollTrigger: {
             trigger: ".next-cards-container",
-            start: "top 80%",
+            start: "top 90%", // Trigger slightly later to prevent overlap with pinned section on mobile
           }
         }
       );
@@ -170,9 +170,9 @@ export function Projects() {
 
   const renderCardContent = (project: typeof projects[0]) => (
     <Link href={project.link} className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] pointer-events-auto">
-      <div className="flex flex-col md:flex-row gap-[24px] items-stretch cursor-pointer md:h-[400px]">
+      <div className="flex flex-col md:flex-row gap-[16px] md:gap-[24px] items-stretch cursor-pointer md:h-[400px]">
         {/* Left Side: Image */}
-        <div className="w-full md:w-[45%] h-[280px] sm:h-[400px] md:h-full relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50">
+        <div className="w-full md:w-[45%] h-[220px] sm:h-[400px] md:h-full relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50">
           <div 
             className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
             style={{ backgroundImage: `url(${project.image})` }}
@@ -181,21 +181,21 @@ export function Projects() {
 
         {/* Right Side: Content */}
         <div className="w-full md:w-[55%] flex flex-col justify-center">
-          <h3 className="text-[26px] sm:text-[30px] md:text-[32px] lg:text-[36px] xl:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-6 md:mb-8 pr-2 lg:pr-8">
+          <h3 className="text-[24px] sm:text-[30px] md:text-[32px] lg:text-[36px] xl:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-4 md:mb-8 pr-2 lg:pr-8">
             {project.title}
           </h3>
           
-          <ul className="space-y-4 md:space-y-5 mb-8 md:mb-10 pr-2 lg:pr-10">
+          <ul className="space-y-3 md:space-y-5 mb-6 md:mb-10 pr-2 lg:pr-10">
             {project.bullets.map((bullet, i) => (
-              <li key={i} className="flex items-start gap-4 text-[#444] text-[15px] lg:text-[17px] leading-[1.6]">
-                <span className="w-[5px] h-[5px] rounded-full bg-[#111] mt-[11px] flex-shrink-0" />
+              <li key={i} className="flex items-start gap-3 md:gap-4 text-[#444] text-[14px] md:text-[15px] lg:text-[17px] leading-[1.5] md:leading-[1.6]">
+                <span className="w-[5px] h-[5px] rounded-full bg-[#111] mt-[8px] md:mt-[11px] flex-shrink-0" />
                 <span>{bullet}</span>
               </li>
             ))}
           </ul>
 
           <div className="mt-auto md:mt-0">
-            <span className="inline-block px-8 py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[15px] lg:text-[16px] group-hover:bg-black transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
+            <span className="inline-block px-6 md:px-8 py-3 md:py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] lg:text-[16px] group-hover:bg-black transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
               View Project
             </span>
           </div>
@@ -214,23 +214,23 @@ export function Projects() {
         <div ref={containerRef} className="h-[400vh] relative w-full">
           
           {/* Pinned Section */}
-          <div className="sticky-content sticky top-[120px] md:top-[10vh] w-full min-h-[85vh] flex flex-col pt-4">
+          <div className="sticky-content sticky top-[80px] md:top-[10vh] w-full flex flex-col pt-4">
             
             {/* Initial State: Heading & Subtext */}
-            <div className="flex flex-col items-center text-center mb-8 md:mb-12 flex-shrink-0">
-              <h2 className="text-[32px] md:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-4">
+            <div className="flex flex-col items-center text-center mb-4 md:mb-12 flex-shrink-0">
+              <h2 className="text-[28px] md:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-3 md:mb-4">
                 Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
               </h2>
-              <p className="text-[16px] md:text-[18px] text-[#555] max-w-[600px] leading-relaxed">
+              <p className="text-[15px] md:text-[18px] text-[#555] max-w-[600px] leading-relaxed px-4 md:px-0">
                 From navigating early-stage ambiguity to building scalable systems, I design solutions that convert innovation into measurable impact.
               </p>
             </div>
 
             {/* Visual Transformation Area */}
-            <div className="relative w-full flex-1 flex justify-center items-center mt-4">
+            <div className="relative w-full flex-1 flex justify-center items-center mt-2 md:mt-4 min-h-[680px] sm:min-h-[500px] md:min-h-[600px]">
               
               {/* Stage 4: Card 1 reveals precisely where the image was */}
-              <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
+              <div className="relative w-full flex items-center justify-center z-30 pointer-events-none">
                 <div 
                   ref={card1Ref}
                   className="w-[90%] md:w-full max-w-[1000px] opacity-0 pointer-events-auto"
@@ -356,15 +356,17 @@ export function Projects() {
       </div>
 
       {/* Stage 5: Expansion - Sequential Cards */}
-      <div className="next-cards-container flex flex-col items-center gap-12 md:gap-24 relative z-20 mt-12 md:mt-24 pb-24">
-        {projects.slice(1).map((project) => (
-          <div
-            key={project.id}
-            className="next-card w-[90%] md:w-full max-w-[1000px]"
-          >
-            {renderCardContent(project)}
-          </div>
-        ))}
+      <div className="relative z-50 w-full bg-[#f8f9fa] pt-8 md:pt-24 mt-16 md:mt-24">
+        <div className="next-cards-container flex flex-col items-center gap-8 md:gap-24 pb-24 w-full">
+          {projects.slice(1).map((project) => (
+            <div
+              key={project.id}
+              className="next-card w-[90%] md:w-full max-w-[1000px]"
+            >
+              {renderCardContent(project)}
+            </div>
+          ))}
+        </div>
       </div>
         
       </div>
