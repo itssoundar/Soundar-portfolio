@@ -297,7 +297,7 @@ export function Projects() {
                     <img 
                       src="/Soundar1.png" 
                       alt="Process Preview"
-                      className="h-[280px] md:h-[380px] w-auto object-contain drop-shadow-[0_24px_48px_rgba(0,0,0,0.12)]"
+                      className="h-[280px] md:h-[380px] w-auto object-contain"
                     />
                     {/* Bottom gradient fade specifically for the image */}
                     <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#f8f9fa] to-transparent pointer-events-none z-30" />
