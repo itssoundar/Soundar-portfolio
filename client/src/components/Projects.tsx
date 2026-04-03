@@ -275,7 +275,7 @@ export function Projects() {
                   </div>
 
                   {/* Right side floating cards */}
-                  <div className="absolute top-[80px] sm:top-4 -right-6 sm:right-0 md:-right-12 lg:-right-16 flex flex-col z-10 rotate-[6deg] origin-right scale-[0.65] sm:scale-90 lg:scale-100">
+                  <div className="absolute top-[80px] sm:top-4 right-8 sm:right-0 md:-right-12 lg:-right-16 flex flex-col z-10 rotate-[6deg] origin-right scale-[0.65] sm:scale-90 lg:scale-100">
                     <div className="bg-white p-3.5 md:p-5 rounded-[16px] shadow-[0_12px_40px_rgba(0,0,0,0.08)] flex flex-col w-[150px] sm:w-[150px] md:w-[170px] border border-[#f0f0f0]">
                       <span className="text-[9px] md:text-[10px] text-[#666] font-medium tracking-wide mb-2 bg-[#f8f9fa] w-fit px-2.5 py-1 rounded-full border border-[#eee]">Impact</span>
                       <span className="text-[24px] sm:text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">+32%</span>
