@@ -11,7 +11,7 @@ export function Hero() {
 
   return (
     <section 
-      className="relative min-h-[90vh] w-full flex flex-col items-center justify-between pb-10 px-6 md:px-[86px] pt-[40px] overflow-hidden"
+      className="relative min-h-[90vh] w-full flex flex-col items-center justify-between pb-0 md:pb-10 px-6 md:px-[86px] pt-[40px] overflow-hidden"
     >
       {/* Animated Background */}
       <div 
@@ -53,7 +53,7 @@ export function Hero() {
       </div>
       {/* Logos Section */}
       <div 
-        className="relative z-10 w-full max-w-[1200px] mx-auto pb-12 pt-8 overflow-hidden"
+        className="relative z-10 w-full max-w-[1200px] mx-auto pb-0 md:pb-12 pt-8 overflow-hidden"
         style={{
           maskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)',
           WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%)'
