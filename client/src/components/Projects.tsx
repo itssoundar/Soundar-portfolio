@@ -169,41 +169,39 @@ export function Projects() {
   }, []);
 
   const renderCardContent = (project: typeof projects[0]) => (
-    <div className="w-full bg-white rounded-[24px] md:rounded-[32px] shadow-[0_8px_30px_rgba(0,0,0,0.04)] border border-[#eaeaea] overflow-hidden flex flex-col md:flex-row md:h-[480px] lg:h-[500px]">
-      {/* Left Side: Image */}
-      <div className="w-full md:w-[50%] lg:w-[52%] h-[280px] sm:h-[400px] md:h-full p-2 sm:p-3 md:p-4 lg:p-5">
-        <div 
-          className="w-full h-full relative rounded-[16px] md:rounded-[20px] overflow-hidden bg-[#f4f4f4] border border-[#f0f0f0]/50"
-        >
+    <Link href={project.link} className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] pointer-events-auto">
+      <div className="flex flex-col md:flex-row gap-[24px] items-stretch cursor-pointer md:h-[400px]">
+        {/* Left Side: Image */}
+        <div className="w-full md:w-[45%] h-[280px] sm:h-[400px] md:h-full relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50">
           <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-center"
+            className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
             style={{ backgroundImage: `url(${project.image})` }}
           />
         </div>
-      </div>
 
-      {/* Right Side: Content */}
-      <div className="w-full md:w-[50%] lg:w-[48%] p-6 pt-4 md:p-8 lg:p-12 lg:pl-10 flex flex-col justify-center bg-white h-full">
-        <h3 className="text-[26px] sm:text-[30px] md:text-[32px] lg:text-[36px] xl:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-6 md:mb-8 pr-2 lg:pr-8">
-          {project.title}
-        </h3>
-        
-        <ul className="space-y-4 md:space-y-5 mb-8 md:mb-10 pr-2 lg:pr-10">
-          {project.bullets.map((bullet, i) => (
-            <li key={i} className="flex items-start gap-4 text-[#444] text-[15px] lg:text-[17px] leading-[1.6]">
-              <span className="w-[5px] h-[5px] rounded-full bg-[#111] mt-[11px] flex-shrink-0" />
-              <span>{bullet}</span>
-            </li>
-          ))}
-        </ul>
+        {/* Right Side: Content */}
+        <div className="w-full md:w-[55%] flex flex-col justify-center">
+          <h3 className="text-[26px] sm:text-[30px] md:text-[32px] lg:text-[36px] xl:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-6 md:mb-8 pr-2 lg:pr-8">
+            {project.title}
+          </h3>
+          
+          <ul className="space-y-4 md:space-y-5 mb-8 md:mb-10 pr-2 lg:pr-10">
+            {project.bullets.map((bullet, i) => (
+              <li key={i} className="flex items-start gap-4 text-[#444] text-[15px] lg:text-[17px] leading-[1.6]">
+                <span className="w-[5px] h-[5px] rounded-full bg-[#111] mt-[11px] flex-shrink-0" />
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
 
-        <Link href={project.link}>
-          <button className="px-8 py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[15px] lg:text-[16px] hover:bg-[#000] transition-all duration-300 w-fit pointer-events-auto shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
-            View Project
-          </button>
-        </Link>
+          <div className="mt-auto md:mt-0">
+            <span className="inline-block px-8 py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[15px] lg:text-[16px] group-hover:bg-black transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
+              View Project
+            </span>
+          </div>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 
   return (
