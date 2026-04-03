@@ -241,11 +241,11 @@ export function Projects() {
               <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
                 <div 
                   ref={imageRef}
-                  className="flex flex-col items-center justify-center relative w-full max-w-[800px] h-[400px] md:h-[500px]"
+                  className="flex flex-col items-center justify-center relative w-full max-w-[800px] h-[300px] sm:h-[400px] md:h-[500px]"
                 >
                   {/* Floating elements behind/around the main image */}
-                  <div className="absolute top-10 left-0 md:-left-16 flex flex-col gap-4 z-10 hidden sm:flex">
-                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0]">
+                  <div className="absolute top-0 md:top-10 left-0 md:-left-16 lg:-left-24 flex-col gap-4 z-10 hidden sm:flex">
+                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] scale-[0.65] sm:scale-90 lg:scale-100 origin-top-left md:origin-left">
                       <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center text-white shrink-0 shadow-inner">
                         <PenTool size={16} />
                       </div>
@@ -254,7 +254,7 @@ export function Projects() {
                         <span className="text-[11px] text-[#666] leading-tight mt-0.5">CRM, AI tools, analytics dashboards</span>
                       </div>
                     </div>
-                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0]">
+                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] scale-[0.65] sm:scale-[0.8] lg:scale-100 origin-top-left md:origin-left">
                       <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center text-white shrink-0 shadow-inner">
                         <Layers size={16} />
                       </div>
@@ -263,7 +263,7 @@ export function Projects() {
                         <span className="text-[11px] text-[#666] leading-tight mt-0.5">Built scalable UI systems<br/>across products</span>
                       </div>
                     </div>
-                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0]">
+                    <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] scale-[0.65] sm:scale-75 lg:scale-100 origin-top-left md:origin-left hidden md:flex">
                       <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center text-white shrink-0 shadow-inner">
                         <TrendingUp size={16} />
                       </div>
@@ -275,45 +275,45 @@ export function Projects() {
                   </div>
 
                   {/* Right side floating cards */}
-                  <div className="absolute top-4 right-0 md:-right-12 flex flex-col gap-6 z-10 rotate-6 hidden sm:flex">
-                    <div className="bg-white p-4 md:p-5 rounded-[24px] shadow-[0_12px_40px_rgba(0,0,0,0.08)] flex flex-col w-[150px] md:w-[170px] border border-[#f0f0f0]">
+                  <div className="absolute top-4 md:top-4 right-0 md:-right-12 lg:-right-16 flex-col gap-6 z-10 rotate-6 hidden sm:flex origin-top-right scale-[0.65] sm:scale-90 lg:scale-100">
+                    <div className="bg-white p-4 md:p-5 rounded-[24px] shadow-[0_12px_40px_rgba(0,0,0,0.08)] flex flex-col w-[140px] sm:w-[150px] md:w-[170px] border border-[#f0f0f0]">
                       <span className="text-[9px] md:text-[10px] text-[#666] font-medium tracking-wide mb-2 bg-[#f8f9fa] w-fit px-2.5 py-1 rounded-full border border-[#eee]">Impact</span>
-                      <span className="text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">+32%</span>
-                      <span className="text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Conversion Increase</span>
-                      <span className="text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Optimized onboarding for SaaS CRM</span>
-                      <div className="w-7 h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto">
+                      <span className="text-[20px] sm:text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">+32%</span>
+                      <span className="text-[11px] sm:text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Conversion Increase</span>
+                      <span className="text-[9px] sm:text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Optimized onboarding for SaaS CRM</span>
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto">
                         <TrendingUp size={14} />
                       </div>
                     </div>
                   </div>
 
-                  <div className="absolute bottom-16 right-4 md:-right-8 flex flex-col gap-6 z-10 -rotate-3 hidden sm:flex">
-                    <div className="bg-white p-4 md:p-5 rounded-[24px] shadow-[0_12px_40px_rgba(0,0,0,0.08)] flex flex-col w-[150px] md:w-[170px] border border-[#f0f0f0]">
+                  <div className="absolute bottom-20 md:bottom-24 right-4 md:-right-8 lg:-right-12 flex-col gap-6 z-10 -rotate-3 hidden sm:flex origin-bottom-right scale-[0.65] sm:scale-90 lg:scale-100">
+                    <div className="bg-white p-4 md:p-5 rounded-[24px] shadow-[0_12px_40px_rgba(0,0,0,0.08)] flex flex-col w-[140px] sm:w-[150px] md:w-[170px] border border-[#f0f0f0]">
                       <span className="text-[9px] md:text-[10px] text-[#666] font-medium tracking-wide mb-2 bg-[#f8f9fa] w-fit px-2.5 py-1 rounded-full border border-[#eee]">Impact</span>
-                      <span className="text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">-25%</span>
-                      <span className="text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Reduced Drop-off</span>
-                      <span className="text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Simplified multi-step workflows</span>
-                      <div className="w-7 h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto">
+                      <span className="text-[20px] sm:text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">-25%</span>
+                      <span className="text-[11px] sm:text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Reduced Drop-off</span>
+                      <span className="text-[9px] sm:text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Simplified multi-step workflows</span>
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto">
                         <TrendingUp size={14} className="rotate-180" />
                       </div>
                     </div>
                   </div>
 
-                  <div className="relative z-20 mt-8 md:mt-12">
+                  <div className="relative z-20 mt-4 md:mt-12 flex-1 flex flex-col justify-center max-h-[300px] sm:max-h-full w-full pointer-events-none">
                     <img 
                       src="/Soundar1.png" 
                       alt="Process Preview"
-                      className="h-[280px] md:h-[380px] w-auto object-contain"
+                      className="h-[220px] sm:h-[280px] md:h-[380px] w-auto object-contain object-bottom mx-auto transform -translate-y-4 md:translate-y-0"
                     />
                     {/* Bottom gradient fade specifically for the image */}
-                    <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#f8f9fa] to-transparent pointer-events-none z-30" />
+                    <div className="absolute bottom-4 left-0 right-0 h-16 sm:h-24 md:h-32 bg-gradient-to-t from-[#f8f9fa] to-transparent pointer-events-none z-30" />
                   </div>
               </div>
               
               {/* Chat Box Overlay (Stage 1 & 2) */}
               <div 
                 ref={chatRef}
-                className="absolute -bottom-8 left-0 right-0 mx-auto w-[calc(100vw-32px)] max-w-[640px] bg-[#151515] rounded-[24px] md:rounded-[32px] p-2.5 md:p-3 shadow-[0_24px_64px_rgba(0,0,0,0.4)] border border-[#333] flex items-end justify-between z-40 opacity-0 pointer-events-auto transition-all duration-300"
+                className="absolute -bottom-2 md:-bottom-8 left-0 right-0 mx-auto w-[calc(100vw-24px)] md:w-[calc(100vw-32px)] max-w-[640px] bg-[#151515] rounded-[24px] md:rounded-[32px] p-2.5 md:p-3 shadow-[0_24px_64px_rgba(0,0,0,0.4)] border border-[#333] flex items-end justify-between z-40 opacity-0 pointer-events-auto transition-all duration-300"
               >
                 <div className="flex items-start gap-2 md:gap-3 flex-1 overflow-hidden">
                     <button className="text-[#666] hover:text-[#aaa] transition-colors shrink-0 mt-0.5 md:mt-1 flex h-8 w-8 md:h-10 md:w-10 items-center justify-center rounded-full hover:bg-[#222]">
