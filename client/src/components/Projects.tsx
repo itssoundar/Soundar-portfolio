@@ -356,7 +356,7 @@ export function Projects() {
       </div>
 
       {/* Stage 5: Expansion - Sequential Cards */}
-      <div className="relative z-50 w-full bg-[#f8f9fa] pt-16 md:pt-24 mt-16 md:mt-24">
+      <div className="relative z-50 w-full bg-[#f8f9fa] pt-8 md:pt-24 mt-8 md:mt-24">
         <div className="next-cards-container flex flex-col items-center gap-8 md:gap-24 pb-24 w-full">
           {projects.slice(1).map((project) => (
             <div
