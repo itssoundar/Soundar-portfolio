@@ -307,31 +307,38 @@ export function Projects() {
               {/* Chat Box Overlay (Stage 1 & 2) */}
               <div 
                 ref={chatRef}
-                className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[340px] md:w-[640px] bg-[#151515] rounded-[100px] px-6 py-4 shadow-[0_24px_64px_rgba(0,0,0,0.4)] border border-[#333] flex items-center justify-between z-40 opacity-0 pointer-events-auto"
+                className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-[320px] md:w-[640px] bg-[#151515] rounded-[100px] px-3 md:px-6 py-2.5 md:py-4 shadow-[0_24px_64px_rgba(0,0,0,0.4)] border border-[#333] flex items-center justify-between z-40 opacity-0 pointer-events-auto"
               >
-                <div className="flex items-center gap-4 flex-1">
-                    <button className="text-[#666] hover:text-[#aaa] transition-colors shrink-0">
+                <div className="flex items-center gap-2 md:gap-4 flex-1 overflow-hidden">
+                    <button className="text-[#666] hover:text-[#aaa] transition-colors shrink-0 hidden md:block">
                       <Paperclip size={20} />
                     </button>
-                    <div className="flex items-center gap-2 px-3 py-1.5 bg-[#252525] rounded-[8px] border border-[#333] shrink-0">
-                      <ImageIcon size={14} className="text-[#aaa]" />
-                      <span className="text-[13px] font-medium text-[#eee]">Project</span>
+                    <button className="text-[#666] hover:text-[#aaa] transition-colors shrink-0 md:hidden">
+                      <Paperclip size={16} />
+                    </button>
+                    <div className="flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 bg-[#252525] rounded-[8px] border border-[#333] shrink-0">
+                      <ImageIcon size={12} className="text-[#aaa] hidden md:block" />
+                      <span className="text-[11px] md:text-[13px] font-medium text-[#eee]">Project</span>
                     </div>
-                    <div className="text-[16px] text-[#fff] font-sans flex-1 truncate flex items-center tracking-wide">
-                      <span ref={typingTextRef}></span>
-                      <span className="inline-block w-[2px] h-[1.1em] bg-[#fff] ml-[2px] animate-pulse" />
+                    <div className="text-[13px] md:text-[16px] text-[#fff] font-sans flex-1 truncate flex items-center tracking-wide min-w-0">
+                      <span ref={typingTextRef} className="truncate"></span>
+                      <span className="inline-block w-[2px] h-[1.1em] bg-[#fff] ml-[2px] animate-pulse shrink-0" />
                     </div>
                 </div>
                 
-                <div className="flex items-center gap-5 shrink-0 pl-4">
-                  <button className="text-[#666] hover:text-[#aaa] transition-colors">
+                <div className="flex items-center gap-3 md:gap-5 shrink-0 pl-2 md:pl-4">
+                  <button className="text-[#666] hover:text-[#aaa] transition-colors hidden md:block">
                       <Box size={20} />
+                  </button>
+                  <button className="text-[#666] hover:text-[#aaa] transition-colors md:hidden">
+                      <Box size={16} />
                   </button>
                   <button 
                       ref={sendBtnRef}
-                      className="w-10 h-10 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm transform-origin-center hover:scale-105 transition-transform"
+                      className="w-7 h-7 md:w-10 md:h-10 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm transform-origin-center hover:scale-105 transition-transform shrink-0"
                   >
-                      <ArrowUp size={20} strokeWidth={3} />
+                      <ArrowUp size={14} strokeWidth={3} className="md:hidden" />
+                      <ArrowUp size={20} strokeWidth={3} className="hidden md:block" />
                   </button>
                 </div>
               </div>
