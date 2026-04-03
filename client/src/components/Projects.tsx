@@ -18,7 +18,7 @@ export function Projects() {
     {
       id: "crm-ai",
       title: <>Transforming CRM workflows with an <span className="font-serif italic font-normal">AI-Agent Builder</span> as an execution layer</>,
-      image: "/Soundarbio.png",
+      image: "/C1new.png?v=1",
       bullets: [
         "Generate hiring workflows instantly through natural language prompts.",
         "Automatically create analytics dashboards from recruiter questions.",
