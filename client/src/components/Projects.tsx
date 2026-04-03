@@ -170,9 +170,9 @@ export function Projects() {
 
   const renderCardContent = (project: typeof projects[0]) => (
     <Link href={project.link} className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] pointer-events-auto">
-      <div className="flex flex-col md:flex-row gap-[16px] md:gap-[24px] items-stretch cursor-pointer md:h-[400px]">
+      <div className="flex flex-col md:flex-row gap-[12px] md:gap-[24px] items-stretch cursor-pointer md:h-[400px]">
         {/* Left Side: Image */}
-        <div className="w-full md:w-[45%] h-[220px] sm:h-[400px] md:h-full relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50">
+        <div className="w-full md:w-[45%] h-[180px] sm:h-[400px] md:h-full relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50">
           <div 
             className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
             style={{ backgroundImage: `url(${project.image})` }}
@@ -181,21 +181,21 @@ export function Projects() {
 
         {/* Right Side: Content */}
         <div className="w-full md:w-[55%] flex flex-col justify-center">
-          <h3 className="text-[24px] sm:text-[30px] md:text-[32px] lg:text-[36px] xl:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-4 md:mb-8 pr-2 lg:pr-8">
+          <h3 className="text-[22px] sm:text-[30px] md:text-[32px] lg:text-[36px] xl:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-3 md:mb-8 pr-2 lg:pr-8">
             {project.title}
           </h3>
           
-          <ul className="space-y-3 md:space-y-5 mb-6 md:mb-10 pr-2 lg:pr-10">
+          <ul className="space-y-2 md:space-y-5 mb-4 md:mb-10 pr-2 lg:pr-10">
             {project.bullets.map((bullet, i) => (
-              <li key={i} className="flex items-start gap-3 md:gap-4 text-[#444] text-[14px] md:text-[15px] lg:text-[17px] leading-[1.5] md:leading-[1.6]">
-                <span className="w-[5px] h-[5px] rounded-full bg-[#111] mt-[8px] md:mt-[11px] flex-shrink-0" />
+              <li key={i} className="flex items-start gap-3 md:gap-4 text-[#444] text-[13px] sm:text-[14px] md:text-[15px] lg:text-[17px] leading-[1.5] md:leading-[1.6]">
+                <span className="w-[5px] h-[5px] rounded-full bg-[#111] mt-[7px] md:mt-[11px] flex-shrink-0" />
                 <span>{bullet}</span>
               </li>
             ))}
           </ul>
 
           <div className="mt-auto md:mt-0">
-            <span className="inline-block px-6 md:px-8 py-3 md:py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] lg:text-[16px] group-hover:bg-black transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
+            <span className="inline-block px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] lg:text-[16px] group-hover:bg-black transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
               View Project
             </span>
           </div>
@@ -227,10 +227,10 @@ export function Projects() {
             </div>
 
             {/* Visual Transformation Area */}
-            <div className="relative w-full flex-1 flex justify-center items-center mt-2 md:mt-4 min-h-[680px] sm:min-h-[500px] md:min-h-[600px]">
+            <div className="relative w-full flex-1 flex justify-center items-center mt-2 md:mt-4 h-[450px] sm:h-[500px] md:h-[600px] min-h-[450px] sm:min-h-[500px] md:min-h-[600px]">
               
               {/* Stage 4: Card 1 reveals precisely where the image was */}
-              <div className="relative w-full flex items-center justify-center z-30 pointer-events-none">
+              <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
                 <div 
                   ref={card1Ref}
                   className="w-[90%] md:w-full max-w-[1000px] opacity-0 pointer-events-auto"
@@ -301,11 +301,11 @@ export function Projects() {
                     </div>
                   </div>
 
-                  <div className="relative z-10 mt-10 md:mt-12 flex-1 flex flex-col justify-center max-h-[350px] sm:max-h-full w-full pointer-events-none">
+                  <div className="relative z-10 mt-2 sm:mt-10 md:mt-12 flex-1 flex flex-col justify-center max-h-[260px] sm:max-h-[350px] md:max-h-full w-full pointer-events-none">
                     <img 
                       src="/Soundar1.png" 
                       alt="Process Preview"
-                      className="h-[350px] sm:h-[280px] md:h-[380px] w-auto object-contain object-bottom mx-auto transform -translate-y-[64px] scale-[1.15] sm:scale-100 sm:-translate-y-12 md:-translate-y-12 lg:-translate-y-16"
+                      className="h-[260px] sm:h-[280px] md:h-[380px] w-auto object-contain object-bottom mx-auto transform -translate-y-[24px] scale-[1.15] sm:scale-100 sm:-translate-y-12 md:-translate-y-12 lg:-translate-y-16"
                     />
                     {/* Bottom gradient fade specifically for the image */}
                     <div className="absolute bottom-[-20px] sm:bottom-4 left-0 right-0 h-32 sm:h-24 md:h-32 bg-gradient-to-t from-[#f8f9fa] via-[#f8f9fa]/90 to-transparent pointer-events-none z-30" />
@@ -313,7 +313,7 @@ export function Projects() {
               </div>
               
               {/* Chat Box Wrapper - Absolute bottom center */}
-              <div className="absolute bottom-[30px] md:bottom-12 left-1/2 -translate-x-1/2 z-50 w-[92%] sm:w-full max-w-[640px] sm:px-4 pointer-events-none">
+              <div className="absolute -bottom-12 sm:-bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 z-50 w-[92%] sm:w-full max-w-[640px] sm:px-4 pointer-events-none">
                 <div 
                   ref={chatRef}
                   className="w-full bg-[#111] rounded-[20px] sm:rounded-[20px] md:rounded-[32px] p-4 sm:p-4 md:p-5 shadow-[0_32px_80px_rgba(0,0,0,0.4)] border border-[#222] flex flex-col gap-3 sm:gap-3 opacity-0 pointer-events-auto transform translate-y-12"
@@ -356,7 +356,7 @@ export function Projects() {
       </div>
 
       {/* Stage 5: Expansion - Sequential Cards */}
-      <div className="relative z-50 w-full bg-[#f8f9fa] pt-8 md:pt-24 mt-16 md:mt-24">
+      <div className="relative z-50 w-full bg-[#f8f9fa] pt-16 md:pt-24 mt-16 md:mt-24">
         <div className="next-cards-container flex flex-col items-center gap-8 md:gap-24 pb-24 w-full">
           {projects.slice(1).map((project) => (
             <div
