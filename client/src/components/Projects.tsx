@@ -244,7 +244,7 @@ export function Projects() {
                   className="flex flex-col items-center justify-center relative w-full max-w-[800px] h-[450px] sm:h-[400px] md:h-[500px] -translate-y-4 sm:translate-y-0"
                 >
                   {/* Floating elements behind/around the main image */}
-                  <div className="absolute top-[120px] sm:top-10 -left-6 sm:left-40 md:left-40 lg:left-48 flex flex-col gap-2.5 sm:gap-4 z-20 scale-[0.6] sm:scale-90 lg:scale-100 origin-left">
+                  <div className="absolute top-[120px] sm:top-10 -left-8 sm:left-40 md:left-40 lg:left-48 flex flex-col gap-2.5 sm:gap-4 z-20 scale-[0.6] sm:scale-90 lg:scale-100 origin-left">
                     <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] origin-left">
                       <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center text-white shrink-0 shadow-inner">
                         <PenTool size={16} />
