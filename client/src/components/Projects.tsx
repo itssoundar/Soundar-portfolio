@@ -238,13 +238,13 @@ export function Projects() {
               </div>
 
               {/* Stage 1 & 3: Background Image and Chat Layer */}
-              <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+              <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none mt-16 sm:mt-0">
                 <div 
                   ref={imageRef}
-                  className="flex flex-col items-center justify-center relative w-full max-w-[800px] h-[300px] sm:h-[400px] md:h-[500px] -translate-y-16 sm:translate-y-0"
+                  className="flex flex-col items-center justify-center relative w-full max-w-[800px] h-[300px] sm:h-[400px] md:h-[500px] -translate-y-20 sm:translate-y-0"
                 >
                   {/* Floating elements behind/around the main image */}
-                  <div className="absolute top-12 sm:top-10 left-[-2%] sm:-left-8 md:-left-16 lg:-left-24 flex flex-col gap-2 sm:gap-4 z-10">
+                  <div className="absolute -top-6 sm:top-10 left-0 sm:-left-8 md:-left-16 lg:-left-24 flex flex-col gap-2 sm:gap-4 z-10 scale-[0.6] sm:scale-90 lg:scale-100 origin-left">
                     <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] scale-[0.65] sm:scale-90 lg:scale-100 origin-left">
                       <div className="w-10 h-10 rounded-full bg-[#111] flex items-center justify-center text-white shrink-0 shadow-inner">
                         <PenTool size={16} />
@@ -303,7 +303,7 @@ export function Projects() {
                     <img 
                       src="/Soundar1.png" 
                       alt="Process Preview"
-                      className="h-[250px] sm:h-[280px] md:h-[380px] w-auto object-contain object-bottom mx-auto transform -translate-y-24 sm:-translate-y-12 md:-translate-y-12 lg:-translate-y-16"
+                      className="h-[250px] sm:h-[280px] md:h-[380px] w-auto object-contain object-bottom mx-auto transform translate-y-36 sm:-translate-y-12 md:-translate-y-12 lg:-translate-y-16"
                     />
                     {/* Bottom gradient fade specifically for the image */}
                     <div className="absolute bottom-2 sm:bottom-4 left-0 right-0 h-16 sm:h-24 md:h-32 bg-gradient-to-t from-[#f8f9fa] to-transparent pointer-events-none z-30" />
