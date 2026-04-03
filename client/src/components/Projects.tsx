@@ -212,7 +212,7 @@ export function Projects() {
         <div ref={containerRef} className="h-[400vh] relative w-full">
           
           {/* Pinned Section */}
-          <div className="sticky-content sticky top-[5vh] md:top-[10vh] w-full min-h-[85vh] flex flex-col pt-4">
+          <div className="sticky-content sticky top-[120px] md:top-[10vh] w-full min-h-[85vh] flex flex-col pt-4">
             
             {/* Initial State: Heading & Subtext */}
             <div className="flex flex-col items-center text-center mb-8 md:mb-12 flex-shrink-0">
