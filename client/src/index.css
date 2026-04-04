@@ -172,3 +172,9 @@ body.modal-open .smooth-cursor-container {
   display: none !important;
 }
 /* Force reload */
+
+
+/* Vaul Drawer Overrides */
+[data-vaul-drawer] {
+  touch-action: none;
+}

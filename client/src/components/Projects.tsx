@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { useEffect, useRef } from "react";
 import { Image as ImageIcon, Paperclip, Box, ArrowUp, PenTool, Layers, TrendingUp } from "lucide-react";
 import gsap from "gsap";
@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [, setLocation] = useLocation();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -175,17 +176,14 @@ export function Projects() {
   }, []);
 
   const renderCardContent = (project: typeof projects[0], isFirst: boolean = false) => (
-    <Link href={project.link} onClick={(e) => {
-      if (window.innerWidth < 768) {
-        e.preventDefault();
-      }
-    }}>
     <div
       onClick={(e) => {
-        if (isMobile) {
-          e.preventDefault();
+        e.preventDefault();
+        if (window.innerWidth < 768) {
           setSelectedProject(project.id);
           setIsDrawerOpen(true);
+        } else {
+          setLocation(project.link);
         }
       }}
       className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] pointer-events-auto cursor-pointer">
@@ -221,7 +219,6 @@ export function Projects() {
         </div>
       </div>
     </div>
-    </Link>
   );
 
   return (

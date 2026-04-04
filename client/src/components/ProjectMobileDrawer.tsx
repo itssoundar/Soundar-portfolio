@@ -65,7 +65,7 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
     <Drawer open={isOpen} onOpenChange={onOpenChange}>
       <DrawerPortal>
         <DrawerOverlay className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm" />
-        <DrawerContent className="fixed inset-x-0 bottom-0 z-[101] mt-10 flex h-[92vh] flex-col rounded-t-[24px] border-0 bg-[#f8f9fa] outline-none">
+        <DrawerContent className="fixed inset-x-0 bottom-0 z-[101] mt-10 flex h-[92vh] flex-col rounded-t-[24px] border-0 bg-[#f8f9fa] outline-none pointer-events-auto">
           <div className="mx-auto mt-4 mb-2 h-1.5 w-[40px] shrink-0 rounded-full bg-gray-300" />
           <DrawerHeader className="px-4 pb-4 pt-2 flex items-center justify-between sticky top-0 bg-[#f8f9fa] z-[102] shrink-0">
             <div className="w-8" /> {/* Spacer for centering */}
@@ -79,7 +79,7 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
             </DrawerClose>
           </DrawerHeader>
           
-          <div id="project-drawer-content" className="flex-1 overflow-y-auto overscroll-contain bg-[#f8f9fa]">
+          <div id="project-drawer-content" className="flex-1 overflow-y-auto bg-[#f8f9fa]" style={{ WebkitOverflowScrolling: "touch" }}>
             <div className="bg-white mx-2 sm:mx-4 rounded-t-[24px] shadow-[0_-4px_24px_rgba(0,0,0,0.02)] min-h-full overflow-hidden">
             <div className="pb-12">
               {renderProjectContent()}
