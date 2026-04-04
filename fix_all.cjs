@@ -1,4 +1,22 @@
-import { useEffect } from "react";
+const fs = require('fs');
+
+let path = 'client/src/components/ProjectMobileDrawer.tsx';
+let content = fs.readFileSync(path, 'utf-8');
+
+// I see that the drawer is failing to render or open correctly.
+// Let's strip out the unnecessary `DrawerPortal` since `DrawerContent` from shadcn already includes it, but if we rewrote it to standard vaul we need to make sure we follow shadcn's exact pattern.
+// Looking at our latest rewrite, we used shadcn UI's DrawerContent directly:
+// `<DrawerContent className="...">`
+// Shadcn's DrawerContent ALREADY wraps its children in `<DrawerPortal>` and `<DrawerOverlay>`.
+// So we just need `<Drawer>` and `<DrawerContent>`.
+
+// Let's also check if `isDrawerOpen` state is actually changing. We added a console.log.
+// The user says "i want bottom sheets for mobile".
+// Wait, the project HAS bottom sheets for mobile right now (Vaul).
+// The issue might be that it's simply not working because of z-index or a portal issue.
+// Let's simplify the `DrawerContent` classes to ensure nothing is breaking it.
+
+content = `import { useEffect } from "react";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerClose } from "@/components/ui/drawer";
 import { X } from "lucide-react";
 import { useLocation } from "wouter";
@@ -27,7 +45,7 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
       
       // Update URL without navigation to allow sharing links
       if (projectId) {
-        window.history.pushState({}, '', `/project/${projectId}`);
+        window.history.pushState({}, '', \`/project/\${projectId}\`);
       }
     } else {
       // Revert URL when closing
@@ -87,3 +105,14 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
     </Drawer>
   );
 }
+`;
+
+fs.writeFileSync(path, content, 'utf-8');
+
+// Ensure Projects.tsx has the drawer rendered at the absolute root level if possible, or just as a sibling to the section.
+let projPath = 'client/src/components/Projects.tsx';
+let projContent = fs.readFileSync(projPath, 'utf-8');
+
+// We already moved it outside the <section>.
+fs.writeFileSync(projPath, projContent, 'utf-8');
+

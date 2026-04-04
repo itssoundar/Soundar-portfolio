@@ -1,4 +1,13 @@
-import { useEffect } from "react";
+const fs = require('fs');
+
+let path = 'client/src/components/ProjectMobileDrawer.tsx';
+let content = fs.readFileSync(path, 'utf-8');
+
+// Also, the <Drawer.Root> from Shadcn is just exported as <Drawer>
+// Shadcn already gives us <Drawer>, <DrawerContent>, <DrawerHeader>, etc.
+// Let's make sure our ProjectMobileDrawer.tsx is completely correct based on standard Shadcn UI vaul implementation.
+
+content = `import { useEffect } from "react";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerClose } from "@/components/ui/drawer";
 import { X } from "lucide-react";
 import { useLocation } from "wouter";
@@ -27,7 +36,7 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
       
       // Update URL without navigation to allow sharing links
       if (projectId) {
-        window.history.pushState({}, '', `/project/${projectId}`);
+        window.history.pushState({}, '', \`/project/\${projectId}\`);
       }
     } else {
       // Revert URL when closing
@@ -63,8 +72,8 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
 
   return (
     <Drawer open={isOpen} onOpenChange={onOpenChange} shouldScaleBackground={false} repositionInputs={false}>
-      <DrawerContent className="fixed inset-x-0 bottom-0 z-[9999] mt-10 flex h-[92vh] flex-col rounded-t-[24px] border-0 bg-white outline-none pointer-events-auto">
-        <DrawerHeader className="px-4 pb-3 pt-1 flex flex-col items-center justify-center sticky top-0 bg-white z-[10000] shrink-0 border-b border-gray-100">
+      <DrawerContent className="fixed inset-x-0 bottom-0 z-[101] mt-10 flex h-[92vh] flex-col rounded-t-[24px] border-0 bg-white outline-none pointer-events-auto shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+        <DrawerHeader className="px-4 pb-3 pt-1 flex flex-col items-center justify-center sticky top-0 bg-white z-[102] shrink-0 border-b border-gray-100">
           <div className="flex items-center justify-between w-full">
             <div className="w-8" /> {/* Spacer for centering */}
             <DrawerTitle className="text-[14px] font-medium text-center text-[#666] font-sans m-0">
@@ -87,3 +96,6 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
     </Drawer>
   );
 }
+`;
+
+fs.writeFileSync(path, content, 'utf-8');

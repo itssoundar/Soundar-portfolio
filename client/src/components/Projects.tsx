@@ -177,7 +177,7 @@ export function Projects() {
 
   const renderCardContent = (project: typeof projects[0], isFirst: boolean = false) => (
     <div 
-      className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] relative z-[90] text-left cursor-pointer pointer-events-auto" 
+      className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] relative z-[90] text-left pointer-events-auto" 
       style={{ WebkitTapHighlightColor: "transparent" }}>
       
       {/* Mobile Click Target (shows Drawer) */}
@@ -186,6 +186,7 @@ export function Projects() {
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
+          console.log("Opening drawer for", project.id);
           setSelectedProject(project.id);
           setIsDrawerOpen(true);
         }}
@@ -239,6 +240,7 @@ export function Projects() {
   );
 
   return (
+    <>
     <section id="work" className="relative w-full bg-[#f8f9fa] px-4 md:px-12 lg:px-[86px] pt-12 z-20 pb-[48px]">
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-white/0 via-[#f8f9fa]/80 to-[#f8f9fa] pointer-events-none -translate-y-full z-10" />
       <div className="relative z-20 w-full max-w-[1200px] mx-auto overflow-visible">
@@ -403,11 +405,12 @@ export function Projects() {
       </div>
         
       </div>
-          <ProjectMobileDrawer
+    </section>
+      <ProjectMobileDrawer
         isOpen={isDrawerOpen}
         onOpenChange={setIsDrawerOpen}
         projectId={selectedProject}
       />
-    </section>
+    </>
   );
 }
