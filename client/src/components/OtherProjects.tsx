@@ -48,7 +48,7 @@ export function OtherProjects({ currentProjectId }: { currentProjectId: string }
                   />
                 </div>
                 <h4 className="text-[18px] md:text-[20px] font-bold text-gray-900 mb-2 font-sans">{project.title}</h4>
-                <p className="text-[15px] text-gray-500 leading-relaxed font-medium">{project.description}</p>
+                <p className="text-[16px] md:text-[18px] text-gray-500 leading-relaxed font-medium">{project.description}</p>
             </Link>
           ))}
         </div>

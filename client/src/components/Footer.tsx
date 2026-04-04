@@ -41,9 +41,9 @@ export function Footer() {
           <a href="mailto:rsoundar1998@gmail.com" className="flex items-center justify-between group border-b border-[#e5e5e5] pb-4">
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <Mail className="w-5 h-5" strokeWidth={1.5} />
-              <span className="text-[18px] font-medium">Email</span>
+              <span className="text-[16px] md:text-[18px] font-medium">Email</span>
             </div>
-            <span className="text-[18px] text-[#666] group-hover:text-[#222] transition-all">
+            <span className="text-[16px] md:text-[18px] text-[#666] group-hover:text-[#222] transition-all">
               rsoundar1998@gmail.com
             </span>
           </a>
@@ -52,9 +52,9 @@ export function Footer() {
           <a href="#" className="flex items-center justify-between group border-b border-[#e5e5e5] pb-4">
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <Linkedin className="w-5 h-5" strokeWidth={1.5} />
-              <span className="text-[18px] font-medium">LinkedIn</span>
+              <span className="text-[16px] md:text-[18px] font-medium">LinkedIn</span>
             </div>
-            <span className="text-[18px] text-[#666] group-hover:text-[#222] transition-all">
+            <span className="text-[16px] md:text-[18px] text-[#666] group-hover:text-[#222] transition-all">
               /in/soundarr/
             </span>
           </a>
@@ -69,9 +69,9 @@ export function Footer() {
           >
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <FileText className="w-5 h-5" strokeWidth={1.5} />
-              <span className="text-[18px] font-medium">Resume</span>
+              <span className="text-[16px] md:text-[18px] font-medium">Resume</span>
             </div>
-            <span className="text-[18px] text-[#666] group-hover:text-[#222] transition-all">View CV</span>
+            <span className="text-[16px] md:text-[18px] text-[#666] group-hover:text-[#222] transition-all">View CV</span>
           </button>
         </motion.div>
 
@@ -83,7 +83,7 @@ export function Footer() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="flex flex-col items-center gap-3"
         >
-          <p className="text-[#444] text-[18px] flex items-center gap-2">
+          <p className="text-[#444] text-[16px] md:text-[18px] flex items-center gap-2">
             Crafting scalable design systems 
             <img 
               src="/hi-hand.png" 
@@ -92,7 +92,7 @@ export function Footer() {
             /> 
             and fueled by matcha!
           </p>
-          <p className="text-[#888] text-[18px]">
+          <p className="text-[#888] text-[16px] md:text-[18px]">
             © 2026 DznwithSoundar
           </p>
         </motion.div>
