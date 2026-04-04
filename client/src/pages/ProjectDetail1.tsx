@@ -7,23 +7,25 @@ import Case1 from "@assets/Case1.png";
 
 import { OtherProjects } from "@/components/OtherProjects";
 
-export default function ProjectDetail1() {
+export default function ProjectDetail1({ hideHeader = false }: { hideHeader?: boolean }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
     <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-[0px]">
-      <div className="fixed top-6 left-4 md:left-8 z-50">
+      {!hideHeader && (
+        <div className="fixed top-6 left-4 md:left-8 z-50">
         <Link href="/">
           <span className="bg-white/95 backdrop-blur-md flex items-center justify-center px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border-2 border-black hover:bg-black transition-all group mt-[20px] ml-[40px] cursor-pointer">
             <ArrowLeft className="w-5 h-5 text-black group-hover:text-white group-hover:-translate-x-1 transition-all" strokeWidth={2.5} />
           </span>
         </Link>
       </div>
+      )}
       {/* Top Banner section */}
       <div 
-        className="w-full text-white flex flex-col items-center justify-start text-center px-6 relative overflow-hidden bg-cover bg-center bg-no-repeat pt-[80px]"
+        className={`w-full text-white flex flex-col items-center justify-start text-center px-6 relative overflow-hidden bg-cover bg-center bg-no-repeat ${hideHeader ? "pt-[40px]" : "pt-[80px]"}`}
         style={{ backgroundImage: "url('/Case_hero.png')" }}
       >
         <div className="max-w-[800px] z-10 relative mt-8 mb-12">
