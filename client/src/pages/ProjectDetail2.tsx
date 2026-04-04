@@ -25,36 +25,44 @@ export default function ProjectDetail2({ hideHeader = false }: { hideHeader?: bo
       </div>
       )}
       {/* Top Banner section */}
-      <div 
-        className={`w-full text-white flex flex-col items-center justify-start text-center px-6 relative overflow-hidden bg-cover bg-center bg-no-repeat ${hideHeader ? "pt-[40px]" : "pt-[80px]"}`}
-        style={{ backgroundImage: "url('/Case_hero.png')" }}
-      >
-        <div className="max-w-[800px] z-10 relative mt-8 mb-12">
-          <h1 className="text-[40px] md:text-[56px] font-semibold leading-[1.2] tracking-tight font-sans">
-            Building a Scalable Design System for a Growing HR Platform
+      {hideHeader ? (
+        <div className="w-full bg-white pt-6 pb-8 px-4 sm:px-6 md:px-8 relative z-10 flex flex-col items-start text-left">
+          <h1 className="text-[28px] sm:text-[32px] font-medium leading-[1.1] tracking-[-0.02em] font-sans text-[#111] mb-4">
+            Building a Scalable Design System
           </h1>
-        </div>
-
-        {/* Main Interface Image - Placed inside the banner */}
-        <div className="w-full max-w-[1000px] z-10 relative mt-4">
-          <div className="rounded-t-xl md:rounded-t-2xl overflow-hidden shadow-2xl">
-            <img 
-              src={Case1} 
-              alt="HR Platform Dashboard" 
-              className="w-full h-auto block"
-            />
+          <p className="text-[16px] sm:text-[18px] text-[#333] leading-[1.5] mb-8 max-w-[800px]">
+            Built scalable components and tokens to unify UI across CRM modules, reducing UI inconsistencies and improving design-to-development efficiency.
+          </p>
+          <div className="w-full rounded-[16px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] bg-[#f4f4f4]">
+            <img src={Case1} alt="Project Dashboard" className="w-full h-auto block" />
           </div>
         </div>
-      </div>
+      ) : (
+        <div 
+          className="w-full text-white flex flex-col items-center justify-start text-center px-6 relative overflow-hidden bg-cover bg-center bg-no-repeat pt-[80px]"
+          style={{ backgroundImage: "url('/Case_hero.png')" }}
+        >
+          <div className="max-w-[800px] z-10 relative mt-8 mb-12">
+            <h1 className="text-[40px] md:text-[56px] font-semibold leading-[1.2] tracking-tight font-sans">
+              Building a Scalable Design System for a Growing HR Platform
+            </h1>
+          </div>
+
+          {/* Main Interface Image - Placed inside the banner */}
+          <div className="w-full max-w-[1000px] z-10 relative mt-4">
+            <div className="rounded-t-xl md:rounded-t-2xl overflow-hidden shadow-2xl">
+              <img src={Case1} alt="Project Dashboard" className="w-full h-auto block" />
+            </div>
+          </div>
+        </div>
+      )}
       {/* Project Overview Section */}
-      <div className="w-full bg-gray-50 pt-16 pb-16 lg:pb-24 border-b border-gray-200 relative z-20">
+      <div className={`w-full bg-gray-50 ${hideHeader ? 'pt-8' : 'pt-16'} pb-16 lg:pb-24 border-b border-gray-200 relative z-20`}>
         <div className="max-w-[1000px] mx-auto px-4 md:px-8">
           <div className="w-full">
             {/* Project Header */}
             <div className="mb-0">
-              <h2 className="text-[32px] md:text-[40px] font-bold mb-6 leading-[1.3] tracking-tight font-sans">
-                Building a Scalable Design System for a Growing HR Platform
-              </h2>
+              {!hideHeader ? (<h2 className="text-[32px] md:text-[40px] font-bold mb-6 leading-[1.3] tracking-tight font-sans">Building a Scalable Design System for a Growing HR Platform</h2>) : (<h2 className="text-[22px] font-bold mb-4 mt-2">Context</h2>)}
               <p className="text-[16px] md:text-[18px] leading-[1.8] mb-12 font-medium tracking-wide">
                 Sense is an AI-powered recruiting platform that helps staffing agencies and enterprise teams manage hiring pipelines, automation, and analytics within a unified CRM.
                 <br /><br />
