@@ -3,11 +3,15 @@ const fs = require('fs');
 let path = 'client/src/components/Projects.tsx';
 let content = fs.readFileSync(path, 'utf-8');
 
-// I am noticing the custom drawer didn't work either, or the user is saying "not working" because clicks STILL aren't registering on mobile.
-// Why wouldn't clicks register on mobile? 
-// Because the ScrollTrigger pinning/scrubbing might be capturing all touch events and preventing them from propagating.
-// To fix this, we need to ensure the click target has `pointer-events-auto` AND `z-index` higher than the GSAP overlay.
-// But we ALSO removed the separate mobile/desktop click overlays. Let's put them back, they are the most reliable.
+// The grep failed, meaning my previous replace didn't work because I removed the absolute overlays earlier!
+// Let's add them back properly.
+// The current wrapper looks like:
+// <div 
+//   onClick={(e) => { ... }}
+//   className="..."
+//   style={{ ... }}
+//   role="button"
+//   tabIndex={0}>
 
 content = content.replace(
   /    <div \n      onClick=\{\(e\) => \{\n        if \(window\.innerWidth <= 1024\) \{\n          e\.preventDefault\(\);\n          e\.stopPropagation\(\);\n          console\.log\("Opening drawer from root div for", project\.id\);\n          setSelectedProject\(project\.id\);\n          setIsDrawerOpen\(true\);\n        \} else \{\n          setLocation\(project\.link\);\n        \}\n      \}\}\n      className="block w-full bg-white rounded-\[28px\] p-\[16px\] md:p-\[32px\] shadow-\[0_4px_24px_rgba\(0,0,0,0\.04\)\] border border-\[#eaeaea\] group transition-all duration-300 md:hover:shadow-\[0_8px_32px_rgba\(0,0,0,0\.08\)\] relative z-\[90\] text-left cursor-pointer pointer-events-auto" \n      style=\{\{ WebkitTapHighlightColor: "transparent" \}\}\n      role="button"\n      tabIndex=\{0\}>\n      \n      <div className="flex flex-col md:flex-row gap-\[12px\] md:gap-\[24px\] items-stretch md:h-\[400px\] pointer-events-none relative z-10">/g,

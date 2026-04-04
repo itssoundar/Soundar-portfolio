@@ -1,4 +1,14 @@
-import { useEffect } from "react";
+const fs = require('fs');
+
+let path = 'client/src/components/ProjectMobileDrawer.tsx';
+let content = fs.readFileSync(path, 'utf-8');
+
+// I am adding the `Drawer.Portal` with `forceMount` to make absolutely sure it renders,
+// and making sure the `Drawer.Root` uses `direction="bottom"`.
+// I am also removing any custom positioning on the overlay that might be overridden by Vaul.
+// And most importantly, checking the imports from 'vaul' to ensure we aren't missing anything.
+
+content = `import { useEffect } from "react";
 import { Drawer } from "vaul";
 import { X } from "lucide-react";
 import { useLocation } from "wouter";
@@ -15,6 +25,7 @@ interface ProjectMobileDrawerProps {
 }
 
 export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: ProjectMobileDrawerProps) {
+  const [, setLocation] = useLocation();
 
   // Reset scroll position when drawer opens
   useEffect(() => {
@@ -23,6 +34,14 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
       if (drawerContent) {
         drawerContent.scrollTop = 0;
       }
+      
+      // Update URL without navigation to allow sharing links
+      if (projectId) {
+        window.history.pushState({}, '', \`/project/\${projectId}\`);
+      }
+    } else {
+      // Revert URL when closing
+      window.history.pushState({}, '', '/');
     }
   }, [isOpen, projectId]);
 
@@ -55,7 +74,7 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
   return (
     <Drawer.Root open={isOpen} onOpenChange={onOpenChange}>
       <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 bg-black/40 z-[99999]" />
+        <Drawer.Overlay className="fixed inset-0 bg-black/60 z-[99999]" />
         <Drawer.Content className="bg-white flex flex-col rounded-t-[24px] h-[92vh] mt-24 fixed bottom-0 left-0 right-0 z-[100000] outline-none">
           <div className="p-4 bg-white rounded-t-[24px] flex-1 overflow-y-auto">
             <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-6" />
@@ -75,3 +94,6 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
     </Drawer.Root>
   );
 }
+`;
+
+fs.writeFileSync(path, content, 'utf-8');

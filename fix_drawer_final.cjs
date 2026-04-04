@@ -1,20 +1,11 @@
 const fs = require('fs');
 
 let path = 'client/src/components/ProjectMobileDrawer.tsx';
-let content = fs.readFileSync(path, 'utf-8');
 
-// I am noticing that pushing state to the URL (`window.history.pushState({}, '', \`/project/\${projectId}\`);`) might be causing Wouter to intercept it 
-// and unmount the `Projects` component or the `Home` page, which immediately destroys the drawer!
-// Wouter listens to history changes, so if we push a URL that matches a Route, it will unmount Home.tsx and mount the ProjectDetail page!
-// THIS IS WHY IT WAS FLASHING AND DISAPPEARING (or not working)! 
-
-// I just removed the pushState in the previous edit.
-// Let's also make sure we're using a reliable Drawer implementation without any other weird side effects.
-// I'll ensure we have a clean Vaul drawer that just opens and closes.
-
-content = `import { useEffect } from "react";
+let content = `import { useEffect } from "react";
 import { Drawer } from "vaul";
 import { X } from "lucide-react";
+import { useLocation } from "wouter";
 
 // Import project detail components
 import ProjectDetail1 from "@/pages/ProjectDetail1";
@@ -28,6 +19,7 @@ interface ProjectMobileDrawerProps {
 }
 
 export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: ProjectMobileDrawerProps) {
+  const [, setLocation] = useLocation();
 
   // Reset scroll position when drawer opens
   useEffect(() => {
@@ -36,6 +28,14 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
       if (drawerContent) {
         drawerContent.scrollTop = 0;
       }
+      
+      // Update URL without navigation to allow sharing links
+      if (projectId) {
+        window.history.pushState({}, '', \`/project/\${projectId}\`);
+      }
+    } else {
+      // Revert URL when closing
+      window.history.pushState({}, '', '/');
     }
   }, [isOpen, projectId]);
 
@@ -66,20 +66,30 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
   };
 
   return (
-    <Drawer.Root open={isOpen} onOpenChange={onOpenChange}>
+    <Drawer.Root open={isOpen} onOpenChange={onOpenChange} shouldScaleBackground={false}>
       <Drawer.Portal>
-        <Drawer.Overlay className="fixed inset-0 bg-black/40 z-[99999]" />
-        <Drawer.Content className="bg-white flex flex-col rounded-t-[24px] h-[92vh] mt-24 fixed bottom-0 left-0 right-0 z-[100000] outline-none">
-          <div className="p-4 bg-white rounded-t-[24px] flex-1 overflow-y-auto">
-            <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-6" />
-            <div className="flex items-center justify-between w-full mb-4">
-              <Drawer.Title className="text-[18px] font-semibold">{getProjectTitle()}</Drawer.Title>
-              <button onClick={() => onOpenChange(false)} className="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
-                <X size={20} />
+        <Drawer.Overlay className="fixed inset-0 bg-black/60 z-[99999]" />
+        <Drawer.Content className="bg-white flex flex-col rounded-t-[24px] h-[92vh] fixed bottom-0 left-0 right-0 z-[100000] outline-none">
+          {/* Header Area */}
+          <div className="flex flex-col items-center justify-center pt-3 pb-3 sticky top-0 bg-white z-[100001] rounded-t-[24px] border-b border-gray-100 shrink-0">
+            <div className="mx-auto h-1.5 w-12 rounded-full bg-gray-200 mb-4" />
+            <div className="flex items-center justify-between w-full px-4">
+              <div className="w-8" />
+              <Drawer.Title className="text-[14px] font-medium text-center text-[#666] font-sans m-0">
+                {getProjectTitle()}
+              </Drawer.Title>
+              <button 
+                onClick={() => onOpenChange(false)} 
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 hover:bg-gray-100 transition-colors"
+              >
+                <X size={16} className="text-gray-500" />
               </button>
             </div>
-            
-            <div id="project-drawer-content" className="w-full h-full pb-20">
+          </div>
+          
+          {/* Scrollable Content */}
+          <div id="project-drawer-content" className="flex-1 overflow-y-auto bg-white pb-12 w-full">
+            <div className="bg-white min-h-full">
               {renderProjectContent()}
             </div>
           </div>

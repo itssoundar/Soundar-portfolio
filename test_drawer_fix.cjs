@@ -1,4 +1,13 @@
-import { useEffect } from "react";
+const fs = require('fs');
+
+let path = 'client/src/components/ProjectMobileDrawer.tsx';
+let content = fs.readFileSync(path, 'utf-8');
+
+// I am noticing the custom drawer is still not showing up correctly or it's not capturing clicks.
+// Let's switch back to the very basic shadcn Dialog/Drawer using the Vaul library to ensure maximum compatibility.
+// Often custom portal implementations miss subtle Safari hacks that libraries like Vaul handle internally.
+
+content = `import { useEffect } from "react";
 import { Drawer } from "vaul";
 import { X } from "lucide-react";
 import { useLocation } from "wouter";
@@ -75,3 +84,6 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
     </Drawer.Root>
   );
 }
+`;
+
+fs.writeFileSync(path, content, 'utf-8');

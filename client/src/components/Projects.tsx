@@ -176,34 +176,21 @@ export function Projects() {
   }, []);
 
   const renderCardContent = (project: typeof projects[0], isFirst: boolean = false) => (
-    <div 
-      className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] relative z-[90] text-left pointer-events-auto" 
-      style={{ WebkitTapHighlightColor: "transparent" }}>
-      
-      {/* Mobile Click Target (shows Drawer) */}
-      <div 
-        className="absolute inset-0 z-[100] md:hidden cursor-pointer"
-        onClick={(e) => {
+    <button 
+      type="button"
+      onClick={(e) => {
+        if (window.innerWidth <= 1024) {
           e.preventDefault();
           e.stopPropagation();
           console.log("Opening drawer for", project.id);
           setSelectedProject(project.id);
           setIsDrawerOpen(true);
-        }}
-        onTouchStart={() => {
-          // Empty touch start to ensure iOS Safari registers this as a tappable element
-        }}
-      />
-      
-      {/* Desktop Click Target (navigates to page) */}
-      <div 
-        className="absolute inset-0 z-[100] hidden md:block cursor-pointer"
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
+        } else {
           setLocation(project.link);
-        }}
-      />
+        }
+      }}
+      className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] relative z-[9999] text-left cursor-pointer appearance-none outline-none focus:outline-none" 
+      style={{ WebkitTapHighlightColor: "transparent", pointerEvents: "all", position: "relative", zIndex: 100 }}>
       
       <div className="flex flex-col md:flex-row gap-[12px] md:gap-[24px] items-stretch md:h-[400px] pointer-events-none relative z-10">
         {/* Left Side: Image */}
@@ -236,7 +223,7 @@ export function Projects() {
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 
   return (
@@ -265,7 +252,7 @@ export function Projects() {
             <div className="relative w-full flex-1 min-h-[300px] flex justify-center items-center mt-2 md:mt-4 sm:h-[500px] md:h-[600px] sm:min-h-[500px] md:min-h-[600px]">
               
               {/* Stage 4: Card 1 reveals precisely where the image was */}
-              <div className="absolute inset-0 flex items-center justify-center z-[80] pointer-events-auto">
+              <div className="absolute inset-0 flex items-center justify-center z-[80] pointer-events-none">
                 <div 
                   ref={card1Ref}
                   className="w-[90%] md:w-full max-w-[1000px] opacity-0 pointer-events-auto"
