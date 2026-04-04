@@ -62,7 +62,7 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
   };
 
   return (
-    <Drawer open={isOpen} onOpenChange={onOpenChange}>
+    <Drawer open={isOpen} onOpenChange={onOpenChange} shouldScaleBackground={false}>
       <DrawerPortal>
         <DrawerOverlay className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm" />
         <DrawerContent className="fixed inset-x-0 bottom-0 z-[101] mt-10 flex h-[92vh] flex-col rounded-t-[24px] border-0 bg-[#f8f9fa] outline-none pointer-events-auto">

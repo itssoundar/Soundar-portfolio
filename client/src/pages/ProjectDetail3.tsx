@@ -8,8 +8,10 @@ import { OtherProjects } from "@/components/OtherProjects";
 
 export default function ProjectDetail3({ hideHeader = false }: { hideHeader?: boolean }) {
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (!hideHeader) {
+      window.scrollTo(0, 0);
+    }
+  }, [hideHeader]);
 
   return (
     <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-[0px]">

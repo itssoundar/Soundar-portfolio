@@ -178,3 +178,22 @@ body.modal-open .smooth-cursor-container {
 [data-vaul-drawer] {
   touch-action: none;
 }
+
+
+/* Vaul Drawer Overrides to ensure it works on all devices */
+[data-vaul-drawer] {
+  touch-action: none;
+}
+
+[data-vaul-overlay] {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+[data-vaul-overlay][data-state="open"] {
+  opacity: 1;
+}
+
+[data-vaul-drawer][data-state="open"] {
+  transform: translate3d(0, 0, 0);
+}

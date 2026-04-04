@@ -179,7 +179,8 @@ export function Projects() {
     <div
       onClick={(e) => {
         e.preventDefault();
-        if (window.innerWidth < 768) {
+        // Use the hook value or check innerWidth
+        if (isMobile || window.innerWidth < 768) {
           setSelectedProject(project.id);
           setIsDrawerOpen(true);
         } else {
