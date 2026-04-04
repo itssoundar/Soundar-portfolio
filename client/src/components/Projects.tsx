@@ -176,30 +176,46 @@ export function Projects() {
   }, []);
 
   const renderCardContent = (project: typeof projects[0], isFirst: boolean = false) => (
-    <div
-      onClick={(e) => {
-        e.preventDefault();
-        // Use the hook value or check innerWidth
-        if (isMobile || window.innerWidth < 768) {
+    <div 
+      className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] relative z-[90] text-left cursor-pointer pointer-events-auto" 
+      style={{ WebkitTapHighlightColor: "transparent" }}>
+      
+      {/* Mobile Click Target (shows Drawer) */}
+      <div 
+        className="absolute inset-0 z-[100] md:hidden cursor-pointer"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
           setSelectedProject(project.id);
           setIsDrawerOpen(true);
-        } else {
+        }}
+        onTouchStart={() => {
+          // Empty touch start to ensure iOS Safari registers this as a tappable element
+        }}
+      />
+      
+      {/* Desktop Click Target (navigates to page) */}
+      <div 
+        className="absolute inset-0 z-[100] hidden md:block cursor-pointer"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
           setLocation(project.link);
-        }
-      }}
-      className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] pointer-events-auto cursor-pointer">
-      <div className="flex flex-col md:flex-row gap-[12px] md:gap-[24px] items-stretch cursor-pointer md:h-[400px]">
+        }}
+      />
+      
+      <div className="flex flex-col md:flex-row gap-[12px] md:gap-[24px] items-stretch md:h-[400px] pointer-events-none relative z-10">
         {/* Left Side: Image */}
-        <div className="w-full md:w-[45%] h-[180px] sm:h-[400px] md:h-full relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50">
+        <div className="w-full md:w-[45%] h-[180px] sm:h-[400px] md:h-full relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50 pointer-events-none">
           <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+            className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 md:group-hover:scale-105"
             style={{ backgroundImage: `url(${project.image})` }}
           />
         </div>
 
         {/* Right Side: Content */}
-        <div className="w-full md:w-[55%] flex flex-col justify-center">
-          <h3 className="text-[22px] md:text-[28px] font-medium tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-3 md:mb-8 pr-2 lg:pr-8">
+        <div className="w-full md:w-[55%] flex flex-col justify-center pointer-events-none">
+          <h3 className="text-[22px] md:text-[28px] font-medium tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-3 md:mb-8 pr-2 lg:pr-8 text-[#111]">
             {project.title}
           </h3>
           
@@ -213,7 +229,7 @@ export function Projects() {
           </ul>
 
           <div className="mt-auto md:mt-0">
-            <span className="inline-block px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] lg:text-[16px] group-hover:bg-black transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
+            <span className="inline-block px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] lg:text-[16px] md:group-hover:bg-black transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
               View Project
             </span>
           </div>
@@ -247,7 +263,7 @@ export function Projects() {
             <div className="relative w-full flex-1 min-h-[300px] flex justify-center items-center mt-2 md:mt-4 sm:h-[500px] md:h-[600px] sm:min-h-[500px] md:min-h-[600px]">
               
               {/* Stage 4: Card 1 reveals precisely where the image was */}
-              <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
+              <div className="absolute inset-0 flex items-center justify-center z-[80] pointer-events-auto">
                 <div 
                   ref={card1Ref}
                   className="w-[90%] md:w-full max-w-[1000px] opacity-0 pointer-events-auto"
@@ -373,12 +389,12 @@ export function Projects() {
       </div>
 
       {/* Stage 5: Expansion - Sequential Cards */}
-      <div className="relative z-50 w-full bg-[#f8f9fa] sm:pt-[180px] md:pt-0 mt-0 md:mt-0 pt-[0px]">
+      <div className="relative z-50 w-full bg-[#f8f9fa] sm:pt-[180px] md:pt-0 mt-0 md:mt-0 pt-[0px] pointer-events-auto">
         <div className="next-cards-container flex flex-col items-center gap-8 md:gap-24 pb-24 w-full">
           {projects.slice(1).map((project) => (
             <div
               key={project.id}
-              className="next-card w-[90%] md:w-full max-w-[1000px]"
+              className="next-card w-[90%] md:w-full max-w-[1000px] pointer-events-auto"
             >
               {renderCardContent(project)}
             </div>
