@@ -50,7 +50,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
         style={{ cursor: 'auto' }}
       >
         <div className="flex items-center justify-between p-4 border-b border-gray-100 shrink-0">
-          <h3 className="font-medium font-sans text-lg">Resume Preview</h3>
+          <h3 className="text-[22px] md:text-[28px] font-medium font-sans">Resume Preview</h3>
           <div className="flex items-center gap-2">
             <a 
               href="/Soundar_Resume2026.pdf" 
@@ -83,7 +83,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               }
               error={
                 <div className="flex flex-col items-center justify-center p-12 text-white text-center">
-                  <p className="mb-4">Failed to load PDF.</p>
+                  <p className="text-[16px] md:text-[18px] mb-4">Failed to load PDF.</p>
                   <a 
                     href="/Soundar_Resume2026.pdf" 
                     download

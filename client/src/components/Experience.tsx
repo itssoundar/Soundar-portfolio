@@ -80,7 +80,7 @@ export function Experience() {
         }}
       />
       <div className="relative z-10 w-full max-w-[1200px] mx-auto">
-        <h2 className="text-[32px] md:text-[40px] font-medium text-center mb-16 md:mb-24 tracking-[-0.02em] leading-[1.1] font-sans">
+        <h2 className="text-[32px] md:text-[40px] font-medium mb-16 md:mb-24 tracking-[-0.02em] leading-[1.1] font-sans">
           Experiences that shaped <span className="font-serif italic font-normal text-white/90">my design lens</span>
         </h2>
 
@@ -91,7 +91,7 @@ export function Experience() {
               className={`py-8 md:py-10 flex flex-col gap-3 ${index !== experiences.length - 1 ? 'border-b border-white/10' : ''}`}
             >
               <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                <h3 className="text-[22px] md:text-[28px] font-semibold tracking-wide text-white/95 font-sans">
+                <h3 className="text-[22px] md:text-[28px] font-semibold tracking-wide /95 font-sans">
                   {exp.role} <span className="font-normal text-white/80 font-sans">{exp.company}</span>
                 </h3>
                 <span className="text-white/50 text-[16px] md:text-[18px] font-medium tracking-wider font-sans">
@@ -108,7 +108,7 @@ export function Experience() {
         {/* Philosophy and Tools Section */}
         <div className="md:mt-32 relative w-[100vw] left-1/2 -translate-x-1/2 pl-[24px] pr-[24px] mt-[0px] pt-[0px]">
           <div className="relative z-10 text-center mb-16 px-6">
-            <p className="text-[16px] md:text-[18px] leading-[1.6] font-medium text-white/90 max-w-[800px] mx-auto tracking-wide">
+            <p className="text-[16px] md:text-[18px] leading-[1.6] font-medium /90 max-w-[800px] mx-auto tracking-wide">
               "I thrive on discovery and problem-solving, continuously exploring new ideas to create thoughtful, <span className="font-serif italic font-normal">impactful product experiences</span>"
             </p>
           </div>
@@ -116,7 +116,7 @@ export function Experience() {
           <div className="relative z-10 flex flex-col md:flex-row gap-6 justify-center items-center max-w-[1200px] mx-auto">
             {/* Left Tool Group */}
             <div className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col items-center pl-[20px] pr-[20px]">
-              <h4 className="text-[#888888] text-[18px] font-medium text-center mb-8 tracking-wide">
+              <h4 className="text-[#888888] text-[16px] md:text-[18px] font-medium text-center mb-8 tracking-wide">
                 Plan, Strategy, Brainstorm and research
               </h4>
               <div className="flex justify-center items-center -space-x-3 md:-space-x-4">
@@ -138,7 +138,7 @@ export function Experience() {
 
             {/* Right Tool Group */}
             <div className="bg-[#1a1a1a]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-10 w-full md:w-[420px] transition-transform hover:-translate-y-1 duration-300 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex flex-col items-center pl-[20px] pr-[20px]">
-              <h4 className="text-[#888888] text-[18px] font-medium text-center mb-8 tracking-wide">
+              <h4 className="text-[#888888] text-[16px] md:text-[18px] font-medium text-center mb-8 tracking-wide">
                 Iterate, Refine, Prototype and ship
               </h4>
               <div className="flex justify-center items-center -space-x-3 md:-space-x-4">
@@ -163,15 +163,15 @@ export function Experience() {
             <div className="flex items-center animate-[marquee_20s_linear_infinite] w-max">
               {[...Array(4)].map((_, i) => (
                 <div key={i} className="flex items-center flex-shrink-0">
-                  <span className="text-white text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Design thinking</span>
+                  <span className="text-white text-[16px] md:text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Design thinking</span>
                   <img src="/star.png" alt="star" className="w-10 h-10 opacity-70 flex-shrink-0" />
-                  <span className="text-white text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Accessibility</span>
+                  <span className="text-white text-[16px] md:text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Accessibility</span>
                   <img src="/star.png" alt="star" className="w-10 h-10 opacity-70 flex-shrink-0" />
-                  <span className="text-white text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">User friendly</span>
+                  <span className="text-white text-[16px] md:text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">User friendly</span>
                   <img src="/star.png" alt="star" className="w-10 h-10 opacity-70 flex-shrink-0" />
-                  <span className="text-white text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Vibe-Coding</span>
+                  <span className="text-white text-[16px] md:text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Vibe-Coding</span>
                   <img src="/star.png" alt="star" className="w-10 h-10 opacity-70 flex-shrink-0" />
-                  <span className="text-white text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Behavioural design</span>
+                  <span className="text-white text-[16px] md:text-[18px] font-medium tracking-wide uppercase mx-8 whitespace-nowrap">Behavioural design</span>
                   <img src="/star.png" alt="star" className="w-10 h-10 opacity-70 flex-shrink-0" />
                 </div>
               ))}

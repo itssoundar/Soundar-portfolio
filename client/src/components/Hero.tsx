@@ -31,20 +31,20 @@ export function Hero() {
           <div className="w-[50px] h-[50px] flex items-center justify-center">
             <img src="/Soundar.png" alt="Soundar avatar" className="w-full h-full object-cover rounded-full drop-shadow-sm" />
           </div>
-          <span className="text-[#333] font-medium text-[18px] tracking-wide mt-1">
+          <span className="text-[#333] font-medium text-[16px] md:text-[18px] tracking-wide mt-1">
             Hey ..! I'm Soundar ,
           </span>
         </div>
 
         {/* Main Headline Section */}
         <div className="flex flex-col items-center text-center w-full mt-4">
-          <h1 className="text-[40px] md:text-[56px] text-[#222] tracking-[-0.02em] font-medium w-full leading-[1.3] font-sans max-w-[320px] md:max-w-none mx-auto">
+          <h1 className="text-[40px] md:text-[56px] tracking-[-0.02em] font-medium w-full leading-[1.3] font-sans max-w-[320px] md:max-w-none mx-auto">
             Product Designer helping teams <br className="hidden md:block" />
             move beyond what looks good <br className="hidden md:block" />
             to <span className="inline-flex items-center text-[#888] font-light mx-1">→</span> what <span className="font-serif italic font-normal text-[#111]">users can rely on.</span>
           </h1>
           
-          <p className="text-[#444] max-w-[700px] text-[16px] md:text-[18px] leading-[1.5] text-center mt-6 font-normal font-sans">
+          <p className="text-[16px] md:text-[18px] max-w-[700px] leading-[1.5] mt-6 font-normal font-sans">
             Translating 0→1 chaos into usable, scalable design systems <br className="hidden md:block" />
             across B2B, SaaS, and AI-first products.
           </p>

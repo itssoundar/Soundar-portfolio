@@ -181,7 +181,7 @@ export function Projects() {
 
         {/* Right Side: Content */}
         <div className="w-full md:w-[55%] flex flex-col justify-center">
-          <h3 className="text-[22px] md:text-[28px] font-medium text-[#111] tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-3 md:mb-8 pr-2 lg:pr-8">
+          <h3 className="text-[22px] md:text-[28px] font-medium tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-3 md:mb-8 pr-2 lg:pr-8">
             {project.title}
           </h3>
           
@@ -217,10 +217,10 @@ export function Projects() {
             
             {/* Initial State: Heading & Subtext */}
             <div className="flex flex-col items-center text-center mb-1 sm:mb-4 md:mb-12 flex-shrink-0">
-              <h2 className="text-[32px] md:text-[40px] font-medium text-[#111] tracking-[-0.02em] leading-[1.1] font-sans mb-2 sm:mb-3 md:mb-4">
+              <h2 className="text-[32px] md:text-[40px] font-medium tracking-[-0.02em] leading-[1.1] font-sans mb-2 sm:mb-3 md:mb-4">
                 Selected <span className="font-serif italic font-normal text-[#111]">Projects</span>
               </h2>
-              <p className="text-[16px] md:text-[18px] text-[#555] max-w-[600px] leading-relaxed px-4 md:px-0">
+              <p className="text-[16px] md:text-[18px] max-w-[600px] leading-relaxed px-4 md:px-0">
                 From navigating early-stage ambiguity to building scalable systems, I design solutions that convert innovation into measurable impact.
               </p>
             </div>

@@ -77,11 +77,11 @@ export function WordsFromPeople() {
     <section className="bg-white relative overflow-hidden pt-[60px] pb-[60px] px-6 md:px-[86px]">
       <div className="w-full mx-auto max-w-[1200px]">
         <div className="flex flex-col items-center text-center mb-16 md:mb-24">
-          <h2 className="text-[32px] md:text-[40px] text-[#222] tracking-[-0.02em] mb-6">
+          <h2 className="text-[32px] md:text-[40px] tracking-[-0.02em] mb-6">
             <span className="font-serif italic font-normal">Words</span>
             <span className="font-sans font-medium"> from people</span>
           </h2>
-          <p className="text-[#666] text-[16px] md:text-[18px] leading-[1.6] max-w-2xl font-medium tracking-wide">
+          <p className="text-[16px] md:text-[18px] leading-[1.6] max-w-2xl font-medium tracking-wide">
             No contracts, no hidden costs. Just tell us what you need and we'll deliver<br className="hidden md:block" /> accordingly.
           </p>
         </div>
@@ -130,14 +130,14 @@ export function WordsFromPeople() {
                         />
                       </div>
                     </div>
-                    <p className="text-[#666] group-hover:text-[#222] text-[18px] leading-[1.6] m-0 transition-colors duration-300 flex-grow italic mb-8 font-medium">
+                    <p className="text-[16px] md:text-[18px] group-hover:leading-[1.6] m-0 transition-colors duration-300 flex-grow italic mb-8 font-medium">
                       "{testimonial.text}"
                     </p>
                     <footer className="flex flex-col mt-auto transition-colors duration-300">
-                      <cite className="font-semibold text-[#111] text-[18px] not-italic tracking-tight transition-colors duration-300 mb-1">
+                      <cite className="font-semibold text-[#111] text-[16px] md:text-[18px] not-italic tracking-tight transition-colors duration-300 mb-1">
                         {testimonial.name}
                       </cite>
-                      <span className="text-[#777] text-[18px] tracking-wide transition-colors duration-300">
+                      <span className="text-[#777] text-[16px] md:text-[18px] tracking-wide transition-colors duration-300">
                         {testimonial.role}
                       </span>
                     </footer>
@@ -240,14 +240,14 @@ export function WordsFromPeople() {
                         />
                       </div>
                     </div>
-                    <p className="text-[#666] text-[18px] leading-[1.6] m-0 transition-colors duration-300 flex-grow italic mb-8 font-medium">
+                    <p className="text-[16px] md:text-[18px] leading-[1.6] m-0 transition-colors duration-300 flex-grow italic mb-8 font-medium">
                       "{testimonial.text}"
                     </p>
                     <footer className="flex flex-col mt-auto transition-colors duration-300">
-                      <cite className="font-semibold text-[#111] text-[18px] not-italic tracking-tight transition-colors duration-300 mb-1">
+                      <cite className="font-semibold text-[#111] text-[16px] md:text-[18px] not-italic tracking-tight transition-colors duration-300 mb-1">
                         {testimonial.name}
                       </cite>
-                      <span className="text-[#777] text-[18px] tracking-wide transition-colors duration-300">
+                      <span className="text-[#777] text-[16px] md:text-[18px] tracking-wide transition-colors duration-300">
                         {testimonial.role}
                       </span>
                     </footer>
