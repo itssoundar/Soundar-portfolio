@@ -24,7 +24,7 @@ export function Hero() {
         }}
       />
       
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center pt-[110px]">
+      <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center pt-[168px] md:pt-[184px]">
         
         {/* Top Avatar & Greeting */}
         <div className="flex items-center gap-2 mb-10">
