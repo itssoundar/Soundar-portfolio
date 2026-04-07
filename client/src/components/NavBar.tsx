@@ -1,10 +1,12 @@
 import { ArrowUpRight, Menu, X, Eye } from "lucide-react";
 import { useState } from "react";
 import { ResumeModal } from "./ResumeModal";
+import { TalkToAiModal } from "./TalkToAiModal";
 
 export function NavBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isTalkToAiOpen, setIsTalkToAiOpen] = useState(false);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     setIsMobileMenuOpen(false); // Close mobile menu when a link is clicked
@@ -38,15 +40,14 @@ export function NavBar() {
             <a href="/#contact" onClick={(e) => handleNavClick(e, 'contact')} className="hover:text-black transition-colors">Contact</a>
           </div>
 
-          <a
-            href="/#contact"
-            onClick={(e) => handleNavClick(e, 'contact')}
+          <button
+            onClick={() => setIsTalkToAiOpen(true)}
             data-testid="button-talk-to-my-ai"
             className="hidden md:flex h-11 items-center gap-2 rounded-[14px] border border-black/10 bg-[linear-gradient(135deg,#111_0%,#2a2a2a_100%)] px-5 text-[14px] font-medium text-white shadow-[0_10px_24px_rgba(0,0,0,0.14)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(0,0,0,0.18)]"
           >
             Talk to my AI
             <ArrowUpRight className="h-4 w-4" />
-          </a>
+          </button>
           
           <button 
             onClick={() => setIsResumeOpen(true)}
@@ -75,15 +76,17 @@ export function NavBar() {
             <a href="/#contact" onClick={(e) => handleNavClick(e, 'contact')} className="hover:text-black transition-colors px-4 py-2 hover:bg-gray-50 rounded-xl">Contact</a>
           </div>
           <div className="pt-2 border-t border-gray-100 space-y-3">
-            <a
-              href="/#contact"
-              onClick={(e) => handleNavClick(e, 'contact')}
+            <button
+              onClick={() => {
+                setIsTalkToAiOpen(true);
+                setIsMobileMenuOpen(false);
+              }}
               data-testid="button-talk-to-my-ai-mobile"
               className="w-full rounded-[14px] h-12 bg-[linear-gradient(135deg,#111_0%,#2a2a2a_100%)] text-white font-medium text-[15px] flex items-center justify-center gap-2 transition-all shadow-[0_10px_24px_rgba(0,0,0,0.14)]"
             >
               Talk to my AI
               <ArrowUpRight className="w-4 h-4" />
-            </a>
+            </button>
             <button 
               onClick={() => {
                 setIsResumeOpen(true);
@@ -100,6 +103,7 @@ export function NavBar() {
       )}
       
       <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
+      <TalkToAiModal isOpen={isTalkToAiOpen} onClose={() => setIsTalkToAiOpen(false)} />
     </div>
   );
 }
