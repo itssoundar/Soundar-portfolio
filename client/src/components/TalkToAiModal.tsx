@@ -1,4 +1,4 @@
-import { ArrowUpRight, MessageSquare, Mic, MicOff, Phone, PhoneOff, Sparkles, Volume2, X } from "lucide-react";
+import { ArrowUpRight, MessageSquare, Mic, MicOff, Phone, PhoneOff, Sparkles, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 
@@ -10,42 +10,25 @@ interface TalkToAiModalProps {
 type ModalView = "home" | "call";
 type CallPhase = "connecting" | "intro" | "speaking" | "live";
 
-type PromptOption = {
+type PromptSuggestion = {
   id: string;
   label: string;
-  prompt: string;
 };
 
-const INTRO_SCRIPT = "Hey, I'm Soundar. You're on my portfolio right now. I design products that feel clear, useful, and ready to scale. Ask me about my work, my process, or how I think about AI-first experiences.";
+const INTRO_SCRIPT = "Hey, I'm Soundar. You're on my portfolio right now. I’m a senior product designer focused on B2B, SaaS, and AI-first experiences. Feel free to ask me about my projects, my process, or how I think about product design.";
 
-const PROMPT_OPTIONS: PromptOption[] = [
-  {
-    id: "projects",
-    label: "Featured work",
-    prompt: "Tell me about your featured projects.",
-  },
-  {
-    id: "process",
-    label: "Design process",
-    prompt: "What is your design process like?",
-  },
-  {
-    id: "ai",
-    label: "AI-first products",
-    prompt: "How do you think about AI-first products?",
-  },
-  {
-    id: "about",
-    label: "About Soundar",
-    prompt: "Tell me about yourself.",
-  },
+const PROMPT_SUGGESTIONS: PromptSuggestion[] = [
+  { id: "agents", label: "Ask about the AI agent builder" },
+  { id: "genesis", label: "Ask about the Genesis design system" },
+  { id: "analytics", label: "Ask about CRM analytics" },
+  { id: "process", label: "Ask about Soundar's process" },
 ];
 
 export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
   const [view, setView] = useState<ModalView>("home");
   const [callPhase, setCallPhase] = useState<CallPhase>("connecting");
   const [assistantMessage, setAssistantMessage] = useState(INTRO_SCRIPT);
-  const [heardMessage, setHeardMessage] = useState("Tap the mic or start speaking when you're ready.");
+  const [heardMessage, setHeardMessage] = useState("Listening for your question...");
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const [isListening, setIsListening] = useState(false);
@@ -58,12 +41,12 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
   const isInCall = view === "call";
 
   const statusText = useMemo(() => {
-    if (callPhase === "connecting") return "Connecting to Soundar AI";
-    if (callPhase === "intro") return "Introducing";
+    if (callPhase === "connecting") return "Connecting to Soundar";
+    if (callPhase === "intro") return "Soundar is joining";
     if (callPhase === "speaking") return isMuted ? "Voice paused" : "Soundar is speaking";
     if (isMuted) return "Muted";
     if (isListening) return "Listening";
-    return "Ready to talk";
+    return "Listening in the background";
   }, [callPhase, isMuted, isListening]);
 
   const timerLabel = useMemo(() => {
@@ -110,7 +93,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     setIsMuted(false);
     setCallPhase("connecting");
     setAssistantMessage(INTRO_SCRIPT);
-    setHeardMessage("Tap the mic or start speaking when you're ready.");
+    setHeardMessage("Listening for your question...");
   };
 
   const pickVoice = () => {
@@ -128,27 +111,51 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
   const buildResponse = (input: string) => {
     const message = input.toLowerCase();
 
-    if (message.includes("project") || message.includes("work")) {
-      return "A lot of my work sits at the intersection of product clarity and execution. I like taking messy, early-stage problems and turning them into flows, systems, and interfaces people can actually rely on.";
+    if (message.includes("hello") || message.includes("hey") || message.includes("hi")) {
+      return "Hey, glad you're here. You can ask me about my AI workflow project, the Genesis design system work, CRM analytics, or just how I approach product design in general.";
     }
 
-    if (message.includes("process") || message.includes("design")) {
-      return "My process usually starts with reducing ambiguity. I look for the user tension, align that with the business goal, then shape the experience through structure, language, and interaction details that scale.";
+    if (message.includes("who are you") || message.includes("about yourself") || message.includes("tell me about yourself") || message.includes("who is soundar")) {
+      return "I'm Soundar, a senior product designer focused on B2B, SaaS, and AI-first products. I like taking messy product problems and turning them into experiences that feel clear, scalable, and reliable for real teams.";
     }
 
-    if (message.includes("ai")) {
-      return "For AI-first products, I care a lot about trust and usability. The interface has to explain what the system is doing, help people recover when things go wrong, and still feel simple under the hood.";
+    if (message.includes("portfolio") || message.includes("what is this site") || message.includes("what is on your portfolio")) {
+      return "This portfolio is basically a snapshot of how I think through product problems. It highlights three kinds of work: AI-driven CRM workflows, scalable design systems, and analytics experiences that help teams make decisions faster.";
     }
 
-    if (message.includes("yourself") || message.includes("about") || message.includes("soundar")) {
-      return "I'm a product designer focused on B2B, SaaS, and AI-first experiences. I enjoy building systems that feel thoughtful in the details and strong enough to grow with the product.";
+    if (message.includes("project") || message.includes("featured work") || message.includes("case study") || message.includes("work you have done")) {
+      return "The portfolio focuses on three main projects. One is an AI execution layer for recruiting workflows. Another is the Genesis design system work to unify a growing CRM. The third is a CRM analytics and dashboard builder experience for hiring teams. Together they show how I work across product strategy, systems thinking, and interaction design.";
     }
 
-    if (message.includes("hello") || message.includes("hey")) {
-      return "Hey, glad you're here. You can ask me about projects, process, design systems, or how I approach AI products.";
+    if (message.includes("ai") || message.includes("agent") || message.includes("workflow") || message.includes("sense") || message.includes("recruit") || message.includes("hiring")) {
+      return "One of the strongest projects is for Sense, an AI-driven recruiting platform. I designed an AI execution layer so recruiters could express intent in natural language instead of manually configuring complex workflows and dashboards. The goal was to shift the CRM from configuration-heavy tooling into a more intent-driven experience with better trust and faster execution.";
     }
 
-    return "Happy to talk through that. Ask me about my featured work, how I approach product design, or what I optimize for when designing AI-powered experiences.";
+    if (message.includes("genesis") || message.includes("design system") || message.includes("system")) {
+      return "The Genesis work was about stabilizing and scaling the product foundation. I audited fragmented patterns across the CRM, defined component architecture and token structure, and helped create reusable patterns for forms, tables, cards, modals, and other key surfaces. It was less about cosmetics and more about reducing UI debt and making the platform feel coherent.";
+    }
+
+    if (message.includes("analytics") || message.includes("dashboard") || message.includes("report") || message.includes("metrics")) {
+      return "The CRM analytics project focused on giving hiring teams a centralized analytics layer. I worked on pre-built dashboards, a custom dashboard builder, and proactive insight surfaces so teams could understand funnel performance, recruiter productivity, source effectiveness, and time-to-hire without depending so heavily on analysts or manual exports.";
+    }
+
+    if (message.includes("impact") || message.includes("result") || message.includes("outcome")) {
+      return "A lot of the impact across these projects came from reducing friction and making systems easier to use. In the AI workflow project, setup time dropped significantly and adoption improved. In the design system work, consistency improved and UI-related issues went down. In analytics, the experience made reporting much faster and more self-serve for teams.";
+    }
+
+    if (message.includes("process") || message.includes("how do you work") || message.includes("approach")) {
+      return "My process usually starts with reducing ambiguity. I try to understand the user tension, the business goal, and the system constraints first. From there I shape structure, interaction, and language in a way that makes the product easier to understand now, but still strong enough to scale later.";
+    }
+
+    if (message.includes("why") && message.includes("hire")) {
+      return "I think the value I bring is that I don't stop at surface polish. I like connecting product thinking, systems design, user trust, and delivery realities. The work in this portfolio is a good reflection of that because it spans AI workflows, design systems, and analytics products, not just screens.";
+    }
+
+    if (message.includes("contact") || message.includes("reach") || message.includes("email")) {
+      return "The easiest way to reach Soundar is through the contact section on the portfolio. If you're interested in working together, that's the best next step.";
+    }
+
+    return "From what I can tell, your question is about Soundar's portfolio, and the short version is this: the work is centered on making complex B2B and AI-first products feel simpler, more trustworthy, and easier to use. You can ask me about the AI agent builder, the Genesis design system, CRM analytics, or Soundar's design approach.";
   };
 
   const startListening = () => {
@@ -221,8 +228,8 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
       utterance.voice = voice;
     }
 
-    utterance.rate = 1.02;
-    utterance.pitch = 0.95;
+    utterance.rate = 1.01;
+    utterance.pitch = 0.96;
     utterance.volume = 1;
     utterance.onend = () => onEnd?.();
     utterance.onerror = () => onEnd?.();
@@ -245,8 +252,8 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     cleanupCallExperience();
     setView("call");
     setCallPhase("connecting");
-    setAssistantMessage("Connecting you to Soundar AI...");
-    setHeardMessage("Initializing voice session...");
+    setAssistantMessage("Connecting you to Soundar...");
+    setHeardMessage("Starting voice conversation...");
   };
 
   const endCall = () => {
@@ -311,9 +318,10 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
         setAssistantMessage(INTRO_SCRIPT);
         speakText(INTRO_SCRIPT, () => {
           setCallPhase("live");
+          setHeardMessage("I'm listening...");
           startListening();
         });
-      }, 1600);
+      }, 1500);
     }
 
     return () => {
@@ -367,7 +375,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
       : callPhase === "intro" || callPhase === "speaking"
         ? "from-[#ffcc8f]/30 via-[#ff9d3f]/28 to-transparent"
         : isListening
-          ? "from-[#7cd3ff]/30 via-[#4fb0ff]/24 to-transparent"
+          ? "from-[#7cd3ff]/28 via-[#4fb0ff]/20 to-transparent"
           : "from-white/12 via-white/8 to-transparent";
 
   return createPortal(
@@ -389,12 +397,12 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
         <div className="relative flex items-center justify-between px-4 py-4 md:px-8 md:py-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-white/55 md:text-[12px]" data-testid="badge-ai-mode">
             <Sparkles className="h-3.5 w-3.5" />
-            Real-time voice mode
+            Voice conversation
           </div>
 
           <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[12px] text-white/55 md:px-4 md:text-[13px]">
             <span className={`h-2 w-2 rounded-full ${callPhase === "connecting" ? "bg-[#7cd3ff] animate-pulse" : isListening ? "bg-[#7cd3ff] animate-pulse" : callPhase === "intro" || callPhase === "speaking" ? "bg-[#ffb35c] animate-pulse" : "bg-white/40"}`} />
-            <span data-testid="status-topbar-call">{isInCall ? statusText : "Voice preview"}</span>
+            <span data-testid="status-topbar-call">{isInCall ? statusText : "Portfolio voice preview"}</span>
           </div>
 
           <button
@@ -409,7 +417,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
 
         {view === "home" ? (
           <div className="relative flex min-h-[calc(88vh-88px)] items-center justify-center px-6 py-12 md:px-10 md:py-16">
-            <div className="w-full max-w-[460px] text-center">
+            <div className="w-full max-w-[480px] text-center">
               <div className="mx-auto mb-8 flex h-[124px] w-[124px] items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/5 shadow-[0_14px_60px_rgba(255,255,255,0.08)]">
                 <img
                   src="/Soundar.png"
@@ -420,10 +428,10 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
               </div>
 
               <h2 className="text-[40px] font-medium leading-none tracking-[-0.05em] md:text-[56px]" data-testid="text-ai-name">
-                Talk to Soundar AI
+                Talk to Soundar
               </h2>
-              <p className="mx-auto mt-4 max-w-[420px] text-[16px] leading-[1.7] text-white/48 md:text-[18px]" data-testid="text-ai-subtitle">
-                A voice-first portfolio guide inspired by modern assistant products — fast, ambient, and conversational.
+              <p className="mx-auto mt-4 max-w-[430px] text-[16px] leading-[1.7] text-white/48 md:text-[18px]" data-testid="text-ai-subtitle">
+                A voice-first version of the portfolio that feels more like a real conversation than a product demo.
               </p>
 
               <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -436,25 +444,27 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                   Start voice mode
                 </button>
                 <a
-                  href="mailto:rsoundar1998@gmail.com?subject=Talk%20to%20Soundar%20AI&body=Hi%20Soundar%2C%20I%27d%20like%20to%20chat%20about%20your%20work."
+                  href="mailto:rsoundar1998@gmail.com?subject=Talk%20to%20Soundar&body=Hi%20Soundar%2C%20I%27d%20like%20to%20chat%20about%20your%20portfolio."
                   className="inline-flex h-14 items-center justify-center gap-2 rounded-full border border-white/14 bg-white/[0.02] px-6 text-[16px] font-medium text-white transition-all hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05]"
                   data-testid="button-chat-with-me"
                 >
                   <MessageSquare className="h-4 w-4" />
-                  Chat instead
+                  Email instead
                 </a>
               </div>
 
               <p className="mt-4 text-center text-[13px] text-white/35" data-testid="text-ai-note">
-                Voice simulation uses the browser’s built-in speech engine for a product-like prototype feel.
+                Ask about Soundar's projects, process, systems work, and portfolio story.
               </p>
 
               <div className="mt-10 rounded-[28px] border border-white/10 bg-white/[0.03] p-5 text-left shadow-[0_20px_80px_rgba(0,0,0,0.2)] backdrop-blur-sm md:p-6">
-                <p className="text-[13px] uppercase tracking-[0.2em] text-white/35">What it can do</p>
-                <div className="mt-4 space-y-3 text-[16px] leading-[1.65] text-white/72">
-                  <p data-testid="text-ai-prompt-1">Speak an intro automatically after connecting.</p>
-                  <p data-testid="text-ai-prompt-2">Listen for your voice and answer in a natural loop.</p>
-                  <p data-testid="text-ai-prompt-3">Let visitors explore Soundar’s work in a more product-like way.</p>
+                <p className="text-[13px] uppercase tracking-[0.2em] text-white/35">Try asking</p>
+                <div className="mt-4 grid gap-3 text-[15px] leading-[1.7] text-white/68">
+                  {PROMPT_SUGGESTIONS.map((suggestion) => (
+                    <p key={suggestion.id} data-testid={`text-ai-suggestion-${suggestion.id}`}>
+                      {suggestion.label}
+                    </p>
+                  ))}
                 </div>
                 <a
                   href="/#contact"
@@ -469,8 +479,8 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
             </div>
           </div>
         ) : (
-          <div className="relative flex min-h-[calc(88vh-88px)] flex-col px-4 pb-5 pt-2 md:px-8 md:pb-8 md:pt-0">
-            <div className="grid flex-1 grid-cols-1 gap-6 lg:grid-cols-[260px_minmax(0,1fr)_280px] lg:gap-8">
+          <div className="relative flex min-h-[calc(88vh-88px)] flex-col px-4 pb-6 pt-2 md:px-8 md:pb-8 md:pt-0">
+            <div className="grid flex-1 grid-cols-1 gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-8">
               <aside className="rounded-[28px] border border-white/8 bg-white/[0.02] p-5 backdrop-blur-md lg:p-6">
                 <div className="flex items-center gap-4 lg:flex-col lg:items-start">
                   <div className="h-[72px] w-[72px] overflow-hidden rounded-full border border-white/10 bg-white/5 shadow-[0_14px_60px_rgba(255,255,255,0.08)] lg:h-[86px] lg:w-[86px]">
@@ -483,10 +493,10 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                   </div>
                   <div>
                     <p className="text-[26px] font-medium tracking-[-0.04em] lg:text-[30px]" data-testid="text-call-name">
-                      Soundar AI
+                      Soundar
                     </p>
                     <p className="mt-1 text-[14px] text-white/45" data-testid="text-call-tagline">
-                      Voice-first portfolio guide
+                      Portfolio voice conversation
                     </p>
                   </div>
                 </div>
@@ -510,9 +520,9 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                   </div>
 
                   <div className="rounded-2xl border border-white/8 bg-black/30 p-4">
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-white/35">About this mode</p>
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-white/35">Conversation memory</p>
                     <p className="mt-3 text-[14px] leading-[1.7] text-white/52" data-testid="text-call-disclaimer">
-                      This prototype mimics a real voice assistant flow with connection, spoken responses, ambient visuals, and live listening using browser voice tools.
+                      This mode is tuned to answer questions about Soundar's portfolio, projects, design systems work, analytics thinking, and overall product design approach.
                     </p>
                   </div>
                 </div>
@@ -538,68 +548,34 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                     {assistantMessage}
                   </h3>
                   <p className="mx-auto mt-4 max-w-2xl text-[14px] leading-[1.7] text-white/42 md:text-[15px]" data-testid="text-heard-message">
-                    You said: {heardMessage}
+                    {heardMessage}
                   </p>
                   {!isSpeechSupported && (
                     <p className="mt-3 text-[13px] text-[#ffb35c]/80" data-testid="text-speech-fallback">
-                      Voice input depends on browser support. Quick prompts still work below.
+                      Voice input depends on browser support. In supported browsers, the experience listens automatically.
                     </p>
                   )}
                 </div>
+
+                <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+                  <button
+                    onClick={toggleMute}
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-6 text-[15px] font-medium text-white transition-all hover:border-white/20 hover:bg-white/[0.06]"
+                    data-testid="button-mute-call"
+                  >
+                    {isMuted ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
+                    {isMuted ? "Unmute" : "Mute"}
+                  </button>
+                  <button
+                    onClick={endCall}
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#ff5a4a] px-6 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#ff4a38]"
+                    data-testid="button-end-call"
+                  >
+                    <PhoneOff className="h-4 w-4" />
+                    End call
+                  </button>
+                </div>
               </section>
-
-              <aside className="flex flex-col rounded-[28px] border border-white/8 bg-white/[0.02] p-5 backdrop-blur-md lg:p-6">
-                <p className="text-[11px] uppercase tracking-[0.2em] text-white/35">Quick starters</p>
-                <div className="mt-4 grid gap-3">
-                  {PROMPT_OPTIONS.map((prompt) => (
-                    <button
-                      key={prompt.id}
-                      onClick={() => {
-                        setHeardMessage(prompt.prompt);
-                        respondToUser(prompt.prompt);
-                      }}
-                      className="rounded-2xl border border-white/8 bg-black/30 px-4 py-4 text-left text-[14px] font-medium text-white/72 transition-all hover:border-white/16 hover:bg-white/[0.04] hover:text-white"
-                      data-testid={`button-prompt-${prompt.id}`}
-                    >
-                      {prompt.label}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="mt-auto pt-6">
-                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/35">Controls</p>
-                  <div className="mt-4 space-y-3">
-                    <button
-                      onClick={() => {
-                        if (callPhase === "live") {
-                          startListening();
-                        }
-                      }}
-                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 text-[15px] font-medium text-white transition-all hover:border-white/20 hover:bg-white/[0.07]"
-                      data-testid="button-listen-call"
-                    >
-                      <Volume2 className="h-4 w-4" />
-                      {isListening ? "Listening..." : "Talk now"}
-                    </button>
-                    <button
-                      onClick={toggleMute}
-                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-5 text-[15px] font-medium text-white transition-all hover:border-white/20 hover:bg-white/[0.06]"
-                      data-testid="button-mute-call"
-                    >
-                      {isMuted ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
-                      {isMuted ? "Unmute microphone" : "Mute microphone"}
-                    </button>
-                    <button
-                      onClick={endCall}
-                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#ff5a4a] px-5 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#ff4a38]"
-                      data-testid="button-end-call"
-                    >
-                      <PhoneOff className="h-4 w-4" />
-                      End call
-                    </button>
-                  </div>
-                </div>
-              </aside>
             </div>
           </div>
         )}
