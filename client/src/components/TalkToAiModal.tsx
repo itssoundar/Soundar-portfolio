@@ -21,7 +21,7 @@ const INTRO_SCRIPT = "Hey, I'm Soundar. You're on my portfolio right now. I desi
 const PROMPT_OPTIONS: PromptOption[] = [
   {
     id: "projects",
-    label: "Explain the projects",
+    label: "Featured work",
     prompt: "Tell me about your featured projects.",
   },
   {
@@ -31,7 +31,7 @@ const PROMPT_OPTIONS: PromptOption[] = [
   },
   {
     id: "ai",
-    label: "AI-first work",
+    label: "AI-first products",
     prompt: "How do you think about AI-first products?",
   },
   {
@@ -45,7 +45,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
   const [view, setView] = useState<ModalView>("home");
   const [callPhase, setCallPhase] = useState<CallPhase>("connecting");
   const [assistantMessage, setAssistantMessage] = useState(INTRO_SCRIPT);
-  const [heardMessage, setHeardMessage] = useState("Try speaking or tap one of the prompts below.");
+  const [heardMessage, setHeardMessage] = useState("Tap the mic or start speaking when you're ready.");
   const [elapsedSeconds, setElapsedSeconds] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const [isListening, setIsListening] = useState(false);
@@ -58,11 +58,12 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
   const isInCall = view === "call";
 
   const statusText = useMemo(() => {
-    if (callPhase === "connecting") return "Connecting";
-    if (callPhase === "intro" || callPhase === "speaking") return isMuted ? "Voice paused" : "Speaking";
+    if (callPhase === "connecting") return "Connecting to Soundar AI";
+    if (callPhase === "intro") return "Introducing";
+    if (callPhase === "speaking") return isMuted ? "Voice paused" : "Soundar is speaking";
     if (isMuted) return "Muted";
     if (isListening) return "Listening";
-    return "Ready";
+    return "Ready to talk";
   }, [callPhase, isMuted, isListening]);
 
   const timerLabel = useMemo(() => {
@@ -109,7 +110,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     setIsMuted(false);
     setCallPhase("connecting");
     setAssistantMessage(INTRO_SCRIPT);
-    setHeardMessage("Try speaking or tap one of the prompts below.");
+    setHeardMessage("Tap the mic or start speaking when you're ready.");
   };
 
   const pickVoice = () => {
@@ -122,6 +123,32 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
       voices[0] ||
       null
     );
+  };
+
+  const buildResponse = (input: string) => {
+    const message = input.toLowerCase();
+
+    if (message.includes("project") || message.includes("work")) {
+      return "A lot of my work sits at the intersection of product clarity and execution. I like taking messy, early-stage problems and turning them into flows, systems, and interfaces people can actually rely on.";
+    }
+
+    if (message.includes("process") || message.includes("design")) {
+      return "My process usually starts with reducing ambiguity. I look for the user tension, align that with the business goal, then shape the experience through structure, language, and interaction details that scale.";
+    }
+
+    if (message.includes("ai")) {
+      return "For AI-first products, I care a lot about trust and usability. The interface has to explain what the system is doing, help people recover when things go wrong, and still feel simple under the hood.";
+    }
+
+    if (message.includes("yourself") || message.includes("about") || message.includes("soundar")) {
+      return "I'm a product designer focused on B2B, SaaS, and AI-first experiences. I enjoy building systems that feel thoughtful in the details and strong enough to grow with the product.";
+    }
+
+    if (message.includes("hello") || message.includes("hey")) {
+      return "Hey, glad you're here. You can ask me about projects, process, design systems, or how I approach AI products.";
+    }
+
+    return "Happy to talk through that. Ask me about my featured work, how I approach product design, or what I optimize for when designing AI-powered experiences.";
   };
 
   const startListening = () => {
@@ -203,32 +230,6 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     window.speechSynthesis.speak(utterance);
   };
 
-  const buildResponse = (input: string) => {
-    const message = input.toLowerCase();
-
-    if (message.includes("project") || message.includes("work")) {
-      return "A lot of my work sits at the intersection of product clarity and execution. I like taking messy, early-stage problems and turning them into flows, systems, and interfaces people can actually rely on.";
-    }
-
-    if (message.includes("process") || message.includes("design")) {
-      return "My process usually starts with reducing ambiguity. I look for the user tension, align that with the business goal, then shape the experience through structure, language, and interaction details that scale.";
-    }
-
-    if (message.includes("ai")) {
-      return "For AI-first products, I care a lot about trust and usability. The interface has to explain what the system is doing, help people recover when things go wrong, and still feel simple under the hood.";
-    }
-
-    if (message.includes("yourself") || message.includes("about") || message.includes("soundar")) {
-      return "I'm a product designer focused on B2B, SaaS, and AI-first experiences. I enjoy building systems that feel thoughtful in the details and strong enough to grow with the product.";
-    }
-
-    if (message.includes("hello") || message.includes("hey")) {
-      return "Hey, glad you're here. You can ask me about projects, process, design systems, or how I approach AI products.";
-    }
-
-    return "Happy to talk through that. Ask me about my featured work, how I approach product design, or what I optimize for when designing AI-powered experiences.";
-  };
-
   const respondToUser = (input: string) => {
     cleanupRecognition();
     const response = buildResponse(input);
@@ -245,7 +246,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     setView("call");
     setCallPhase("connecting");
     setAssistantMessage("Connecting you to Soundar AI...");
-    setHeardMessage("Initializing voice channel...");
+    setHeardMessage("Initializing voice session...");
   };
 
   const endCall = () => {
@@ -312,7 +313,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
           setCallPhase("live");
           startListening();
         });
-      }, 1800);
+      }, 1600);
     }
 
     return () => {
@@ -351,29 +352,49 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
 
   if (!isOpen) return null;
 
+  const orbScaleClass =
+    callPhase === "connecting"
+      ? "scale-95"
+      : callPhase === "intro" || callPhase === "speaking"
+        ? "scale-105"
+        : isListening
+          ? "scale-110"
+          : "scale-100";
+
+  const orbGlowClass =
+    callPhase === "connecting"
+      ? "from-white/10 via-[#8db8ff]/15 to-transparent"
+      : callPhase === "intro" || callPhase === "speaking"
+        ? "from-[#ffcc8f]/30 via-[#ff9d3f]/28 to-transparent"
+        : isListening
+          ? "from-[#7cd3ff]/30 via-[#4fb0ff]/24 to-transparent"
+          : "from-white/12 via-white/8 to-transparent";
+
   return createPortal(
     <div
-      className="fixed inset-0 z-[999999] bg-black/70 backdrop-blur-md flex items-center justify-center p-4 md:p-6"
+      className="fixed inset-0 z-[999999] bg-black/80 backdrop-blur-xl flex items-center justify-center p-3 md:p-6"
       onClick={onClose}
       style={{ cursor: "auto" }}
       data-testid="modal-talk-to-ai-overlay"
     >
       <div
-        className="relative w-full max-w-5xl min-h-[82vh] overflow-hidden rounded-[32px] border border-white/10 bg-[#050505] text-white shadow-[0_40px_120px_rgba(0,0,0,0.55)] animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-[1220px] min-h-[88vh] overflow-hidden rounded-[36px] border border-white/10 bg-[#050505] text-white shadow-[0_40px_120px_rgba(0,0,0,0.6)] animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
         style={{ cursor: "auto" }}
         data-testid="modal-talk-to-ai"
       >
-        <div className="absolute inset-0 opacity-60">
-          <div className="absolute left-1/2 top-1/3 h-[420px] w-[420px] -translate-x-1/2 rounded-full bg-[#ffb35c]/10 blur-[140px]" />
-          <div className="absolute right-[-120px] top-[-80px] h-[260px] w-[260px] rounded-full bg-white/6 blur-[120px]" />
-          <div className="absolute left-[-80px] bottom-[-120px] h-[280px] w-[280px] rounded-full bg-white/6 blur-[120px]" />
-        </div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_28%),radial-gradient(circle_at_bottom,rgba(255,170,80,0.08),transparent_26%)]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
-        <div className="relative flex items-start justify-between px-5 pt-5 md:px-9 md:pt-8">
-          <div className="max-w-[320px] text-[12px] md:text-[14px] leading-[1.5] text-white/45" data-testid="text-ai-disclaimer">
-            <p>Powered by AI and crafted by me.</p>
-            <p>Responses may not always be perfectly accurate.</p>
+        <div className="relative flex items-center justify-between px-4 py-4 md:px-8 md:py-6">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-white/55 md:text-[12px]" data-testid="badge-ai-mode">
+            <Sparkles className="h-3.5 w-3.5" />
+            Real-time voice mode
+          </div>
+
+          <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[12px] text-white/55 md:px-4 md:text-[13px]">
+            <span className={`h-2 w-2 rounded-full ${callPhase === "connecting" ? "bg-[#7cd3ff] animate-pulse" : isListening ? "bg-[#7cd3ff] animate-pulse" : callPhase === "intro" || callPhase === "speaking" ? "bg-[#ffb35c] animate-pulse" : "bg-white/40"}`} />
+            <span data-testid="status-topbar-call">{isInCall ? statusText : "Voice preview"}</span>
           </div>
 
           <button
@@ -387,9 +408,9 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
         </div>
 
         {view === "home" ? (
-          <div className="relative flex min-h-[calc(82vh-88px)] items-center justify-center px-6 py-12 md:px-10 md:py-16">
-            <div className="w-full max-w-[420px]">
-              <div className="mx-auto mb-6 flex h-[116px] w-[116px] items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/5 shadow-[0_14px_60px_rgba(255,255,255,0.08)]">
+          <div className="relative flex min-h-[calc(88vh-88px)] items-center justify-center px-6 py-12 md:px-10 md:py-16">
+            <div className="w-full max-w-[460px] text-center">
+              <div className="mx-auto mb-8 flex h-[124px] w-[124px] items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/5 shadow-[0_14px_60px_rgba(255,255,255,0.08)]">
                 <img
                   src="/Soundar.png"
                   alt="Soundar"
@@ -398,19 +419,12 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                 />
               </div>
 
-              <div className="text-center">
-                <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[12px] uppercase tracking-[0.18em] text-white/55">
-                  <Sparkles className="h-3.5 w-3.5" />
-                  AI voice + chat
-                </div>
-
-                <h2 className="text-[38px] font-medium leading-none tracking-[-0.04em] md:text-[48px]" data-testid="text-ai-name">
-                  Soundar AI
-                </h2>
-                <p className="mt-3 text-[17px] text-white/45" data-testid="text-ai-subtitle">
-                  Trained on my process, product thinking, and portfolio stories.
-                </p>
-              </div>
+              <h2 className="text-[40px] font-medium leading-none tracking-[-0.05em] md:text-[56px]" data-testid="text-ai-name">
+                Talk to Soundar AI
+              </h2>
+              <p className="mx-auto mt-4 max-w-[420px] text-[16px] leading-[1.7] text-white/48 md:text-[18px]" data-testid="text-ai-subtitle">
+                A voice-first portfolio guide inspired by modern assistant products — fast, ambient, and conversational.
+              </p>
 
               <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <button
@@ -419,7 +433,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                   data-testid="button-start-the-call"
                 >
                   <Phone className="h-4 w-4" />
-                  Start the Call
+                  Start voice mode
                 </button>
                 <a
                   href="mailto:rsoundar1998@gmail.com?subject=Talk%20to%20Soundar%20AI&body=Hi%20Soundar%2C%20I%27d%20like%20to%20chat%20about%20your%20work."
@@ -427,20 +441,20 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                   data-testid="button-chat-with-me"
                 >
                   <MessageSquare className="h-4 w-4" />
-                  Chat with me
+                  Chat instead
                 </a>
               </div>
 
               <p className="mt-4 text-center text-[13px] text-white/35" data-testid="text-ai-note">
-                5 free minutes · Best for quick portfolio walkthroughs and product conversations.
+                Voice simulation uses the browser’s built-in speech engine for a product-like prototype feel.
               </p>
 
               <div className="mt-10 rounded-[28px] border border-white/10 bg-white/[0.03] p-5 text-left shadow-[0_20px_80px_rgba(0,0,0,0.2)] backdrop-blur-sm md:p-6">
-                <p className="text-[13px] uppercase tracking-[0.2em] text-white/35">Try asking</p>
+                <p className="text-[13px] uppercase tracking-[0.2em] text-white/35">What it can do</p>
                 <div className="mt-4 space-y-3 text-[16px] leading-[1.65] text-white/72">
-                  <p data-testid="text-ai-prompt-1">“Explain the project” and I’ll walk you through the thinking behind it.</p>
-                  <p data-testid="text-ai-prompt-2">“How would you improve our product?” for a sharper UX perspective.</p>
-                  <p data-testid="text-ai-prompt-3">“What makes your design process different?” for the quick version.</p>
+                  <p data-testid="text-ai-prompt-1">Speak an intro automatically after connecting.</p>
+                  <p data-testid="text-ai-prompt-2">Listen for your voice and answer in a natural loop.</p>
+                  <p data-testid="text-ai-prompt-3">Let visitors explore Soundar’s work in a more product-like way.</p>
                 </div>
                 <a
                   href="/#contact"
@@ -455,11 +469,11 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
             </div>
           </div>
         ) : (
-          <div className="relative flex min-h-[calc(82vh-88px)] flex-col px-6 pb-8 pt-4 md:px-9 md:pb-10 md:pt-2">
-            <div className="flex flex-col gap-8 md:flex-row md:gap-12">
-              <aside className="w-full md:max-w-[220px] md:pt-6">
-                <div className="flex items-start gap-4 md:block">
-                  <div className="h-[76px] w-[76px] overflow-hidden rounded-full border border-white/10 bg-white/5 shadow-[0_14px_60px_rgba(255,255,255,0.08)] md:h-[88px] md:w-[88px]">
+          <div className="relative flex min-h-[calc(88vh-88px)] flex-col px-4 pb-5 pt-2 md:px-8 md:pb-8 md:pt-0">
+            <div className="grid flex-1 grid-cols-1 gap-6 lg:grid-cols-[260px_minmax(0,1fr)_280px] lg:gap-8">
+              <aside className="rounded-[28px] border border-white/8 bg-white/[0.02] p-5 backdrop-blur-md lg:p-6">
+                <div className="flex items-center gap-4 lg:flex-col lg:items-start">
+                  <div className="h-[72px] w-[72px] overflow-hidden rounded-full border border-white/10 bg-white/5 shadow-[0_14px_60px_rgba(255,255,255,0.08)] lg:h-[86px] lg:w-[86px]">
                     <img
                       src="/Soundar.png"
                       alt="Soundar"
@@ -467,113 +481,125 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                       data-testid="img-soundar-call-profile"
                     />
                   </div>
-
-                  <div className="pt-2 md:pt-5">
-                    <p className="text-[28px] font-medium leading-none tracking-[-0.04em] md:text-[32px]" data-testid="text-call-name">
+                  <div>
+                    <p className="text-[26px] font-medium tracking-[-0.04em] lg:text-[30px]" data-testid="text-call-name">
                       Soundar AI
                     </p>
-                    <p className="mt-2 text-[14px] text-white/45" data-testid="text-call-tagline">
-                      Trust me, I sound like my AI.
+                    <p className="mt-1 text-[14px] text-white/45" data-testid="text-call-tagline">
+                      Voice-first portfolio guide
                     </p>
-                    <p className="mt-4 max-w-[220px] text-[13px] leading-[1.6] text-white/32" data-testid="text-call-disclaimer">
-                      Powered by AI and built around Soundar&apos;s product perspective, portfolio context, and tone.
+                  </div>
+                </div>
+
+                <div className="mt-6 space-y-4">
+                  <div className="rounded-2xl border border-white/8 bg-black/30 p-4">
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-white/35">Session</p>
+                    <div className="mt-3 flex items-end justify-between gap-4">
+                      <div>
+                        <p className="text-[28px] font-medium tracking-[-0.04em]" data-testid="text-call-timer">
+                          {timerLabel}
+                        </p>
+                        <p className="text-[13px] text-white/35" data-testid="text-call-time-left">
+                          {timeLeftLabel}
+                        </p>
+                      </div>
+                      <div className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[12px] text-white/55" data-testid="badge-call-status-left">
+                        {statusText}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="rounded-2xl border border-white/8 bg-black/30 p-4">
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-white/35">About this mode</p>
+                    <p className="mt-3 text-[14px] leading-[1.7] text-white/52" data-testid="text-call-disclaimer">
+                      This prototype mimics a real voice assistant flow with connection, spoken responses, ambient visuals, and live listening using browser voice tools.
                     </p>
                   </div>
                 </div>
               </aside>
 
-              <div className="min-w-0 flex-1">
-                <div className="mx-auto mb-8 flex max-w-[420px] items-center justify-center gap-4 text-[13px] text-white/40 md:mb-10">
-                  <span data-testid="text-call-timer">{timerLabel}</span>
-                  <div className="h-px flex-1 bg-white/10" />
-                  <span data-testid="text-call-time-left">{timeLeftLabel}</span>
+              <section className="flex min-h-[420px] flex-col items-center justify-center rounded-[32px] border border-white/8 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),rgba(255,255,255,0.01)_45%,transparent_70%)] px-4 py-8 md:px-8">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-white/48" data-testid="badge-center-status">
+                  <span className={`h-2 w-2 rounded-full ${callPhase === "connecting" ? "bg-[#7cd3ff] animate-pulse" : isListening ? "bg-[#7cd3ff] animate-pulse" : callPhase === "intro" || callPhase === "speaking" ? "bg-[#ffb35c] animate-pulse" : "bg-white/40"}`} />
+                  {statusText}
                 </div>
 
-                <div className="min-h-[220px] md:min-h-[280px]">
-                  <p className="mb-4 text-[12px] uppercase tracking-[0.24em] text-white/35" data-testid="status-call-phase">
-                    {statusText}
-                  </p>
-                  <h3 className="max-w-4xl text-[30px] leading-[1.25] tracking-[-0.04em] text-white/78 md:text-[52px] md:leading-[1.22]" data-testid="text-call-transcript">
+                <div className="relative flex h-[300px] w-[300px] items-center justify-center md:h-[360px] md:w-[360px]" data-testid="visualizer-voice-orb">
+                  <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${orbGlowClass} blur-3xl transition-all duration-500`} />
+                  <div className={`absolute inset-[18%] rounded-full border border-white/10 bg-white/[0.03] transition-all duration-500 ${orbScaleClass} ${callPhase === "connecting" ? "animate-pulse" : ""}`} />
+                  <div className={`absolute inset-[30%] rounded-full border border-white/12 bg-gradient-to-br from-white/10 to-white/[0.02] shadow-[0_0_60px_rgba(255,255,255,0.06)] transition-all duration-500 ${orbScaleClass}`} />
+                  <div className="absolute inset-[38%] overflow-hidden rounded-full border border-white/12 bg-black/20 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+                    <img src="/Soundar.png" alt="Soundar" className="h-full w-full object-cover" data-testid="img-orb-soundar" />
+                  </div>
+                </div>
+
+                <div className="mt-8 w-full max-w-3xl text-center">
+                  <h3 className="text-[28px] font-medium leading-[1.28] tracking-[-0.05em] text-white/88 md:text-[46px]" data-testid="text-call-transcript">
                     {assistantMessage}
                   </h3>
-                  <p className="mt-6 text-[15px] text-white/40 md:text-[16px]" data-testid="text-heard-message">
-                    You: {heardMessage}
+                  <p className="mx-auto mt-4 max-w-2xl text-[14px] leading-[1.7] text-white/42 md:text-[15px]" data-testid="text-heard-message">
+                    You said: {heardMessage}
                   </p>
                   {!isSpeechSupported && (
-                    <p className="mt-2 text-[13px] text-[#ffb35c]/80" data-testid="text-speech-fallback">
-                      Live mic input depends on browser support. You can still use the quick prompts below.
+                    <p className="mt-3 text-[13px] text-[#ffb35c]/80" data-testid="text-speech-fallback">
+                      Voice input depends on browser support. Quick prompts still work below.
                     </p>
                   )}
                 </div>
-              </div>
-            </div>
+              </section>
 
-            <div className="mt-auto pt-8">
-              <div className="relative mx-auto flex h-[92px] w-full max-w-[520px] items-center justify-center overflow-hidden">
-                <div className="absolute inset-x-12 top-1/2 h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-[#ffb35c]/60 to-transparent" />
-                <div className="absolute left-1/2 top-1/2 h-24 w-36 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#ff9d3f]/16 blur-3xl" />
-                <div className="relative flex items-center gap-1.5" data-testid="visualizer-call-waveform">
-                  {Array.from({ length: 32 }).map((_, index) => {
-                    const active = callPhase !== "connecting" && !isMuted;
-                    const height = active ? 18 + ((index * 7) % 36) : 8 + ((index * 3) % 12);
-
-                    return (
-                      <span
-                        key={`wave-${index}`}
-                        className={`block w-1.5 rounded-full bg-gradient-to-b from-[#ffd18a] to-[#ff8a3d] ${active ? "animate-pulse" : "opacity-40"}`}
-                        style={{ height: `${height}px`, animationDelay: `${index * 70}ms` }}
-                      />
-                    );
-                  })}
+              <aside className="flex flex-col rounded-[28px] border border-white/8 bg-white/[0.02] p-5 backdrop-blur-md lg:p-6">
+                <p className="text-[11px] uppercase tracking-[0.2em] text-white/35">Quick starters</p>
+                <div className="mt-4 grid gap-3">
+                  {PROMPT_OPTIONS.map((prompt) => (
+                    <button
+                      key={prompt.id}
+                      onClick={() => {
+                        setHeardMessage(prompt.prompt);
+                        respondToUser(prompt.prompt);
+                      }}
+                      className="rounded-2xl border border-white/8 bg-black/30 px-4 py-4 text-left text-[14px] font-medium text-white/72 transition-all hover:border-white/16 hover:bg-white/[0.04] hover:text-white"
+                      data-testid={`button-prompt-${prompt.id}`}
+                    >
+                      {prompt.label}
+                    </button>
+                  ))}
                 </div>
-              </div>
 
-              <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
-                {PROMPT_OPTIONS.map((prompt) => (
-                  <button
-                    key={prompt.id}
-                    onClick={() => {
-                      setHeardMessage(prompt.prompt);
-                      respondToUser(prompt.prompt);
-                    }}
-                    className="rounded-full border border-white/10 bg-white/[0.02] px-4 py-2 text-[13px] text-white/65 transition-all hover:border-white/18 hover:bg-white/[0.05] hover:text-white"
-                    data-testid={`button-prompt-${prompt.id}`}
-                  >
-                    {prompt.label}
-                  </button>
-                ))}
-              </div>
-
-              <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-                <button
-                  onClick={toggleMute}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-6 text-[16px] font-medium text-white transition-all hover:border-white/20 hover:bg-white/[0.06]"
-                  data-testid="button-mute-call"
-                >
-                  {isMuted ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
-                  {isMuted ? "Unmute" : "Mute"}
-                </button>
-                <button
-                  onClick={() => {
-                    if (callPhase === "live") {
-                      startListening();
-                    }
-                  }}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-6 text-[16px] font-medium text-white transition-all hover:border-white/20 hover:bg-white/[0.06]"
-                  data-testid="button-listen-call"
-                >
-                  <Volume2 className="h-4 w-4" />
-                  {isListening ? "Listening..." : "Talk now"}
-                </button>
-                <button
-                  onClick={endCall}
-                  className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#ff5a4a] px-6 text-[16px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#ff4a38]"
-                  data-testid="button-end-call"
-                >
-                  <PhoneOff className="h-4 w-4" />
-                  End Call
-                </button>
-              </div>
+                <div className="mt-auto pt-6">
+                  <p className="text-[11px] uppercase tracking-[0.2em] text-white/35">Controls</p>
+                  <div className="mt-4 space-y-3">
+                    <button
+                      onClick={() => {
+                        if (callPhase === "live") {
+                          startListening();
+                        }
+                      }}
+                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.04] px-5 text-[15px] font-medium text-white transition-all hover:border-white/20 hover:bg-white/[0.07]"
+                      data-testid="button-listen-call"
+                    >
+                      <Volume2 className="h-4 w-4" />
+                      {isListening ? "Listening..." : "Talk now"}
+                    </button>
+                    <button
+                      onClick={toggleMute}
+                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-5 text-[15px] font-medium text-white transition-all hover:border-white/20 hover:bg-white/[0.06]"
+                      data-testid="button-mute-call"
+                    >
+                      {isMuted ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
+                      {isMuted ? "Unmute microphone" : "Mute microphone"}
+                    </button>
+                    <button
+                      onClick={endCall}
+                      className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#ff5a4a] px-5 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#ff4a38]"
+                      data-testid="button-end-call"
+                    >
+                      <PhoneOff className="h-4 w-4" />
+                      End call
+                    </button>
+                  </div>
+                </div>
+              </aside>
             </div>
           </div>
         )}
