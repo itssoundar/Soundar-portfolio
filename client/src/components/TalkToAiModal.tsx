@@ -9,6 +9,7 @@ interface TalkToAiModalProps {
 
 type ModalView = "home" | "call";
 type CallPhase = "connecting" | "intro" | "speaking" | "live";
+type MicState = "idle" | "requesting" | "granted" | "denied" | "unsupported";
 
 type PromptSuggestion = {
   id: string;
@@ -33,21 +34,27 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
   const [isMuted, setIsMuted] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [isSpeechSupported, setIsSpeechSupported] = useState(false);
+  const [micState, setMicState] = useState<MicState>("idle");
+  const [micError, setMicError] = useState("");
 
   const recognitionRef = useRef<any>(null);
   const connectTimeoutRef = useRef<number | null>(null);
   const restartRecognitionTimeoutRef = useRef<number | null>(null);
+  const mediaStreamRef = useRef<MediaStream | null>(null);
 
   const isInCall = view === "call";
 
   const statusText = useMemo(() => {
+    if (micState === "requesting") return "Waiting for microphone access";
     if (callPhase === "connecting") return "Connecting to Soundar";
     if (callPhase === "intro") return "Soundar is joining";
     if (callPhase === "speaking") return isMuted ? "Voice paused" : "Soundar is speaking";
+    if (micState === "denied") return "Microphone access blocked";
+    if (micState === "unsupported") return "Voice input not supported here";
     if (isMuted) return "Muted";
     if (isListening) return "Listening";
     return "Listening in the background";
-  }, [callPhase, isMuted, isListening]);
+  }, [callPhase, isMuted, isListening, micState]);
 
   const timerLabel = useMemo(() => {
     const minutes = Math.floor(elapsedSeconds / 60)
@@ -63,6 +70,11 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     const seconds = (remaining % 60).toString().padStart(2, "0");
     return `${minutes}:${seconds} left`;
   }, [elapsedSeconds]);
+
+  const stopMediaTracks = () => {
+    mediaStreamRef.current?.getTracks().forEach((track) => track.stop());
+    mediaStreamRef.current = null;
+  };
 
   const cleanupRecognition = () => {
     if (restartRecognitionTimeoutRef.current) {
@@ -88,12 +100,15 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     }
 
     cleanupRecognition();
+    stopMediaTracks();
     window.speechSynthesis.cancel();
     setElapsedSeconds(0);
     setIsMuted(false);
     setCallPhase("connecting");
     setAssistantMessage(INTRO_SCRIPT);
     setHeardMessage("Listening for your question...");
+    setMicState("idle");
+    setMicError("");
   };
 
   const pickVoice = () => {
@@ -106,6 +121,22 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
       voices[0] ||
       null
     );
+  };
+
+  const getRecognitionErrorMessage = (error?: string) => {
+    switch (error) {
+      case "not-allowed":
+      case "service-not-allowed":
+        return "Microphone access is blocked. Please allow microphone permission in your browser and reopen voice mode.";
+      case "audio-capture":
+        return "I couldn't access your microphone. Check that your mic is connected and available.";
+      case "no-speech":
+        return "I’m listening, but I didn’t catch anything yet.";
+      case "network":
+        return "Voice recognition had a connection issue. I’ll keep trying in the background.";
+      default:
+        return "Voice input is having trouble right now. Try speaking again after a moment.";
+    }
   };
 
   const buildResponse = (input: string) => {
@@ -158,61 +189,6 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     return "From what I can tell, your question is about Soundar's portfolio, and the short version is this: the work is centered on making complex B2B and AI-first products feel simpler, more trustworthy, and easier to use. You can ask me about the AI agent builder, the Genesis design system, CRM analytics, or Soundar's design approach.";
   };
 
-  const startListening = () => {
-    const SpeechRecognitionApi = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
-
-    if (!SpeechRecognitionApi || isMuted || !isInCall || callPhase !== "live") {
-      setIsSpeechSupported(Boolean(SpeechRecognitionApi));
-      return;
-    }
-
-    cleanupRecognition();
-    setIsSpeechSupported(true);
-
-    const recognition = new SpeechRecognitionApi();
-    recognition.lang = "en-US";
-    recognition.continuous = false;
-    recognition.interimResults = true;
-    recognition.maxAlternatives = 1;
-
-    recognition.onstart = () => {
-      setIsListening(true);
-    };
-
-    recognition.onresult = (event: any) => {
-      const transcript = Array.from(event.results)
-        .map((result: any) => result[0]?.transcript || "")
-        .join(" ")
-        .trim();
-
-      if (transcript) {
-        setHeardMessage(transcript);
-      }
-
-      const finalResult = event.results[event.results.length - 1];
-      if (finalResult?.isFinal && transcript) {
-        respondToUser(transcript);
-      }
-    };
-
-    recognition.onerror = () => {
-      setIsListening(false);
-    };
-
-    recognition.onend = () => {
-      setIsListening(false);
-
-      if (view === "call" && callPhase === "live" && !isMuted) {
-        restartRecognitionTimeoutRef.current = window.setTimeout(() => {
-          startListening();
-        }, 900);
-      }
-    };
-
-    recognitionRef.current = recognition;
-    recognition.start();
-  };
-
   const speakText = (text: string, onEnd?: () => void) => {
     if (isMuted) {
       onEnd?.();
@@ -239,20 +215,131 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
 
   const respondToUser = (input: string) => {
     cleanupRecognition();
+    setMicError("");
     const response = buildResponse(input);
     setAssistantMessage(response);
     setCallPhase("speaking");
     speakText(response, () => {
       setCallPhase("live");
+      setHeardMessage("I'm listening...");
       startListening();
     });
   };
 
-  const beginCall = () => {
+  const requestMicrophoneAccess = async () => {
+    if (!navigator.mediaDevices?.getUserMedia) {
+      setMicState("unsupported");
+      setMicError("This browser doesn't expose microphone access for this prototype.");
+      return false;
+    }
+
+    setMicState("requesting");
+    setMicError("");
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaStreamRef.current = stream;
+      setMicState("granted");
+      setMicError("");
+      return true;
+    } catch {
+      setMicState("denied");
+      setMicError("Microphone access was blocked, so voice detection can't start. Please allow mic permission and reopen voice mode.");
+      setHeardMessage("Microphone permission is blocked right now.");
+      return false;
+    }
+  };
+
+  const startListening = () => {
+    const SpeechRecognitionApi = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+
+    if (!SpeechRecognitionApi) {
+      setIsSpeechSupported(false);
+      setMicState((current) => (current === "denied" ? current : "unsupported"));
+      setMicError("Voice recognition isn't supported in this browser. The prototype voice reply still works, but live mic detection won't.");
+      return;
+    }
+
+    if (micState !== "granted" || isMuted || !isInCall || callPhase !== "live") {
+      setIsSpeechSupported(true);
+      return;
+    }
+
+    cleanupRecognition();
+    setIsSpeechSupported(true);
+    setMicError("");
+
+    const recognition = new SpeechRecognitionApi();
+    recognition.lang = "en-US";
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => {
+      setIsListening(true);
+      setHeardMessage("I'm listening...");
+    };
+
+    recognition.onresult = (event: any) => {
+      const transcript = Array.from(event.results)
+        .map((result: any) => result[0]?.transcript || "")
+        .join(" ")
+        .trim();
+
+      if (transcript) {
+        setHeardMessage(`You said: ${transcript}`);
+      }
+
+      const finalResult = event.results[event.results.length - 1];
+      if (finalResult?.isFinal && transcript) {
+        respondToUser(transcript);
+      }
+    };
+
+    recognition.onerror = (event: any) => {
+      setIsListening(false);
+      const message = getRecognitionErrorMessage(event?.error);
+      setMicError(message);
+
+      if (event?.error === "not-allowed" || event?.error === "service-not-allowed") {
+        setMicState("denied");
+      }
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+
+      if (view === "call" && callPhase === "live" && !isMuted && micState === "granted") {
+        restartRecognitionTimeoutRef.current = window.setTimeout(() => {
+          startListening();
+        }, 600);
+      }
+    };
+
+    recognitionRef.current = recognition;
+
+    try {
+      recognition.start();
+    } catch {
+      setMicError("Voice detection couldn't restart cleanly. I'll keep trying in the background.");
+    }
+  };
+
+  const beginCall = async () => {
     cleanupCallExperience();
     setView("call");
     setCallPhase("connecting");
     setAssistantMessage("Connecting you to Soundar...");
+    setHeardMessage("Requesting microphone access...");
+
+    const microphoneReady = await requestMicrophoneAccess();
+
+    if (!microphoneReady) {
+      setAssistantMessage("I can still introduce Soundar, but voice detection needs microphone permission first.");
+      setCallPhase("live");
+      return;
+    }
+
     setHeardMessage("Starting voice conversation...");
   };
 
@@ -264,7 +351,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
   const toggleMute = () => {
     if (isMuted) {
       setIsMuted(false);
-      if (view === "call" && callPhase === "live") {
+      if (view === "call" && callPhase === "live" && micState === "granted") {
         startListening();
       }
       return;
@@ -310,9 +397,9 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
   }, [isOpen, onClose]);
 
   useEffect(() => {
-    if (!isOpen || view !== "call") return;
+    if (!isOpen || view !== "call" || micState === "requesting") return;
 
-    if (callPhase === "connecting") {
+    if (callPhase === "connecting" && micState === "granted") {
       connectTimeoutRef.current = window.setTimeout(() => {
         setCallPhase("intro");
         setAssistantMessage(INTRO_SCRIPT);
@@ -321,7 +408,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
           setHeardMessage("I'm listening...");
           startListening();
         });
-      }, 1500);
+      }, 1200);
     }
 
     return () => {
@@ -330,7 +417,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
         connectTimeoutRef.current = null;
       }
     };
-  }, [isOpen, view, callPhase]);
+  }, [isOpen, view, callPhase, micState]);
 
   useEffect(() => {
     if (!isOpen || view !== "call") return;
@@ -401,7 +488,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
           </div>
 
           <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[12px] text-white/55 md:px-4 md:text-[13px]">
-            <span className={`h-2 w-2 rounded-full ${callPhase === "connecting" ? "bg-[#7cd3ff] animate-pulse" : isListening ? "bg-[#7cd3ff] animate-pulse" : callPhase === "intro" || callPhase === "speaking" ? "bg-[#ffb35c] animate-pulse" : "bg-white/40"}`} />
+            <span className={`h-2 w-2 rounded-full ${callPhase === "connecting" || micState === "requesting" ? "bg-[#7cd3ff] animate-pulse" : isListening ? "bg-[#7cd3ff] animate-pulse" : callPhase === "intro" || callPhase === "speaking" ? "bg-[#ffb35c] animate-pulse" : "bg-white/40"}`} />
             <span data-testid="status-topbar-call">{isInCall ? statusText : "Portfolio voice preview"}</span>
           </div>
 
@@ -530,13 +617,13 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
 
               <section className="flex min-h-[420px] flex-col items-center justify-center rounded-[32px] border border-white/8 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),rgba(255,255,255,0.01)_45%,transparent_70%)] px-4 py-8 md:px-8">
                 <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-white/48" data-testid="badge-center-status">
-                  <span className={`h-2 w-2 rounded-full ${callPhase === "connecting" ? "bg-[#7cd3ff] animate-pulse" : isListening ? "bg-[#7cd3ff] animate-pulse" : callPhase === "intro" || callPhase === "speaking" ? "bg-[#ffb35c] animate-pulse" : "bg-white/40"}`} />
+                  <span className={`h-2 w-2 rounded-full ${callPhase === "connecting" || micState === "requesting" ? "bg-[#7cd3ff] animate-pulse" : isListening ? "bg-[#7cd3ff] animate-pulse" : callPhase === "intro" || callPhase === "speaking" ? "bg-[#ffb35c] animate-pulse" : "bg-white/40"}`} />
                   {statusText}
                 </div>
 
                 <div className="relative flex h-[300px] w-[300px] items-center justify-center md:h-[360px] md:w-[360px]" data-testid="visualizer-voice-orb">
                   <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${orbGlowClass} blur-3xl transition-all duration-500`} />
-                  <div className={`absolute inset-[18%] rounded-full border border-white/10 bg-white/[0.03] transition-all duration-500 ${orbScaleClass} ${callPhase === "connecting" ? "animate-pulse" : ""}`} />
+                  <div className={`absolute inset-[18%] rounded-full border border-white/10 bg-white/[0.03] transition-all duration-500 ${orbScaleClass} ${callPhase === "connecting" || micState === "requesting" ? "animate-pulse" : ""}`} />
                   <div className={`absolute inset-[30%] rounded-full border border-white/12 bg-gradient-to-br from-white/10 to-white/[0.02] shadow-[0_0_60px_rgba(255,255,255,0.06)] transition-all duration-500 ${orbScaleClass}`} />
                   <div className="absolute inset-[38%] overflow-hidden rounded-full border border-white/12 bg-black/20 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
                     <img src="/Soundar.png" alt="Soundar" className="h-full w-full object-cover" data-testid="img-orb-soundar" />
@@ -550,7 +637,12 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                   <p className="mx-auto mt-4 max-w-2xl text-[14px] leading-[1.7] text-white/42 md:text-[15px]" data-testid="text-heard-message">
                     {heardMessage}
                   </p>
-                  {!isSpeechSupported && (
+                  {micError && (
+                    <p className="mx-auto mt-3 max-w-2xl text-[13px] leading-[1.7] text-[#ffb35c]/85" data-testid="text-mic-error">
+                      {micError}
+                    </p>
+                  )}
+                  {!isSpeechSupported && !micError && (
                     <p className="mt-3 text-[13px] text-[#ffb35c]/80" data-testid="text-speech-fallback">
                       Voice input depends on browser support. In supported browsers, the experience listens automatically.
                     </p>
