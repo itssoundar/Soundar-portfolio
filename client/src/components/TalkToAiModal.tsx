@@ -42,6 +42,10 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
   const restartRecognitionTimeoutRef = useRef<number | null>(null);
   const responseTimeoutRef = useRef<number | null>(null);
   const transcriptBufferRef = useRef("");
+  const viewRef = useRef<ModalView>("home");
+  const callPhaseRef = useRef<CallPhase>("connecting");
+  const micStateRef = useRef<MicState>("idle");
+  const isMutedRef = useRef(false);
   const mediaStreamRef = useRef<MediaStream | null>(null);
 
   const isInCall = view === "call";
@@ -77,6 +81,13 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     mediaStreamRef.current?.getTracks().forEach((track) => track.stop());
     mediaStreamRef.current = null;
   };
+
+  useEffect(() => {
+    viewRef.current = view;
+    callPhaseRef.current = callPhase;
+    micStateRef.current = micState;
+    isMutedRef.current = isMuted;
+  }, [view, callPhase, micState, isMuted]);
 
   const cleanupRecognition = () => {
     if (restartRecognitionTimeoutRef.current) {
@@ -240,7 +251,6 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     speakText(response, () => {
       setCallPhase("live");
       setHeardMessage("I'm listening...");
-      startListening();
     });
   };
 
@@ -278,7 +288,13 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
       return;
     }
 
-    if (micState !== "granted" || isMuted || !isInCall || callPhase !== "live") {
+    if (
+      micStateRef.current !== "granted" ||
+      isMutedRef.current ||
+      viewRef.current !== "call" ||
+      callPhaseRef.current !== "live" ||
+      recognitionRef.current
+    ) {
       setIsSpeechSupported(true);
       return;
     }
@@ -346,8 +362,14 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
 
     recognition.onend = () => {
       setIsListening(false);
+      recognitionRef.current = null;
 
-      if (view === "call" && callPhase === "live" && !isMuted && micState === "granted") {
+      if (
+        viewRef.current === "call" &&
+        callPhaseRef.current === "live" &&
+        !isMutedRef.current &&
+        micStateRef.current === "granted"
+      ) {
         restartRecognitionTimeoutRef.current = window.setTimeout(() => {
           startListening();
         }, 350);
@@ -359,6 +381,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     try {
       recognition.start();
     } catch {
+      recognitionRef.current = null;
       setMicError("Voice detection couldn't restart cleanly. I'll keep trying in the background.");
     }
   };
@@ -444,7 +467,6 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
         speakText(INTRO_SCRIPT, () => {
           setCallPhase("live");
           setHeardMessage("I'm listening...");
-          startListening();
         });
       }, 1200);
     }
@@ -456,6 +478,16 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
       }
     };
   }, [isOpen, view, callPhase, micState]);
+
+  useEffect(() => {
+    if (!isOpen || view !== "call" || callPhase !== "live" || micState !== "granted" || isMuted) {
+      return;
+    }
+
+    if (!recognitionRef.current) {
+      startListening();
+    }
+  }, [isOpen, view, callPhase, micState, isMuted]);
 
   useEffect(() => {
     if (!isOpen || view !== "call") return;
