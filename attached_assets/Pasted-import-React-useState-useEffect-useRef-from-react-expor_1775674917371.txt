@@ -1,0 +1,87 @@
+import React, { useState, useEffect, useRef } from "react";
+
+export default function VoiceAssistant() {
+  const [listening, setListening] = useState(false);
+  const [transcript, setTranscript] = useState("");
+  const recognitionRef = useRef(null);
+
+  useEffect(() => {
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      alert("Speech Recognition not supported");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.interimResults = false;
+
+    recognition.onresult = (event) => {
+      const text = event.results[0][0].transcript;
+      setTranscript(text);
+
+      const response = getResponse(text);
+      speak(response);
+    };
+
+    recognition.onend = () => {
+      if (listening) recognition.start(); // continuous listening
+    };
+
+    recognitionRef.current = recognition;
+  }, [listening]);
+
+  const startListening = () => {
+    setListening(true);
+    recognitionRef.current.start();
+  };
+
+  const stopListening = () => {
+    setListening(false);
+    recognitionRef.current.stop();
+  };
+
+  const speak = (text) => {
+    window.speechSynthesis.cancel(); // stop overlap
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    utterance.rate = 1;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+
+    window.speechSynthesis.speak(utterance);
+  };
+
+  // 🔥 Simple brain (you can expand this)
+  const getResponse = (input) => {
+    const text = input.toLowerCase();
+
+    if (text.includes("portfolio")) {
+      return "Let me walk you through my best work.";
+    }
+
+    if (text.includes("project")) {
+      return "I’ve worked on some exciting projects. Want to see one?";
+    }
+
+    if (text.includes("who are you")) {
+      return "Hey, I’m Soundar. I design and build digital experiences.";
+    }
+
+    return "Sorry, I didn’t get that. Try asking about my work.";
+  };
+
+  return (
+    <div style={{ textAlign: "center", padding: "40px" }}>
+      <h2>🎤 Voice Assistant</h2>
+
+      <button onClick={listening ? stopListening : startListening}>
+        {listening ? "Stop Listening" : "Start Talking"}
+      </button>
+
+      <p><strong>You said:</strong> {transcript}</p>
+    </div>
+  );
+}
