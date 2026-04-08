@@ -528,43 +528,43 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
 
   const orbGlowClass =
     callPhase === "connecting"
-      ? "from-white/10 via-[#8db8ff]/15 to-transparent"
+      ? "from-[#dbe8ff] via-[#9ec5ff]/60 to-transparent"
       : callPhase === "intro" || callPhase === "speaking"
-        ? "from-[#ffcc8f]/30 via-[#ff9d3f]/28 to-transparent"
+        ? "from-[#ffe3c4] via-[#ffc277]/70 to-transparent"
         : isListening
-          ? "from-[#7cd3ff]/28 via-[#4fb0ff]/20 to-transparent"
-          : "from-white/12 via-white/8 to-transparent";
+          ? "from-[#d9efff] via-[#80c7ff]/70 to-transparent"
+          : "from-[#f3f5f8] via-white to-transparent";
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[999999] bg-black/80 backdrop-blur-xl flex items-center justify-center p-3 md:p-6"
+      className="fixed inset-0 z-[999999] flex items-center justify-center bg-[rgba(247,244,238,0.82)] p-3 backdrop-blur-xl md:p-6"
       onClick={onClose}
       style={{ cursor: "auto" }}
       data-testid="modal-talk-to-ai-overlay"
     >
       <div
-        className="relative w-full max-w-[1220px] min-h-[88vh] overflow-hidden rounded-[36px] border border-white/10 bg-[#050505] text-white shadow-[0_40px_120px_rgba(0,0,0,0.6)] animate-in fade-in zoom-in-95 duration-200"
+        className="relative w-full max-w-[1220px] min-h-[88vh] overflow-hidden rounded-[36px] border border-black/8 bg-[linear-gradient(180deg,#fffdf9_0%,#ffffff_42%,#fbfaf7_100%)] text-[#111] shadow-[0_24px_80px_rgba(17,17,17,0.12)] animate-in fade-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
         style={{ cursor: "auto" }}
         data-testid="modal-talk-to-ai"
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.06),transparent_28%),radial-gradient(circle_at_bottom,rgba(255,170,80,0.08),transparent_26%)]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.95),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(245,239,229,0.7),transparent_28%),radial-gradient(circle_at_left,rgba(240,244,255,0.9),transparent_30%)]" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/10 to-transparent" />
 
         <div className="relative flex items-center justify-between px-4 py-4 md:px-8 md:py-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-white/55 md:text-[12px]" data-testid="badge-ai-mode">
+          <div className="inline-flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-3 py-1.5 text-[11px] uppercase tracking-[0.2em] text-[#6b665d] shadow-[0_8px_24px_rgba(17,17,17,0.04)] md:text-[12px]" data-testid="badge-ai-mode">
             <Sparkles className="h-3.5 w-3.5" />
             Voice conversation
           </div>
 
-          <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[12px] text-white/55 md:px-4 md:text-[13px]">
-            <span className={`h-2 w-2 rounded-full ${callPhase === "connecting" || micState === "requesting" ? "bg-[#7cd3ff] animate-pulse" : isListening ? "bg-[#7cd3ff] animate-pulse" : callPhase === "intro" || callPhase === "speaking" ? "bg-[#ffb35c] animate-pulse" : "bg-white/40"}`} />
+          <div className="flex items-center gap-2 rounded-full border border-black/8 bg-white/80 px-3 py-1.5 text-[12px] text-[#6b665d] shadow-[0_8px_24px_rgba(17,17,17,0.04)] md:px-4 md:text-[13px]">
+            <span className={`h-2 w-2 rounded-full ${callPhase === "connecting" || micState === "requesting" ? "bg-[#88b7ff] animate-pulse" : isListening ? "bg-[#88b7ff] animate-pulse" : callPhase === "intro" || callPhase === "speaking" ? "bg-[#ffb56f] animate-pulse" : "bg-black/20"}`} />
             <span data-testid="status-topbar-call">{isInCall ? statusText : "Portfolio voice preview"}</span>
           </div>
 
           <button
             onClick={onClose}
-            className="inline-flex h-11 items-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-5 text-[14px] font-medium text-white/90 transition-all hover:border-white/20 hover:bg-white/[0.06]"
+            className="inline-flex h-11 items-center gap-2 rounded-full border border-black/8 bg-white px-5 text-[14px] font-medium text-[#111] transition-all hover:-translate-y-0.5 hover:bg-[#f6f3ee]"
             data-testid="button-close-talk-to-ai"
           >
             <X className="h-4 w-4" />
@@ -574,27 +574,30 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
 
         {view === "home" ? (
           <div className="relative flex min-h-[calc(88vh-88px)] items-center justify-center px-6 py-12 md:px-10 md:py-16">
-            <div className="w-full max-w-[480px] text-center">
-              <div className="mx-auto mb-8 flex h-[124px] w-[124px] items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/5 shadow-[0_14px_60px_rgba(255,255,255,0.08)]">
+            <div className="w-full max-w-[560px] text-center">
+              <div className="mx-auto mb-8 flex h-[124px] w-[124px] items-center justify-center overflow-hidden rounded-full border border-black/8 bg-white p-1 shadow-[0_16px_48px_rgba(17,17,17,0.08)]">
                 <img
                   src="/Soundar.png"
                   alt="Soundar"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full rounded-full object-cover"
                   data-testid="img-soundar-ai-profile"
                 />
               </div>
 
-              <h2 className="text-[40px] font-medium leading-none tracking-[-0.05em] md:text-[56px]" data-testid="text-ai-name">
+              <p className="text-[12px] font-medium uppercase tracking-[0.28em] text-[#8a8276]" data-testid="text-ai-kicker">
+                DZNWITHSOUNDAR voice preview
+              </p>
+              <h2 className="mt-4 font-serif text-[44px] leading-[0.98] tracking-[-0.05em] text-[#111] md:text-[64px]" data-testid="text-ai-name">
                 Talk to Soundar
               </h2>
-              <p className="mx-auto mt-4 max-w-[430px] text-[16px] leading-[1.7] text-white/48 md:text-[18px]" data-testid="text-ai-subtitle">
-                A voice-first version of the portfolio that feels more like a real conversation than a product demo.
+              <p className="mx-auto mt-5 max-w-[470px] text-[16px] leading-[1.8] text-[#5f584e] md:text-[18px]" data-testid="text-ai-subtitle">
+                A more editorial, portfolio-native voice experience that feels aligned with the rest of the site instead of a separate dark product surface.
               </p>
 
               <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <button
                   onClick={beginCall}
-                  className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-white px-6 text-[16px] font-semibold text-black transition-all hover:-translate-y-0.5 hover:bg-white/90"
+                  className="inline-flex h-14 items-center justify-center gap-2 rounded-[18px] bg-[#111] px-6 text-[16px] font-medium text-white shadow-[0_14px_32px_rgba(17,17,17,0.16)] transition-all hover:-translate-y-0.5 hover:bg-[#222]"
                   data-testid="button-start-the-call"
                 >
                   <Phone className="h-4 w-4" />
@@ -602,7 +605,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                 </button>
                 <a
                   href="mailto:rsoundar1998@gmail.com?subject=Talk%20to%20Soundar&body=Hi%20Soundar%2C%20I%27d%20like%20to%20chat%20about%20your%20portfolio."
-                  className="inline-flex h-14 items-center justify-center gap-2 rounded-full border border-white/14 bg-white/[0.02] px-6 text-[16px] font-medium text-white transition-all hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05]"
+                  className="inline-flex h-14 items-center justify-center gap-2 rounded-[18px] border border-black/8 bg-white px-6 text-[16px] font-medium text-[#111] transition-all hover:-translate-y-0.5 hover:bg-[#f6f3ee]"
                   data-testid="button-chat-with-me"
                 >
                   <MessageSquare className="h-4 w-4" />
@@ -610,15 +613,15 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                 </a>
               </div>
 
-              <p className="mt-4 text-center text-[13px] text-white/35" data-testid="text-ai-note">
+              <p className="mt-4 text-center text-[13px] text-[#8a8276]" data-testid="text-ai-note">
                 Ask about Soundar's projects, process, systems work, and portfolio story.
               </p>
 
-              <div className="mt-10 rounded-[28px] border border-white/10 bg-white/[0.03] p-5 text-left shadow-[0_20px_80px_rgba(0,0,0,0.2)] backdrop-blur-sm md:p-6">
-                <p className="text-[13px] uppercase tracking-[0.2em] text-white/35">Try asking</p>
-                <div className="mt-4 grid gap-3 text-[15px] leading-[1.7] text-white/68">
+              <div className="mt-10 rounded-[28px] border border-black/8 bg-white/90 p-6 text-left shadow-[0_24px_64px_rgba(17,17,17,0.06)] backdrop-blur-sm md:p-7">
+                <p className="text-[12px] font-medium uppercase tracking-[0.22em] text-[#8a8276]">Try asking</p>
+                <div className="mt-5 grid gap-3 text-[15px] leading-[1.7] text-[#34312d]">
                   {PROMPT_SUGGESTIONS.map((suggestion) => (
-                    <p key={suggestion.id} data-testid={`text-ai-suggestion-${suggestion.id}`}>
+                    <p key={suggestion.id} className="rounded-2xl border border-[#f0ebe3] bg-[#fcfaf6] px-4 py-3" data-testid={`text-ai-suggestion-${suggestion.id}`}>
                       {suggestion.label}
                     </p>
                   ))}
@@ -626,7 +629,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                 <a
                   href="/#contact"
                   onClick={onClose}
-                  className="mt-6 inline-flex items-center gap-2 text-[14px] font-medium text-white transition-opacity hover:opacity-75"
+                  className="mt-6 inline-flex items-center gap-2 text-[14px] font-medium text-[#111] transition-opacity hover:opacity-75"
                   data-testid="link-jump-to-contact"
                 >
                   Or skip straight to contact
@@ -637,83 +640,83 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
           </div>
         ) : (
           <div className="relative flex min-h-[calc(88vh-88px)] flex-col px-4 pb-6 pt-2 md:px-8 md:pb-8 md:pt-0">
-            <div className="grid flex-1 grid-cols-1 gap-6 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-8">
-              <aside className="rounded-[28px] border border-white/8 bg-white/[0.02] p-5 backdrop-blur-md lg:p-6">
+            <div className="grid flex-1 grid-cols-1 gap-6 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-8">
+              <aside className="rounded-[30px] border border-black/8 bg-white/82 p-5 shadow-[0_24px_64px_rgba(17,17,17,0.05)] backdrop-blur-md lg:p-6">
                 <div className="flex items-center gap-4 lg:flex-col lg:items-start">
-                  <div className="h-[72px] w-[72px] overflow-hidden rounded-full border border-white/10 bg-white/5 shadow-[0_14px_60px_rgba(255,255,255,0.08)] lg:h-[86px] lg:w-[86px]">
+                  <div className="h-[72px] w-[72px] overflow-hidden rounded-full border border-black/8 bg-white p-1 shadow-[0_16px_48px_rgba(17,17,17,0.08)] lg:h-[86px] lg:w-[86px]">
                     <img
                       src="/Soundar.png"
                       alt="Soundar"
-                      className="h-full w-full object-cover"
+                      className="h-full w-full rounded-full object-cover"
                       data-testid="img-soundar-call-profile"
                     />
                   </div>
                   <div>
-                    <p className="text-[26px] font-medium tracking-[-0.04em] lg:text-[30px]" data-testid="text-call-name">
+                    <p className="font-serif text-[28px] tracking-[-0.04em] text-[#111] lg:text-[32px]" data-testid="text-call-name">
                       Soundar
                     </p>
-                    <p className="mt-1 text-[14px] text-white/45" data-testid="text-call-tagline">
+                    <p className="mt-1 text-[14px] text-[#7b7367]" data-testid="text-call-tagline">
                       Portfolio voice conversation
                     </p>
                   </div>
                 </div>
 
                 <div className="mt-6 space-y-4">
-                  <div className="rounded-2xl border border-white/8 bg-black/30 p-4">
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-white/35">Session</p>
+                  <div className="rounded-[24px] border border-[#ece7df] bg-[#fcfaf6] p-4">
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-[#8a8276]">Session</p>
                     <div className="mt-3 flex items-end justify-between gap-4">
                       <div>
-                        <p className="text-[28px] font-medium tracking-[-0.04em]" data-testid="text-call-timer">
+                        <p className="text-[30px] font-medium tracking-[-0.04em] text-[#111]" data-testid="text-call-timer">
                           {timerLabel}
                         </p>
-                        <p className="text-[13px] text-white/35" data-testid="text-call-time-left">
+                        <p className="text-[13px] text-[#8a8276]" data-testid="text-call-time-left">
                           {timeLeftLabel}
                         </p>
                       </div>
-                      <div className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[12px] text-white/55" data-testid="badge-call-status-left">
+                      <div className="rounded-full border border-black/8 bg-white px-3 py-1 text-[12px] text-[#6b665d]" data-testid="badge-call-status-left">
                         {statusText}
                       </div>
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-white/8 bg-black/30 p-4">
-                    <p className="text-[11px] uppercase tracking-[0.2em] text-white/35">Conversation memory</p>
-                    <p className="mt-3 text-[14px] leading-[1.7] text-white/52" data-testid="text-call-disclaimer">
+                  <div className="rounded-[24px] border border-[#ece7df] bg-[#fcfaf6] p-4">
+                    <p className="text-[11px] uppercase tracking-[0.2em] text-[#8a8276]">Conversation memory</p>
+                    <p className="mt-3 text-[14px] leading-[1.7] text-[#5f584e]" data-testid="text-call-disclaimer">
                       This mode is tuned to answer questions about Soundar's portfolio, projects, design systems work, analytics thinking, and overall product design approach.
                     </p>
                   </div>
                 </div>
               </aside>
 
-              <section className="flex min-h-[420px] flex-col items-center justify-center rounded-[32px] border border-white/8 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05),rgba(255,255,255,0.01)_45%,transparent_70%)] px-4 py-8 md:px-8">
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-white/48" data-testid="badge-center-status">
-                  <span className={`h-2 w-2 rounded-full ${callPhase === "connecting" || micState === "requesting" ? "bg-[#7cd3ff] animate-pulse" : isListening ? "bg-[#7cd3ff] animate-pulse" : callPhase === "intro" || callPhase === "speaking" ? "bg-[#ffb35c] animate-pulse" : "bg-white/40"}`} />
+              <section className="flex min-h-[420px] flex-col items-center justify-center rounded-[34px] border border-black/8 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.96),rgba(248,245,239,0.96)_52%,rgba(241,244,250,0.9)_100%)] px-4 py-8 shadow-[0_24px_64px_rgba(17,17,17,0.05)] md:px-8">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-black/8 bg-white px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-[#6b665d]" data-testid="badge-center-status">
+                  <span className={`h-2 w-2 rounded-full ${callPhase === "connecting" || micState === "requesting" ? "bg-[#88b7ff] animate-pulse" : isListening ? "bg-[#88b7ff] animate-pulse" : callPhase === "intro" || callPhase === "speaking" ? "bg-[#ffb56f] animate-pulse" : "bg-black/20"}`} />
                   {statusText}
                 </div>
 
                 <div className="relative flex h-[300px] w-[300px] items-center justify-center md:h-[360px] md:w-[360px]" data-testid="visualizer-voice-orb">
                   <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${orbGlowClass} blur-3xl transition-all duration-500`} />
-                  <div className={`absolute inset-[18%] rounded-full border border-white/10 bg-white/[0.03] transition-all duration-500 ${orbScaleClass} ${callPhase === "connecting" || micState === "requesting" ? "animate-pulse" : ""}`} />
-                  <div className={`absolute inset-[30%] rounded-full border border-white/12 bg-gradient-to-br from-white/10 to-white/[0.02] shadow-[0_0_60px_rgba(255,255,255,0.06)] transition-all duration-500 ${orbScaleClass}`} />
-                  <div className="absolute inset-[38%] overflow-hidden rounded-full border border-white/12 bg-black/20 shadow-[0_20px_80px_rgba(0,0,0,0.45)]">
+                  <div className={`absolute inset-[18%] rounded-full border border-black/6 bg-white/70 transition-all duration-500 ${orbScaleClass} ${callPhase === "connecting" || micState === "requesting" ? "animate-pulse" : ""}`} />
+                  <div className={`absolute inset-[30%] rounded-full border border-black/8 bg-gradient-to-br from-white to-[#f4f2ee] shadow-[0_20px_70px_rgba(17,17,17,0.08)] transition-all duration-500 ${orbScaleClass}`} />
+                  <div className="absolute inset-[38%] overflow-hidden rounded-full border border-white bg-white shadow-[0_18px_60px_rgba(17,17,17,0.14)]">
                     <img src="/Soundar.png" alt="Soundar" className="h-full w-full object-cover" data-testid="img-orb-soundar" />
                   </div>
                 </div>
 
                 <div className="mt-8 w-full max-w-3xl text-center">
-                  <h3 className="text-[28px] font-medium leading-[1.28] tracking-[-0.05em] text-white/88 md:text-[46px]" data-testid="text-call-transcript">
+                  <h3 className="font-serif text-[30px] leading-[1.18] tracking-[-0.05em] text-[#111] md:text-[50px]" data-testid="text-call-transcript">
                     {assistantMessage}
                   </h3>
-                  <p className="mx-auto mt-4 max-w-2xl text-[14px] leading-[1.7] text-white/42 md:text-[15px]" data-testid="text-heard-message">
+                  <p className="mx-auto mt-4 max-w-2xl text-[14px] leading-[1.8] text-[#6a645a] md:text-[15px]" data-testid="text-heard-message">
                     {heardMessage}
                   </p>
                   {micError && (
-                    <p className="mx-auto mt-3 max-w-2xl text-[13px] leading-[1.7] text-[#ffb35c]/85" data-testid="text-mic-error">
+                    <p className="mx-auto mt-3 max-w-2xl text-[13px] leading-[1.7] text-[#c57b3f]" data-testid="text-mic-error">
                       {micError}
                     </p>
                   )}
                   {!isSpeechSupported && !micError && (
-                    <p className="mt-3 text-[13px] text-[#ffb35c]/80" data-testid="text-speech-fallback">
+                    <p className="mt-3 text-[13px] text-[#c57b3f]" data-testid="text-speech-fallback">
                       Voice input depends on browser support. In supported browsers, the experience listens automatically.
                     </p>
                   )}
@@ -722,7 +725,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                 <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
                   <button
                     onClick={toggleMute}
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.03] px-6 text-[15px] font-medium text-white transition-all hover:border-white/20 hover:bg-white/[0.06]"
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-[16px] border border-black/8 bg-white px-6 text-[15px] font-medium text-[#111] transition-all hover:-translate-y-0.5 hover:bg-[#f6f3ee]"
                     data-testid="button-mute-call"
                   >
                     {isMuted ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
@@ -730,7 +733,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                   </button>
                   <button
                     onClick={endCall}
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#ff5a4a] px-6 text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#ff4a38]"
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-[16px] bg-[#111] px-6 text-[15px] font-medium text-white transition-all hover:-translate-y-0.5 hover:bg-[#222]"
                     data-testid="button-end-call"
                   >
                     <PhoneOff className="h-4 w-4" />
