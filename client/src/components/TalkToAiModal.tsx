@@ -40,6 +40,8 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
   const recognitionRef = useRef<any>(null);
   const connectTimeoutRef = useRef<number | null>(null);
   const restartRecognitionTimeoutRef = useRef<number | null>(null);
+  const responseTimeoutRef = useRef<number | null>(null);
+  const transcriptBufferRef = useRef("");
   const mediaStreamRef = useRef<MediaStream | null>(null);
 
   const isInCall = view === "call";
@@ -81,6 +83,13 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
       window.clearTimeout(restartRecognitionTimeoutRef.current);
       restartRecognitionTimeoutRef.current = null;
     }
+
+    if (responseTimeoutRef.current) {
+      window.clearTimeout(responseTimeoutRef.current);
+      responseTimeoutRef.current = null;
+    }
+
+    transcriptBufferRef.current = "";
 
     if (recognitionRef.current) {
       recognitionRef.current.onend = null;
@@ -216,7 +225,16 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
   const respondToUser = (input: string) => {
     cleanupRecognition();
     setMicError("");
-    const response = buildResponse(input);
+    const normalizedInput = input.trim();
+
+    if (!normalizedInput) {
+      setHeardMessage("I didn't catch that. Try asking again.");
+      startListening();
+      return;
+    }
+
+    const response = buildResponse(normalizedInput);
+    setHeardMessage(`You said: ${normalizedInput}`);
     setAssistantMessage(response);
     setCallPhase("speaking");
     speakText(response, () => {
@@ -271,7 +289,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
 
     const recognition = new SpeechRecognitionApi();
     recognition.lang = "en-US";
-    recognition.continuous = true;
+    recognition.continuous = false;
     recognition.interimResults = true;
     recognition.maxAlternatives = 1;
 
@@ -281,23 +299,43 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
     };
 
     recognition.onresult = (event: any) => {
-      const transcript = Array.from(event.results)
+      const freshResults = Array.from(event.results).slice(event.resultIndex);
+      const transcript = freshResults
         .map((result: any) => result[0]?.transcript || "")
         .join(" ")
         .trim();
+      const hasFinalResult = freshResults.some((result: any) => result.isFinal);
 
-      if (transcript) {
-        setHeardMessage(`You said: ${transcript}`);
+      if (!transcript) {
+        return;
       }
 
-      const finalResult = event.results[event.results.length - 1];
-      if (finalResult?.isFinal && transcript) {
+      transcriptBufferRef.current = transcript;
+      setHeardMessage(`You said: ${transcript}`);
+
+      if (responseTimeoutRef.current) {
+        window.clearTimeout(responseTimeoutRef.current);
+      }
+
+      responseTimeoutRef.current = window.setTimeout(() => {
+        if (transcriptBufferRef.current.trim()) {
+          respondToUser(transcriptBufferRef.current);
+        }
+      }, 900);
+
+      if (hasFinalResult) {
         respondToUser(transcript);
       }
     };
 
     recognition.onerror = (event: any) => {
       setIsListening(false);
+
+      if (event?.error === "no-speech") {
+        setMicError("");
+        return;
+      }
+
       const message = getRecognitionErrorMessage(event?.error);
       setMicError(message);
 
@@ -312,7 +350,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
       if (view === "call" && callPhase === "live" && !isMuted && micState === "granted") {
         restartRecognitionTimeoutRef.current = window.setTimeout(() => {
           startListening();
-        }, 600);
+        }, 350);
       }
     };
 
