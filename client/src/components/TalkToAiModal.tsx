@@ -16,7 +16,7 @@ type PromptSuggestion = {
   label: string;
 };
 
-const INTRO_SCRIPT = "Hey, I'm Soundar. You're on my portfolio right now. I’m a senior product designer focused on B2B, SaaS, and AI-first experiences. Feel free to ask me about my projects, my process, or how I think about product design.";
+const INTRO_SCRIPT = "Hey, I'm Soundar. This is a conversational layer inside my portfolio, designed to make exploring my work feel more natural and guided. Feel free to ask about my projects, my process, or how I designed this experience to feel intuitive, minimal, and easy to follow.";
 
 const PROMPT_SUGGESTIONS: PromptSuggestion[] = [
   { id: "agents", label: "Ask about the AI agent builder" },
@@ -170,8 +170,8 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
       return "I'm Soundar, a senior product designer focused on B2B, SaaS, and AI-first products. I like taking messy product problems and turning them into experiences that feel clear, scalable, and reliable for real teams.";
     }
 
-    if (message.includes("portfolio") || message.includes("what is this site") || message.includes("what is on your portfolio")) {
-      return "This portfolio is basically a snapshot of how I think through product problems. It highlights three kinds of work: AI-driven CRM workflows, scalable design systems, and analytics experiences that help teams make decisions faster.";
+    if (message.includes("portfolio") || message.includes("what is this site") || message.includes("what is on your portfolio") || message.includes("what is this experience") || message.includes("how does this work")) {
+      return "What you’re experiencing is a conversational interface embedded within my portfolio, designed to make the experience feel more interactive and engaging. Instead of navigating only through static case studies, you can explore my work through a more natural, guided interaction. My focus here was on designing the overall experience so the flow feels intuitive, conversational, minimal, and clear at every step.";
     }
 
     if (message.includes("project") || message.includes("featured work") || message.includes("case study") || message.includes("work you have done")) {
@@ -590,8 +590,8 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
               <h2 className="mt-4 font-serif text-[44px] leading-[0.98] tracking-[-0.05em] text-[#111] md:text-[64px]" data-testid="text-ai-name">
                 Talk to Soundar
               </h2>
-              <p className="mx-auto mt-5 max-w-[470px] text-[16px] leading-[1.8] text-[#5f584e] md:text-[18px]" data-testid="text-ai-subtitle">
-                A more editorial, portfolio-native voice experience that feels aligned with the rest of the site instead of a separate dark product surface.
+              <p className="mx-auto mt-5 max-w-[500px] text-[16px] leading-[1.8] text-[#5f584e] md:text-[18px]" data-testid="text-ai-subtitle">
+                A conversational layer inside the portfolio that helps people explore the work in a more natural, guided way instead of only moving through static case studies.
               </p>
 
               <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -682,7 +682,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                   <div className="rounded-[24px] border border-[#ece7df] bg-[#fcfaf6] p-4">
                     <p className="text-[11px] uppercase tracking-[0.2em] text-[#8a8276]">Conversation memory</p>
                     <p className="mt-3 text-[14px] leading-[1.7] text-[#5f584e]" data-testid="text-call-disclaimer">
-                      This mode is tuned to answer questions about Soundar's portfolio, projects, design systems work, analytics thinking, and overall product design approach.
+                      The experience is designed to feel conversational, minimal, and easy to navigate while helping visitors understand Soundar's work, design process, systems thinking, and portfolio story.
                     </p>
                   </div>
                 </div>
