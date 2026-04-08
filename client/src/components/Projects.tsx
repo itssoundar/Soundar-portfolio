@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [highlightedProject, setHighlightedProject] = useState<string | null>(null);
   const [, setLocation] = useLocation();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const containerRef = useRef<HTMLDivElement>(null);
@@ -175,9 +176,32 @@ export function Projects() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleProjectHighlight = (event: Event) => {
+      const projectId = (event as CustomEvent<{ projectId?: string }>).detail?.projectId;
+
+      if (!projectId) {
+        return;
+      }
+
+      setHighlightedProject(projectId);
+      window.setTimeout(() => {
+        setHighlightedProject((current) => (current === projectId ? null : current));
+      }, 2600);
+    };
+
+    window.addEventListener("portfolio-highlight-project", handleProjectHighlight as EventListener);
+
+    return () => {
+      window.removeEventListener("portfolio-highlight-project", handleProjectHighlight as EventListener);
+    };
+  }, []);
+
   const renderCardContent = (project: typeof projects[0], isFirst: boolean = false) => (
     <button 
       type="button"
+      id={`project-card-${project.id}`}
+      data-testid={`card-project-${project.id}`}
       onClick={(e) => {
         if (window.innerWidth <= 1024) {
           e.preventDefault();
@@ -189,7 +213,7 @@ export function Projects() {
           setLocation(project.link);
         }
       }}
-      className="block w-full bg-white rounded-[28px] p-[16px] md:p-[32px] shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[#eaeaea] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] relative z-[9999] text-left cursor-pointer appearance-none outline-none focus:outline-none" 
+      className={`block w-full rounded-[28px] border p-[16px] text-left cursor-pointer appearance-none outline-none focus:outline-none relative z-[9999] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] ${highlightedProject === project.id ? "border-[#88b7ff] shadow-[0_4px_24px_rgba(0,0,0,0.04),0_0_0_1px_rgba(136,183,255,0.28),0_0_0_18px_rgba(136,183,255,0.14)]" : "border-[#eaeaea]"}`}
       style={{ WebkitTapHighlightColor: "transparent", pointerEvents: "all", position: "relative", zIndex: 100 }}>
       
       <div className="flex flex-col md:flex-row gap-[12px] md:gap-[24px] items-stretch md:h-[400px] pointer-events-none relative z-10">
@@ -203,7 +227,7 @@ export function Projects() {
 
         {/* Right Side: Content */}
         <div className="w-full md:w-[55%] flex flex-col justify-center pointer-events-none">
-          <h3 className="text-[22px] md:text-[28px] font-medium tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-3 md:mb-8 pr-2 lg:pr-8 text-[#111]">
+          <h3 className="text-[22px] md:text-[28px] font-medium tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-3 md:mb-8 pr-2 lg:pr-8 text-[#111]" data-testid={`text-project-title-${project.id}`}>
             {project.title}
           </h3>
           
