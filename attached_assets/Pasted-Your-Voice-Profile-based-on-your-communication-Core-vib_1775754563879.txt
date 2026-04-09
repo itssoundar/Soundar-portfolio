@@ -1,0 +1,61 @@
+Your Voice Profile (based on your communication)
+🧠 Core vibe
+
+Confident, practical, slightly informal, product-minded
+
+You’re not overly formal, not overly casual — you sit in that builder/designer tone
+
+🔊 Tone characteristics (this is what you paste into tools)
+Writing
+
+Voice Style Description:
+
+The speaker has a calm, confident, and slightly informal tone. He speaks like a product designer explaining ideas clearly and practically. His delivery is conversational and natural, not robotic or overly enthusiastic.
+
+He often starts sentences with soft fillers like "so", "yeah", or "basically" to make the conversation feel human. His tone is friendly and approachable, but still focused and purposeful.
+
+Pacing is moderate — not too fast — with slight pauses between thoughts. The voice should feel thoughtful and intentional, as if he is explaining something he understands deeply.
+
+Emotion level is subtle. Not dramatic or overly expressive, but slightly warm and engaging. It should feel like a one-on-one conversation rather than a presentation.
+
+Avoid sounding too formal, corporate, or scripted. Avoid excessive excitement or hype.
+
+Overall vibe:
+A designer-builder explaining his work in a relaxed, confident, and clear way.
+
+🎯 Add this for even better results (VERY IMPORTANT)
+🧩 Speaking patterns you use
+
+Add this too 👇
+
+Writing
+
+Speaking Style Patterns:
+
+Uses phrases like:
+"so yeah..."
+"basically..."
+"what's interesting here is..."
+"I think..."
+"let me show you..."
+Sentences are slightly broken and natural, not perfectly structured
+Avoid long complex sentences
+Prefer simple, clear explanations
+Sounds like thinking while speaking, not reading a script
+🧠 Example (before vs after)
+❌ Generic AI
+
+“This project demonstrates my experience in AI systems.”
+
+✅ Your tone
+
+“So yeah, this is something I worked on recently — it’s basically an AI chatbot system…”
+
+🔥 If you're using TTS (like Triplet / ElevenLabs)
+
+Also tweak:
+
+Stability → medium (not too robotic)
+Clarity → high
+Style exaggeration → low
+Speed → 0.9x (slightly slower = natural)

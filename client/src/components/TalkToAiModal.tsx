@@ -54,7 +54,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
 
   return createPortal(
     <VoiceAssistant>
-      {({ statusLabel, transcript, response, error, isSpeechSupported, isListening, toggleListening, stopListening }) => {
+      {({ status, statusLabel, transcript, response, error, isSpeechSupported, isListening, toggleListening, stopListening }) => {
         const handleClose = () => {
           stopListening();
           onClose();
@@ -83,7 +83,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                 </div>
 
                 <div className="order-3 flex w-full items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[12px] text-[#a09c96] shadow-[0_8px_24px_rgba(0,0,0,0.2)] sm:order-none sm:w-auto sm:justify-start md:px-4 md:text-[13px]">
-                  <span className={`h-2 w-2 rounded-full ${isListening ? "bg-[#ff8f50] animate-pulse" : "bg-white/20"}`} />
+                  <span className={`h-2 w-2 rounded-full ${status === 'listening' ? "bg-[#ff8f50] animate-pulse" : status === 'processing' ? "bg-[#ffd4b8] animate-pulse" : status === 'speaking' ? "bg-[#ff8f50] animate-pulse" : "bg-white/20"}`} />
                   <span data-testid="status-topbar-call">{statusLabel}</span>
                 </div>
 
@@ -156,10 +156,10 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                 </section>
 
                 <section className="flex min-h-[460px] flex-col justify-center rounded-[28px] border border-white/5 bg-[#050505] px-4 py-6 shadow-[inset_0_0_80px_rgba(0,0,0,0.5)] sm:rounded-[34px] sm:px-6 sm:py-8 md:px-8 lg:my-10 lg:min-h-0 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,143,80,0.15)_0%,transparent_60%)] opacity-0 transition-opacity duration-700 ease-in-out" style={{ opacity: isListening ? 1 : 0 }} />
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,143,80,0.15)_0%,transparent_60%)] opacity-0 transition-opacity duration-700 ease-in-out" style={{ opacity: isListening ? (status === 'processing' ? 0.5 : 1) : 0 }} />
 
                   <div className="mx-auto inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.24em] text-[#a09c96] relative z-10" data-testid="badge-center-status">
-                    <span className={`h-2 w-2 rounded-full ${isListening ? "bg-[#ff8f50] animate-pulse" : "bg-white/20"}`} />
+                    <span className={`h-2 w-2 rounded-full ${status === 'listening' ? "bg-[#ff8f50] animate-pulse" : status === 'processing' ? "bg-[#ffd4b8] animate-pulse" : status === 'speaking' ? "bg-[#ff8f50] animate-pulse" : "bg-white/20"}`} />
                     {statusLabel}
                   </div>
 
@@ -171,7 +171,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                         // It peaks in the middle and tapers off at the edges
                         const centerDistance = Math.abs(i - 20) / 20; // 0 at center, 1 at edges
                         const baseHeight = 4 + (Math.sin(i * 0.5) * 6) + (1 - centerDistance) * 20;
-                        const activeHeight = isListening ? baseHeight * (1 + Math.random() * 0.8) : 2;
+                        const activeHeight = status === 'listening' ? baseHeight * (1 + Math.random() * 0.8) : status === 'speaking' ? baseHeight * (1 + Math.random() * 0.4) : status === 'processing' ? baseHeight * (1 + Math.sin(Date.now() / 200 + i) * 0.3) : 2;
                         
                         return (
                           <div 
@@ -179,7 +179,7 @@ export function TalkToAiModal({ isOpen, onClose }: TalkToAiModalProps) {
                             className={`w-1 rounded-full transition-all duration-150 ease-in-out ${isListening ? 'opacity-90 bg-gradient-to-t from-[#ff7a2e] to-[#ffb380]' : 'opacity-40 bg-white/20'}`}
                             style={{ 
                               height: `${activeHeight}px`,
-                              transform: isListening ? `scaleY(${1 + Math.sin(Date.now() / 100 + i) * 0.2})` : 'scaleY(1)'
+                              transform: status === 'listening' || status === 'speaking' ? `scaleY(${1 + Math.sin(Date.now() / 100 + i) * 0.2})` : status === 'processing' ? `scaleY(${1 + Math.sin(Date.now() / 50 + i) * 0.1})` : 'scaleY(1)'
                             }}
                           />
                         );
