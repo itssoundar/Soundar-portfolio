@@ -213,7 +213,7 @@ export function Projects() {
           setLocation(project.link);
         }
       }}
-      className={`block w-full rounded-[28px] border p-[16px] text-left cursor-pointer appearance-none outline-none focus:outline-none relative z-[9999] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] ${highlightedProject === project.id ? "border-[#88b7ff] shadow-[0_4px_24px_rgba(0,0,0,0.04),0_0_0_1px_rgba(136,183,255,0.28),0_0_0_18px_rgba(136,183,255,0.14)]" : "border-[#eaeaea]"}`}
+      className={`block w-full rounded-[28px] border p-[16px] md:px-[24px] md:py-[24px] text-left cursor-pointer appearance-none outline-none focus:outline-none relative z-[9999] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] ${highlightedProject === project.id ? "border-[#88b7ff] shadow-[0_4px_24px_rgba(0,0,0,0.04),0_0_0_1px_rgba(136,183,255,0.28),0_0_0_18px_rgba(136,183,255,0.14)]" : "border-[#eaeaea]"}`}
       style={{ WebkitTapHighlightColor: "transparent", pointerEvents: "all", position: "relative", zIndex: 100 }}>
       
       <div className="flex flex-col md:flex-row gap-[12px] md:gap-[24px] items-stretch md:h-[400px] pointer-events-none relative z-10">
