@@ -213,12 +213,12 @@ export function Projects() {
           setLocation(project.link);
         }
       }}
-      className={`block w-full rounded-[28px] border p-[16px] md:px-[24px] md:py-[24px] text-left cursor-pointer appearance-none outline-none focus:outline-none relative z-[9999] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] ${highlightedProject === project.id ? "border-[#88b7ff] shadow-[0_4px_24px_rgba(0,0,0,0.04),0_0_0_1px_rgba(136,183,255,0.28),0_0_0_18px_rgba(136,183,255,0.14)]" : "border-[#eaeaea]"}`}
+      className={`block w-full rounded-[28px] border p-[16px] md:px-[32px] md:py-[32px] text-left cursor-pointer appearance-none outline-none focus:outline-none relative z-[9999] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] h-auto ${highlightedProject === project.id ? "border-[#88b7ff] shadow-[0_4px_24px_rgba(0,0,0,0.04),0_0_0_1px_rgba(136,183,255,0.28),0_0_0_18px_rgba(136,183,255,0.14)]" : "border-[#eaeaea]"}`}
       style={{ WebkitTapHighlightColor: "transparent", pointerEvents: "all", position: "relative", zIndex: 100 }}>
       
-      <div className="flex flex-col md:flex-row gap-[12px] md:gap-[24px] items-stretch md:h-[400px] pointer-events-none relative z-10">
+      <div className="flex flex-col md:flex-row gap-[12px] md:gap-[32px] items-stretch md:h-auto pointer-events-none relative z-10">
         {/* Left Side: Image */}
-        <div className="w-full md:w-[45%] h-[180px] sm:h-[400px] md:h-full relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50 pointer-events-none">
+        <div className="w-full md:w-[45%] h-[180px] sm:h-[400px] md:h-auto md:min-h-[400px] relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50 pointer-events-none">
           <div 
             className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 md:group-hover:scale-105"
             style={{ backgroundImage: `url(${project.image})` }}
@@ -226,12 +226,12 @@ export function Projects() {
         </div>
 
         {/* Right Side: Content */}
-        <div className="w-full md:w-[55%] flex flex-col justify-center pointer-events-none">
-          <h3 className="text-[22px] md:text-[28px] font-medium tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-3 md:mb-8 pr-2 lg:pr-8 text-[#111]" data-testid={`text-project-title-${project.id}`}>
+        <div className="w-full md:w-[55%] flex flex-col justify-center pointer-events-none py-2 md:py-0">
+          <h3 className="text-[22px] md:text-[32px] font-medium tracking-[-0.02em] leading-[1.2] lg:leading-[1.15] mb-3 md:mb-6 pr-2 lg:pr-8 text-[#111]" data-testid={`text-project-title-${project.id}`}>
             {project.title}
           </h3>
           
-          <ul className="space-y-2 md:space-y-5 md:mb-10 pr-2 lg:pr-10 mb-[8px]">
+          <ul className="space-y-2 md:space-y-4 md:mb-8 pr-2 lg:pr-10 mb-[8px]">
             {project.bullets.map((bullet, i) => (
               <li key={i} className="flex items-start gap-3 md:gap-4 text-[#444] text-[16px] md:text-[18px] leading-[1.5] md:leading-[1.6]">
                 <span className="w-[5px] h-[5px] rounded-full bg-[#111] mt-[7px] md:mt-[11px] flex-shrink-0" />
@@ -240,7 +240,7 @@ export function Projects() {
             ))}
           </ul>
 
-          <div className="mt-auto md:mt-0">
+          <div className="mt-auto pt-4 md:pt-0">
             <span className="inline-block px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-[12px] bg-[#111] text-white font-medium text-[14px] md:text-[15px] lg:text-[16px] md:group-hover:bg-black transition-all duration-300 shadow-[0_4px_14px_rgba(0,0,0,0.15)]">
               View Project
             </span>
