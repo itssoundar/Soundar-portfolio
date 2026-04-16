@@ -26,14 +26,17 @@ export default function ProjectDetail2({ hideHeader = false }: { hideHeader?: bo
       )}
       {/* Top Banner section */}
       {hideHeader ? (
-        <div className="w-full bg-white pt-6 pb-8 px-4 sm:px-6 md:px-8 relative z-10 flex flex-col items-start text-left">
-          <h1 className="text-[28px] sm:text-[32px] font-medium leading-[1.1] tracking-[-0.02em] font-sans text-[#111] mb-4">
+        <div 
+          className="w-full pt-6 pb-8 px-4 sm:px-6 md:px-8 relative z-10 flex flex-col items-start text-left bg-cover bg-center bg-no-repeat text-white"
+          style={{ backgroundImage: "url('/Case_hero.png')" }}
+        >
+          <h1 className="text-[28px] sm:text-[32px] font-medium leading-[1.1] tracking-[-0.02em] font-sans text-white mb-4 relative z-10">
             Building a Scalable Design System
           </h1>
-          <p className="text-[16px] sm:text-[18px] text-[#333] leading-[1.5] mb-8 max-w-[800px]">
+          <p className="text-[16px] sm:text-[18px] text-white/90 leading-[1.5] mb-8 max-w-[800px] relative z-10">
             Built scalable components and tokens to unify UI across CRM modules, reducing UI inconsistencies and improving design-to-development efficiency.
           </p>
-          <div className="w-full rounded-[16px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] bg-[#f4f4f4]">
+          <div className="w-full rounded-[16px] overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.08)] bg-[#f4f4f4] relative z-10">
             <img src={Case1} alt="Project Dashboard" className="w-full h-auto block" />
           </div>
         </div>
