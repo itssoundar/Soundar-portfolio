@@ -279,7 +279,7 @@ export function Projects() {
               <div className="absolute inset-0 flex items-center justify-center z-[80] pointer-events-none">
                 <div 
                   ref={card1Ref}
-                  className="w-[90%] md:w-full max-w-[1000px] opacity-0 pointer-events-auto"
+                  className="w-full opacity-0 pointer-events-auto"
                 >
                   {renderCardContent(projects[0], true)}
                 </div>
@@ -407,7 +407,7 @@ export function Projects() {
           {projects.slice(1).map((project) => (
             <div
               key={project.id}
-              className="next-card w-[90%] md:w-full max-w-[1000px] pointer-events-auto"
+              className="next-card w-full pointer-events-auto"
             >
               {renderCardContent(project)}
             </div>
