@@ -27,7 +27,7 @@ export default function ProjectDetail3({ hideHeader = false }: { hideHeader?: bo
       {/* Top Banner section */}
       {hideHeader ? (
         <div 
-          className="w-full pt-6 pb-8 px-4 sm:px-6 md:px-8 relative z-10 flex flex-col items-start text-left bg-cover bg-center bg-no-repeat text-white"
+          className="w-full pt-6 pb-8 px-4 sm:px-6 md:px-8 relative z-10 flex flex-col items-start text-left bg-cover bg-center bg-no-repeat text-white rounded-[24px] overflow-hidden mb-6"
           style={{ backgroundImage: "url('/Case_hero.png')" }}
         >
           <h1 className="text-[28px] sm:text-[32px] font-medium leading-[1.1] tracking-[-0.02em] font-sans text-white mb-4 relative z-10">
