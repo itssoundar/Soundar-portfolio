@@ -39,19 +39,10 @@ export function NavBar() {
             <a href="/#about" onClick={(e) => handleNavClick(e, 'about')} className="hover:text-black transition-colors">About</a>
             <a href="/#contact" onClick={(e) => handleNavClick(e, 'contact')} className="hover:text-black transition-colors">Contact</a>
           </div>
-
-          <button
-            onClick={() => setIsTalkToAiOpen(true)}
-            data-testid="button-talk-to-my-ai"
-            className="hidden md:flex h-11 items-center gap-2 rounded-[14px] border border-black/10 bg-[linear-gradient(135deg,#111_0%,#2a2a2a_100%)] px-5 text-[14px] font-medium text-white shadow-[0_10px_24px_rgba(0,0,0,0.14)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(0,0,0,0.18)]"
-          >
-            Talk to my AI
-            <ArrowUpRight className="h-4 w-4" />
-          </button>
           
           <button 
             onClick={() => setIsResumeOpen(true)}
-            className="hidden md:flex rounded-[14px] px-6 h-11 border border-black/8 bg-white text-[#111] hover:bg-[#f6f6f6] font-medium text-[14px] items-center gap-2 transition-all cursor-pointer"
+            className="hidden md:flex h-11 items-center gap-2 rounded-[14px] border border-black/10 bg-[linear-gradient(135deg,#111_0%,#2a2a2a_100%)] px-5 text-[14px] font-medium text-white shadow-[0_10px_24px_rgba(0,0,0,0.14)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(0,0,0,0.18)] cursor-pointer"
           >
             <Eye className="w-4 h-4" />
             View Resume
@@ -76,23 +67,12 @@ export function NavBar() {
             <a href="/#contact" onClick={(e) => handleNavClick(e, 'contact')} className="hover:text-black transition-colors px-4 py-2 hover:bg-gray-50 rounded-xl">Contact</a>
           </div>
           <div className="pt-2 border-t border-gray-100 space-y-3">
-            <button
-              onClick={() => {
-                setIsTalkToAiOpen(true);
-                setIsMobileMenuOpen(false);
-              }}
-              data-testid="button-talk-to-my-ai-mobile"
-              className="w-full rounded-[14px] h-12 bg-[linear-gradient(135deg,#111_0%,#2a2a2a_100%)] text-white font-medium text-[15px] flex items-center justify-center gap-2 transition-all shadow-[0_10px_24px_rgba(0,0,0,0.14)]"
-            >
-              Talk to my AI
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
             <button 
               onClick={() => {
                 setIsResumeOpen(true);
                 setIsMobileMenuOpen(false);
               }}
-              className="w-full rounded-[14px] h-12 border border-black/8 bg-white text-[#111] hover:bg-[#f6f6f6] font-medium text-[15px] flex items-center justify-center gap-2 transition-all cursor-pointer"
+              className="w-full rounded-[14px] h-12 bg-[linear-gradient(135deg,#111_0%,#2a2a2a_100%)] text-white font-medium text-[15px] flex items-center justify-center gap-2 transition-all shadow-[0_10px_24px_rgba(0,0,0,0.14)] cursor-pointer"
               data-testid="button-view-resume-mobile"
             >
               <Eye className="w-4 h-4" />
