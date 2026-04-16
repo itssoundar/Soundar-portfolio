@@ -218,7 +218,7 @@ export function Projects() {
       
       <div className="flex flex-col md:flex-row gap-[12px] md:gap-[32px] items-stretch md:h-auto pointer-events-none relative z-10">
         {/* Left Side: Image */}
-        <div className="w-full md:w-[45%] h-[180px] sm:h-[400px] md:h-auto md:min-h-[400px] relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50 pointer-events-none">
+        <div className="w-full md:w-[45%] h-[260px] sm:h-[400px] md:h-auto md:min-h-[400px] relative rounded-[16px] overflow-hidden bg-[#f4f4f4] shrink-0 border border-[#f0f0f0]/50 pointer-events-none">
           <div 
             className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-500 md:group-hover:scale-105"
             style={{ backgroundImage: `url(${project.image})` }}
