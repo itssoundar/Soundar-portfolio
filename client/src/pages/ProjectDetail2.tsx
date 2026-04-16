@@ -169,7 +169,7 @@ export default function ProjectDetail2({ hideHeader = false }: { hideHeader?: bo
             <li>Modal behaviors varied across flows</li>
           </ul>
 
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
+          <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
                 src="/c2-s3-1.jpg" 
@@ -263,7 +263,7 @@ export default function ProjectDetail2({ hideHeader = false }: { hideHeader?: bo
         <div className="mb-16 pt-12 border-t border-gray-200">
           <h3 className="text-[22px] md:text-[28px] font-bold -900 mb-8">Solution 1: System Audit & Component Architecture</h3>
           
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
+          <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
                 src="/c2-s1-1.png" 

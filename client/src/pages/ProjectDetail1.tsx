@@ -158,7 +158,7 @@ export default function ProjectDetail1({ hideHeader = false }: { hideHeader?: bo
             <li>Dashboard creation took ~20 minutes on average</li>
           </ul>
 
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
+          <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
                 src="/image_1773424083054.png" 

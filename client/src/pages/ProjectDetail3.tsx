@@ -183,7 +183,7 @@ export default function ProjectDetail3({ hideHeader = false }: { hideHeader?: bo
             As a result, teams struggled to pinpoint where candidates were dropping off.
           </p>
 
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
+          <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
@@ -211,7 +211,7 @@ export default function ProjectDetail3({ hideHeader = false }: { hideHeader?: bo
             Without flexible reporting tools, most teams relied on analysts to generate dashboards.
           </p>
 
-          <div className="bg-gray-100 p-4 md:p-8 rounded-xl mb-6">
+          <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <img 
                 src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
