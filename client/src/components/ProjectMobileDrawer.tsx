@@ -57,19 +57,25 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 bg-black/40 z-[99999]" />
         <Drawer.Content className="bg-white flex flex-col rounded-t-[24px] h-[92vh] mt-24 fixed bottom-0 left-0 right-0 z-[100000] outline-none">
-          <div className="p-4 bg-white rounded-t-[24px] flex-1 overflow-y-auto">
-            <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-6" />
-            <div className="flex items-center justify-between w-full mb-4">
-              <Drawer.Title className="text-[18px] font-semibold">{getProjectTitle()}</Drawer.Title>
-              <button onClick={() => onOpenChange(false)} className="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
-                <X size={20} />
+          
+          {/* Sticky Header Section */}
+          <div className="bg-white rounded-t-[24px] px-4 pt-4 pb-2 z-10 border-b border-gray-100 flex-shrink-0 relative">
+            <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 mb-4" />
+            <div className="flex items-center justify-between w-full">
+              <Drawer.Title className="text-[18px] font-semibold text-[#111]">{getProjectTitle()}</Drawer.Title>
+              <button onClick={() => onOpenChange(false)} className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors">
+                <X size={20} className="text-[#444]" />
               </button>
             </div>
-            
-            <div id="project-drawer-content" className="w-full h-full pb-20">
+          </div>
+          
+          {/* Scrollable Content Section */}
+          <div className="flex-1 overflow-y-auto px-4 pb-20">
+            <div id="project-drawer-content" className="w-full h-full pt-4">
               {renderProjectContent()}
             </div>
           </div>
+          
         </Drawer.Content>
       </Drawer.Portal>
     </Drawer.Root>
