@@ -306,7 +306,7 @@ export default function ProjectDetail3({ hideHeader = false }: { hideHeader?: bo
                 playsInline 
                 className="w-full h-auto pointer-events-none"
               >
-                <source src="/c3-s1.mp4" type="video/mp4" />
+                <source src="/C3.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
