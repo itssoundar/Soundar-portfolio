@@ -15,6 +15,15 @@ export default function ProjectDetail2({ hideHeader = false }: { hideHeader?: bo
 
   return (
     <main className="min-h-screen bg-white text-foreground selection:bg-primary selection:text-primary-foreground relative pt-[0px]">
+      {!hideHeader && (
+        <div className="fixed top-6 left-4 md:left-8 z-[100]">
+          <Link href="/">
+            <span className="bg-white/95 backdrop-blur-md flex items-center justify-center px-6 py-3 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-200 hover:bg-gray-50 transition-all group mt-[20px] ml-[10px] md:ml-[40px] cursor-pointer">
+              <ArrowLeft className="w-5 h-5 text-black group-hover:-translate-x-1 transition-transform" strokeWidth={2} />
+            </span>
+          </Link>
+        </div>
+      )}
       {/* Top Banner section */}
       {hideHeader ? (
         <div 
