@@ -161,7 +161,7 @@ export default function ProjectDetail1({ hideHeader = false }: { hideHeader?: bo
           <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
               <video
-                src="/c1_p1.mp4"
+                src="/c1_p1_1.mp4"
                 autoPlay
                 loop
                 muted
