@@ -160,9 +160,13 @@ export default function ProjectDetail1({ hideHeader = false }: { hideHeader?: bo
 
           <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white">
-              <img 
-                src="/image_1773424083054.png" 
-                alt="Inconsistent UI before redesign" 
+              <video
+                src="/c1_p1.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-label="Inconsistent UI before redesign"
                 className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
               />
             </div>
