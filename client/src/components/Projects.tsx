@@ -72,7 +72,7 @@ export function Projects() {
       }
     });
 
-    const textToType = "Can you tell me what are the project you have worked in you journey.";
+    const textToType = "Tell me about the projects you’ve worked on throughout your journey.";
 
     // Stage 1 — Chat enters
     tl.to(chatRef.current, {
