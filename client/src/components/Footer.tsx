@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { Mail, Linkedin, FileText } from "lucide-react";
-import { useState } from "react";
-import { ResumeModal } from "./ResumeModal";
+import { Suspense, lazy, useEffect, useState } from "react";
+const ResumeModal = lazy(() => import("./ResumeModal").then((m) => ({ default: m.ResumeModal })));
 
 export function Footer() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isResumeOpenEver, setIsResumeOpenEver] = useState(false);
+  useEffect(() => { if (isResumeOpen) setIsResumeOpenEver(true); }, [isResumeOpen]);
 
   return (
     <footer id="contact" className="relative w-full bg-white overflow-hidden flex flex-col items-center pt-[40px] pb-[40px] px-6 md:px-[86px]">
@@ -38,7 +40,7 @@ export function Footer() {
           className="w-full flex flex-col gap-4 mb-10 md:mb-16"
         >
           {/* Email */}
-          <a href="mailto:rsoundar1998@gmail.com" className="flex items-center justify-between group border-b border-[#e5e5e5] pb-4">
+          <a href="mailto:rsoundar1998@gmail.com" className="flex items-center justify-between group border-b border-[#e5e5e5] pb-4 min-h-[48px]">
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <Mail className="w-5 h-5" strokeWidth={1.5} />
               <span className="text-[16px] md:text-[18px] font-medium">Email</span>
@@ -49,7 +51,7 @@ export function Footer() {
           </a>
 
           {/* LinkedIn */}
-          <a href="#" className="flex items-center justify-between group border-b border-[#e5e5e5] pb-4">
+          <a href="https://www.linkedin.com/in/soundarr/" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between group border-b border-[#e5e5e5] pb-4 min-h-[48px]">
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <Linkedin className="w-5 h-5" strokeWidth={1.5} />
               <span className="text-[16px] md:text-[18px] font-medium">LinkedIn</span>
@@ -65,7 +67,7 @@ export function Footer() {
               e.preventDefault();
               setIsResumeOpen(true);
             }} 
-            className="w-full flex items-center justify-between group border-b border-[#e5e5e5] pb-4 cursor-pointer bg-transparent border-none text-left"
+            className="w-full min-h-[48px] flex items-center justify-between group border-b border-[#e5e5e5] pb-4 cursor-pointer bg-transparent border-none text-left"
           >
             <div className="flex items-center gap-3 text-[#666] group-hover:text-[#222] transition-colors">
               <FileText className="w-5 h-5" strokeWidth={1.5} />
@@ -85,8 +87,8 @@ export function Footer() {
         >
           <p className="text-[16px] md:text-[18px] flex items-center gap-2">
             Crafting scalable design systems 
-            <img 
-              src="/hi-hand.png" 
+            <img loading="lazy" decoding="async" 
+              src="/hi-hand.webp" 
               alt="Avatar" 
               className="w-6 h-6 object-contain inline-block -mt-1"
             /> 
@@ -102,7 +104,7 @@ export function Footer() {
       <div 
         className="absolute bottom-0 left-0 w-full h-[400px] md:h-[500px] pointer-events-none z-0 mix-blend-multiply animate-bg-pulse"
         style={{
-          backgroundImage: 'url("/Footer_bg.png")',
+          backgroundImage: 'url("/Footer_bg.webp")',
           backgroundSize: 'cover',
           backgroundPosition: 'bottom center',
           backgroundRepeat: 'no-repeat',
@@ -111,7 +113,11 @@ export function Footer() {
           WebkitMaskImage: 'linear-gradient(to top, black 40%, transparent 100%)'
         }}
       />
-      <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
+      {isResumeOpenEver && (
+        <Suspense fallback={null}>
+          <ResumeModal isOpen={isResumeOpen} onClose={() => setIsResumeOpen(false)} />
+        </Suspense>
+      )}
     </footer>
   );
 }

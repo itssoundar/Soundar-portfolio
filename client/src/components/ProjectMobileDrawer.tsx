@@ -1,12 +1,12 @@
-import { useEffect } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { Drawer } from "vaul";
 import { X } from "lucide-react";
 import { useLocation } from "wouter";
 
 // Import project detail components
-import ProjectDetail1 from "@/pages/ProjectDetail1";
-import ProjectDetail2 from "@/pages/ProjectDetail2";
-import ProjectDetail3 from "@/pages/ProjectDetail3";
+const ProjectDetail1 = lazy(() => import("@/pages/ProjectDetail1"));
+const ProjectDetail2 = lazy(() => import("@/pages/ProjectDetail2"));
+const ProjectDetail3 = lazy(() => import("@/pages/ProjectDetail3"));
 
 interface ProjectMobileDrawerProps {
   isOpen: boolean;
@@ -72,7 +72,9 @@ export function ProjectMobileDrawer({ isOpen, onOpenChange, projectId }: Project
           {/* Scrollable Content Section */}
           <div className="flex-1 overflow-y-auto px-4 pb-20">
             <div id="project-drawer-content" className="w-full h-full pt-4">
-              {renderProjectContent()}
+              <Suspense fallback={<div className="h-64" aria-busy="true" />}>
+                {renderProjectContent()}
+              </Suspense>
             </div>
           </div>
           

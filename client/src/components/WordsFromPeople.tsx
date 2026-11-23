@@ -113,7 +113,7 @@ export function WordsFromPeople() {
                   <div 
                     className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[20px] pointer-events-none" 
                     style={{ 
-                      backgroundImage: "url('/testimonial_bg.png')", 
+                      backgroundImage: "url('/testimonial_bg.webp')", 
                       backgroundSize: 'cover', 
                       backgroundPosition: 'center',
                       backgroundRepeat: 'no-repeat'
@@ -123,7 +123,7 @@ export function WordsFromPeople() {
                   <blockquote className="m-0 p-0 h-full flex flex-col relative z-10 text-left min-h-[260px]">
                     <div className="mb-6">
                       <div className="inline-flex rounded-[16px] bg-[#f4f4f4] p-1.5 border border-white shadow-sm">
-                        <img
+                        <img loading="lazy" decoding="async"
                           src={testimonial.image}
                           alt={`Avatar of ${testimonial.name}`}
                           className="h-[48px] w-[48px] rounded-[12px] object-cover"
@@ -223,7 +223,7 @@ export function WordsFromPeople() {
                   <div 
                     className="absolute inset-0 z-0 opacity-0 transition-opacity duration-300 rounded-[20px] pointer-events-none" 
                     style={{ 
-                      backgroundImage: "url('/testimonial_bg.png')", 
+                      backgroundImage: "url('/testimonial_bg.webp')", 
                       backgroundSize: 'cover', 
                       backgroundPosition: 'center',
                       backgroundRepeat: 'no-repeat'
@@ -233,7 +233,7 @@ export function WordsFromPeople() {
                   <blockquote className="m-0 p-0 h-full flex flex-col relative z-10 text-left min-h-[260px]">
                     <div className="mb-6">
                       <div className="inline-flex rounded-[16px] bg-[#f4f4f4] p-1.5 border border-white shadow-sm">
-                        <img
+                        <img loading="lazy" decoding="async"
                           src={testimonial.image}
                           alt={`Avatar of ${testimonial.name}`}
                           className="h-[48px] w-[48px] rounded-[12px] object-cover"

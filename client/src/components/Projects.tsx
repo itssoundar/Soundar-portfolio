@@ -1,10 +1,12 @@
 import { Link, useLocation } from "wouter";
-import { useEffect, useRef } from "react";
+import { Suspense, lazy, useEffect, useRef } from "react";
 import { Image as ImageIcon, Paperclip, Box, ArrowUp, PenTool, Layers, TrendingUp } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useState } from "react";
-import { ProjectMobileDrawer } from "./ProjectMobileDrawer";
+const ProjectMobileDrawer = lazy(() =>
+  import("./ProjectMobileDrawer").then((m) => ({ default: m.ProjectMobileDrawer })),
+);
 import { useMediaQuery } from "@/hooks/use-media-query";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,13 +22,13 @@ export function Projects() {
   const chatRef = useRef<HTMLDivElement>(null);
   const card1Ref = useRef<HTMLDivElement>(null);
   const typingTextRef = useRef<HTMLSpanElement>(null);
-  const sendBtnRef = useRef<HTMLButtonElement>(null);
+  const sendBtnRef = useRef<HTMLDivElement>(null);
 
   const projects = [
     {
       id: "crm-ai",
       title: <>Transforming CRM workflows with an <span className="font-serif italic font-normal">AI-Agent Builder</span> as an execution layer</>,
-      image: "/C1new.png?v=1",
+      image: "/C1new.webp?v=1",
       bullets: [
         "Generate hiring workflows instantly through natural language prompts.",
         "Automatically create analytics dashboards from recruiter questions.",
@@ -37,7 +39,7 @@ export function Projects() {
     {
       id: "design-system",
       title: <>Building CRM with the <span className="font-serif italic font-normal">Genesis Design System</span></>,
-      image: "/C2new.png?v=1",
+      image: "/C2new.webp?v=1",
       bullets: [
         "Built scalable components and tokens to unify UI across CRM modules.",
         "Reduced UI inconsistencies and improved design-to-development efficiency.",
@@ -48,7 +50,7 @@ export function Projects() {
     {
       id: "conversational-b2b",
       title: <>Building CRM analytics and a custom <span className="font-serif italic font-normal">dashboard builder</span></>,
-      image: "/C3.png",
+      image: "/C3.webp",
       bullets: [
         "Designed centralized dashboards to monitor hiring pipeline performance.",
         "Enabled self-serve analytics through a flexible dashboard builder.",
@@ -67,7 +69,7 @@ export function Projects() {
         trigger: containerRef.current,
         start: "top top",
         end: "bottom bottom",
-        scrub: 1.2, // Smooth scrubbing
+        scrub: 0.5, // Snappier scrubbing (was 1.2)
         // CSS position: sticky is handling the pinning
       }
     });
@@ -147,7 +149,9 @@ export function Projects() {
 
     // Cleanup
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      // Only kill this section's own trigger, not every ScrollTrigger on the page
+      tl.scrollTrigger?.kill();
+      tl.kill();
     };
   }, []);
 
@@ -155,8 +159,9 @@ export function Projects() {
   useEffect(() => {
     const nextCards = document.querySelectorAll(".next-card");
     
+    let nextTween: gsap.core.Tween | undefined;
     if (nextCards.length > 0) {
-      gsap.fromTo(nextCards, 
+      nextTween = gsap.fromTo(nextCards,
         {
           y: 100,
           opacity: 0,
@@ -174,6 +179,10 @@ export function Projects() {
         }
       );
     }
+    return () => {
+      nextTween?.scrollTrigger?.kill();
+      nextTween?.kill();
+    };
   }, []);
 
   useEffect(() => {
@@ -198,22 +207,23 @@ export function Projects() {
   }, []);
 
   const renderCardContent = (project: typeof projects[0], isFirst: boolean = false) => (
-    <button 
-      type="button"
+    <a
+      href={project.link}
       id={`project-card-${project.id}`}
       data-testid={`card-project-${project.id}`}
       onClick={(e) => {
+        // Let the browser handle "open in new tab" gestures natively.
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
         if (window.innerWidth <= 1024) {
-          e.preventDefault();
           e.stopPropagation();
-          console.log("Opening drawer for", project.id);
           setSelectedProject(project.id);
           setIsDrawerOpen(true);
         } else {
           setLocation(project.link);
         }
       }}
-      className={`block w-full rounded-[28px] border p-[16px] md:px-[32px] md:py-[32px] text-left cursor-pointer appearance-none outline-none focus:outline-none relative z-[9999] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] h-auto ${highlightedProject === project.id ? "border-[#88b7ff] shadow-[0_4px_24px_rgba(0,0,0,0.04),0_0_0_1px_rgba(136,183,255,0.28),0_0_0_18px_rgba(136,183,255,0.14)]" : "border-[#eaeaea]"}`}
+      className={`block w-full rounded-[28px] border p-[16px] md:px-[32px] md:py-[32px] text-left cursor-pointer appearance-none outline-none relative z-[9999] bg-white shadow-[0_4px_24px_rgba(0,0,0,0.04)] group transition-all duration-300 md:hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] h-auto ${highlightedProject === project.id ? "border-[#88b7ff] shadow-[0_4px_24px_rgba(0,0,0,0.04),0_0_0_1px_rgba(136,183,255,0.28),0_0_0_18px_rgba(136,183,255,0.14)]" : "border-[#eaeaea]"}`}
       style={{ WebkitTapHighlightColor: "transparent", pointerEvents: "all", position: "relative", zIndex: 100 }}>
       
       <div className="flex flex-col md:flex-row gap-[12px] md:gap-[32px] items-stretch md:h-auto pointer-events-none relative z-10">
@@ -247,7 +257,7 @@ export function Projects() {
           </div>
         </div>
       </div>
-    </button>
+    </a>
   );
 
   return (
@@ -299,7 +309,7 @@ export function Projects() {
                       </div>
                       <div className="flex flex-col">
                         <span className="text-[13px] font-semibold text-[#111] leading-tight">End-to-end Product Design</span>
-                        <span className="text-[11px] text-[#666] leading-tight mt-0.5">CRM, AI tools, analytics dashboards</span>
+                        <span className="text-[12px] text-[#666] leading-tight mt-0.5">CRM, AI tools, analytics dashboards</span>
                       </div>
                     </div>
                     <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] origin-left">
@@ -308,7 +318,7 @@ export function Projects() {
                       </div>
                       <div className="flex flex-col">
                         <span className="text-[13px] font-semibold text-[#111] leading-tight">Design Systems</span>
-                        <span className="text-[11px] text-[#666] leading-tight mt-0.5">Built scalable UI systems<br/>across products</span>
+                        <span className="text-[12px] text-[#666] leading-tight mt-0.5">Built scalable UI systems<br/>across products</span>
                       </div>
                     </div>
                     <div className="bg-white pl-2 pr-5 py-2.5 rounded-[100px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] flex items-center gap-3 w-fit border border-[#f0f0f0] origin-left flex">
@@ -317,7 +327,7 @@ export function Projects() {
                       </div>
                       <div className="flex flex-col">
                         <span className="text-[13px] font-semibold text-[#111] leading-tight">Workflow Optimization</span>
-                        <span className="text-[11px] text-[#666] leading-tight mt-0.5">Improved task efficiency<br/>and usability</span>
+                        <span className="text-[12px] text-[#666] leading-tight mt-0.5">Improved task efficiency<br/>and usability</span>
                       </div>
                     </div>
                   </div>
@@ -325,10 +335,10 @@ export function Projects() {
                   {/* Right side floating cards */}
                   <div className="absolute top-[80px] sm:top-4 right-8 sm:right-0 md:-right-12 lg:-right-16 flex flex-col z-10 rotate-[6deg] origin-right scale-[0.65] sm:scale-90 lg:scale-100">
                     <div className="bg-white p-3.5 md:p-5 rounded-[16px] shadow-[0_12px_40px_rgba(0,0,0,0.08)] flex flex-col w-[150px] sm:w-[150px] md:w-[170px] border border-[#f0f0f0]">
-                      <span className="text-[9px] md:text-[10px] text-[#666] font-medium tracking-wide mb-2 bg-[#f8f9fa] w-fit px-2.5 py-1 rounded-full border border-[#eee]">Impact</span>
+                      <span className="text-[11px] md:text-[11px] text-[#666] font-medium tracking-wide mb-2 bg-[#f8f9fa] w-fit px-2.5 py-1 rounded-full border border-[#eee]">Impact</span>
                       <span className="text-[24px] sm:text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">+32%</span>
                       <span className="text-[12px] sm:text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Conversion Increase</span>
-                      <span className="text-[10px] sm:text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Optimized onboarding for SaaS CRM</span>
+                      <span className="text-[12px] sm:text-[12px] md:text-[12px] text-[#666] leading-snug mb-3 md:mb-4">Optimized onboarding for SaaS CRM</span>
                       <div className="w-7 h-7 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto opacity-0 hidden">
                         <TrendingUp size={14} />
                       </div>
@@ -337,10 +347,10 @@ export function Projects() {
 
                   <div className="absolute top-[170px] sm:bottom-28 md:bottom-24 -right-1 sm:right-4 md:-right-8 lg:-right-12 flex flex-col z-20 -rotate-[3deg] origin-right scale-[0.65] sm:scale-90 lg:scale-100">
                     <div className="bg-white p-3.5 md:p-5 rounded-[16px] shadow-[-8px_12px_40px_rgba(0,0,0,0.12)] flex flex-col w-[150px] sm:w-[150px] md:w-[170px] border border-[#f0f0f0]">
-                      <span className="text-[9px] md:text-[10px] text-[#666] font-medium tracking-wide mb-2 bg-[#f8f9fa] w-fit px-2.5 py-1 rounded-full border border-[#eee]">Impact</span>
+                      <span className="text-[11px] md:text-[11px] text-[#666] font-medium tracking-wide mb-2 bg-[#f8f9fa] w-fit px-2.5 py-1 rounded-full border border-[#eee]">Impact</span>
                       <span className="text-[24px] sm:text-[24px] md:text-[32px] font-bold text-[#111] leading-none tracking-tight mb-2">-25%</span>
                       <span className="text-[12px] sm:text-[12px] md:text-[13px] font-semibold text-[#111] leading-snug mb-1">Reduced Drop-off</span>
-                      <span className="text-[10px] sm:text-[10px] md:text-[11px] text-[#666] leading-snug mb-3 md:mb-4">Simplified multi-step workflows</span>
+                      <span className="text-[12px] sm:text-[12px] md:text-[12px] text-[#666] leading-snug mb-3 md:mb-4">Simplified multi-step workflows</span>
                       <div className="w-7 h-7 sm:w-7 sm:h-7 md:w-8 md:h-8 rounded-[8px] bg-[#111] flex items-center justify-center text-white mt-auto">
                         <TrendingUp size={14} className="rotate-180" />
                       </div>
@@ -349,7 +359,7 @@ export function Projects() {
 
                   <div className="relative z-10 mt-2 sm:mt-10 md:mt-12 flex-1 flex flex-col justify-center max-h-[260px] sm:max-h-[350px] md:max-h-full w-full pointer-events-none">
                     <img 
-                      src="/Soundar1.png" 
+                      src="/Soundar1.webp" 
                       alt="Process Preview"
                       className="h-[260px] sm:h-[280px] md:h-[380px] w-auto object-contain object-bottom mx-auto transform -translate-y-[24px] scale-[1.15] sm:scale-100 sm:-translate-y-12 md:-translate-y-12 lg:-translate-y-16"
                     />
@@ -365,7 +375,7 @@ export function Projects() {
                   className="w-full bg-[#111] rounded-[20px] sm:rounded-[20px] md:rounded-[32px] p-4 sm:p-4 md:p-5 shadow-[0_32px_80px_rgba(0,0,0,0.4)] border border-[#222] flex flex-col gap-3 sm:gap-3 opacity-0 pointer-events-auto transform translate-y-12"
                 >
                   {/* Top Row: Text */}
-                  <div className="flex-1 min-w-0 max-h-[100px] sm:max-h-[140px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                  <div className="flex-1 min-w-0 min-h-[72px] sm:min-h-[56px] md:min-h-[56px] max-h-[100px] sm:max-h-[140px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     <div className="text-[14px] sm:text-[15px] md:text-[16px] text-[#fff] font-sans w-full tracking-wide leading-[22px] sm:leading-[26px] md:leading-[28px] text-left">
                       <span className="inline-flex items-center justify-center gap-1.5 px-2 h-[24px] bg-[#222] rounded-[6px] border border-[#333] align-middle mr-2 -mt-1">
                         <ImageIcon size={10} className="text-[#aaa]" />
@@ -378,20 +388,21 @@ export function Projects() {
                   
                   {/* Bottom Row: Actions */}
                   <div className="flex items-center justify-between mt-2">
-                    <button className="text-[#888] hover:text-[#aaa] transition-colors flex h-8 w-8 items-center justify-center rounded-full hover:bg-[#222]">
+                    <div aria-hidden="true" className="text-[#888] flex h-8 w-8 items-center justify-center rounded-full">
                       <Paperclip size={18} />
-                    </button>
+                    </div>
                     
                     <div className="flex items-center gap-2">
-                      <button className="text-[#888] hover:text-[#aaa] transition-colors flex h-8 w-8 items-center justify-center rounded-full hover:bg-[#222]">
+                      <div aria-hidden="true" className="text-[#888] flex h-8 w-8 items-center justify-center rounded-full">
                           <Box size={18} />
-                      </button>
-                      <button 
+                      </div>
+                      <div
                           ref={sendBtnRef}
-                          className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm transform-origin-center hover:scale-105 transition-transform"
+                          aria-hidden="true"
+                          className="w-8 h-8 rounded-full bg-white text-[#111] flex items-center justify-center shadow-sm transform-origin-center"
                       >
                           <ArrowUp size={16} strokeWidth={3} />
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -417,11 +428,15 @@ export function Projects() {
         
       </div>
     </section>
-      <ProjectMobileDrawer
-        isOpen={isDrawerOpen}
-        onOpenChange={setIsDrawerOpen}
-        projectId={selectedProject}
-      />
+      {selectedProject && (
+        <Suspense fallback={null}>
+          <ProjectMobileDrawer
+            isOpen={isDrawerOpen}
+            onOpenChange={setIsDrawerOpen}
+            projectId={selectedProject}
+          />
+        </Suspense>
+      )}
     </>
   );
 }

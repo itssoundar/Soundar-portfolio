@@ -205,3 +205,55 @@ body.modal-open .smooth-cursor-container {
 [data-vaul-drawer][data-state="open"] {
   transform: translate3d(0, 0, 0);
 }
+
+/* Respect users who ask the OS to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-ticker,
+  .animate-bg-pulse {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- UX polish ---------- */
+
+/* Visible keyboard focus everywhere (mouse clicks stay clean) */
+:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 3px;
+}
+
+/* Balanced headlines avoid single-word last lines (e.g. "on.") */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* Landscape phones / very short screens: keep the hero inside the viewport */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero-section {
+    min-height: auto;
+    padding-bottom: 24px;
+  }
+  .hero-stack {
+    padding-top: 84px;
+  }
+  .hero-title {
+    font-size: 30px !important;
+    line-height: 1.2 !important;
+    max-width: none !important;
+  }
+  .hero-stack > div:first-child {
+    margin-bottom: 12px;
+  }
+}
+
+/* Narrow phones: smaller hero headline so the tagline stays on the first screen */
+@media (max-width: 389px) {
+  .hero-title { font-size: 32px; line-height: 1.25; }
+}
+@media (max-width: 319px) {
+  .hero-title { font-size: 26px; line-height: 1.25; }
+  .hero-stack { padding-top: 96px; }
+}

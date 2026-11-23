@@ -1,35 +1,25 @@
-import { useEffect, useState } from "react";
-
 export function Hero() {
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section 
-      className="relative min-h-[90vh] w-full flex flex-col items-center justify-between pb-0 md:pb-10 px-6 md:px-[86px] pt-[40px] overflow-hidden"
+      className="hero-section relative min-h-[90vh] w-full flex flex-col items-center justify-between pb-0 md:pb-10 px-6 md:px-[86px] pt-[40px] overflow-hidden"
     >
       {/* Animated Background */}
       <div 
         className="absolute inset-0 z-0 animate-bg-pulse"
         style={{
-          backgroundImage: 'url(/hero-bg.jpg?v=2)',
+          backgroundImage: 'url(/hero-bg.webp?v=2)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
       />
       
-      <div className="relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center pt-[110px]">
+      <div className="hero-stack relative z-10 w-full max-w-[1200px] mx-auto flex flex-col items-center pt-[110px]">
         
         {/* Top Avatar & Greeting */}
         <div className="flex items-center gap-2 mb-10">
           <div className="w-[50px] h-[50px] flex items-center justify-center">
-            <img src="/Soundar.png" alt="Soundar avatar" className="w-full h-full object-cover rounded-full drop-shadow-sm" />
+            <img src="/Soundar.png" width="50" height="50" fetchPriority="high" alt="Soundar avatar" className="w-full h-full object-cover rounded-full drop-shadow-sm" />
           </div>
           <span className="text-[#333] font-medium text-[16px] md:text-[18px] tracking-wide mt-1">
             Hey ..! I'm Soundar ,
@@ -38,14 +28,14 @@ export function Hero() {
 
         {/* Main Headline Section */}
         <div className="flex flex-col items-center text-center w-full mt-4">
-          <h1 className="text-[40px] md:text-[56px] tracking-[-0.02em] font-medium w-full leading-[1.3] font-sans max-w-[320px] md:max-w-none mx-auto">
-            Product Designer helping teams <br className="hidden md:block" />
-            move beyond what looks good <br className="hidden md:block" />
+          <h1 className="hero-title text-[40px] md:text-[56px] tracking-[-0.02em] font-medium w-full leading-[1.3] font-sans max-w-[320px] md:max-w-none mx-auto">
+            Product Designer helping teams <br className="hidden lg:block" />
+            move beyond what looks good <br className="hidden lg:block" />
             to <span className="inline-flex items-center text-[#888] font-light mx-1">→</span> what <span className="font-serif italic font-normal text-[#111]">users can rely on.</span>
           </h1>
           
           <p className="text-[16px] md:text-[18px] max-w-[700px] leading-[1.5] mt-6 font-normal font-sans">
-            Translating 0→1 chaos into usable, scalable design systems <br className="hidden md:block" />
+            Translating 0→1 chaos into usable, scalable design systems <br className="hidden lg:block" />
             across B2B, SaaS, and AI-first products.
           </p>
         </div>
