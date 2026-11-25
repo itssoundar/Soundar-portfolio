@@ -10,7 +10,7 @@
 const IMAGES = [
   "/C1new.webp", "/C2new.webp", "/C3.webp", "/c3-hero.webp", "/Case_hero.webp",
   "/c2-s1-1.webp", "/c2-s2-1.webp", "/c2-s3-1.webp", "/c2-s3-2.webp",
-  "/c3-s1-1.webp", "/c3-s1-2.webp", "/c3-report-builder.webp", "/c3-fragmented-ui.webp",
+  "/c3-s1-1.webp", "/c3-s1-2.webp", "/c3-report-builder.webp", "/c3-fragmented-ui.webp", "/c3-dashboard-customization.webp",
   "/Soundar1.webp", "/other_projects_bg.webp", "/Footer_bg.webp",
   "/testimonial_bg.webp", "/work_exp.webp", "/hi-hand.webp", "/star.webp",
   "/cloud.avif",
