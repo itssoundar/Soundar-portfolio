@@ -367,9 +367,9 @@ export default function ProjectDetail3({ hideHeader = false }: { hideHeader?: bo
           <div className="mb-6">
              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm bg-white mb-6">
               <img loading="lazy" decoding="async" 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000&auto=format&fit=crop" 
-                alt="Report Builder" 
-                className="w-full h-auto grayscale opacity-90 mix-blend-multiply"
+                src="/c3-report-builder.webp"
+                alt="Report Builder"
+                className="w-full h-auto"
               />
             </div>
           </div>
